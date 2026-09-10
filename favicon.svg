@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="5" fill="#1b1b21"/>
+  <!-- guitar pick, Jazz III profile: rounded shoulders tapering to a sharp tip -->
+  <path fill="#f4f4f6" d="M16 4.5c4.7 0 9.4 2.1 10.3 6.8.8 4.2-3.4 12.6-10.3 17.2C9.1 23.9 4.9 15.5 5.7 11.3 6.6 6.6 11.3 4.5 16 4.5z"/>
+</svg>
