@@ -1,0 +1,234 @@
+/* FONTS */
+@import url("https://fonts.googleapis.com/css2?family=Days+One&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,400;1,200&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Days+One&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,400;1,200&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+/* RESETS */
+* {
+  box-sizing: border-box;
+  margin-top: 0;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* GLOBAL STYLING */
+body {
+  color: #1c0d43;
+}
+p {
+  font-family: Quantico;
+  font-weight: 400;
+  line-height: 1.5;
+}
+span {
+  display: block;
+  font-family: Quantico;
+  font-weight: 400;
+  line-height: 1.5;
+}
+main {
+  margin-left: 20vw;
+}
+h2 {
+  font-family: Days One, sans-serif;
+  color: white;
+  background: #0f062b;
+  font-size: 2em;
+  text-transform: uppercase;
+  margin-bottom: 0.75em;
+  padding: 0.25em;
+}
+h3 {
+  font-family: Days One, sans-serif;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  margin-bottom: 0.75em;
+  text-decoration: underline;
+}
+h4 {
+  font-family: Days One, sans-serif;
+  font-size: 1em;
+  text-transform: uppercase;
+  margin-bottom: 1em;
+}
+h5 {
+  font-family: Days One, sans-serif;
+  font-size: 0.75em;
+  text-transform: uppercase;
+  margin-bottom: 1em;
+  margin-left: 0.5em;
+}
+h5 a {
+  color: rgba(16, 6, 45, 0.8);
+}
+img {
+  width: 100%;
+  margin-bottom: 0.75em;
+}
+ul {
+  font-family: Quantico;
+  list-style-type: square;
+}
+li {
+  padding-left: 1em;
+  font-family: Quantico;
+}
+a {
+  text-decoration: none;
+  color: hsl(255, 76%, 10%);
+}
+a:link {
+  text-decoration: none;
+}
+a:visited {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+a:active {
+  text-decoration: underline;
+}
+
+/* BEGIN IDS */
+#side-nav {
+  width: 20vw;
+  background: white;
+  position: fixed;
+  z-index: 5;
+  height: 100%;
+  /*   border: 1px red solid; */
+}
+#intro {
+  margin-top: 0.75em;
+}
+#bypass > p {
+  margin-bottom: 0;
+}
+/* CONTAINERS */
+.flex-container {
+  display: flex;
+  max-width: 90vw;
+  margin: 0 auto;
+  /* border: 1px solid red; */
+}
+
+.half-container {
+  padding: 0em 1em;
+  width: 100%;
+  /* border: 1px solid red; */
+}
+
+.nav-container {
+  display: flex;
+  flex-direction: column;
+  margin: 1em 0 0 1em;
+  /* border: 1px red solid; */
+}
+.grid-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-bottom: 0.75em;
+}
+
+/* Skips the parent element and selects just the children */
+.flow > * + * {
+  margin-bottom: 1em;
+}
+
+/* Changelog banner under the Welcome header */
+.doc-update {
+  font-family: Quantico;
+  font-size: 0.9em;
+  line-height: 1.6;
+  background: #f3f1fa;
+  border-left: 4px solid #0f062b;
+  padding: 1em 1.25em;
+}
+.doc-update > strong {
+  display: block;
+  font-family: Days One, sans-serif;
+  font-size: 0.95em;
+  text-transform: uppercase;
+  margin-bottom: 0.5em;
+}
+.doc-update p {
+  margin-bottom: 0.5em;
+}
+.doc-update p:last-child {
+  margin-bottom: 0;
+}
+.doc-update a {
+  text-decoration: underline;
+}
+
+/* Inline marker for changes introduced by the v1 software update (see Addendum) */
+.v1-note {
+  font-family: Quantico;
+  border-left: 3px solid #0f062b;
+  padding-left: 0.75em;
+  margin-bottom: 1em;
+}
+
+/* Reference tables (MIDI, quick start) */
+.doc-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Quantico;
+  font-size: 0.85em;
+  margin-bottom: 1em;
+}
+.doc-table th,
+.doc-table td {
+  border: 1px solid #0f062b;
+  padding: 0.4em 0.5em;
+  text-align: left;
+  vertical-align: top;
+}
+.doc-table th {
+  background: #0f062b;
+  color: white;
+  font-family: Days One, sans-serif;
+  text-transform: uppercase;
+  font-size: 0.9em;
+}
+.table-scroll {
+  overflow-x: auto;
+  margin-bottom: 1em;
+}
+/* Knob-layout matrix: keep every cell on one line so the grid stays square */
+.doc-table.matrix td {
+  white-space: nowrap;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 900px) {
+  .flex-container {
+    flex-direction: column;
+  }
+  .half-container {
+    width: 100%;
+    padding: 0;
+  }
+  nav {
+    display: none;
+  }
+  main {
+    margin: 0 auto;
+  }
+  h2 {
+    text-align: center;
+  }
+  #toc-mobile {
+    display: block;
+  }
+}
+
+@media (min-width: 900px) {
+  #toc-mobile {
+    display: none;
+  }
+}

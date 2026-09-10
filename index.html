@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pedal Manuals</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Days+One&family=Quantico:wght@400;700&display=swap"
+    />
+    <style>
+      :root {
+        --ink: #1c0d43;
+        --navy: #0f062b;
+        --paper: #f3f1fa;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: #fff;
+        font-family: Quantico, system-ui, sans-serif;
+        line-height: 1.5;
+      }
+      header {
+        background: var(--navy);
+        color: #fff;
+        padding: 2.5rem 1.25rem;
+      }
+      .wrap {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      h1 {
+        font-family: "Days One", sans-serif;
+        text-transform: uppercase;
+        font-size: clamp(1.6rem, 4vw, 2.6rem);
+        margin: 0;
+      }
+      header p {
+        margin: 0.5rem 0 0;
+        opacity: 0.8;
+        font-size: 0.95rem;
+      }
+      main {
+        padding: 2rem 1.25rem 4rem;
+      }
+      ul.pedals {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      }
+      .pedals a {
+        display: block;
+        height: 100%;
+        padding: 1.25rem;
+        text-decoration: none;
+        color: inherit;
+        background: var(--paper);
+        border-left: 4px solid var(--navy);
+        transition: transform 0.1s ease;
+      }
+      .pedals a:hover {
+        transform: translateY(-2px);
+      }
+      .brand {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        opacity: 0.6;
+      }
+      .model {
+        font-family: "Days One", sans-serif;
+        text-transform: uppercase;
+        font-size: 1.15rem;
+        margin: 0.15rem 0 0.5rem;
+      }
+      .note {
+        font-size: 0.85rem;
+        opacity: 0.75;
+      }
+      footer {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 1.25rem 3rem;
+        font-size: 0.8rem;
+        opacity: 0.55;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap">
+        <h1>Pedal Manuals</h1>
+        <p>Personal collection of guitar effects pedal manuals, rendered as lightweight HTML.</p>
+      </div>
+    </header>
+    <main class="wrap">
+      <ul class="pedals">
+        <li>
+          <a href="wampler-terraform/">
+            <span class="brand">Wampler</span>
+            <span class="model">Terraform</span>
+            <span class="note">Modulation multi-effect &middot; 2023 manual + v1 addendum</span>
+          </a>
+        </li>
+      </ul>
+    </main>
+    <footer>More pedals added over time.</footer>
+  </body>
+</html>
