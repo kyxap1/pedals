@@ -192,11 +192,11 @@ section + section {
 }
 
 .figure {
-  column-span: all;
   margin-bottom: 1.5em;
+  break-inside: avoid;
 }
 .figure img {
-  max-width: 32em;
+  max-width: 100%;
   display: block;
   margin: 0 auto 0.5em;
 }
@@ -237,8 +237,8 @@ section + section {
 }
 .table-scroll {
   overflow-x: auto;
-  column-span: all;
   margin-bottom: 1em;
+  break-inside: avoid;
 }
 
 /* --- Callout box (FCC) --- */
