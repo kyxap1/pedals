@@ -1,0 +1,246 @@
+/* FONTS
+   Mapped from the 2019 manual's embedded faces:
+     Avenir-Medium / Heavy / Oblique (body, headings) -> Nunito Sans
+     MyriadPro-Cond / Regular / Bold (legal fine print) -> Source Sans 3 */
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,600;0,800;1,400&family=Source+Sans+3:wght@400;600&display=swap");
+
+/* PALETTE — sampled off the manual's own artwork */
+:root {
+  --ink: #12161b; /* body text */
+  --accent: #005bad; /* the pedal's blue: rules, links, table headers */
+  --deep: #0d1216; /* near-black ground of the cover photo */
+  --paper: #eef3fa; /* tint block behind callouts */
+}
+
+/* RESETS */
+* {
+  box-sizing: border-box;
+  margin-top: 0;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* GLOBAL STYLING */
+body {
+  color: var(--ink);
+  font-family: "Nunito Sans", sans-serif;
+  margin: 0;
+}
+p {
+  font-weight: 400;
+  line-height: 1.6;
+}
+main {
+  margin-left: 20vw;
+  padding-bottom: 3em;
+}
+/* The cover sets the wordmark against the photo's near-black ground */
+#masthead {
+  background: var(--deep);
+}
+#masthead h1 {
+  margin: 0;
+  padding: 1.5em 1.5em 0;
+  text-align: right;
+}
+#masthead h1 img {
+  width: auto;
+  max-width: min(420px, 70%);
+  margin-bottom: 0;
+}
+#masthead > img {
+  margin-bottom: 0;
+  display: block;
+}
+
+/* The manual sets titles as bold Avenir over a hairline rule, never reversed out */
+h2 {
+  font-weight: 800;
+  font-size: 2em;
+  color: var(--deep);
+  border-bottom: 3px solid var(--accent);
+  padding-bottom: 0.15em;
+  margin-bottom: 0.75em;
+}
+h3 {
+  font-weight: 800;
+  font-size: 1.25em;
+  color: var(--accent);
+  margin-bottom: 0.4em;
+  /* a control name never ends up alone at the foot of a column */
+  break-after: avoid;
+}
+h4 {
+  font-weight: 800;
+  font-size: 1em;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 1em;
+}
+h5 {
+  font-weight: 600;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.9em;
+  margin-left: 0.75em;
+}
+/* Blue belongs to the pedal, not to the whole table of contents */
+.nav-container a,
+#toc-mobile a {
+  color: var(--deep);
+}
+h5 a {
+  color: rgba(18, 22, 27, 0.75);
+}
+img {
+  width: 100%;
+  margin-bottom: 0.75em;
+}
+a {
+  text-decoration: none;
+  color: var(--accent);
+}
+a:hover,
+a:active {
+  text-decoration: underline;
+}
+
+/* SIDE NAVIGATION */
+#side-nav {
+  width: 20vw;
+  background: white;
+  position: fixed;
+  z-index: 5;
+  height: 100%;
+  overflow-y: auto;
+  border-right: 1px solid rgba(0, 91, 173, 0.15);
+}
+.nav-container {
+  display: flex;
+  flex-direction: column;
+  margin: 1em 0 0 1em;
+}
+
+/* CONTAINERS */
+/* Text runs from the nav edge, not centred in what the nav leaves over:
+   a column centred inside a right-shifted main reads as off-centre */
+.flex-container {
+  display: flex;
+  padding-left: 2em;
+}
+/* Every section flows into columns sized from whatever width the page gives it:
+   `2 30em` caps the count at two and drops to one below ~63em of room, so the
+   measure follows the window instead of a fixed cap, with no breakpoint */
+.half-container {
+  padding: 0 1em;
+  width: 100%;
+  columns: 2 30em;
+  column-gap: 3em;
+}
+/* The title rules across the whole section, not across one column */
+.half-container > header {
+  column-span: all;
+}
+.doc-update,
+.qs-note,
+figure {
+  break-inside: avoid;
+}
+section + section {
+  margin-top: 3em;
+}
+/* Skips the parent element and selects just the children */
+.flow > * + * {
+  margin-bottom: 1em;
+}
+
+/* Knob shots run across the section rather than down one of its columns; the
+   upper bound keeps them near their native 254px instead of upscaling */
+.grid-wrapper {
+  column-span: all;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12em, 18em));
+  gap: 1.5em;
+  margin-bottom: 0.75em;
+}
+.grid-wrapper figure {
+  margin: 0;
+}
+.grid-wrapper figcaption {
+  font-style: italic;
+  text-align: center;
+  margin-top: -0.25em;
+}
+
+/* Changelog banner under the Welcome header */
+.doc-update {
+  font-size: 0.9em;
+  line-height: 1.6;
+  background: var(--paper);
+  border-left: 4px solid var(--accent);
+  padding: 1em 1.25em;
+}
+.doc-update > strong {
+  display: block;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.5em;
+}
+.doc-update p {
+  margin-bottom: 0.5em;
+}
+.doc-update p:last-child {
+  margin-bottom: 0;
+}
+.doc-update a {
+  text-decoration: underline;
+}
+
+/* Inline marker for material folded in from the 2021 quick start card */
+.qs-note {
+  border-left: 3px solid var(--accent);
+  padding-left: 0.75em;
+  margin-bottom: 1em;
+}
+
+/* Legal fine print keeps the manual's own condensed face and small size */
+.fine-print {
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 0.8em;
+  line-height: 1.5;
+}
+.fine-print strong {
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .flex-container {
+    flex-direction: column;
+    padding-left: 0;
+  }
+  .half-container {
+    width: 100%;
+    padding: 0;
+  }
+  nav {
+    display: none;
+  }
+  main {
+    margin: 0 auto;
+    padding: 0 1em 3em;
+  }
+  #toc-mobile {
+    display: block;
+  }
+}
+
+@media (min-width: 900px) {
+  #toc-mobile {
+    display: none;
+  }
+}
