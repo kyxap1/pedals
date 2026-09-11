@@ -1,7 +1,7 @@
 BOSS GE-7 Equalizer
 BOSS NS-1X Noise Suppressor
 BOSS Poly Shifter XS-1
-BOSS RC-5 Loop Station
++ BOSS RC-5 Loop Station
 Hotone Soul Press II
 Mooer CAB X2
 Source Audio Collider
@@ -10,5 +10,5 @@ TC Electronic Polytune 3
 TC Electronic Spark Mini Booster
 Tone City Bad Horse
 Tone City Matcha Cream
-Wampler Mini Ego Compressor
-Wampler Terraform
++ Wampler Mini Ego Compressor
++ Wampler Terraform
