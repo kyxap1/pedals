@@ -1,0 +1,1862 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>BOSS RC-5 Loop Station Pedal Manual</title>
+  </head>
+  <body>
+    <!--  SIDE NAVIGATION   -->
+    <nav id="side-nav">
+      <header>
+        <div class="nav-container">
+          <h3>Contents</h3>
+          <h4><a href="#getting-ready">Getting Ready</a></h4>
+          <h5><a href="#panel-descriptions">Panel Descriptions</a></h5>
+          <h5><a href="#organization">How the RC-5 Is Organized</a></h5>
+          <h5><a href="#connecting">Connecting the Equipment</a></h5>
+          <h5><a href="#power">Turning the Power On/Off</a></h5>
+          <h4><a href="#loop-phrase">Creating a Loop Phrase</a></h4>
+          <h5><a href="#recording">Recording</a></h5>
+          <h5><a href="#rhythm">Record While Listening to the Rhythm Sound</a></h5>
+          <h4><a href="#saving">Saving a Memory</a></h4>
+          <h5><a href="#write">Saving a Memory (WRITE)</a></h5>
+          <h5><a href="#clear">Erasing Data from a Memory (CLEAR)</a></h5>
+          <h4><a href="#editing">Editing a Memory</a></h4>
+          <h5><a href="#edit-memory">Editing the Settings of a Memory</a></h5>
+          <h5><a href="#edit-rhythm">Editing the Rhythm Settings</a></h5>
+          <h5><a href="#memory-parameters">MEMORY Parameters</a></h5>
+          <h4><a href="#setup">Settings for the Entire RC-5 (SETUP)</a></h4>
+          <h5><a href="#setup-parameters">SETUP Parameters</a></h5>
+          <h4><a href="#usb">Connecting a Computer via USB</a></h4>
+          <h5><a href="#usb-connect">Connecting the RC-5 and Computer</a></h5>
+          <h5><a href="#backup">Backing-Up or Recovering Data</a></h5>
+          <h4><a href="#midi">Controlling Devices via MIDI</a></h4>
+          <h5><a href="#midi-settings">MIDI Settings</a></h5>
+          <h5><a href="#two-units">Connecting Two RC-5 Units</a></h5>
+          <h4><a href="#appendix">Appendix</a></h4>
+          <h5><a href="#troubleshooting">Troubleshooting</a></h5>
+          <h5><a href="#errors">Error Message List</a></h5>
+          <h5><a href="#factory-reset">Factory Reset</a></h5>
+          <h5><a href="#battery">Changing the Battery</a></h5>
+          <h5><a href="#specifications">Main Specifications</a></h5>
+          <h4><a href="#important-notes">Important Notes</a></h4>
+        </div>
+      </header>
+    </nav>
+    <main id="main-doc">
+      <div id="masthead">
+        <div class="title">
+          <h1>
+            <img src="Images/boss-logo.png" alt="BOSS" />
+            <img src="Images/rc-5-wordmark.png" alt="Loop Station RC-5" />
+          </h1>
+          <p>Reference Manual</p>
+        </div>
+        <img src="Images/rc-5-pedal.png" alt="The RC-5 Loop Station pedal" />
+      </div>
+
+      <nav id="toc-mobile">
+        <h2>Contents</h2>
+        <h4><a href="#getting-ready">Getting Ready</a></h4>
+        <h5><a href="#panel-descriptions">Panel Descriptions</a></h5>
+        <h5><a href="#organization">How the RC-5 Is Organized</a></h5>
+        <h5><a href="#connecting">Connecting the Equipment</a></h5>
+        <h5><a href="#power">Turning the Power On/Off</a></h5>
+        <h4><a href="#loop-phrase">Creating a Loop Phrase</a></h4>
+        <h5><a href="#recording">Recording</a></h5>
+        <h5><a href="#rhythm">Record While Listening to the Rhythm Sound</a></h5>
+        <h4><a href="#saving">Saving a Memory</a></h4>
+        <h5><a href="#write">Saving a Memory (WRITE)</a></h5>
+        <h5><a href="#clear">Erasing Data from a Memory (CLEAR)</a></h5>
+        <h4><a href="#editing">Editing a Memory</a></h4>
+        <h5><a href="#edit-memory">Editing the Settings of a Memory</a></h5>
+        <h5><a href="#edit-rhythm">Editing the Rhythm Settings</a></h5>
+        <h5><a href="#memory-parameters">MEMORY Parameters</a></h5>
+        <h4><a href="#setup">Settings for the Entire RC-5 (SETUP)</a></h4>
+        <h5><a href="#setup-parameters">SETUP Parameters</a></h5>
+        <h4><a href="#usb">Connecting a Computer via USB</a></h4>
+        <h5><a href="#usb-connect">Connecting the RC-5 and Computer</a></h5>
+        <h5><a href="#backup">Backing-Up or Recovering Data</a></h5>
+        <h4><a href="#midi">Controlling Devices via MIDI</a></h4>
+        <h5><a href="#midi-settings">MIDI Settings</a></h5>
+        <h5><a href="#two-units">Connecting Two RC-5 Units</a></h5>
+        <h4><a href="#appendix">Appendix</a></h4>
+        <h5><a href="#troubleshooting">Troubleshooting</a></h5>
+        <h5><a href="#errors">Error Message List</a></h5>
+        <h5><a href="#factory-reset">Factory Reset</a></h5>
+        <h5><a href="#battery">Changing the Battery</a></h5>
+        <h5><a href="#specifications">Main Specifications</a></h5>
+        <h4><a href="#important-notes">Important Notes</a></h4>
+      </nav>
+
+      <!--        GETTING READY -->
+      <section id="getting-ready-section">
+        <div class="flex-container">
+          <div class="half-container flow">
+            <header>
+              <h2 id="getting-ready">Getting Ready</h2>
+            </header>
+            <!--   DOCUMENT UPDATE NOTICE -->
+            <div class="doc-update">
+              <strong>
+                Built from the
+                <a href="RC-5_reference_eng02_W.pdf">RC-5 Reference Manual</a>
+                and the
+                <a href="RC-5_eng02_W.pdf">RC-5 Owner&rsquo;s Manual</a>
+                (both &copy; 2020 Roland Corporation).
+              </strong>
+              <p>
+                The Reference Manual is the base document. The Owner&rsquo;s
+                Manual is a one-sheet summary of the same panel, connection,
+                recording, saving, setup, battery and specification pages; the
+                few lines only it carries are marked where they appear.
+              </p>
+            </div>
+            <p class="om-note">
+              Before using this unit, carefully read the sections entitled
+              &ldquo;USING THE UNIT SAFELY&rdquo; and &ldquo;IMPORTANT
+              NOTES&rdquo; (supplied on a separate sheet). After reading, keep
+              the document(s) where it will be available for immediate
+              reference. <em>From the Owner&rsquo;s Manual.</em>
+            </p>
+
+            <h3 id="panel-descriptions">Panel Descriptions</h3>
+            <figure class="wide">
+              <img
+                src="Images/panel-descriptions.png"
+                alt="The RC-5 from the top, front and rear, with callouts 1 to 14 matching the table below"
+              />
+            </figure>
+            <div class="table-scroll">
+              <table class="doc-table">
+                <colgroup><col class="c-name" /><col /></colgroup>
+                <thead>
+                  <tr><th>Name</th><th>Explanation</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row"><span class="n">1</span>Display</th>
+                    <td>
+                      <p>Shows various information of the RC-5.</p>
+                      <p>
+                        During recording/playback/overdubbing, the color of the
+                        screen changes according to the status.
+                      </p>
+                      <table class="mini">
+                        <tbody>
+                          <tr><th scope="row">Lit blue</th><td>No phrase</td></tr>
+                          <tr><th scope="row">Lit red</th><td>Recording</td></tr>
+                          <tr><th scope="row">Lit green</th><td>Playing</td></tr>
+                          <tr><th scope="row">Lit yellow</th><td>Overdubbing</td></tr>
+                          <tr><th scope="row">Lit white</th><td>Phrase exists</td></tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><span class="n">2</span>[MEMORY/LOOP LEVEL] knob</th>
+                    <td>
+                      <table class="mini">
+                        <tbody>
+                          <tr>
+                            <th scope="rowgroup" rowspan="2">Play screen</th>
+                            <th scope="row">Turning</th>
+                            <td>Selects a memory (01&ndash;99) or adjusts the volume of the track (LOOP LEVEL).</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">Pressing</th>
+                            <td>Switches between selecting a memory and adjusting the volume of the track (LOOP LEVEL).</td>
+                          </tr>
+                          <tr>
+                            <th scope="rowgroup" rowspan="2">When editing</th>
+                            <th scope="row">Turning</th>
+                            <td>Selects a parameter or changes a value.</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">Pressing</th>
+                            <td>Specifies the parameter to edit. Alternatively, confirms an operation.</td>
+                          </tr>
+                          <tr>
+                            <th scope="row" colspan="2">Turn while pressing</th>
+                            <td>Changes a value in larger steps.</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><span class="n">3</span>RHYTHM [TEMPO] button</th>
+                    <td>
+                      <p>Press to specify the tempo of the rhythm.</p>
+                      <p>You can also set the tempo by pressing the button at the desired interval (tap tempo).</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><span class="n">4</span>RHYTHM [ON/OFF] button</th>
+                    <td>
+                      <p>The rhythm switches on (lit)/off (unlit)/ready to play rhythm (blink) each time you press the button.</p>
+                      <p>You can record while listening to a rhythm at the tempo you specify.</p>
+                      <p>Long press the button (two seconds or longer) to select rhythm settings mode.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><span class="n">5</span>[SETUP] button</th>
+                    <td>Lets you make settings that affect the entire RC-5 (the function of a footswitch or expression pedal connected to this unit, and system settings).</td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><span class="n">6</span>[MEMORY] button</th>
+                    <td>
+                      <p>Lets you make settings related to loop playback and recording, rhythm settings, and memory name settings.</p>
+                      <p>If the track of the selected memory is already recorded, the button is lit green.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="lead" colspan="2">By pressing the [SETUP] button and [MEMORY] button simultaneously, you can save a memory (write) or erase (clear) memory data.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><span class="n">7</span>OUTPUT jacks A (MONO), B</th>
+                    <td>
+                      <p>Connect these jacks to your amp or monitor speakers.</p>
+                      <p>If you&rsquo;re using a mono setup, use only the A (MONO) jack. Even sound that is input in stereo is output in mono.</p>
+                      <p class="ast">The OUTPUT A (MONO) jack doubles as the power switch. Power to the unit is turned on when you plug into the OUTPUT A (MONO) jack; the power is turned off when the cable is unplugged. When you are not using the unit, pull the plug out of the OUTPUT A (MONO) jack.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><span class="n">8</span>STOP/MEMORY SHIFT jack</th>
+                    <td>
+                      <p>Connect a separately sold footswitch or expression pedal to this jack.</p>
+                      <p>This lets you control a variety of functions: you can use a footswitch to stop recording/playback/overdubbing or to switch memories, and you can use an expression pedal to operate various parameters.</p>
+                      <p class="xref"><a href="#control">&ldquo;Settings for the Entire RC-5 / CONTROL&rdquo;</a></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><span class="n">9</span>INPUT jacks A (MONO), B</th>
+                    <td>
+                      <p>Connect your guitar/bass or effect unit to these jacks.</p>
+                      <p class="ast">Use the A (MONO) jack and B jack when connecting a stereo-output effects unit. Use only the A (MONO) jack if you&rsquo;re using a mono source.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><span class="n">10</span>Pedal switch</th>
+                    <td>
+                      <p>This pedal switches you between phrase recording, playback, and overdubbing. Press the pedal twice in succession to stop playback.</p>
+                      <ul>
+                        <li>Hold down the pedal two seconds or longer during playback or overdubbing to Undo (cancel the recording or the last overdubbing). Hold down the switch once again for two seconds or longer to Redo (cancel the Undo).</li>
+                        <li>Hold down the pedal two seconds or longer while stopped to clear the recorded phrase.</li>
+                      </ul>
+                      <div class="note">
+                        <span class="badge memo">MEMO</span>
+                        <p>You can assign other functions to the pedal switch.</p>
+                        <p class="xref"><a href="#control">&ldquo;Settings for the Entire RC-5 / CONTROL&rdquo;</a></p>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><span class="n">11</span>Thumbscrew</th>
+                    <td>
+                      <p>When this screw is loosened, the pedal will open, allowing you to change the battery.</p>
+                      <p class="xref"><a href="#battery">&ldquo;Changing the Battery&rdquo;</a></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><span class="n">12</span>MIDI IN, OUT connectors</th>
+                    <td>
+                      <p>Connect an external MIDI device here.</p>
+                      <p>To make these connections, use TRS/MIDI connecting cables (sold separately: BMIDI-5-35).</p>
+                      <p>This lets you control an external MIDI device from this unit via MIDI.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><span class="n">13</span>DC IN jack</th>
+                    <td>
+                      <p>Accepts connection of an AC adaptor (PSA series; sold separately). By using an AC adaptor, you can play without being concerned about how much battery power you have left.</p>
+                      <p class="ast">Use only the specified AC adaptor (PSA series).</p>
+                      <p class="ast">If the AC adaptor is connected while a battery is installed, the power supply is drawn from the AC adaptor.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><span class="n">14</span>USB port</th>
+                    <td>You can connect your computer here and use it to back up or recover data.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3 id="organization">How the RC-5 Is Organized</h3>
+            <figure class="fig-m">
+              <img
+                src="Images/organization.png"
+                alt="Diagram: memories 01 to 99, each holding one track and a rhythm, between the guitar input and the speaker output; system settings sit below them all"
+              />
+            </figure>
+            <dl class="terms">
+              <dt>Track</dt>
+              <dd>Record and play back audio from an instrument such as guitar.</dd>
+              <dt>Rhythm</dt>
+              <dd>
+                <p>In addition to the track, the RC-5 can also play a &ldquo;Rhythm.&rdquo;</p>
+                <p>You can record while listening to a rhythm at the tempo you specify.</p>
+              </dd>
+              <dt>Memory</dt>
+              <dd>
+                <p>The one track, together with the &ldquo;rhythm&rdquo; settings, are collectively called a &ldquo;memory.&rdquo;</p>
+                <p>The RC-5 can store up to 99 memories.</p>
+              </dd>
+              <dt>System</dt>
+              <dd>Settings that are common to the entire RC-5, such as the display contrast adjustment and MIDI settings, are called &ldquo;system settings.&rdquo;</dd>
+            </dl>
+            <div class="box">
+              <strong>&ldquo;Recording&rdquo; versus &ldquo;Overdubbing&rdquo;</strong>
+              <p>In this manual, we refer to the act of recording to an empty track for the first time as &ldquo;recording.&rdquo;</p>
+              <p>Any subsequent recordings that are made, which are added on top of the existing recording, we refer to as &ldquo;overdubbing.&rdquo;</p>
+            </div>
+            <div class="box">
+              <strong>Play screen</strong>
+              <p>The screen that appears after you turn on the power is called the &ldquo;Play screen.&rdquo;</p>
+              <figure class="screen">
+                <samp class="lcd play"><span class="num">01</span><span>Memory<br />01</span></samp>
+              </figure>
+            </div>
+
+            <h3 id="connecting">Connecting the Equipment</h3>
+            <figure class="wide">
+              <img
+                src="Images/connections.png"
+                alt="Hook-up diagram: AC adaptor to DC IN; guitar to INPUT; OUTPUT A and B to two guitar amplifiers; a footswitch or expression pedal to STOP/MEMORY SHIFT; an external MIDI device to MIDI IN/OUT; a computer to USB"
+              />
+            </figure>
+            <ul>
+              <li>To prevent malfunction and equipment failure, always turn down the volume, and turn off all the units before making any connections.</li>
+              <li>Use only the specified expression pedal (FV-500H, FV-500L, EV-30, and Roland EV-5; sold separately). By connecting any other expression pedals, you risk causing malfunction and/or damage to the unit.</li>
+            </ul>
+            <div class="note">
+              <span class="badge">NOTE</span>
+              <p>When connecting an external pedal, you must turn off the power before connecting or disconnecting cables. Failure to observe this precaution will cause malfunctions.</p>
+            </div>
+            <h4 id="footswitch">Connecting a footswitch</h4>
+            <p>Connect a footswitch or switches and set their mode/polarity switches by referring to the illustrations below.</p>
+            <figure class="wide">
+              <img
+                src="Images/footswitch-connections.png"
+                alt="Footswitch hook-ups: two FS-5U on a stereo-to-dual-mono cable (tip is CTL 1, ring is CTL 2); one FS-5U on a mono cable (CTL 1); an FS-6 on a stereo cable (A is CTL 2, B is CTL 1); an FS-7 on a stereo cable (A is CTL 2, B is CTL 1); and the mode/polarity switch positions for the FS-5U, FS-6 and FS-7"
+              />
+            </figure>
+
+            <h3 id="power">Turning the Power On/Off</h3>
+            <p>The OUTPUT A (MONO) jack doubles as the power switch. Power to the unit is turned on when you plug into the OUTPUT A (MONO) jack; the power is turned off when the cable is unplugged. When you are not using the unit, pull the plug out of the OUTPUT A (MONO) jack.</p>
+            <p class="ast">Before turning the unit on/off, always be sure to turn the volume down. Even with the volume turned down, you might hear some sound when switching the unit on/off. However, this is normal and does not indicate a malfunction.</p>
+            <dl class="pairs">
+              <dt>When powering up:</dt>
+              <dd>Turn on the power to your amp last.</dd>
+              <dt>When powering down:</dt>
+              <dd>Turn off the power to your amp first.</dd>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <!--        CREATING A LOOP PHRASE -->
+      <section id="loop-phrase-section">
+        <div class="flex-container">
+          <div class="half-container flow">
+            <header>
+              <h2 id="loop-phrase">Creating a Loop Phrase</h2>
+            </header>
+
+            <h3 id="recording">Recording</h3>
+            <h4 id="getting-ready-to-record">Getting ready to record</h4>
+            <p><strong>Turn the [MEMORY/LOOP LEVEL] knob to select a memory.</strong></p>
+            <figure class="screen">
+              <samp class="lcd play"><span class="num">01</span><span>Memory<br />01</span></samp>
+              <figcaption><span>Memory name</span><span>Large digits: memory number</span></figcaption>
+            </figure>
+            <table class="mini">
+              <thead><tr><th>Screen</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Blue</strong></td><td>Empty track</td></tr>
+                <tr><td><strong>White</strong></td><td>Track contains data</td></tr>
+              </tbody>
+            </table>
+
+            <h4 id="basic-operation">Basic operation</h4>
+            <ol class="states">
+              <li class="state">
+                <span class="press">&#9654; Press</span>
+                <strong class="title">Recording</strong>
+                <p>Screen: Lit red</p>
+                <p><strong>Record your guitar performance.</strong></p>
+              </li>
+              <li class="state">
+                <span class="press">&#9654; Press</span>
+                <strong class="title">Playback</strong>
+                <p>Screen: Lit green</p>
+                <p><strong>Play back a phrase as a loop.</strong></p>
+                <p>Pressing the pedal switches the unit to overdubbing.</p>
+              </li>
+              <li class="state">
+                <span class="press">&#9654; Press</span>
+                <strong class="title">Overdubbing</strong>
+                <p>Screen: Lit yellow</p>
+                <p><strong>Layer your performances while the phrase plays as a loop.</strong></p>
+                <p>Pressing the pedal switches the unit to playback.</p>
+              </li>
+            </ol>
+            <div class="stop-row">
+              <div class="box">
+                <strong>Technique for stopping</strong>
+                <p><strong>Example: When you want to stop at the end of a measure with a 4/4 time signature</strong></p>
+                <p>Press the pedal one time at the beginning of the fourth beat, then press it again at the beginning of the first beat of the next measure.</p>
+                <figure class="fig-s">
+                  <img
+                    src="Images/stop-timing.png"
+                    alt="Timeline of beats 1 to 4 and the next 1: the first press lands on beat 4, the second on the next beat 1, where playback stops"
+                  />
+                </figure>
+              </div>
+              <div class="state">
+                <span class="press">&#9654; Press twice</span>
+                <strong class="title">Stop</strong>
+                <p>Screen: Lit white</p>
+                <p><strong>During overdubbing or loop playback, you can stop by pressing the pedal twice in succession.</strong></p>
+                <p class="ast">Press the pedal twice within one second.</p>
+              </div>
+            </div>
+            <div class="note">
+              <span class="badge">NOTE</span>
+              <p>The maximum recording time is approximately 1.5 hours for one track, and approximately 13 hours total for all memories. If you exceed the maximum recording time, recording or overdubbing ends at that point, and the unit switches to loop playback.</p>
+            </div>
+
+            <h4 id="undo-redo">Undo/Redo</h4>
+            <p><strong>Hold down the pedal two seconds or longer during playback or overdubbing to Undo (cancel the recording or the last overdubbing). Hold down the switch once again for two seconds or longer to Redo (cancel the Undo).</strong></p>
+            <h4 id="clear-phrase">Clear</h4>
+            <p><strong>Hold down the pedal two seconds or longer while stopped to clear the recorded phrase.</strong></p>
+
+            <h3 id="rhythm">Record While Listening to the Rhythm Sound</h3>
+            <p>In addition to the track, the RC-5 can also play a &ldquo;Rhythm.&rdquo;</p>
+            <p>By recording while you listen to a rhythm at the tempo you&rsquo;ve specified, you can record at an accurate tempo.</p>
+            <figure class="fig-s">
+              <img src="Images/panel-rhythm.png" alt="The RHYTHM [TEMPO] and [ON/OFF] buttons, highlighted" />
+            </figure>
+
+            <h4 class="tint" id="sounding-a-rhythm">Sounding a Rhythm</h4>
+            <ol class="steps">
+              <li>
+                <p class="do">Press the RHYTHM [ON/OFF] button.</p>
+                <p>The rhythm switches on (lit)/off (unlit)/ready to play rhythm (blink) each time you press the button.</p>
+              </li>
+            </ol>
+            <div class="box dashed">
+              <ul>
+                <li>
+                  <p>The specified tempo can be saved as a setting in memory.</p>
+                  <p class="xref"><a href="#write">&ldquo;Saving a Memory (WRITE)&rdquo;</a></p>
+                </li>
+                <li>
+                  <p>You can specify the volume and type of rhythm, and how the rhythm plays.</p>
+                  <p class="xref"><a href="#edit-rhythm">&ldquo;Editing the Rhythm Settings&rdquo;</a></p>
+                </li>
+              </ul>
+            </div>
+
+            <h4 class="tint" id="tempo">Setting the Tempo of Rhythm</h4>
+            <ol class="steps">
+              <li>
+                <p class="do">Press the RHYTHM [TEMPO] button.</p>
+                <p>The tempo setting screen appears.</p>
+                <figure class="screen">
+                  <samp class="lcd"><span class="line">TEMPO</span><span class="line"><i>&#9656;</i><span>120.0</span></span></samp>
+                </figure>
+              </li>
+              <li>
+                <p class="do">While the tempo setting screen is shown, turn the [MEMORY/LOOP LEVEL] knob to set the tempo.</p>
+                <table class="mini">
+                  <tbody><tr><th scope="row">Value</th><td>40.0&ndash;300.0</td></tr></tbody>
+                </table>
+              </li>
+            </ol>
+            <h5 id="tap-tempo">Tap tempo</h5>
+            <p>You can set the tempo by pressing a button at the desired interval.</p>
+            <ol class="steps">
+              <li><p class="do">Press the RHYTHM [TEMPO] button several times in time with the desired tempo.</p></li>
+            </ol>
+            <div class="note">
+              <span class="badge memo">MEMO</span>
+              <p>If you long press the RHYTHM [TEMPO] button (two seconds or longer), the tempo returns to the default value.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--        SAVING A MEMORY -->
+      <section id="saving-section">
+        <div class="flex-container">
+          <div class="half-container flow">
+            <header>
+              <h2 id="saving">Saving a Memory</h2>
+            </header>
+
+            <h3 id="write">Saving a Memory (WRITE)</h3>
+            <p>If you select a different memory or turn off the power after recording or editing the settings, the recorded content or edited settings will be lost. If you want to keep the data, you must save it.</p>
+            <figure class="fig-s">
+              <img src="Images/panel-write.png" alt="The [SETUP] and [MEMORY] buttons, highlighted" />
+            </figure>
+            <ol class="steps">
+              <li>
+                <p class="do">Press the [SETUP] button and [MEMORY] button simultaneously.</p>
+                <p>The UTILITY screen appears.</p>
+                <figure class="screen">
+                  <samp class="lcd"><span class="line">UTILITY</span><span class="line"><i>&#9656;</i><span>WRITE</span></span></samp>
+                </figure>
+              </li>
+              <li>
+                <p class="do">Turn the [MEMORY/LOOP LEVEL] knob to select &ldquo;WRITE,&rdquo; and press the [MEMORY/LOOP LEVEL] knob.</p>
+                <figure class="screen">
+                  <samp class="lcd"><span class="line">&#9656;WRITE:01</span><span class="line"><span>Memory01</span></span></samp>
+                  <figcaption><span>Save-destination memory</span><span>Memory name</span></figcaption>
+                </figure>
+              </li>
+              <li>
+                <p class="do">Turn the [MEMORY/LOOP LEVEL] knob to select the save-destination memory.</p>
+                <ul>
+                  <li>You can skip this step if you want to save to the currently selected memory.</li>
+                  <li>If you decide to cancel, press one of the RHYTHM [TEMPO]&ndash;[MEMORY] buttons.</li>
+                </ul>
+              </li>
+              <li>
+                <p class="do">Press the [MEMORY/LOOP LEVEL] knob.</p>
+                <p>The memory will be saved.</p>
+                <p class="ast">Do not turn off the power while the &ldquo;EXECUTING...&rdquo; message is shown.</p>
+              </li>
+            </ol>
+            <div class="note">
+              <span class="badge memo">MEMO</span>
+              <p>You can assign a name to the memory. For details, refer to <a href="#name-parameter">NAME</a>.</p>
+            </div>
+
+            <h3 id="clear">Erasing Data from a Memory (CLEAR)</h3>
+            <p>You can erase the data that is saved in a memory, clearing that memory to an empty state.</p>
+            <figure class="fig-s">
+              <img src="Images/panel-write.png" alt="The [SETUP] and [MEMORY] buttons, highlighted" />
+            </figure>
+            <ol class="steps">
+              <li>
+                <p class="do">Press the [SETUP] button and [MEMORY] button simultaneously.</p>
+                <p>The UTILITY screen appears.</p>
+                <figure class="screen">
+                  <samp class="lcd"><span class="line">UTILITY</span><span class="line"><i>&#9656;</i><span>WRITE</span></span></samp>
+                </figure>
+              </li>
+              <li>
+                <p class="do">Turn the [MEMORY/LOOP LEVEL] knob to select &ldquo;CLEAR,&rdquo; and press the [MEMORY/LOOP LEVEL] knob.</p>
+                <figure class="screen">
+                  <samp class="lcd"><span class="line">&#9656;CLEAR:01</span><span class="line"><span>Memory01</span></span></samp>
+                  <figcaption><span>Memory to be cleared</span><span>Memory name</span></figcaption>
+                </figure>
+              </li>
+              <li>
+                <p class="do">Turn the [MEMORY/LOOP LEVEL] knob to select the memory that you want to clear.</p>
+                <ul>
+                  <li>You can skip this step if you want to clear the currently selected memory.</li>
+                  <li>If you decide to cancel, press one of the RHYTHM [TEMPO]&ndash;[MEMORY] buttons.</li>
+                </ul>
+              </li>
+              <li>
+                <p class="do">Press the [MEMORY/LOOP LEVEL] knob.</p>
+                <p>The memory will be cleared.</p>
+                <p class="ast">Do not turn off the power while the &ldquo;EXECUTING...&rdquo; message is shown.</p>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!--        EDITING A MEMORY -->
+      <section id="editing-section">
+        <div class="flex-container">
+          <div class="half-container flow">
+            <header>
+              <h2 id="editing">Editing a Memory</h2>
+            </header>
+
+            <h3 id="edit-memory">Editing the Settings of a Memory</h3>
+            <p>Here&rsquo;s how to edit the settings of each memory.</p>
+            <figure class="fig-s">
+              <img src="Images/panel-memory.png" alt="The [MEMORY] button, highlighted" />
+            </figure>
+            <ol class="steps">
+              <li><p class="do">Select the memory that you want to edit.</p></li>
+              <li>
+                <p class="do">Press the [MEMORY] button.</p>
+                <p>The memory settings screen appears.</p>
+                <figure class="screen">
+                  <samp class="lcd"><span class="line">MEMORY</span><span class="line"><i>&#9656;</i><span>LOOP</span></span></samp>
+                  <figcaption><span></span><span>Item</span></figcaption>
+                </figure>
+              </li>
+              <li>
+                <p class="do">Turn the [MEMORY/LOOP LEVEL] knob to select the item that you want to edit, and press the [MEMORY/LOOP LEVEL] knob.</p>
+                <figure class="screen">
+                  <samp class="lcd"><span class="line">&#9656;LEVEL</span><span class="line"><span>100</span></span></samp>
+                  <figcaption><span>Parameter</span><span>Value</span></figcaption>
+                </figure>
+              </li>
+              <li>
+                <p class="do">Turn the [MEMORY/LOOP LEVEL] knob to select the parameter that you want to edit, and press the [MEMORY/LOOP LEVEL] knob.</p>
+                <figure class="screen">
+                  <samp class="lcd"><span class="line">START</span><span class="line"><i>&#9656;</i><span>IMMEDIATE</span></span></samp>
+                </figure>
+              </li>
+              <li><p class="do">Turn the [MEMORY/LOOP LEVEL] knob to change the value.</p></li>
+              <li><p class="do">Press the [MEMORY] button to return to the play screen.</p></li>
+              <li><p class="do">If you want to save the edited settings, execute the <a href="#write">Write operation</a>.</p></li>
+            </ol>
+
+            <h3 id="edit-rhythm">Editing the Rhythm Settings</h3>
+            <p class="ast">Rhythm parameters can also be edited from the edit screens for a memory.</p>
+            <figure class="fig-s">
+              <img src="Images/panel-rhythm-on-off.png" alt="The RHYTHM [ON/OFF] button, highlighted" />
+            </figure>
+            <ol class="steps">
+              <li><p class="do">Select the memory for which you want to edit the rhythm settings.</p></li>
+              <li>
+                <p class="do">Long press the RHYTHM [ON/OFF] button.</p>
+                <p>The rhythm settings screen appears.</p>
+                <figure class="screen">
+                  <samp class="lcd"><span class="line">&#9656;LEVEL</span><span class="line"><span>100</span></span></samp>
+                  <figcaption><span>Parameter</span><span>Value</span></figcaption>
+                </figure>
+              </li>
+              <li>
+                <p class="do">Turn the [MEMORY/LOOP LEVEL] knob to select the parameter that you want to edit, and press the [MEMORY/LOOP LEVEL] knob.</p>
+                <figure class="screen">
+                  <samp class="lcd"><span class="line">REVERB</span><span class="line"><i>&#9656;</i><span>50</span></span></samp>
+                </figure>
+              </li>
+              <li><p class="do">Turn the [MEMORY/LOOP LEVEL] knob to change the value, and press the [MEMORY/LOOP LEVEL] knob.</p></li>
+              <li><p class="do">Repeat steps 3&ndash;4 to edit the parameter that you want.</p></li>
+              <li><p class="do">Long press the RHYTHM [ON/OFF] button to return to the play screen.</p></li>
+              <li><p class="do">If you want to save the edited settings, execute the <a href="#write">Write operation</a>.</p></li>
+            </ol>
+            <div class="note">
+              <span class="badge memo">MEMO</span>
+              <p>By executing the Write operation while in the rhythm play-standby or rhythm play condition, you can save/recall the memory as a &ldquo;rhythm: on&rdquo; memory.</p>
+            </div>
+
+            <h3 id="memory-parameters">MEMORY Parameters</h3>
+            <h4 id="loop-parameters">LOOP</h4>
+            <div class="table-scroll">
+              <table class="doc-table">
+                <colgroup><col class="c-param" /><col class="c-value" /><col /></colgroup>
+                <thead>
+                  <tr><th>Parameter</th><th>Value <small>(Bold: default)</small></th><th>Explanation</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row" id="reverse">REVERSE</th>
+                    <td><b>OFF</b>, ON</td>
+                    <td>
+                      <p>Specifies conventional playback (OFF) or reverse playback (ON).</p>
+                      <p class="ast">When REVERSE is set to &ldquo;ON,&rdquo; you won&rsquo;t be able to switch to overdubbing after a recording has been completed.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row" rowspan="3" id="one-shot">1SHOT</th>
+                    <td class="lead" colspan="2">Specifies whether the track playback will be one-shot or not one-shot (conventional loop playback).</td>
+                  </tr>
+                  <tr><td><b>OFF</b></td><td>Conventional loop playback.</td></tr>
+                  <tr>
+                    <td>ON</td>
+                    <td>
+                      <p>The phrase will play only once from the beginning to the end of the track, and then stop automatically (One-Shot Playback).</p>
+                      <p>If you press the pedal switch during playback, playback will begin again from the beginning of the track (Retrigger Playback). Overdubbing cannot be carried out.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">LEVEL</th>
+                    <td>0&ndash;<b>100</b>&ndash;200</td>
+                    <td>
+                      <p>Adjusts the playback level of the track.</p>
+                      <p class="ast">You can also use the [MEMORY/LOOP LEVEL] knob to adjust the playback level.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row" rowspan="3">REC ACTION</th>
+                    <td class="lead" colspan="2">Specifies the order in which record/playback/overdub are switched when you press the pedal switch.</td>
+                  </tr>
+                  <tr><td>REC-&gt;DUB</td><td>Operation will switch in the order of Recording &rarr; Overdubbing &rarr; Playback.</td></tr>
+                  <tr><td><b>REC-&gt;PLAY</b></td><td>Operation will switch in the order of Recording &rarr; Playback &rarr; Overdubbing.</td></tr>
+                  <tr>
+                    <th scope="row" rowspan="3">DUB MODE</th>
+                    <td class="lead" colspan="2">Specifies the overdubbing method.</td>
+                  </tr>
+                  <tr>
+                    <td><b>OVERDUB</b></td>
+                    <td>
+                      <p>The new performance is layered onto the prerecorded track.</p>
+                      <p>If overdub is repeated, the next performance is layered on top of the previous material, allowing you to create an ensemble in a single track.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>REPLACE</td>
+                    <td>
+                      <p>Track with existing recordings is overwritten as new track is recorded over them.</p>
+                      <p>Overwriting takes place while the previously recorded track is played back, allowing you to achieve a kind of delay effect similar to that obtained from an effects processor.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row" rowspan="3">AUTO REC</th>
+                    <td class="lead" colspan="2">&ldquo;AUTO REC&rdquo; (auto record) starts recording when there is audio input from your guitar performance.</td>
+                  </tr>
+                  <tr><td><b>OFF</b></td><td>Recording will begin the instant you press the pedal switch.</td></tr>
+                  <tr><td>ON</td><td>The display shows that you have entered record standby mode when you press the pedal switch. Once you start playing, the display shows that you are now in recording mode, and recording begins.</td></tr>
+                  <tr>
+                    <th scope="row" rowspan="3">START</th>
+                    <td class="lead" colspan="2">Specifies whether playback starts with a fade-in or immediately when the track plays.</td>
+                  </tr>
+                  <tr><td><b>IMMEDIATE</b></td><td>Playback starts immediately.</td></tr>
+                  <tr>
+                    <td>FADE IN</td>
+                    <td>
+                      <p>Playback starts while fading in.</p>
+                      <p class="ast">You can use &ldquo;FADE TIME&rdquo; to specify the length of the fade-in.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row" rowspan="4">STOP</th>
+                    <td class="lead" colspan="2">
+                      <p>Specifies how the track will stop when you press the pedal switch.</p>
+                      <p class="ast">You can&rsquo;t overdub during the time until playback stops.</p>
+                    </td>
+                  </tr>
+                  <tr><td><b>IMMEDIATE</b></td><td>Playback will stop immediately.</td></tr>
+                  <tr>
+                    <td>FADE OUT</td>
+                    <td>
+                      <p>Playback will fade out and then stop.</p>
+                      <p class="ast">You can use &ldquo;FADE TIME&rdquo; to specify the length of the fade-out.</p>
+                    </td>
+                  </tr>
+                  <tr><td>LOOP END</td><td>Playback will continue to the end of the loop, and then stop.</td></tr>
+                  <tr>
+                    <th scope="row">FADE TIME</th>
+                    <td><span title="sixteenth, eighth, quarter and half note">1/16, 1/8, 1/4, 1/2 note</span>, 1MEAS&ndash;<b>2MEAS</b>&ndash;64MEAS</td>
+                    <td>Specifies the fade-in/out time as a number of measures when START is set to &ldquo;FADE IN&rdquo; or STOP is set to &ldquo;FADE OUT.&rdquo;</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" rowspan="3">MEASURE</th>
+                    <td class="lead" colspan="2">
+                      <p>You can specify the number of measures for a track.</p>
+                      <p>When recording along with rhythm sounds, it&rsquo;s convenient to specify the number of measures before you record, so that looping will occur at the specified measure length, even if you don&rsquo;t operate the switch when you&rsquo;ve finished recording.</p>
+                    </td>
+                  </tr>
+                  <tr><td><b>FREE</b></td><td>The number of measures will be set automatically, corresponding to the length of the recording.</td></tr>
+                  <tr><td>1MEAS&ndash;</td><td>The number of measures will be set manually.</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h4 id="rhythm-parameters">RHYTHM</h4>
+            <div class="table-scroll">
+              <table class="doc-table">
+                <colgroup><col class="c-param" /><col class="c-value" /><col /></colgroup>
+                <thead>
+                  <tr><th>Parameter</th><th>Value <small>(Bold: default)</small></th><th>Explanation</th></tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">LEVEL</th><td>0&ndash;<b>100</b>&ndash;200</td><td>Adjusts the volume of the rhythm.</td></tr>
+                  <tr><th scope="row">REVERB</th><td>0&ndash;<b>30</b>&ndash;100</td><td>Adjusts the depth of the reverb applied to the rhythm.</td></tr>
+                  <tr>
+                    <th scope="row" rowspan="2">PATTERN</th>
+                    <td class="lead" colspan="2">Selects the rhythm pattern.</td>
+                  </tr>
+                  <tr><td colspan="2"><b>SimpleBeat1</b>&ndash;4, GrooveBeat1&ndash;7, Rock1&ndash;4, Funk1&ndash;4, Shuffle1&ndash;5, Swing1&ndash;5, SideStick1&ndash;5, PercusBeat1&ndash;4, LatinBeat1&ndash;4, Conga1&ndash;3, Bossa1&ndash;2, Samba1&ndash;2, DanceBeat1&ndash;4, Metronome1&ndash;4, Blank</td></tr>
+                  <tr><th scope="row">VARIATION</th><td><b>A</b>, B</td><td>Selects the rhythm pattern variation (A or B).</td></tr>
+                  <tr>
+                    <th scope="row" rowspan="3">VAR.CHANGE</th>
+                    <td class="lead" colspan="2">Specifies the timing at which the rhythm pattern variation is switched.</td>
+                  </tr>
+                  <tr><td><b>MEASURE</b></td><td>Play to the end of the measure and then switch.</td></tr>
+                  <tr><td>LOOP END</td><td>Play to the end of the loop and then switch.</td></tr>
+                  <tr>
+                    <th scope="row" rowspan="2">KIT</th>
+                    <td class="lead" colspan="2">Selects the drum kit that is used for rhythm playback.</td>
+                  </tr>
+                  <tr><td colspan="2"><b>Studio</b>, Rock, Jazz, Brush, Cajon, R&amp;B, 808+909</td></tr>
+                  <tr>
+                    <th scope="row">BEAT</th>
+                    <td>2/4&ndash;<b>4/4</b>&ndash;7/4, 5/8&ndash;15/8</td>
+                    <td>
+                      <p>Selects the rhythm beat.</p>
+                      <p class="ast">You cannot change the beat after the track is recorded. Be sure to set this before recording.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row" rowspan="4">START</th>
+                    <td class="lead" colspan="2">Specifies how rhythm playback starts.</td>
+                  </tr>
+                  <tr><td><b>LOOP START</b></td><td>The rhythm plays when loop recording or playback starts.</td></tr>
+                  <tr>
+                    <td>REC END</td>
+                    <td>
+                      <p>The rhythm plays when loop recording ends and switches to playback.</p>
+                      <p>This is useful if you want to perform without specifying a tempo, then start recording, and then play the loop in time with the rhythm when playback starts.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>BEFORE LOOP</td>
+                    <td>
+                      <p>The rhythm plays before loop recording or playback.</p>
+                      <p>The rhythm starts playing when you press the switch once, and recording/playback starts in time with the rhythm when you press the switch once again.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row" rowspan="4" id="rhythm-stop">STOP</th>
+                    <td class="lead" colspan="2">Specifies how rhythm playback stops.</td>
+                  </tr>
+                  <tr>
+                    <td>OFF</td>
+                    <td>
+                      <p>The rhythm always continues playing.</p>
+                      <p>If you are performing in synchronization with an external MIDI device, you can keep the rhythm playing continuously to allow synchronized playback.</p>
+                    </td>
+                  </tr>
+                  <tr><td><b>LOOP STOP</b></td><td>The rhythm stops when the loop stops.</td></tr>
+                  <tr>
+                    <td>REC END</td>
+                    <td>
+                      <p>The rhythm stops when loop recording ends.</p>
+                      <p>This is useful when you want to use the rhythm as a guide during recording.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row" rowspan="3">REC COUNT</th>
+                    <td class="lead" colspan="2">
+                      <p>Specifies whether a count-in is heard for recording.</p>
+                      <p class="ast">A count-in won&rsquo;t be sounded when a track or rhythm is being played back.</p>
+                    </td>
+                  </tr>
+                  <tr><td><b>OFF</b></td><td>No count-in is played.</td></tr>
+                  <tr><td>1MEAS</td><td>Recording starts after a one-measure count-in is played.</td></tr>
+                  <tr>
+                    <th scope="row" rowspan="3">PLAY COUNT</th>
+                    <td class="lead" colspan="2">Specifies whether a count-in is heard for playback.</td>
+                  </tr>
+                  <tr><td><b>OFF</b></td><td>No count-in is played.</td></tr>
+                  <tr><td>1MEAS</td><td>Playback starts after a one-measure count-in is played.</td></tr>
+                  <tr><th scope="row">FILL</th><td>OFF, <b>ON</b></td><td>Specifies whether the rhythm plays with a fill-in (ON) or without a fill-in (OFF).</td></tr>
+                  <tr>
+                    <th scope="row">PART1&ndash;4</th>
+                    <td>OFF, <b>ON</b> <small>(PART1&ndash;3)</small><br /><b>OFF</b>, ON <small>(PART4)</small></td>
+                    <td>For each of the four drum parts (PART 1&ndash;4) that make up the drum kit, these settings specify whether the drum sound is heard (ON) or not heard (OFF).</td>
+                  </tr>
+                  <tr><th scope="row">TONE LOW</th><td>-10&ndash;<b>0</b>&ndash;10</td><td>Adjusts the low-frequency tonal character of the rhythm sound.</td></tr>
+                  <tr><th scope="row">TONE HIGH</th><td>-10&ndash;<b>0</b>&ndash;10</td><td>Adjusts the high-frequency tonal character of the rhythm sound.</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h4 id="name-parameter">NAME</h4>
+            <div class="table-scroll">
+              <table class="doc-table">
+                <colgroup><col class="c-param" /><col class="c-value" /><col /></colgroup>
+                <thead>
+                  <tr><th>Parameter</th><th>Value <small>(Bold: default)</small></th><th>Explanation</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row" rowspan="2">NAME</th>
+                    <td class="lead" colspan="2">
+                      <p>Specifies the memory name.</p>
+                      <p class="ast">Maximum of 12 characters</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">
+                      <ol class="steps">
+                        <li>
+                          <p class="do">Turn the [MEMORY/LOOP LEVEL] knob to move the cursor to the position at which you want to enter a character, and then press the [MEMORY/LOOP LEVEL] knob.</p>
+                          <figure class="screen">
+                            <samp class="lcd"><span class="line">NAME</span><span class="line">&#9656;SONG 0&#9608;</span></samp>
+                          </figure>
+                        </li>
+                        <li>
+                          <p class="do">Turn the [MEMORY/LOOP LEVEL] knob to select a character, and then press the [MEMORY/LOOP LEVEL] knob.</p>
+                          <figure class="screen">
+                            <samp class="lcd"><span class="line">NAME</span><span class="line">&#9656;SONG 0<u>2</u></span></samp>
+                          </figure>
+                        </li>
+                      </ol>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--        SETUP -->
+      <section id="setup-section">
+        <div class="flex-container">
+          <div class="half-container flow">
+            <header>
+              <h2 id="setup">Settings for the Entire RC-5 (SETUP)</h2>
+            </header>
+            <figure class="fig-s">
+              <img src="Images/panel-setup.png" alt="The [SETUP] button, highlighted" />
+            </figure>
+            <ol class="steps">
+              <li>
+                <p class="do">Press the [SETUP] button.</p>
+                <p>The SETUP screen appears.</p>
+                <figure class="screen">
+                  <samp class="lcd"><span class="line">SETUP</span><span class="line"><i>&#9656;</i><span>GENERAL</span></span></samp>
+                  <figcaption><span></span><span>Item</span></figcaption>
+                </figure>
+              </li>
+              <li>
+                <p class="do">Turn the [MEMORY/LOOP LEVEL] knob to select the item that you want to edit, and press the [MEMORY/LOOP LEVEL] knob.</p>
+                <figure class="screen">
+                  <samp class="lcd"><span class="line">&#9656;DISP MODE</span><span class="line"><span>LOOP</span></span></samp>
+                  <figcaption><span>Parameter</span><span>Value</span></figcaption>
+                </figure>
+              </li>
+              <li>
+                <p class="do">Turn the [MEMORY/LOOP LEVEL] knob to select the parameter that you want to edit, and press the [MEMORY/LOOP LEVEL] knob.</p>
+                <figure class="screen">
+                  <samp class="lcd"><span class="line">DISP CONT</span><span class="line"><i>&#9656;</i><span>5</span></span></samp>
+                </figure>
+              </li>
+              <li><p class="do">Turn the [MEMORY/LOOP LEVEL] knob to change the value.</p></li>
+              <li><p class="do">Press the [SETUP] button to return to the play screen.</p></li>
+            </ol>
+
+            <h3 id="setup-parameters">SETUP Parameters</h3>
+            <h4 id="general">GENERAL</h4>
+            <div class="table-scroll">
+              <table class="doc-table">
+                <colgroup><col class="c-param" /><col class="c-value" /><col /></colgroup>
+                <thead>
+                  <tr><th>Parameter</th><th>Value <small>(Bold: default)</small></th><th>Explanation</th></tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">DISP CONT</th><td>1&ndash;<b>5</b>&ndash;10</td><td>Adjusts the display contrast.</td></tr>
+                  <tr>
+                    <th scope="row" rowspan="8">DISP MODE</th>
+                    <td class="lead" colspan="2">Specify what is shown in the screen during recording, playback, and overdubbing.</td>
+                  </tr>
+                  <tr><td>STATUS</td><td>Show &ldquo;REC&rdquo; during recording, &ldquo;PLAY&rdquo; during playback, and &ldquo;DUB&rdquo; during overdubbing</td></tr>
+                  <tr><td>POSITION</td><td>Show the progress of recording/playback/overdubbing</td></tr>
+                  <tr><td>STATUS+POS</td><td>Upper line: STATUS indication<br />Lower line: POSITION indication</td></tr>
+                  <tr><td>NUMBER+POS</td><td>Upper line: Show the memory number<br />Lower line: POSITION indication</td></tr>
+                  <tr><td>NAME+POS</td><td>Upper line: Show the memory name<br />Lower line: POSITION indication</td></tr>
+                  <tr><td><b>BEAT+POS</b></td><td>Upper line: Show the time signature of the rhythm<br />Lower line: POSITION indication</td></tr>
+                  <tr><td>BEAT</td><td>Show the time signature of the rhythm</td></tr>
+                  <tr>
+                    <th scope="row">M.EXT MIN</th>
+                    <td><b>01</b>&ndash;99</td>
+                    <td rowspan="2">Specify the extent in which memories can be switched (lower limit: MIN / upper limit: MAX).</td>
+                  </tr>
+                  <tr><th scope="row">M.EXT MAX</th><td>01&ndash;<b>99</b></td></tr>
+                  <tr>
+                    <th scope="row" rowspan="3">UNDO/REDO</th>
+                    <td class="lead" colspan="2">
+                      <p>Specify the timing at which undo/redo is executed.</p>
+                      <p class="ast">This parameter is valid if a function that allows undo/redo by long pressing the switch is assigned as the PEDAL FUNC or CTL1&ndash;2 FUNC (<a href="#control">CONTROL</a>) setting.</p>
+                    </td>
+                  </tr>
+                  <tr><td><b>HOLD</b></td><td>Execute undo/redo while you hold down the switch.</td></tr>
+                  <tr><td>RELEASE</td><td>Execute undo/redo the moment you release the switch.</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h4 id="control">CONTROL</h4>
+            <div class="table-scroll">
+              <table class="doc-table">
+                <colgroup><col class="c-param" /><col class="c-value" /><col /></colgroup>
+                <thead>
+                  <tr><th>Parameter</th><th>Value <small>(Bold: default)</small></th><th>Explanation</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row" rowspan="20">PEDAL FUNC<br />CTL1 FUNC<br />CTL2 FUNC</th>
+                    <td class="lead" colspan="2">Specify the functions of the pedal switch, and a footswitch (CTL1, CTL2) connected to the STOP/MEMORY SHIFT jack.</td>
+                  </tr>
+                  <tr>
+                    <td>TRK REC/PLY</td>
+                    <td>
+                      <p>Switch between record/play/overdubbing for track.</p>
+                      <p>Long press (two seconds or longer) the switch during playback or overdubbing to Undo, long press the switch once again to Redo.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>TRK R/P/S</td>
+                    <td>
+                      <p>Switch between record/play/stop (press the switch twice) for track.</p>
+                      <p>Long press (two seconds or longer) the switch during recording or playback to Undo, long press the switch once again to Redo.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><b>TRK R/P/S(C</b> <small>(PEDAL)</small></td>
+                    <td>
+                      <p>Switch between record/play/stop (press the switch twice) for track.</p>
+                      <p>Long press (two seconds or longer) the switch during recording or playback to Undo, long press the switch once again to Redo.</p>
+                      <p>Long press (two seconds or longer) the switch while stopped to clear the track.</p>
+                    </td>
+                  </tr>
+                  <tr><td>TRK MOM R/P</td><td>Put track in record/play only while you hold down the switch.</td></tr>
+                  <tr><td>TRK PLY/STP</td><td>Switch between play/stop for track.</td></tr>
+                  <tr>
+                    <td>TRK P/S(CLR</td>
+                    <td>
+                      <p>Switch between play/stop for track.</p>
+                      <p>Long press (two seconds or longer) the switch during recording or playback to Undo, long press the switch once again to Redo.</p>
+                      <p>Long press (two seconds or longer) the switch while stopped to clear the track.</p>
+                    </td>
+                  </tr>
+                  <tr><td>TRK STOP</td><td>Stop record/play for track.</td></tr>
+                  <tr>
+                    <td>TRK STOP(TAP</td>
+                    <td>
+                      <p>Stop record/play for track.</p>
+                      <p>Specify the tempo (tap tempo) by pressing the switch several times at the desired interval while stopped.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><b>TRK STOP(CLR</b> <small>(CTL1)</small></td>
+                    <td>
+                      <p>Stop record/play for track.</p>
+                      <p>Long press (two seconds or longer) the switch while stopped to clear the track.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>TRK STOP(T/C</td>
+                    <td>
+                      <p>Stop record/play for track.</p>
+                      <p>Specify the tempo (tap tempo) by pressing the switch several times at the desired interval while stopped.</p>
+                      <p>Long press (two seconds or longer) the switch while stopped to clear the track.</p>
+                    </td>
+                  </tr>
+                  <tr><td>TRK CLEAR</td><td>Clear the track.</td></tr>
+                  <tr><td>TRK UND/RED</td><td>Undo/redo recording or the most recent overdubbing for track.</td></tr>
+                  <tr><td>TRK REVERSE</td><td>Turn reverse play on/off for track.</td></tr>
+                  <tr>
+                    <td>TAP TEMPO</td>
+                    <td>
+                      <p>Press the switch several times at the desired interval to specify the tempo.</p>
+                      <p>Long press the switch (two seconds or longer) to return to the previous tempo.</p>
+                    </td>
+                  </tr>
+                  <tr><td>RHYTHM P/S</td><td>Switch the rhythm between play/stop.</td></tr>
+                  <tr><td>RHYTHM PLAY</td><td>Play the rhythm.</td></tr>
+                  <tr><td>RHYTHM STOP</td><td>Stop playing the rhythm.</td></tr>
+                  <tr><td><b>MEMORY INC</b> <small>(CTL2)</small></td><td>Switch to the next memory.</td></tr>
+                  <tr><td>MEMORY DEC</td><td>Switch to the previous memory.</td></tr>
+                </tbody>
+                <tbody>
+                  <tr>
+                    <th scope="row" rowspan="9">EXP FUNC</th>
+                    <td class="lead" colspan="2">Specifies the function of an expression pedal connected to the STOP/MEMORY SHIFT jack.</td>
+                  </tr>
+                  <tr><td>TRK LEVEL1</td><td>Control the volume of track (LOOP LEVEL) in the range of 0&ndash;200.</td></tr>
+                  <tr><td>TRK LEVEL2</td><td>Control the level in the range of 0&ndash;&ldquo;maximum value,&rdquo; with the LOOP LEVEL setting of track as the maximum value.</td></tr>
+                  <tr><td>TEMPO UP</td><td>Press the pedal to make the tempo faster.</td></tr>
+                  <tr><td>TEMPO DOWN</td><td>Press the pedal to make the tempo slower.</td></tr>
+                  <tr><td>RHYTHM LEV1</td><td>Control the <a href="#rhythm-parameters">&ldquo;LEVEL&rdquo;</a> of memory/RHYTHM in the range of 0&ndash;200.</td></tr>
+                  <tr><td>RHYTHM LEV2</td><td>Control the level in the range of 0&ndash;&ldquo;maximum value,&rdquo; with the &ldquo;LEVEL&rdquo; setting of memory/RHYTHM as the maximum value.</td></tr>
+                  <tr><td>MEMORY LEV1</td><td>Control the <a href="#loop-parameters">&ldquo;LEVEL&rdquo;</a> of memory/LOOP in the range of 0&ndash;200.</td></tr>
+                  <tr><td><b>MEMORY LEV2</b></td><td>Control the level in the range of 0&ndash;&ldquo;maximum value,&rdquo; with the &ldquo;LEVEL&rdquo; setting of memory/LOOP as the maximum value.</td></tr>
+                </tbody>
+                <tbody>
+                  <tr>
+                    <th scope="row" rowspan="41" id="cc-func">CC#80 FUNC<br />CC#81 FUNC<br />CC#82 FUNC<br />CC#83 FUNC<br />CC#84 FUNC<br />CC#85 FUNC<br />CC#86 FUNC<br />CC#87 FUNC</th>
+                    <td class="lead" colspan="2">This sets the functions that are controlled when a control change message (controller numbers 80&ndash;87) is received from an external MIDI device.</td>
+                  </tr>
+                  <tr><td>OFF</td><td>No function is assigned.</td></tr>
+                  <tr><td>TRK PLY/STP</td><td>Switch between play/stop for track.</td></tr>
+                  <tr><td>TRK CLEAR</td><td>Clear the track.</td></tr>
+                  <tr><td>TRK UND/RED</td><td>Undo/redo recording or the most recent overdubbing for track.</td></tr>
+                  <tr><td>TRK REVERSE</td><td>Turn reverse play on/off for track.</td></tr>
+                  <tr><td>TRK LEVEL1</td><td>Control the volume of track (LOOP LEVEL) in the range of 0&ndash;200.</td></tr>
+                  <tr><td>TRK LEVEL2</td><td>Control the level in the range of 0&ndash;&ldquo;maximum value,&rdquo; with the LOOP LEVEL setting of track as the maximum value.</td></tr>
+                  <tr>
+                    <td>TAP TEMPO</td>
+                    <td>
+                      <p>Press the switch several times at the desired interval to specify the tempo.</p>
+                      <p>Long press the switch (two seconds or longer) to return to the previous tempo.</p>
+                    </td>
+                  </tr>
+                  <tr><td>TEMPO UP</td><td>Press the pedal to make the tempo faster.</td></tr>
+                  <tr><td>TEMPO DOWN</td><td>Press the pedal to make the tempo slower.</td></tr>
+                  <tr><td>RHYTHM P/S</td><td>Switch the rhythm between play/stop.</td></tr>
+                  <tr><td>RHYTHM PLAY</td><td>Play the rhythm.</td></tr>
+                  <tr><td>RHYTHM STOP</td><td>Stop playing the rhythm.</td></tr>
+                  <tr><td>RHYTHM LEV1</td><td>Control the <a href="#rhythm-parameters">&ldquo;LEVEL&rdquo;</a> of memory/RHYTHM in the range of 0&ndash;200.</td></tr>
+                  <tr><td>RHYTHM LEV2</td><td>Control the level in the range of 0&ndash;&ldquo;maximum value,&rdquo; with the &ldquo;LEVEL&rdquo; setting of memory/RHYTHM as the maximum value.</td></tr>
+                  <tr><td>MEMORY INC</td><td>Switch to the next memory.</td></tr>
+                  <tr><td>MEMORY DEC</td><td>Switch to the previous memory.</td></tr>
+                  <tr><td>MEMORY LEV1</td><td>Control the <a href="#loop-parameters">&ldquo;LEVEL&rdquo;</a> of memory/LOOP in the range of 0&ndash;200.</td></tr>
+                  <tr><td>MEMORY LEV2</td><td>Control the level in the range of 0&ndash;&ldquo;maximum value,&rdquo; with the &ldquo;LEVEL&rdquo; setting of memory/LOOP as the maximum value.</td></tr>
+                  <tr><td>TRK REVERSE</td><td>Control &ldquo;REVERSE&rdquo; of memory/LOOP.</td></tr>
+                  <tr><td>TRK 1SHOT</td><td>Control &ldquo;1SHOT&rdquo; of memory/LOOP.</td></tr>
+                  <tr><td>REC ACTION</td><td>Control &ldquo;REC ACTION&rdquo; of memory/LOOP.</td></tr>
+                  <tr><td>DUB MODE</td><td>Control &ldquo;DUB MODE&rdquo; of memory/LOOP.</td></tr>
+                  <tr><td>AUTO REC</td><td>Control &ldquo;AUTO REC&rdquo; of memory/LOOP.</td></tr>
+                  <tr><td>TRK START</td><td>Control &ldquo;START&rdquo; of memory/LOOP.</td></tr>
+                  <tr><td>TRK STOP</td><td>Control &ldquo;STOP&rdquo; of memory/LOOP.</td></tr>
+                  <tr><td>FADE TIME</td><td>Control &ldquo;FADE TIME&rdquo; of memory/LOOP.</td></tr>
+                  <tr><td>REVERB</td><td>Control &ldquo;REVERB&rdquo; of memory/RHYTHM.</td></tr>
+                  <tr><td>PATTERN</td><td>Control &ldquo;PATTERN&rdquo; of memory/RHYTHM.</td></tr>
+                  <tr><td>VARIATION</td><td>Control &ldquo;VARIATION&rdquo; of memory/RHYTHM.</td></tr>
+                  <tr><td>VAR.CHANGE</td><td>Control &ldquo;VAR.CHANGE&rdquo; of memory/RHYTHM.</td></tr>
+                  <tr><td>KIT</td><td>Control &ldquo;KIT&rdquo; of memory/RHYTHM.</td></tr>
+                  <tr><td>RHY START</td><td>Control &ldquo;START&rdquo; of memory/RHYTHM.</td></tr>
+                  <tr><td>RHY STOP</td><td>Control &ldquo;STOP&rdquo; of memory/RHYTHM.</td></tr>
+                  <tr><td>REC COUNT</td><td>Control &ldquo;REC COUNT&rdquo; of memory/RHYTHM.</td></tr>
+                  <tr><td>PLAY COUNT</td><td>Control &ldquo;PLAY COUNT&rdquo; of memory/RHYTHM.</td></tr>
+                  <tr><td>RHY FILL</td><td>Control &ldquo;FILL&rdquo; of memory/RHYTHM.</td></tr>
+                  <tr><td>RHY PART1&ndash;4</td><td>Control &ldquo;PART1&rdquo;&ndash;&ldquo;PART4&rdquo; of memory/RHYTHM.</td></tr>
+                  <tr><td>TONE LOW</td><td>Control &ldquo;TONE LOW&rdquo; of memory/RHYTHM.</td></tr>
+                  <tr><td>TONE HIGH</td><td>Control &ldquo;TONE HIGH&rdquo; of memory/RHYTHM.</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h4 id="midi-parameters">MIDI</h4>
+            <div class="table-scroll">
+              <table class="doc-table">
+                <colgroup><col class="c-param" /><col class="c-value" /><col /></colgroup>
+                <thead>
+                  <tr><th>Parameter</th><th>Value <small>(Bold: default)</small></th><th>Explanation</th></tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">RX CTL CH</th><td><b>1</b>&ndash;16</td><td>Specifies the receive channel for messages (control changes) that switch memories or control the RC-5.</td></tr>
+                  <tr>
+                    <th scope="row" rowspan="3">OMNI</th>
+                    <td class="lead" colspan="2">Specifies MIDI omni mode.</td>
+                  </tr>
+                  <tr><td>OFF</td><td>Messages will be received only on the channel specified by the RX CTL CH setting.</td></tr>
+                  <tr><td><b>ON</b></td><td>Messages are received via all MIDI channels, regardless of the RX CTL CH settings.</td></tr>
+                  <tr><th scope="row">RX NOTE CH</th><td>1&ndash;<b>10</b>&ndash;16</td><td>Specifies the receive channel for note messages that play the RC-5&rsquo;s drum sounds.</td></tr>
+                  <tr>
+                    <th scope="row" id="tx-ch">TX CH</th>
+                    <td>1&ndash;16, <b>RX CTL</b></td>
+                    <td>
+                      <p>Specifies the MIDI transmit channel.</p>
+                      <p>If this is &ldquo;RX CTL,&rdquo; the channel will be the same as the RX CTL CH.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row" rowspan="5" id="sync-clock">SYNC CLOCK</th>
+                    <td class="lead" colspan="2">Specifies the input to which the tempo clock is synchronized.</td>
+                  </tr>
+                  <tr>
+                    <td><b>AUTO</b></td>
+                    <td>
+                      <p>The RC-5 will normally operate using its internal tempo, but will synchronize the tempo to MIDI clock if MIDI clock data is being input via the MIDI IN connector or the USB port.</p>
+                      <p>Choose the &ldquo;AUTO&rdquo; setting if using the RC-5 as a slave device.</p>
+                      <p>The priority order is MIDI&gt;USB&gt;internal clock.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>INTERNAL</td>
+                    <td>
+                      <p>The clock uses the tempo specified by the memory.</p>
+                      <p>Choose the &ldquo;INTERNAL&rdquo; setting if you don&rsquo;t want to synchronize the RC-5 to an external device.</p>
+                    </td>
+                  </tr>
+                  <tr><td>USB</td><td>Synchronize to the tempo from the USB port.</td></tr>
+                  <tr><td>MIDI</td><td>Synchronize to the tempo from the MIDI IN connector.</td></tr>
+                  <tr><th scope="row">CLOCK OUT</th><td>OFF, <b>ON</b></td><td>Specifies whether MIDI clock is transmitted (ON) or not transmitted (OFF).</td></tr>
+                  <tr>
+                    <th scope="row" rowspan="4">SYNC START</th>
+                    <td class="lead" colspan="2">Specifies what starts in synchronization when a MIDI start message is received.</td>
+                  </tr>
+                  <tr><td>OFF</td><td>Synchronized start does not occur.</td></tr>
+                  <tr><td><b>ALL</b></td><td>Track + rhythm</td></tr>
+                  <tr><td>RHYTHM</td><td>Rhythm</td></tr>
+                  <tr><th scope="row" id="pc-out">PC OUT</th><td>OFF, <b>ON</b></td><td>Specifies whether program change messages are transmitted (ON) or not transmitted (OFF).</td></tr>
+                  <tr>
+                    <th scope="row" rowspan="5">MIDI THRU<br />USB THRU</th>
+                    <td class="lead" colspan="2">Specifies the connector(s) from which MIDI messages received at the MIDI IN connector or the USB port are output.</td>
+                  </tr>
+                  <tr><td><b>OFF</b></td><td>MIDI messages are not output.</td></tr>
+                  <tr><td>MIDI OUT</td><td>Output from the MIDI OUT connector.</td></tr>
+                  <tr><td>USB OUT</td><td>Output from the USB port.</td></tr>
+                  <tr><td>USB/MIDI</td><td>Output from the USB port and the MIDI OUT connector.</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h4 id="storage">STORAGE</h4>
+            <div class="table-scroll">
+              <table class="doc-table">
+                <colgroup><col class="c-param" /><col class="c-value" /><col /></colgroup>
+                <thead>
+                  <tr><th>Parameter</th><th>Value <small>(Bold: default)</small></th><th>Explanation</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">STORAGE</th>
+                    <td><b>OFF</b>, CONNECT</td>
+                    <td>
+                      <p>Change this from the OFF setting when connecting the RC-5 via USB to your computer.</p>
+                      <p>When a connection with the computer is established, the message &ldquo;CONNECTING...&rdquo; appears.</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h4 id="f-reset">F.RESET</h4>
+            <div class="table-scroll">
+              <table class="doc-table">
+                <colgroup><col class="c-param" /><col class="c-value" /><col /></colgroup>
+                <thead>
+                  <tr><th>Parameter</th><th>Value <small>(Bold: default)</small></th><th>Explanation</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row" rowspan="4">F.RESET</th>
+                    <td class="lead" colspan="2">Specifies the settings that will be returned to their factory-set state.</td>
+                  </tr>
+                  <tr><td><b>MEMORY</b></td><td>Memory 01&ndash;99</td></tr>
+                  <tr><td>SYSTEM</td><td>System settings</td></tr>
+                  <tr><td>MEM+SYS</td><td>Memory 01&ndash;99 and system settings</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--        USB -->
+      <section id="usb-section">
+        <div class="flex-container">
+          <div class="half-container flow">
+            <header>
+              <h2 id="usb">Connecting a Computer via USB</h2>
+            </header>
+            <p>If the RC-5 is connected via USB to your computer, you&rsquo;ll be able to do the following.</p>
+            <ul>
+              <li>Back up the RC-5&rsquo;s data to your computer.</li>
+              <li>Restore (recover) backed-up data from your computer to the RC-5.</li>
+              <li>Use BOSS TONE STUDIO to import or back up loop phrases (audio files).</li>
+            </ul>
+            <div class="box">
+              <strong>To use BOSS TONE STUDIO</strong>
+              <p>Access the following URL, and download BOSS TONE STUDIO.</p>
+              <p class="xref"><a href="https://www.boss.info/support/" target="_blank" rel="noopener">https://www.boss.info/support/</a></p>
+            </div>
+
+            <h3 id="usb-connect">Connecting the RC-5 and Computer</h3>
+            <ol class="steps">
+              <li>
+                <p class="do">Use a commercially available USB cable to connect the RC-5&rsquo;s USB port to your computer&rsquo;s USB port.</p>
+                <figure class="fig-s">
+                  <img src="Images/usb-connection.png" alt="A USB cable from the RC-5's rear USB port to a laptop" />
+                </figure>
+              </li>
+            </ol>
+            <div class="note">
+              <span class="badge">NOTE</span>
+              <ul>
+                <li>Use a USB cable that supports USB 2.0 Hi-Speed.</li>
+                <li>This might not work correctly for some models of computer. Refer to the BOSS website for details on the operating systems that are supported.</li>
+              </ul>
+            </div>
+
+            <h3 id="backup">Backing-Up or Recovering Data</h3>
+            <ol class="steps">
+              <li>
+                <p class="do">Press the [SETUP] button.</p>
+                <p>The SETUP screen appears.</p>
+                <figure class="screen">
+                  <samp class="lcd"><span class="line">SETUP</span><span class="line"><i>&#9656;</i><span>GENERAL</span></span></samp>
+                </figure>
+              </li>
+              <li>
+                <p class="do">Turn the [MEMORY/LOOP LEVEL] knob to select &ldquo;STORAGE,&rdquo; and press the [MEMORY/LOOP LEVEL] knob.</p>
+                <figure class="screen">
+                  <samp class="lcd"><span class="line">STORAGE</span><span class="line"><i>&#9656;</i><span>OFF</span></span></samp>
+                </figure>
+              </li>
+              <li><p class="do">Turn the [MEMORY/LOOP LEVEL] knob to set &ldquo;PREPARING...&rdquo;.</p></li>
+              <li>
+                <p class="do">Use a USB cable to connect the RC-5&rsquo;s USB port to your computer&rsquo;s USB port.</p>
+                <p>When a connection with the computer is established, the message &ldquo;CONNECTING...&rdquo; appears.</p>
+                <p class="ast">USB connection is not possible if the unit is not stopped, or if there is a phrase that has not been saved.</p>
+              </li>
+              <li>
+                <p class="do">Open the BOSS RC-5 drive.</p>
+                <span class="badge os">Windows</span>
+                <p><strong>Within My Computer (or Computer), open &ldquo;BOSS RC-5&rdquo; (or Removable Disk).</strong></p>
+                <span class="badge os">Mac OS</span>
+                <p><strong>On the desktop, open the &ldquo;BOSS RC-5&rdquo; icon.</strong></p>
+              </li>
+              <li>
+                <p class="do">Back up or recover the data.</p>
+                <span class="badge op">Backup</span>
+                <p><strong>Copy the entire &ldquo;ROLAND&rdquo; folder from the BOSS RC-5 drive to your computer.</strong></p>
+                <span class="badge op">Recover</span>
+                <p class="ast">When you execute this operation, the memory currently saved in the RC-5 disappears. Back up in advance.</p>
+                <p><strong>In the BOSS RC-5 drive, delete the &ldquo;ROLAND&rdquo; folder, and then copy the backed-up &ldquo;ROLAND&rdquo; folder from the computer into the BOSS RC-5 drive.</strong></p>
+                <div class="note">
+                  <span class="badge">NOTE</span>
+                  <p>Do not delete the folders in the BOSS RC-5 drive other than when executing the recovery operation.</p>
+                </div>
+              </li>
+              <li>
+                <p class="do">Eject the USB drive.</p>
+                <span class="badge os">Windows</span>
+                <p><strong>In the lower right of your screen, click the [^] icon &rarr; the drive icon, and then click &ldquo;Eject BOSS RC-5.&rdquo;</strong></p>
+                <span class="badge os">Mac OS</span>
+                <p><strong>Drag the &ldquo;BOSS RC-5&rdquo; icon to the trash (&ldquo;Eject&rdquo; icon).</strong></p>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!--        MIDI -->
+      <section id="midi-section">
+        <div class="flex-container">
+          <div class="half-container flow">
+            <header>
+              <h2 id="midi">Controlling Devices via MIDI</h2>
+            </header>
+
+            <h3 class="rule" id="midi-connection">Connection</h3>
+            <p>MIDI cables are connected to these connectors as needed.</p>
+            <table class="mini">
+              <thead><tr><th>Connector</th><th>Explanation</th></tr></thead>
+              <tbody>
+                <tr><td><strong>MIDI IN</strong></td><td>Receives messages from another MIDI device.</td></tr>
+                <tr><td><strong>MIDI OUT</strong></td><td>Transmits messages from this device.</td></tr>
+              </tbody>
+            </table>
+            <p>To make these connections, use TRS/MIDI connecting cables (sold separately: BMIDI-5-35).</p>
+            <figure class="fig-m">
+              <img src="Images/midi-connection.png" alt="TRS/MIDI cables from the RC-5's rear MIDI IN and OUT jacks to an external MIDI device" />
+            </figure>
+
+            <h3 id="midi-settings">MIDI Settings</h3>
+            <p>Use of MIDI requires that the MIDI channels be matched with those of the connected device. Data cannot be transmitted to, nor received from another MIDI device unless the MIDI channels are set properly.</p>
+            <p>For details on each of the MIDI setting parameters, refer to <a href="#midi-parameters">SETUP / MIDI</a>.</p>
+
+            <h4 class="tint" id="midi-out">Controlling an External MIDI Device from the RC-5</h4>
+            <div class="table-scroll">
+              <table class="doc-table">
+                <colgroup><col class="c-name" /><col /></colgroup>
+                <thead>
+                  <tr><th>Overview</th><th>Explanation</th></tr>
+                </thead>
+                <tbody>
+                  <tr class="group"><th scope="colgroup" colspan="2">Transmitting tempo data and data for starting and stopping playback</th></tr>
+                  <tr>
+                    <th scope="row">The RC-5&rsquo;s performance tempo data is transmitted to external MIDI devices as MIDI Clock.</th>
+                    <td>
+                      <p><strong>Setting an external MIDI device to the same tempo as the RC-5</strong></p>
+                      <p>MIDI Clock messages are output from the RC-5 at all times.</p>
+                      <p>Set the external MIDI device beforehand so it is ready to receive MIDI Clock and MIDI Start and Stop messages.</p>
+                      <p>For details, refer to the owner&rsquo;s manual that came with the device.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Playback start and stop operations with the RC-5&rsquo;s switches can be transmitted as MIDI Start and Stop messages.</th>
+                    <td>
+                      <p><strong>Transmitting Start/Stop</strong></p>
+                      <p>A MIDI Start message is transmitted at the moment that recording or playback of the track begins, when tracks had been stopped.</p>
+                      <p>This message is also transmitted when an All Start is carried out.</p>
+                      <p>A MIDI Stop message is transmitted when tracks have stopped. This is also transmitted when All Stop is carried out.</p>
+                      <p class="ast">If you want MIDI synchronized performance to continue even after the track stops, set the RHYTHM parameter <a href="#rhythm-stop">STOP</a> to &ldquo;OFF.&rdquo;</p>
+                      <p class="ast">A track whose <a href="#one-shot">1SHOT</a> setting is &ldquo;ON&rdquo; will not transmit Start/Stop data.</p>
+                    </td>
+                  </tr>
+                  <tr class="group"><th scope="colgroup" colspan="2">Transmitting Program Change messages</th></tr>
+                  <tr>
+                    <th scope="row">When a memory is selected with the RC-5, a Program Change message corresponding to the selected memory number is transmitted simultaneously.</th>
+                    <td>
+                      <p><strong>Transmitting Program Change messages</strong></p>
+                      <p>When memories are switched on the RC-5, a MIDI Program Change message is transmitted to the connected external MIDI device.</p>
+                      <p>You can transmit Program Change messages numbered 01 through 99, corresponding to the 99 individual memories 1&ndash;99.</p>
+                      <ul>
+                        <li>Set <a href="#pc-out">PC OUT</a> to &ldquo;ON&rdquo; beforehand.</li>
+                        <li>Program Change messages 100&ndash;128 cannot be transmitted.</li>
+                        <li>Bank Select MIDI messages (Control Change #0, #32) cannot be transmitted.</li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h4 class="tint" id="midi-in">Controlling the RC-5 from an External MIDI Device</h4>
+            <div class="table-scroll">
+              <table class="doc-table">
+                <colgroup><col class="c-name" /><col /></colgroup>
+                <thead>
+                  <tr><th>Overview</th><th>Explanation</th></tr>
+                </thead>
+                <tbody>
+                  <tr class="group"><th scope="colgroup" colspan="2">Receiving tempo data and data for starting and stopping playback</th></tr>
+                  <tr>
+                    <th scope="row">The RC-5 will synchronize to the tempo of MIDI Clock data from an external MIDI device.</th>
+                    <td>
+                      <p><strong>Setting the RC-5 to the same tempo as an external MIDI device</strong></p>
+                      <p>Make settings on your external MIDI device so that it will transmit MIDI Clock and MIDI Start/Stop data. For details, refer to the owner&rsquo;s manual of your device.</p>
+                      <p>Set the RC-5&rsquo;s <a href="#sync-clock">SYNC CLOCK</a> to &ldquo;AUTO.&rdquo;</p>
+                      <p class="ast">You can&rsquo;t switch the tempo during recording.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Start/stop data will be received from an external MIDI device to play/stop the RC-5.</th>
+                    <td>
+                      <p><strong>Receiving MIDI Start</strong></p>
+                      <p>When MIDI Start (FA) is received, all tracks will play (All Start).</p>
+                    </td>
+                  </tr>
+                  <tr class="group"><th scope="colgroup" colspan="2">Switching memories</th></tr>
+                  <tr>
+                    <th scope="row">The RC-5&rsquo;s memories switch simultaneously upon receipt of corresponding Program Change messages from external MIDI devices.</th>
+                    <td>
+                      <p><strong>Switching memories</strong></p>
+                      <p>You can switch the RC-5&rsquo;s memories with Program Change messages from external MIDI devices.</p>
+                      <p>The RC-5 can receive Program Change messages numbered 01 through 99, corresponding to the 99 individual memories 1&ndash;99.</p>
+                      <p class="ast">Program Change messages 100&ndash;128 cannot be received.</p>
+                      <p class="ast">Even if received, Bank Select MIDI messages (Control Change #0, #32) are disregarded.</p>
+                    </td>
+                  </tr>
+                  <tr class="group"><th scope="colgroup" colspan="2">Receiving Control Change messages</th></tr>
+                  <tr>
+                    <th scope="row">The RC-5 can be controlled using Control Change messages from external MIDI devices.</th>
+                    <td>
+                      <p><strong>Receiving Control Change messages</strong></p>
+                      <p>You can use Control Change messages from an external MIDI device to control functions that would be difficult to control using the RC-5&rsquo;s own controllers.</p>
+                      <p>Select the parameter you wish to control using the CONTROL settings from <a href="#cc-func">&ldquo;CC#80 FUNC&rdquo; to &ldquo;CC#87 FUNC&rdquo;</a>.</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3 id="two-units">Connecting Two RC-5 Units</h3>
+            <p>Two RC-5 units can be synchronized after connecting them together using a MIDI cable.</p>
+            <p class="ast">To make this connection, use a stereo mini-plug &harr; stereo mini-plug cable.</p>
+            <figure class="fig-m">
+              <img src="Images/two-units.png" alt="MIDI OUT of the master RC-5 cabled to MIDI IN of the slave RC-5" />
+            </figure>
+            <ul>
+              <li>Begin recording on the master RC-5 unit&rsquo;s tracks.</li>
+              <li>The slave RC-5 unit starts in synchronization when the master RC-5 unit&rsquo;s track starts playing.</li>
+              <li>The track on the slave unit plays back at the tempo set in the master unit&rsquo;s memory.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!--        APPENDIX -->
+      <section id="appendix-section">
+        <div class="flex-container">
+          <div class="half-container flow">
+            <header>
+              <h2 id="appendix">Appendix</h2>
+            </header>
+
+            <h3 id="troubleshooting">Troubleshooting</h3>
+            <div class="table-scroll">
+              <table class="doc-table">
+                <colgroup><col class="c-param" /><col style="width: 32%" /><col /></colgroup>
+                <thead>
+                  <tr><th>Problem</th><th>Items to Check</th><th>Action</th></tr>
+                </thead>
+                <tbody>
+                  <tr class="group"><th scope="colgroup" colspan="3">Problems with sound</th></tr>
+                  <tr>
+                    <th scope="row" rowspan="7">No sound/low volume</th>
+                    <td>Is the RC-5 properly connected to other devices?</td>
+                    <td>Check the connections to other devices (<a href="#connecting">Connecting the Equipment</a>).</td>
+                  </tr>
+                  <tr><td>Is the power to the connected amp or mixer not turned on, or is the volume turned down?</td><td>Check the settings for connected devices.</td></tr>
+                  <tr><td>Are the connection cables shorted?</td><td>Try replacing the connection cable.</td></tr>
+                  <tr>
+                    <td rowspan="3">Is the track level set correctly?</td>
+                    <td>Use the [MEMORY/LOOP LEVEL] knob to adjust the level.</td>
+                  </tr>
+                  <tr><td>Check the &ldquo;LEVEL&rdquo; of memory/LOOP setting (<a href="#loop-parameters">LOOP</a>).</td></tr>
+                  <tr><td>Check whether an external expression pedal might have been used to adjust the level (<a href="#control">CONTROL</a>).</td></tr>
+                  <tr><td>Has anything been recorded to the track?</td><td>Check the [MEMORY] button to see whether the track has been recorded. If the [MEMORY] button is unlit, nothing has been recorded.</td></tr>
+                  <tr>
+                    <th scope="row">No rhythm sound</th>
+                    <td>Is RHYTHM LEVEL set correctly?</td>
+                    <td>Check the &ldquo;LEVEL&rdquo; of memory/RHYTHM setting (<a href="#rhythm-parameters">RHYTHM</a>).</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Sound is missing from the beginning and end of the recorded track</th>
+                    <td colspan="2">To prevent noise, a fade-in and a fade-out are applied at the beginning and end of a recording. In some cases, it may sound as if some of the sound has been left out.</td>
+                  </tr>
+                </tbody>
+                <tbody>
+                  <tr class="group"><th scope="colgroup" colspan="3">Problems with operation</th></tr>
+                  <tr>
+                    <th scope="row">Memories not switching</th>
+                    <td>Is something other than the Play screen appearing in the display?</td>
+                    <td>You cannot switch memories while any screen other than the Play screen is displayed. Press the [MEMORY] button to return to the Play screen.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Recording/overdubbing stops before finishing</th>
+                    <td>Is there insufficient memory remaining?</td>
+                    <td>If memory is insufficient, <a href="#clear">clear any unneeded memories</a> before recording or overdubbing.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" rowspan="2">Playback tempo not changing</th>
+                    <td>Is recording or overdubbing in progress?</td>
+                    <td>You cannot change the memory tempo during recording or overdubbing. Change the tempo while the performance is stopped or being played back.</td>
+                  </tr>
+                  <tr>
+                    <td>Is the RC-5 synchronized via MIDI?</td>
+                    <td>
+                      <p>If MIDI clock is being received via the MIDI IN connector or the USB port, the RC-5 will synchronize its tempo to MIDI clock.</p>
+                      <p>If you don&rsquo;t want to synchronize with an external device, set <a href="#sync-clock">SYNC CLOCK</a> to &ldquo;INTERNAL.&rdquo;</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row" rowspan="4">MIDI messages not being transmitted/received</th>
+                    <td>Could there be a short in the MIDI cable?</td>
+                    <td>Try replacing the MIDI cable.</td>
+                  </tr>
+                  <tr><td>Is the external MIDI device properly connected?</td><td>Check the connections to the external MIDI device.</td></tr>
+                  <tr><td>Are the MIDI channels matched to those of the external MIDI device?</td><td>Confirm that both devices are set to the same MIDI channels.</td></tr>
+                  <tr><td>If transmitting from the RC-5, have you made the necessary settings for transmission?</td><td>Check the <a href="#tx-ch">TX CH</a> (transmit channel) setting and the <a href="#pc-out">PC OUT</a> (program change message transmit) on/off setting.</td></tr>
+                </tbody>
+                <tbody>
+                  <tr class="group"><th scope="colgroup" colspan="3">Problems with USB</th></tr>
+                  <tr>
+                    <th scope="row" rowspan="3">Unable to communicate with computer</th>
+                    <td>Is the USB cable properly connected?</td>
+                    <td>Check the connection (<a href="#usb-connect">Connecting the RC-5 and Computer</a>).</td>
+                  </tr>
+                  <tr><td>(If exchanging files via USB with your computer) Could &ldquo;STORAGE&rdquo; be OFF?</td><td>In the procedure <a href="#backup">&ldquo;Backing-Up or Recovering Data&rdquo;</a>, set STORAGE to &ldquo;PREPARING...&rdquo;.</td></tr>
+                  <tr>
+                    <td>Could you be editing a memory?</td>
+                    <td>
+                      <p>USB connection is not possible if there is an unsaved memory.</p>
+                      <p><a href="#write">Save the memory</a>, and then try USB connection again.</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3 id="errors">Error Message List</h3>
+            <div class="table-scroll">
+              <table class="doc-table">
+                <colgroup><col class="c-param" /><col style="width: 42%" /><col /></colgroup>
+                <thead>
+                  <tr><th>Message</th><th>Meaning</th><th>Action</th></tr>
+                </thead>
+                <tbody>
+                  <tr class="group"><th scope="colgroup" colspan="3">LOOPER</th></tr>
+                  <tr>
+                    <th scope="row">DATA DAMAGED</th>
+                    <td>Data may have been damaged.</td>
+                    <td>In the <a href="#factory-reset">factory reset</a> function, choose &ldquo;MEM+SYS&rdquo; to return the RC-5 to its factory settings.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">DATA READ ERR<br />DATA WRITE ERR</th>
+                    <td>A problem has occurred with the content of the RC-5&rsquo;s memory.</td>
+                    <td>Consult your Roland dealer or local Roland Service.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">DATA TOO LONG</th>
+                    <td>Playback is not possible because the recording time or audio file is too long.</td>
+                    <td>The recording time or audio file length must not exceed 1.5 hours.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">DATA TOO SHORT</th>
+                    <td>Playback is not possible because the recording time or audio file is too short.</td>
+                    <td>The recording time or audio file length must be at least 0.1 seconds.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">EVENT FULL</th>
+                    <td>Further overdubbing is not possible.</td>
+                    <td><a href="#write">Save the memory</a>.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" rowspan="2">MEMORY FULL</th>
+                    <td>
+                      <p>The recorded time of one track exceeded 1.5 hours (approximately).</p>
+                      <p>No further recording is possible on the current track.</p>
+                    </td>
+                    <td><a href="#write">Save the memory</a>. If you want to continue recording, select a different memory.</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>The total recording time of all memories exceeded 13 hours (approximately).</p>
+                      <p>No further recording is possible.</p>
+                    </td>
+                    <td><a href="#clear">Clear unneeded memories</a>.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">NOT EMPTY</th>
+                    <td>You are attempting to overwrite-save onto a memory in which a phrase is already recorded.</td>
+                    <td>Either <a href="#clear">clear the currently selected memory</a>, or select an empty memory.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">TEMPO TOO FAST</th>
+                    <td>Since the track is being played at a much faster tempo than when it was recorded, it might not play back correctly.</td>
+                    <td rowspan="2">Adjust the tempo.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">TEMPO TOO SLOW</th>
+                    <td>Since the track is being played at a much slower tempo than when it was recorded, it might not play back correctly.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" rowspan="3">TOO BUSY<br />TOO BUSY OMSG</th>
+                    <td rowspan="3">
+                      <p>The RC-5 could not process the data completely.</p>
+                      <p><strong>For &ldquo;TOO BUSY OMSG&rdquo;:</strong><br />Since you attempted to apply the loop FX to a phrase that was set to a significantly slower tempo than when it was recorded, the data could not be processed quickly enough.</p>
+                    </td>
+                    <td>
+                      <p>Lower the performance tempo.</p>
+                      <p><strong>In the case of &ldquo;TOO BUSY OMSG,&rdquo;</strong> return to the tempo that was used during recording.</p>
+                    </td>
+                  </tr>
+                  <tr><td>Save the current content to a memory.</td></tr>
+                  <tr><td>If this appears frequently, <a href="#backup">back up the data</a> to your computer, then execute <a href="#factory-reset">factory reset</a> &ldquo;MEM+SYS,&rdquo; and then recover the data.</td></tr>
+                  <tr>
+                    <th scope="row">UNDEFINED ERR</th>
+                    <td>An error of unknown cause has occurred during recording, playback, or overdubbing.</td>
+                    <td>Consult your Roland dealer or local Roland Service.</td>
+                  </tr>
+                </tbody>
+                <tbody>
+                  <tr class="group"><th scope="colgroup" colspan="3">MIDI</th></tr>
+                  <tr>
+                    <th scope="row">BUFFER FULL</th>
+                    <td>An excessive volume of messages were received and could not be processed properly.</td>
+                    <td>Reduce the number or size of MIDI messages transmitted to the RC-5.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">OFFLINE</th>
+                    <td>There is a problem with the MIDI cable connection.</td>
+                    <td>Check to make sure the cable has not been disconnected and that there is no short in the cable.</td>
+                  </tr>
+                </tbody>
+                <tbody>
+                  <tr class="group"><th scope="colgroup" colspan="3">Others</th></tr>
+                  <tr>
+                    <th scope="row">BATTERY LOW</th>
+                    <td>The battery has run down.</td>
+                    <td rowspan="2">Replace the batteries, or use an AC adaptor.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">BATTERY LOW!!<br />STOP ALL</th>
+                    <td>
+                      <p>Because the battery has run down, the unit cannot function correctly.</p>
+                      <p>All operations of the RC-5 have stopped.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">MEMORY FULL</th>
+                    <td>This unit&rsquo;s memory is insufficient. If this message appears, recording or overdubbing might end mid-way.</td>
+                    <td><a href="#clear">Clear unneeded memories</a>, and then try recording again.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">STOP LOOPER</th>
+                    <td>The operation is not possible during recording, playback, or overdubbing.</td>
+                    <td>Stop before performing the operation.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">STOP ALL</th>
+                    <td>The operation is not possible during recording, playback, overdubbing, or rhythm playback.</td>
+                    <td>Stop all of these before performing the operation.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">STOP ALL&amp;SAVE</th>
+                    <td>The operation is not possible during recording, playback, overdubbing, or rhythm playback when there is also unsaved data.</td>
+                    <td>Stop all of these, and then <a href="#write">save the memory</a>.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" rowspan="2">UNSUPPORTED FILE</th>
+                    <td rowspan="2">This audio file is unplayable.</td>
+                    <td>Check the format of the audio file.</td>
+                  </tr>
+                  <tr><td>To import an audio file into the RC-5, use &ldquo;BOSS TONE STUDIO.&rdquo;</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3 id="factory-reset">Restoring the Factory Default Settings (Factory Reset)</h3>
+            <p>Not only can you return all of the settings to the values in effect when the RC-5 was shipped from the factory, you can also specify the items to be reset.</p>
+            <p class="ast">When you execute &ldquo;Factory Reset,&rdquo; the settings you made will be lost. In advance, back up important data to your computer.</p>
+            <ol class="steps">
+              <li>
+                <p class="do">Press the [SETUP] button.</p>
+                <p>The SETUP screen appears.</p>
+                <figure class="screen">
+                  <samp class="lcd"><span class="line">SETUP</span><span class="line"><i>&#9656;</i><span>GENERAL</span></span></samp>
+                </figure>
+              </li>
+              <li>
+                <p class="do">Turn the [MEMORY/LOOP LEVEL] knob to select &ldquo;F.RESET,&rdquo; and press the [MEMORY/LOOP LEVEL] knob.</p>
+                <figure class="screen">
+                  <samp class="lcd"><span class="line">F.RESET</span><span class="line"><i>&#9656;</i><span>MEMORY</span></span></samp>
+                </figure>
+              </li>
+              <li>
+                <p class="do">Turn the [MEMORY/LOOP LEVEL] knob to specify the settings that will be returned to their factory-set state, and press the [MEMORY/LOOP LEVEL] knob.</p>
+                <table class="mini">
+                  <thead><tr><th>Value</th><th>Explanation</th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>MEMORY</strong></td><td>Memory 1&ndash;99</td></tr>
+                    <tr><td><strong>SYSTEM</strong></td><td>System settings</td></tr>
+                    <tr><td><strong>MEM+SYS</strong></td><td>Memory 1&ndash;99 and system settings</td></tr>
+                  </tbody>
+                </table>
+                <p>A confirmation message &ldquo;ARE YOU OK?&rdquo; appears.</p>
+                <p class="ast">If you decide not to execute the factory reset, select &ldquo;CANCEL&rdquo; and press the [MEMORY/LOOP LEVEL] knob.</p>
+              </li>
+              <li>
+                <p class="do">Turn the [MEMORY/LOOP LEVEL] knob to select &ldquo;OK,&rdquo; and press the [MEMORY/LOOP LEVEL] knob.</p>
+                <p>The factory reset is executed.</p>
+                <p class="ast">Do not turn off the power while the &ldquo;EXECUTING...&rdquo; message is shown.</p>
+                <p>Once the factory reset is complete, you are returned to the Play screen.</p>
+              </li>
+            </ol>
+
+            <h3 id="battery">Changing the Battery</h3>
+            <figure class="fig-s">
+              <img
+                src="Images/battery.png"
+                alt="The pedal hinged open over the battery compartment, with parts numbered: 1 thumbscrew, 2 pedal, 3 battery housing, 4 battery snap, 5 coil spring, 6 spring base, 7 battery snap cord, 8 guide bush hole; a 9 V battery beside it"
+              />
+            </figure>
+            <ol class="steps">
+              <li>
+                <p class="do">Hold down the pedal and loosen the thumbscrew <span class="n sq">1</span>, then open the pedal <span class="n sq">2</span> upward.</p>
+                <p class="ast">The pedal can be opened without detaching the thumbscrew completely.</p>
+              </li>
+              <li><p class="do">Remove the old battery from the battery housing <span class="n sq">3</span>, and remove the battery snap <span class="n sq">4</span> connected to it.</p></li>
+              <li>
+                <p class="do">Connect the battery snap to the new battery, and place the battery inside the battery housing.</p>
+                <p class="ast">Be sure to carefully observe the battery&rsquo;s polarity (+ versus &minus;).</p>
+              </li>
+              <li>
+                <p class="do">Slip the coil spring <span class="n sq">5</span> onto the spring base <span class="n sq">6</span> on the back of the pedal, and then close the pedal.</p>
+                <p class="ast">Carefully avoid getting the battery snap cord <span class="n sq">7</span> caught in the pedal, coil spring, and battery housing.</p>
+              </li>
+              <li><p class="do">Insert the thumbscrew into the guide bush hole <span class="n sq">8</span> and tighten it securely.</p></li>
+            </ol>
+
+            <h3 id="specifications">Main Specifications</h3>
+            <div class="table-scroll">
+              <table class="doc-table">
+                <colgroup><col class="c-name" /><col /></colgroup>
+                <tbody>
+                  <tr><th scope="row">Sampling Frequency</th><td>44.1 kHz</td></tr>
+                  <tr><th scope="row">AD/DA Conversion</th><td>32 bits</td></tr>
+                  <tr><th scope="row">Processing</th><td>32-bit floating point</td></tr>
+                  <tr><th scope="row">Recording/Playback</th><td>Number of Tracks: 1<br />Data Format: WAV (44.1 kHz, 32-bit float, stereo)<br />Maximum Recording Time: Approx. 1.5 hours (1 track), Approx. 13 hours (total of all memories)</td></tr>
+                  <tr><th scope="row">Rhythm Type</th><td>57 Patterns x 2 Variations</td></tr>
+                  <tr><th scope="row">Rhythm Kit</th><td>7 types</td></tr>
+                  <tr><th scope="row">Effect</th><td>Reverb (only for rhythm part)</td></tr>
+                  <tr><th scope="row">Memory</th><td>99</td></tr>
+                  <tr><th scope="row">Nominal Input Level</th><td>INPUT A/MONO, B: -20 dBu</td></tr>
+                  <tr><th scope="row">Input Impedance</th><td>INPUT A/MONO, B: 1 M&Omega;</td></tr>
+                  <tr><th scope="row">Nominal Output Level</th><td>OUTPUT A/MONO, B: -20 dBu</td></tr>
+                  <tr><th scope="row">Output Impedance</th><td>OUTPUT A/MONO, B: 1 k&Omega;</td></tr>
+                  <tr><th scope="row">Recommended Load Impedance</th><td>OUTPUT A/MONO, B: 10 k&Omega; or greater</td></tr>
+                  <tr><th scope="row">Bypass</th><td>Buffered bypass</td></tr>
+                  <tr><th scope="row">Display</th><td>Graphic LCD (96 x 32 dots, RGB backlit LCD)</td></tr>
+                  <tr><th scope="row">Connectors</th><td>INPUT A/MONO, B jacks: 1/4-inch phone type<br />OUTPUT A/MONO, B jacks: 1/4-inch phone type<br />STOP/MEMORY jack: 1/4-inch TRS phone type<br />USB port: USB B type<br />MIDI (IN, OUT) jacks: stereo miniature type<br />DC IN jack</td></tr>
+                  <tr><th scope="row">Power Supply</th><td>Alkaline battery (9 V, 6LR61 or 6LF22)<br />AC adaptor (PSA series: sold separately)</td></tr>
+                  <tr><th scope="row">Current Draw</th><td>170 mA</td></tr>
+                  <tr><th scope="row">Expected battery life under continuous use</th><td>These figures will vary depending on the actual conditions of use.<br />Alkaline: Approx. 2 hours</td></tr>
+                  <tr><th scope="row">Dimensions</th><td>73 (W) x 129 (D) x 56 (H) mm<br />2-7/8 (W) x 5-1/8 (D) x 2-1/4 (H) inches</td></tr>
+                  <tr><th scope="row">Weight</th><td>405 g/15 oz (excluding battery)<br />450 g/1 lb (including battery)</td></tr>
+                  <tr><th scope="row">Accessories</th><td>Leaflet (&ldquo;USING THE UNIT SAFELY,&rdquo; &ldquo;IMPORTANT NOTES,&rdquo; and &ldquo;Information&rdquo;)<br />Alkaline battery (9 V, 6LR61 or 6LF22)</td></tr>
+                  <tr><th scope="row">Options (sold separately)</th><td>AC adaptor: PSA-S series<br />Footswitch: FS-5U<br />Dual Footswitch: FS-6, FS-7<br />Expression Pedal: FV-500H, FV-500L, EV-30, Roland EV-5<br />TRS/MIDI connecting cable: BMIDI-5-35, BMIDI-1-35, BMIDI-2-35, BCC-1-3535, BCC-2-3535</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="ast">0 dBu = 0.775 Vrms</p>
+            <p class="ast">This document explains the specifications of the product at the time that the document was issued. For the latest information, refer to the Roland website.</p>
+            <div class="om-note">
+              <h4 class="plain" id="conformity">Supplier&rsquo;s Declaration of Conformity (for the USA)</h4>
+              <p><strong>Compliance Information Statement</strong></p>
+              <dl class="pairs">
+                <dt>Model Name:</dt><dd>RC-5</dd>
+                <dt>Type of Equipment:</dt><dd>Guitar Effects</dd>
+                <dt>Responsible Party:</dt><dd>Roland Corporation U.S.</dd>
+                <dt>Address:</dt><dd>5100 S. Eastern Avenue Los Angeles, CA 90040-2938</dd>
+                <dt>Telephone:</dt><dd>(323) 890-3700</dd>
+              </dl>
+              <p><em>From the Owner&rsquo;s Manual; the Reference Manual doesn&rsquo;t print it.</em></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--        IMPORTANT NOTES -->
+      <section id="important-notes-section">
+        <div class="flex-container">
+          <div class="half-container flow fine-print">
+            <header>
+              <h2 id="important-notes">IMPORTANT NOTES</h2>
+            </header>
+            <h4 class="plain">Power Supply: Use of Batteries</h4>
+            <ul>
+              <li>Batteries should always be installed or replaced before connecting any other devices. This way, you can prevent malfunction and damage.</li>
+              <li>If operating this unit on batteries, please use alkaline batteries.</li>
+              <li>Even if batteries are installed, the unit will turn off if you connect or disconnect the power cord from the AC outlet while the unit is turned on, or if you connect or disconnect the AC adaptor from the unit. When this occurs, unsaved data may be lost. You must turn off the power before you connect or disconnect the power cord or AC adaptor.</li>
+              <li class="om-note">If you handle batteries improperly, you risk explosion and fluid leakage. Make sure that you carefully observe all of the items related to batteries that are listed in &ldquo;USING THE UNIT SAFELY&rdquo; and &ldquo;IMPORTANT NOTES&rdquo; (supplied on a separate sheet). <em>From the Owner&rsquo;s Manual.</em></li>
+            </ul>
+            <h4 class="plain">Repairs and Data</h4>
+            <ul>
+              <li>Before sending the unit away for repairs, be sure to make a backup of the data stored within it; or you may prefer to write down the needed information. Although we will do our utmost to preserve the data stored in your unit when we carry out repairs, in some cases, such as when the memory section is physically damaged, restoration of the stored content may be impossible. Roland assumes no liability concerning the restoration of any stored content that has been lost.</li>
+            </ul>
+            <h4 class="plain">Additional Precautions</h4>
+            <ul>
+              <li>Any data stored within the unit can be lost as the result of equipment failure, incorrect operation, etc. To protect yourself against the irretrievable loss of data, try to make a habit of creating regular backups of the data you&rsquo;ve stored in the unit.</li>
+              <li>Roland assumes no liability concerning the restoration of any stored content that has been lost.</li>
+              <li>Never strike or apply strong pressure to the display.</li>
+              <li>When disposing of the packing carton or cushioning material in which this unit was packed, you must observe the waste disposal regulations that apply to your locality.</li>
+              <li>Do not use connection cables that contain a built-in resistor.</li>
+            </ul>
+            <h4 class="plain">Intellectual Property Right</h4>
+            <ul>
+              <li>It is forbidden by law to make an audio recording, video recording, copy or revision of a third party&rsquo;s copyrighted work (musical work, video work, broadcast, live performance, or other work), whether in whole or in part, and distribute, sell, lease, perform or broadcast it without the permission of the copyright owner.</li>
+              <li>Do not use this product for purposes that could infringe on a copyright held by a third party. We assume no responsibility whatsoever with regard to any infringements of third-party copyrights arising through your use of this product.</li>
+              <li>The copyright of content in this product (the sound waveform data, style data, accompaniment patterns, phrase data, audio loops and image data) is reserved by Roland Corporation.</li>
+              <li>Purchasers of this product are permitted to utilize said content (except song data such as Demo Songs) for the creating, performing, recording and distributing original musical works.</li>
+              <li>Purchasers of this product are NOT permitted to extract said content in original or modified form, for the purpose of distributing recorded medium of said content or making them available on a computer network.</li>
+              <li>This product contains eParts integrated software platform of eSOL Co., Ltd. eParts is a trademark of eSOL Co., Ltd. in Japan.</li>
+              <li>
+                <p>This product includes third party open source software.</p>
+                <p class="license">
+                  Copyright &copy; 2009-2019 ARM Limited. All rights reserved.<br />
+                  Licensed under the Apache License, Version 2.0 (the &ldquo;License&rdquo;);<br />
+                  You may obtain a copy of the License at<br />
+                  <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener">http://www.apache.org/licenses/LICENSE-2.0</a><br />
+                  Copyright &copy; 2016, Freescale Semiconductor, Inc.<br />
+                  Copyright 2016-2019 NXP<br />
+                  All rights reserved.<br />
+                  Licensed under the BSD-3-Clause<br />
+                  You may obtain a copy of the License at<br />
+                  <a href="https://opensource.org/licenses/BSD-3-Clause" target="_blank" rel="noopener">https://opensource.org/licenses/BSD-3-Clause</a>
+                </p>
+              </li>
+              <li>Roland, BOSS, and LOOP STATION are either registered trademarks or trademarks of Roland Corporation in the United States and/or other countries.</li>
+              <li>Company names and product names appearing in this document are registered trademarks or trademarks of their respective owners.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
