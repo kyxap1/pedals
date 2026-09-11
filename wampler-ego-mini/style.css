@@ -239,7 +239,9 @@ section + section {
   }
 }
 
-@media (min-width: 900px) {
+/* 901, not 900: both queries match at exactly 900px, and this one comes later,
+   so at that width the nav is hidden and the mobile TOC would be too */
+@media (min-width: 901px) {
   #toc-mobile {
     display: none;
   }
