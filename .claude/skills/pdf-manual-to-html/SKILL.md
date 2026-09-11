@@ -205,19 +205,23 @@ what the pedal is, e.g. `Compressor`.
 - `scripts/check_page.py <pedal-dir>/index.html` — dangling TOC anchors,
   missing images and unreferenced files in `Images/`; none of them shows in a
   screenshot.
-- Screenshot the whole page with headless Chrome at a desktop and a mobile
-  width, raising the height until the footer is in frame:
+- Screenshot the whole page with `scripts/screenshot.mjs` at a desktop and a
+  mobile width. It drives Chrome over CDP and captures true full-page height
+  in one shot — don't use `chrome --headless --screenshot --window-size=W,H`
+  by hand: it crops to exactly W×H instead of the page's real height, and it
+  has no timeout flag, so a bad size hangs with no way to detect it.
 
   ```
   mkdir -p _cctmp.shot
-  "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless \
-    --hide-scrollbars --window-size=1400,4000 \
-    --screenshot="$PWD/_cctmp.shot/desktop.png" "file://$PWD/<pedal-dir>/index.html"
+  node .claude/skills/pdf-manual-to-html/scripts/screenshot.mjs \
+    "file://$PWD/<pedal-dir>/index.html" "$PWD/_cctmp.shot/desktop.png" 1400
+  node .claude/skills/pdf-manual-to-html/scripts/screenshot.mjs \
+    "file://$PWD/<pedal-dir>/index.html" "$PWD/_cctmp.shot/mobile.png" 390
   ```
 
-  Repeat with `--window-size=800,4000` → `mobile.png`. Compare desktop against
-  the PDF `pages/`: every section present, figures in the right place, nothing
-  garbled. On mobile: nav gone, mobile TOC shown, no horizontal scroll.
+  Compare desktop against the PDF `pages/`: every section present, figures in
+  the right place, nothing garbled. On mobile: nav gone, mobile TOC shown, no
+  horizontal scroll.
 - The palette works on both light surroundings and the reversed-out header.
 - Delete `_cctmp.extract/` and `_cctmp.shot/` so they never get committed.
 
