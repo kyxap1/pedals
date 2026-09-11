@@ -124,6 +124,10 @@ has the full checklist and CSS snippets):
   row of knob shots. Prefer embedded images from `raw/`; if they are sliced,
   vector or absent, crop from the `pages/` renders.
 - **Image Validation**: PDF extraction tools often extract alpha masks or technical layers as separate grayscale/black-and-white images. When selecting any figure or header image, visually verify (or use `file` to check for 3-channel RGB) that you have chosen the full-color image, not a single-channel artifact.
+- **Accurate Extraction**: Never crop images blindly based on text coordinates (OCR boxes) alone. Always visually inspect the rendered page or source image before cropping to guarantee no part of the diagram is cut off.
+- **Image Purity**: Extracted images must contain only graphics. Any body text present in the original image must be transcribed into HTML and removed or masked out from the image (e.g. painted over with the background color), except for integral labels (like numbered pointers).
+- **Semantic Flow over Print Layout**: Do not blindly copy print layouts if they break HTML semantics. Never interrupt continuous lists (`<ol>` or `<ul>`) with images. Group related images above or below the continuous text block instead.
+- **Multi-column Layout Caution**: Be careful when placing wide elements (`column-span: all`) inside multi-column text containers (like `.half-container`). If placing images causes unnatural text flow or forces list items into the wrong columns, apply `.no-columns` to that specific section to restore a linear, readable flow.
 - **PDF Page Index vs. Printed Numbers**: The printed page numbers in a manual rarely match the actual physical page index in the PDF file (due to cover pages and TOCs). When cropping images or extracting text by page number, you must verify the actual PDF page index (e.g. using `pdftotext -f N -l N`) so you don't accidentally crop text from adjacent sections.
 - Copy across only the images the page actually shows, and rename each one for
   what it depicts (`setting-1.png`, `ego-mini-header.jpg`). `pdfimages` dumps
