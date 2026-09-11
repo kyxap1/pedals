@@ -45,9 +45,13 @@ pedals/
     </nav>
     <main id="main-doc">
       <div id="masthead">
-        <!-- the wordmark cropped out of the cover render, over the cover's ground -->
-        <h1><img src="Images/wordmark.png" alt="&lt;Brand&gt; &lt;Model&gt;" /></h1>
-        <img src="Images/header.jpg" alt="&lt;Brand&gt; &lt;Model&gt; User Guide" />
+        <div class="flex-container">
+          <div class="half-container no-columns">
+            <!-- the wordmark cropped out of the cover render, over the cover's ground -->
+            <h1><img src="Images/wordmark.png" alt="&lt;Brand&gt; &lt;Model&gt;" /></h1>
+            <img src="Images/header.jpg" alt="&lt;Brand&gt; &lt;Model&gt; User Guide" />
+          </div>
+        </div>
       </div>
       <section id="welcome">
         <div class="flex-container">
@@ -147,9 +151,28 @@ itself and lets a long paragraph split across the gutter, which is what keeps
 them even.
 
 Things that shouldn't live inside one column get `column-span: all` — the
-section title, a figure grid, a wide table. Things that must not be split get
-`break-inside: avoid` (callout boxes, figures), and a sub-heading gets
-`break-after: avoid` so it never sits alone at the foot of a column.
+section title, a figure grid, a wide table.
+
+**Controlling Column Breaks & Logical Blocks:**
+- When using multi-column layout, the browser will balance content by splitting it arbitrarily. To prevent related text from breaking in half, you **must wrap logical blocks** (e.g., an `h3` plus its following paragraphs, a FAQ question plus its answer) in a `<div class="keep-together">` wrapper.
+- List items should never split in half. Add `li { break-inside: avoid; }` to the stylesheet. Do *not* restrict the entire `ul` or `ol` though, as long lists should be allowed to flow across multiple columns.
+- Sub-headings should receive `break-after: avoid` so they never sit alone at the foot of a column.
+
+```css
+.keep-together { break-inside: avoid; }
+li { break-inside: avoid; }
+h3, h4, h5, h6 { break-after: avoid; }
+```
+
+**Disabling Columns for Short Sections:**
+If a section contains very little text (e.g., under 10–14 lines like an "About this manual" or "Support" blurb), multi-column balancing will awkwardly split the single paragraph in half or create a tiny isolated column. For these short sections, explicitly disable columns so the text flows naturally at full width:
+
+```html
+<div class="half-container no-columns">...</div>
+```
+```css
+.no-columns { columns: auto !important; }
+```
 
 ## Multiple PDFs (revisions / addenda / quick-starts)
 

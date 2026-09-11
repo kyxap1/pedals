@@ -123,6 +123,8 @@ has the full checklist and CSS snippets):
 - Figures: `<img>` at `width: 100%` in a `.grid-wrapper` when the manual shows a
   row of knob shots. Prefer embedded images from `raw/`; if they are sliced,
   vector or absent, crop from the `pages/` renders.
+- **Image Validation**: PDF extraction tools often extract alpha masks or technical layers as separate grayscale/black-and-white images. When selecting any figure or header image, visually verify (or use `file` to check for 3-channel RGB) that you have chosen the full-color image, not a single-channel artifact.
+- **PDF Page Index vs. Printed Numbers**: The printed page numbers in a manual rarely match the actual physical page index in the PDF file (due to cover pages and TOCs). When cropping images or extracting text by page number, you must verify the actual PDF page index (e.g. using `pdftotext -f N -l N`) so you don't accidentally crop text from adjacent sections.
 - Copy across only the images the page actually shows, and rename each one for
   what it depicts (`setting-1.png`, `ego-mini-header.jpg`). `pdfimages` dumps
   everything the file holds, most of it print furniture — gradient strips a few
