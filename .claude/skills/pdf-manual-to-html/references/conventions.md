@@ -103,6 +103,7 @@ Layout rules that make the reference page work:
 | `img` | `width: 100%; margin-bottom: 0.75em` |
 | `h2` | reversed out: `color: #fff; background: var(--accent); text-transform: uppercase; padding: 0.25em` |
 | `h3` | `text-transform: uppercase; text-decoration: underline` |
+| `#side-nav a` | `color: inherit` — a global `a { color: var(--accent) }` otherwise paints the whole TOC in the accent |
 
 Responsive — a single breakpoint:
 
@@ -260,7 +261,7 @@ guessing.
   <a href="<brand>-<model>/">
     <span class="brand">&lt;Brand&gt;</span>
     <span class="model">&lt;Model&gt;</span>
-    <span class="note">&lt;one-line descriptor&gt; &middot; &lt;year&gt; manual</span>
+    <span class="note">&lt;pedal type, e.g. Compressor&gt;</span>
   </a>
 </li>
 ```
