@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Oswald:wght@500&display=swap");
+
+:root {
+  --ink:      #222222;
+  --accent:   #d4af37; /* Gold for Bad Horse */
+  --paper:    #f9f9f9;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+a { color: var(--accent); }
+
+#side-nav {
+  width: 20vw;
+  background: white;
+  position: fixed;
+  z-index: 5;
+  height: 100%;
+}
+
+.nav-container {
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
+}
+
+.nav-container h4, .nav-container h5 {
+  margin: 0.5em 0;
+  text-transform: uppercase;
+}
+.nav-container h4 a, .nav-container h5 a {
+  text-decoration: none;
+  color: var(--ink);
+  font-family: 'Oswald', sans-serif;
+}
+.nav-container h4 a:hover, .nav-container h5 a:hover {
+  color: var(--accent);
+}
+
+main {
+  margin-left: 20vw;
+}
+
+h2 {
+  color: white;
+  background: var(--accent);
+  font-size: 1.5em;
+  text-transform: uppercase;
+  margin-bottom: 0.75em;
+  padding: 0.25em 0.5em;
+  font-family: 'Oswald', sans-serif;
+}
+
+h3 {
+  text-transform: uppercase;
+  text-decoration: underline;
+  font-family: 'Oswald', sans-serif;
+}
+
+.flex-container {
+  display: flex;
+  max-width: 90vw;
+  margin: 0 auto;
+}
+
+.half-container {
+  padding: 0 1em;
+  width: 100%;
+  columns: 2 30em;
+  column-gap: 3em;
+}
+.half-container.no-columns {
+  columns: auto !important;
+}
+
+.half-container > header {
+  column-span: all;
+}
+
+section + section {
+  margin-top: 3em;
+}
+
+.flow > * + * {
+  margin-bottom: 1em;
+}
+
+@media (max-width: 900px) {
+  .flex-container { flex-direction: column; }
+  .half-container { width: 100%; padding: 0; }
+  nav { display: none; }
+  main { margin: 0 auto; }
+  #toc-mobile { display: block; }
+}
+@media (min-width: 901px) {
+  #toc-mobile { display: none; }
+}
+
+.keep-together {
+  break-inside: avoid;
+}
+
+li {
+  break-inside: avoid;
+}
+h3, h4, h5, h6 {
+  break-after: avoid;
+}

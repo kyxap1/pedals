@@ -7,8 +7,8 @@ Mooer CAB X2
 Source Audio Collider
 TC Electronic Plethora X1
 TC Electronic Polytune 3
-TC Electronic Spark Mini Booster
-Tone City Bad Horse
++ TC Electronic Spark Mini Booster
++ Tone City Bad Horse
 Tone City Matcha Cream
 + Wampler Mini Ego Compressor
 + Wampler Terraform
