@@ -111,7 +111,9 @@ has the full checklist and CSS snippets):
   usually holds no lettering — the wordmark is separate vector art, so crop it
   out of the page render and set it as `<h1><img alt="<Brand> <Model>"></h1>`
   over the cover's own ground colour. Without it the page opens on an unlabelled
-  photo, and the model name lives only in the `<title>`.
+  photo, and the model name lives only in the `<title>`. `wampler-terraform/`
+  predates this and starts on a bare `<img>` — follow the skeleton in
+  `references/conventions.md`, not that page.
 - `<nav id="side-nav">` fixed TOC on desktop, `#toc-mobile` inside the flow for
   narrow screens, one `@media (max-width: 900px)` breakpoint that hides the nav.
 - `<main>` with one `<section id="...">` per manual section; `id`s are kebab-case

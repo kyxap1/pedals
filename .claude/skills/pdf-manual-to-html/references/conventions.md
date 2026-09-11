@@ -44,7 +44,11 @@ pedals/
       </header>
     </nav>
     <main id="main-doc">
-      <img src="Images/header.jpg" alt="&lt;Brand&gt; &lt;Model&gt; User Guide" />
+      <div id="masthead">
+        <!-- the wordmark cropped out of the cover render, over the cover's ground -->
+        <h1><img src="Images/wordmark.png" alt="&lt;Brand&gt; &lt;Model&gt;" /></h1>
+        <img src="Images/header.jpg" alt="&lt;Brand&gt; &lt;Model&gt; User Guide" />
+      </div>
       <section id="welcome">
         <div class="flex-container">
           <div class="half-container flow">
@@ -91,7 +95,7 @@ Layout rules that make the reference page work:
 | `.half-container > header` | `column-span: all` — the title rules across the section |
 | `section + section` | `margin-top: 3em` — keeps sections from running together |
 | `.flow > * + *` | `margin-bottom: 1em` — vertical rhythm without touching every element |
-| `.grid-wrapper` | `display: grid; grid-template-columns: 1fr 1fr 1fr` — row of knob/figure shots |
+| `.grid-wrapper` | `column-span: all; display: grid; grid-template-columns: repeat(auto-fit, minmax(12em, 18em))` — figure shots across the section, never upscaled past their native size |
 | `img` | `width: 100%; margin-bottom: 0.75em` |
 | `h2` | reversed out: `color: #fff; background: var(--accent); text-transform: uppercase; padding: 0.25em` |
 | `h3` | `text-transform: uppercase; text-decoration: underline` |
@@ -106,7 +110,9 @@ Responsive — a single breakpoint:
   main { margin: 0 auto; }
   #toc-mobile { display: block; }
 }
-@media (min-width: 900px) { #toc-mobile { display: none; } }
+/* 901, not 900: both queries match at exactly 900px, and the later one would
+   hide the mobile TOC on the same width that hides the nav — no TOC at all */
+@media (min-width: 901px) { #toc-mobile { display: none; } }
 ```
 
 Adjust the *values* (fonts, colours, whether h2 is reversed-out or just ruled) to

@@ -12,13 +12,29 @@ import os
 import re
 import sys
 
+if len(sys.argv) != 2:
+    sys.exit(__doc__.strip())
+
 page = sys.argv[1]
 root = os.path.dirname(page) or "."
+if not os.path.isfile(page):
+    sys.exit(f"no such page: {page}")
 html = open(page, encoding="utf-8").read()
 
-ids = set(re.findall(r'id="([^"]+)"', html))
-anchors = set(re.findall(r'href="#([^"]+)"', html))
-images = re.findall(r'<img[^>]+src="([^"]+)"', html)
+# quotes are matched either way: a src='…' the pattern missed would be reported
+# as an unreferenced stray instead, which reads as a failure on a correct page
+ids = set(re.findall(r'id=["\']([^"\']+)', html))
+anchors = set(re.findall(r'href=["\']#([^"\']+)', html))
+images = re.findall(r'<(?:img|source)[^>]+src=["\']([^"\']+)', html)
+images += re.findall(r'<link[^>]+href=["\']([^"\']+\.(?:svg|png|ico))', html)
+
+# a figure referenced only from the stylesheet still has to exist, and still
+# counts as used — otherwise it is reported as a stray and the gate fails
+css = os.path.join(root, "style.css")
+if os.path.isfile(css):
+    images += [u for u in re.findall(r'url\(\s*["\']?([^"\')]+)',
+                                     open(css, encoding="utf-8").read())
+               if not u.startswith(("http:", "https:", "data:"))]  # not @import
 
 dangling = sorted(anchors - ids)
 missing = [s for s in images if not s.startswith(("http:", "https:", "data:"))
