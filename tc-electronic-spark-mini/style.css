@@ -1,0 +1,166 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+
+:root {
+  --ink: #292829;
+  --accent: #96773e;
+  --paper: #f6f6f6;
+}
+
+* {
+  box-sizing: border-box;
+  margin-top: 0;
+}
+
+body {
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+  margin: 0;
+}
+
+p, span, li, td, th {
+  font-family: 'Inter', sans-serif;
+}
+
+main {
+  margin-left: 20vw;
+}
+
+h2 {
+  color: white;
+  background: var(--accent);
+  font-size: 1.5em;
+  text-transform: uppercase;
+  margin-bottom: 0.75em;
+  padding: 0.25em 0.5em;
+}
+
+h3 {
+  font-size: 1.25em;
+  text-transform: uppercase;
+  margin-bottom: 0.75em;
+  text-decoration: underline;
+  color: var(--accent);
+}
+
+h4, h5 {
+  text-transform: uppercase;
+  margin-bottom: 1em;
+}
+
+img {
+  width: 100%;
+  margin-bottom: 0.75em;
+}
+
+ul {
+  list-style-type: square;
+}
+
+li {
+  padding-left: 1em;
+}
+
+a {
+  text-decoration: none;
+  color: var(--accent);
+}
+a:hover {
+  text-decoration: underline;
+}
+
+#side-nav {
+  width: 20vw;
+  background: white;
+  position: fixed;
+  z-index: 5;
+  height: 100%;
+}
+
+.nav-container {
+  display: flex;
+  flex-direction: column;
+  margin: 1em 0 0 1em;
+}
+
+.flex-container {
+  display: flex;
+  max-width: 90vw;
+  margin: 0 auto;
+}
+
+.half-container {
+  padding: 0 1em;
+  width: 100%;
+  columns: 2 30em;
+  column-gap: 3em;
+}
+
+.half-container > header {
+  column-span: all;
+}
+
+section + section {
+  margin-top: 3em;
+}
+
+.flow > * + * {
+  margin-bottom: 1em;
+}
+
+.grid-wrapper {
+  column-span: all;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12em, 18em));
+  gap: 1em;
+  margin-bottom: 0.75em;
+}
+
+.doc-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85em;
+  margin-bottom: 1em;
+}
+.doc-table th, .doc-table td {
+  border: 1px solid var(--accent);
+  padding: 0.4em 0.5em;
+  vertical-align: top;
+}
+.doc-table th {
+  background: var(--accent);
+  color: #fff;
+  text-transform: uppercase;
+}
+.table-scroll {
+  overflow-x: auto;
+  margin-bottom: 1em;
+}
+
+@media (max-width: 900px) {
+  .flex-container { flex-direction: column; }
+  .half-container { width: 100%; padding: 0; }
+  nav { display: none; }
+  main { margin: 0 auto; }
+  #toc-mobile { display: block; }
+}
+@media (min-width: 901px) {
+  #toc-mobile { display: none; }
+}
+
+.keep-together {
+  break-inside: avoid;
+}
+
+li {
+  break-inside: avoid;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  break-after: avoid;
+}
+
+.no-columns {
+  columns: auto !important;
+}
