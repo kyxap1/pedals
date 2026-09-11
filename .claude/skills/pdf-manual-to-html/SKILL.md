@@ -114,6 +114,17 @@ has the full checklist and CSS snippets):
   photo, and the model name lives only in the `<title>`. `wampler-terraform/`
   predates this and starts on a bare `<img>` — follow the skeleton in
   `references/conventions.md`, not that page.
+- The masthead also wants a real photo of the pedal, not just the wordmark.
+  Manuals like CAB X2's ship only flat line-art diagrams of the enclosure — no
+  photograph anywhere in the PDF. When that's the case, search the web for the
+  manufacturer's own product photo (official site or listing) and use that;
+  don't fall back to the line-art diagram as a stand-in hero image, and don't
+  ship the masthead without a photo when one exists to find. If a PDF page
+  render already has a clean product photo, crop it instead of searching.
+  Credit isn't needed for a manufacturer's own promotional photo of their own
+  product, but keep the sourcing in mind if the image turns out to be a
+  third-party seller listing.
+- Save the final masthead photo as `.jpg`, matching the repo's image format.
 - `<nav id="side-nav">` fixed TOC on desktop, `#toc-mobile` inside the flow for
   narrow screens, one `@media (max-width: 900px)` breakpoint that hides the nav.
 - `<main>` with one `<section id="...">` per manual section; `id`s are kebab-case

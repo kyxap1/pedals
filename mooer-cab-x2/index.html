@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Mooer CAB X2 Pedal Manual</title>
+  </head>
+  <body>
+    <nav id="side-nav">
+      <header>
+        <div class="nav-container">
+          <h3 style="margin-bottom: 2rem">Contents</h3>
+          <h4><a href="#precautions">Precautions</a></h4>
+          <h4><a href="#features">Features</a></h4>
+          <h4><a href="#top-panel">Top Panel</a></h4>
+          <h4><a href="#instructions">Instructions</a></h4>
+          <h4><a href="#recommended-setup">Recommended Setup</a></h4>
+          <h4><a href="#editor-software">CAB X2 Editor Software</a></h4>
+          <h4><a href="#effect-list">Effect List</a></h4>
+          <h4><a href="#specification">Specification</a></h4>
+        </div>
+      </header>
+    </nav>
+    <main id="main-doc">
+      <div id="masthead">
+        <div class="flex-container">
+          <div class="half-container no-columns">
+            <h1><img src="Images/mooer-wordmark.png" alt="Mooer" /></h1>
+            <img
+              class="cover-photo"
+              src="Images/product-photo.jpg"
+              alt="Mooer CAB X2 pedal"
+            />
+            <div class="cover-block">
+              <p class="cover-model">CAB X2</p>
+              <p class="cover-sub">Stereo Cab Simulation Pedal</p>
+            </div>
+            <p class="cover-manual">Owner's Manual</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PRECAUTIONS -->
+      <section id="precautions">
+        <div class="flex-container">
+          <div class="half-container flow">
+            <header><h2>Precautions</h2></header>
+            <p><strong>Please read carefully before proceeding.</strong></p>
+            <div class="keep-together">
+              <h3>Power Supply</h3>
+              <p>
+                Please connect the designated AC adapter to an AC outlet of
+                the correct voltage. Be sure to only use an AC adapter which
+                supplies 9V DC, 300mA. Unplug the AC power adapter when not
+                in use or during electrical storms.
+              </p>
+            </div>
+            <div class="keep-together">
+              <h3>Location</h3>
+              <p>
+                To avoid deformation, discoloration, or other serious damage,
+                do not expose this unit to the following conditions:
+              </p>
+              <ul>
+                <li>Direct sunlight or other heat sources</li>
+                <li>Magnetic fields</li>
+                <li>Excessively dusty or dirty locations</li>
+                <li>Strong vibrations or shocks</li>
+                <li>High humidity or moisture</li>
+              </ul>
+            </div>
+            <div class="keep-together">
+              <h3>Radio Frequency Interference</h3>
+              <p>
+                Radios and televisions placed nearby may experience
+                reception interference. Operate this unit at a suitable
+                distance from radios and televisions.
+              </p>
+            </div>
+            <div class="keep-together">
+              <h3>Cleaning</h3>
+              <p>
+                Clean only with a soft, dry cloth. If necessary, slightly
+                moisten the cloth. Do not use abrasive cleanser, cleaning
+                alcohol, paint thinners, wax, solvents, cleaning fluids, or
+                chemical-impregnated wiping cloths.
+              </p>
+            </div>
+          </div>
+          <div id="toc-mobile" class="half-container">
+            <h2>Contents</h2>
+            <ul>
+              <li><a href="#precautions">Precautions</a></li>
+              <li><a href="#features">Features</a></li>
+              <li><a href="#top-panel">Top Panel</a></li>
+              <li><a href="#instructions">Instructions</a></li>
+              <li><a href="#recommended-setup">Recommended Setup</a></li>
+              <li><a href="#editor-software">CAB X2 Editor Software</a></li>
+              <li><a href="#effect-list">Effect List</a></li>
+              <li><a href="#specification">Specification</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- FEATURES -->
+      <section id="features">
+        <div class="flex-container">
+          <div class="half-container flow no-columns">
+            <header><h2>Features</h2></header>
+            <ul>
+              <li>High-quality IR loading stereo cabinet simulation pedal</li>
+              <li>
+                Includes 14 user preset slots that can store two different
+                cabinet simulation settings each
+              </li>
+              <li>
+                11 factory cabinet simulation files with support for loading
+                third-party impulse response files
+              </li>
+              <li>Choose between mono or stereo setups</li>
+              <li>
+                Footswitch can be assigned as a traditional on/off switch or
+                to switch between presets
+              </li>
+              <li>
+                Dual inputs (stereo) and outputs (stereo) for stereo/mono
+                setup
+              </li>
+              <li>
+                Comes with a specialized editor software for preset
+                management and IR loading
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- TOP PANEL -->
+      <section id="top-panel">
+        <div class="flex-container">
+          <div class="half-container no-columns">
+            <header><h2>Top Panel</h2></header>
+            <img
+              src="Images/top-panel-diagram.png"
+              alt="CAB X2 top panel diagram with numbered controls"
+            />
+          </div>
+        </div>
+        <div class="flex-container">
+          <div class="half-container flow">
+            <p><strong>01. TYPE-C USB port:</strong> Connect to computer editor software to manage preset, loading IR and firmware update.</p>
+            <p><strong>02. DC 9V:</strong> Connect to center negative power supply with 9V and at least 300mA current draw. Recommend to use the original power supply to avoid unexpected noise.</p>
+            <p><strong>03. HIGH CUT:</strong> High frequency cut adjustment (Range from 3kHz to 20kHz)</p>
+            <p><strong>04. LEVEL:</strong> Volume level adjustment</p>
+            <p><strong>05. LOW CUT:</strong> Low frequency cut adjustment (Range from 25Hz to 500Hz)</p>
+            <p><strong>06. LATENCY:</strong> Latency value adjustment from 0 to 20ms.</p>
+            <p><strong>07. CAB:</strong> Select cabinet simulation from 11 factory setting files.</p>
+            <p><strong>08. SAVE:</strong> Press to switch between 1-14 preset slots, press and hold to confirm saving preset.</p>
+            <p><strong>09. Left footswitch LED:</strong> Indicate the current cab sim is type A or type B. Blue for A, RED for B.</p>
+            <p><strong>10. Right footswitch LED:</strong> Indicate the on/off status of the pedal. BLUE LED for on, LED off for off.</p>
+            <p><strong>11. Preset LED:</strong> Indicates currently selected preset slot.</p>
+            <p><strong>12. Left (A/B) footswitch:</strong> Press to switch A/B cab sim</p>
+            <p><strong>13. Right (BYPASS) footswitch:</strong> Press to switch on/off the currently selected cab sim</p>
+            <p><strong>14. INPUT-L (MONO):</strong> 1/4" unbalanced (TS) monoaural output jack. Please utilize this jack for mono input setup (It is the left input of the stereo setup)</p>
+            <p><strong>15. INPUT R:</strong> 1/4" unbalanced (TS) monoaural output jack (It is the right input of the stereo setup)</p>
+            <p><strong>16. OUTPUT A (Left):</strong> 1/4" unbalanced (TS) monoaural output jack, left cab sim analog output jack</p>
+            <p><strong>17. OUTPUT B (Right):</strong> 1/4" unbalanced (TS) monoaural output jack, right cab sim analog output jack</p>
+            <p><strong>18. PHONES:</strong> 1/8" stereo audio headphone output jack</p>
+            <p><strong>19. Factory cab list:</strong> Factory cabinet simulations list</p>
+          </div>
+        </div>
+        <div class="flex-container">
+          <div class="half-container no-columns">
+            <h3>* The regular frequency range of high and low cut</h3>
+            <div class="grid-wrapper">
+              <figure>
+                <img src="Images/freqcut-lowcut.png" alt="LC knob turned for low frequency cut" />
+                <figcaption>Low frequency cut 80Hz~100Hz</figcaption>
+              </figure>
+              <figure>
+                <img src="Images/freqcut-highcut-10k.png" alt="HC knob turned for high frequency cut" />
+                <figcaption>High frequency cut 10kHz</figcaption>
+              </figure>
+              <figure>
+                <img src="Images/freqcut-highcut-8k.png" alt="HC knob turned further for high frequency cut" />
+                <figcaption>High frequency cut 8kHz</figcaption>
+              </figure>
+              <figure>
+                <img src="Images/freqcut-highcut-6k.png" alt="HC knob turned fully for high frequency cut" />
+                <figcaption>High frequency cut 6kHz</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- INSTRUCTIONS -->
+      <section id="instructions">
+        <div class="flex-container">
+          <div class="half-container flow">
+            <header><h2>Instructions</h2></header>
+            <div class="keep-together">
+              <h3>Select Preset</h3>
+              <p>
+                Press SAVE button to scroll through the 14 preset slots; Or
+                you can press two footswitches simultaneously to enter
+                preset select mode, the LED of both footswitches, the LED of
+                SAVE button will blink in RED. In this mode, press
+                left/right footswitch to scroll up/down the 14 presets.
+              </p>
+              <p>
+                The preset select mode will exit and be back to normal mode
+                if idle for more than 3 seconds. In normal mode, the LED of
+                both footswitches and SAVE button will stay on.
+              </p>
+            </div>
+            <div class="keep-together">
+              <h3>Tone Adjustment for Left/Right Output</h3>
+              <p>
+                Each preset can store the cab sim models, parameters of the
+                left output and right output individually. Press the left
+                footswitch to switch the A (left) output and B (right)
+                output. The color of the LED button indicates the currently
+                selected output. Blue means the left output is selected
+                while red means the right output is selected. The
+                controllable parameters include LEVEL, TYPE, LATENCY, LOW
+                CUT, HIGH CUT and CAB.
+              </p>
+              <p>
+                In the normal footswitch mode, press right footswitch to
+                turn on/off the cab sim of left/right output.
+              </p>
+              <p>
+                The PRESET LED will blink when preset parameter changes and
+                have not been saved.
+              </p>
+            </div>
+            <div class="keep-together">
+              <h3>Save Presets</h3>
+              <p>
+                Press and hold the SAVE button for 2 seconds to save the
+                currently edited parameters. The button LED will blink to
+                confirm saving is complete.
+              </p>
+            </div>
+            <div class="keep-together">
+              <h3>Factory Reset</h3>
+              <p>
+                Unplug the power cord then press and hold the SAVE button
+                while plugging in the power cord to power on the unit. The
+                PRESET LED will start to blink. Release the button and wait
+                for the LED to start blinking to confirm the reset was
+                successful. This operation can be cancelled by powering off
+                the pedal before releasing the SAVE button.
+              </p>
+              <p class="notice">
+                <strong>Notice:</strong> Factory reset will clear all user
+                files, including the third-party impulse response files.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RECOMMENDED SETUP -->
+      <section id="recommended-setup">
+        <div class="flex-container">
+          <div class="half-container no-columns">
+            <header><h2>Recommended Setup</h2></header>
+
+            <h3>Pedalboard Mono Setup</h3>
+            <img
+              src="Images/mono-setup-pedalboard.png"
+              alt="Mono pedalboard setup: guitar into stompbox/effect pedals into CAB X2 input left, CAB left and right outputs into mixer/monitor/FRFR system"
+            />
+
+            <h3>Pedalboard Stereo Setup</h3>
+            <img
+              src="Images/stereo-setup-pedalboard.png"
+              alt="Stereo pedalboard setup: guitar into stompbox/effect pedals into CAB X2 input left and right, CAB left and right outputs into mixer/monitor/FRFR system"
+            />
+            <img
+              src="Images/stereo-setup-effect-pedals.png"
+              alt="Stereo setup with an effect pedals stage between CAB X2 and the mixer/monitor/FRFR system"
+            />
+
+            <h3>Multi-Effect Setup</h3>
+            <img
+              src="Images/multieffect-setup-direct.png"
+              alt="Multi-effects board connected directly into CAB X2 inputs, CAB X2 outputs into mixer/monitor/FRFR system"
+            />
+            <img
+              src="Images/multieffect-setup-fxloop.png"
+              alt="CAB X2 placed inside a multi-effects board FX loop, with send and return wired to the board"
+            />
+
+            <h3>FX Loop with Amplifier</h3>
+            <img
+              src="Images/fxloop-amplifier-setup.png"
+              alt="CAB X2 wired into an amplifier's FX loop, with CAB on going to the mixer/monitor/FRFR system"
+            />
+            <p class="notice">
+              <strong>Notice:</strong> In this setup, we recommend setting
+              the output connecting to the amplifier to bypass the cab sim.
+              The other output connecting to the mixer/FRFR system should
+              have the cab sim on.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CAB X2 EDITOR SOFTWARE -->
+      <section id="editor-software">
+        <div class="flex-container">
+          <div class="half-container flow no-columns">
+            <header><h2>CAB X2 Editor Software</h2></header>
+            <p>
+              CAB X2 supports computer editor software. Users can quickly
+              adjust parameters, manage presets, load impulse response
+              files, backup user files, etc.
+            </p>
+
+            <div class="keep-together">
+              <h3>Download</h3>
+              <p>
+                Visit the official MOOER AUDIO website
+                (<a href="http://www.mooeraudio.com/download.html" target="_blank" rel="noopener">www.mooeraudio.com/download.html</a>)
+                and download the software version that matches the
+                operating system (OS) of your computer. OS requirements:
+                Win7 or higher, Mac OS 10.11 or higher.
+              </p>
+            </div>
+
+            <div class="keep-together">
+              <h3>Connection</h3>
+              <p>
+                After finishing the installation, connect your CAB X2 to
+                your computer using the USB cable that comes with the unit.
+                Open the CAB X2 EDIT software and select the icon on the top
+                right corner to confirm connection.
+              </p>
+              <img
+                class="screenshot"
+                src="Images/editor-connection.png"
+                alt="CAB X2 editor software main window showing CAB A (Left) and CAB B (Right) cabinet panels"
+              />
+              <p>
+                In the CABINET TYPE area in the left bottom, there are two
+                different colors. Blue represents the left output signal
+                while Red represents the right output signal.
+              </p>
+            </div>
+
+            <div class="keep-together">
+              <h3>Select Preset</h3>
+              <img
+                class="screenshot"
+                src="Images/editor-preset-bar.png"
+                alt="Preset number bar 1 through 14 in the editor software"
+              />
+              <p>Click on the numbers to switch to the relevant preset patch.</p>
+            </div>
+
+            <div class="keep-together">
+              <h3>Select Cabinet Simulation</h3>
+              <p>
+                Click on the drop-down menu under the cab picture to view
+                and select cab sim.
+              </p>
+              <img
+                class="screenshot"
+                src="Images/editor-cab-select.png"
+                alt="Cabinet simulation drop-down list open under the CAB A (Left) panel"
+              />
+              <p>
+                Select desired cabinet simulation on the right side. Right
+                click a desired cab sim model, decide if it is set to left
+                output or right output in the popup window.
+              </p>
+              <img
+                class="screenshot"
+                src="Images/editor-cabinet-type-menu.png"
+                alt="Right-click menu on a cabinet type entry offering Import, Delete, CAB A (Left) or CAB B (Right)"
+              />
+            </div>
+
+            <div class="keep-together">
+              <h3>Preset Saving</h3>
+              <p>Click on the icon to save the currently selected preset.</p>
+            </div>
+
+            <div class="keep-together">
+              <h3>Preset Management</h3>
+              <p>
+                <strong>Export Preset:</strong> Drag the number on the
+                right-top PRESET (Device) area to the COMPUTER area to
+                export the preset file from the CAB X2 to the computer.
+              </p>
+              <img
+                class="screenshot"
+                src="Images/editor-export-preset.png"
+                alt="Dragging a preset number from the device area to the computer area to export it"
+              />
+              <p>
+                <strong>Import Preset:</strong> Drag the preset from the
+                COMPUTER area to the desired number on the PRESET (Device)
+                area to import the preset file from the computer to the CAB
+                X2.
+              </p>
+              <img
+                class="screenshot"
+                src="Images/editor-import-preset.png"
+                alt="Dragging a preset from the computer area onto a device preset slot to import it"
+              />
+              <p>
+                Click on the icon in the COMPUTER area to open the target
+                folder of preset files in your computer.
+              </p>
+              <p class="notice">
+                <strong>Notice:</strong> 1. Put the preset files into this
+                folder and click the icon. Those preset files will be shown
+                in the COMPUTER area of the software.<br />
+                2. Preset files do not include third-party impulse response
+                files.
+              </p>
+            </div>
+
+            <div class="keep-together">
+              <h3>Firmware/Software Update</h3>
+              <p>
+                Click on the icon to update the firmware or editor software.
+                After firmware update is done, the CAB X2 will reboot
+                automatically. For editor software update, it will switch to
+                the download center of MOOER AUDIO official website, you can
+                download the software on the software download page and
+                install it.
+              </p>
+            </div>
+
+            <div class="keep-together">
+              <h3>Factory Reset</h3>
+              <p>
+                Click on the icon to enter factory reset menu. A
+                confirmation window will pop up, click on Yes to confirm
+                reset. The CAB X2 will reboot automatically after reset is
+                done.
+              </p>
+              <p class="notice">
+                <strong>Notice:</strong> Factory reset will clear up all the
+                preset patches and third-party IR files.
+              </p>
+            </div>
+
+            <div class="keep-together">
+              <h3>Backup/Restore</h3>
+              <p>
+                Select the icon, click on the button to backup all preset
+                files in your CAB X2. Select the target location to start
+                backing up files. The preset files will be packaged into a
+                single .bfl file.
+              </p>
+              <p class="notice">
+                <strong>Notice:</strong> This backup file ".bfl" includes
+                impulse response files.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EFFECT LIST -->
+      <section id="effect-list">
+        <div class="flex-container">
+          <div class="half-container no-columns">
+            <header><h2>Effect List</h2></header>
+            <div class="table-scroll">
+              <table class="doc-table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>65DLX 1&times;12</td><td>Based on Fender&reg; 65 Deluxe reverb 112 cabinet</td></tr>
+                  <tr><td>A15 1&times;12</td><td>Based on VOX&reg; AC15C1 112 cabinet</td></tr>
+                  <tr><td>Twinverb.B 2&times;12</td><td>Based on Fender&reg; 67 Twin Reverb Blackface 212 cabinet</td></tr>
+                  <tr><td>AC30.S 2&times;12</td><td>Based on VOX&reg; AC30 212 cabinet</td></tr>
+                  <tr><td>59Baseman 4&times;10</td><td>Based on Fender&reg; 59 Bassman 410 cabinet</td></tr>
+                  <tr><td>1960AG 4&times;12</td><td>Based on Marshall&reg; 1960A Green Back 412 cabinet</td></tr>
+                  <tr><td>Rect.S 4&times;12</td><td>Based on Mesa Boogie&reg; Recto Standard 412 cabinet</td></tr>
+                  <tr><td>German.V 4&times;12</td><td>Based on Diezel&reg; Rear loaded V30 412 cabinet</td></tr>
+                  <tr><td>B.svt 1&times;15</td><td>Based on Ampeg&reg; svt 15E 115 cabinet</td></tr>
+                  <tr><td>B.svt 4&times;10</td><td>Based on Ampeg&reg; svt 410HE 410 cabinet</td></tr>
+                  <tr><td>B.svt 8&times;10</td><td>Based on Ampeg&reg; svt 810E 810 cabinet</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>
+              <em>*Notes: All product names belong to their owners and are
+              only used in this product and manual as a reference to tone
+              types.</em>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SPECIFICATION -->
+      <section id="specification">
+        <div class="flex-container">
+          <div class="half-container no-columns">
+            <header><h2>Specification</h2></header>
+            <dl class="spec-list">
+              <dt>Input</dt>
+              <dd>2 &times; 1/4" monoaural jack (Impedance value: 1M ohms)</dd>
+              <dt>Output</dt>
+              <dd>
+                2 &times; 1/4" monoaural jack (Impedance value: 510 ohms), 1
+                &times; 1/8" stereo audio output jack (Impedance &lt;1 Ohms)
+              </dd>
+              <dt>Power Supply</dt>
+              <dd>
+                9V DC center negative (Please ensure the voltage value of
+                power supply is not more than 9V, ensure the polarity is
+                correct.)
+              </dd>
+              <dt>Current Draw</dt>
+              <dd>300mA</dd>
+              <dt>Dimension</dt>
+              <dd>75 x 115 x 33mm</dd>
+              <dt>Weight</dt>
+              <dd>0.334 kg</dd>
+              <dt>Accessories</dt>
+              <dd>
+                Owner's manual, USB TYPE-C to TYPE-A cable, DC 9V power
+                supply, Quick guide, Sticker
+              </dd>
+              <dt>Format</dt>
+              <dd>WAV</dd>
+              <dt>Sample Rate</dt>
+              <dd>44.1kHz (support loading file with different sample rate)</dd>
+              <dt>Sample Accuracy</dt>
+              <dd>24 bit</dd>
+              <dt>Sample Length</dt>
+              <dd>2048 &times; 2</dd>
+            </dl>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p><strong>SHENZHEN MOOER AUDIO CO. LTD</strong></p>
+      <p>
+        6F, Unit D, Jinghang Building, Liuxian 3rd Road, Bao'an 71 District,
+        Shenzhen, China. 518133
+      </p>
+      <p>Made in China &middot; <a href="http://www.mooeraudio.com" target="_blank" rel="noopener">www.mooeraudio.com</a></p>
+      <p><a href="CAB_X2_Manual_EN.pdf">Original PDF manual</a></p>
+    </footer>
+  </body>
+</html>

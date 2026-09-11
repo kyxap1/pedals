@@ -1,0 +1,313 @@
+/* Fonts: ArialMT / Arial-BoldMT (embedded in the PDF) -> Inter (web) */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
+
+:root {
+  --ink: #1a1a1a;
+  --accent: #000000; /* the manual's reversed-out black header bars */
+  --signal: #f08300; /* orange used for wiring/arrows in the setup diagrams */
+  --paper: #f4f4f4;
+}
+
+* {
+  box-sizing: border-box;
+  margin-top: 0;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Inter", sans-serif;
+  line-height: 1.55;
+}
+
+p,
+span,
+li,
+td,
+th,
+dd,
+dt {
+  font-family: "Inter", sans-serif;
+}
+
+a {
+  color: var(--signal);
+}
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  width: 100%;
+  margin-bottom: 0.75em;
+}
+
+/* BEGIN IDS */
+#side-nav {
+  width: 20vw;
+  background: white;
+  position: fixed;
+  z-index: 5;
+  height: 100%;
+}
+
+.nav-container {
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
+}
+.nav-container h3 {
+  text-decoration: none;
+}
+.nav-container h4 {
+  margin: 0.5em 0;
+  text-transform: uppercase;
+  font-size: 1em;
+}
+.nav-container h4 a {
+  text-decoration: none;
+  color: var(--ink);
+}
+.nav-container h4 a:hover {
+  color: var(--signal);
+}
+
+main {
+  margin-left: 20vw;
+}
+
+/* MASTHEAD (cover) */
+#masthead {
+  padding: 3em 2em 2.5em;
+  text-align: center;
+}
+#masthead h1 {
+  margin: 0 auto 2em;
+  max-width: 420px;
+}
+#masthead h1 img {
+  width: 100%;
+  margin: 0;
+}
+.cover-photo {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto 2em;
+}
+.cover-block {
+  background: var(--accent);
+  color: #fff;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 1.25em 1.5em;
+}
+.cover-model {
+  font-size: 2em;
+  font-weight: 800;
+  margin: 0 0 0.3em;
+}
+.cover-sub {
+  font-size: 1.1em;
+  font-weight: 700;
+  margin: 0;
+}
+.cover-manual {
+  font-size: 1.6em;
+  font-weight: 800;
+  margin-top: 1.5em;
+}
+
+/* CONTAINERS */
+.flex-container {
+  display: flex;
+  max-width: 90vw;
+  margin: 0 auto;
+}
+
+.half-container {
+  padding: 0 1em;
+  width: 100%;
+  min-width: 0;
+  columns: 2 30em;
+  column-gap: 3em;
+}
+.half-container > header {
+  column-span: all;
+}
+.half-container.no-columns,
+.no-columns {
+  columns: auto !important;
+}
+
+section + section {
+  margin-top: 3em;
+}
+
+.flow > * + * {
+  margin-bottom: 1em;
+}
+
+h2 {
+  color: #fff;
+  background: var(--accent);
+  font-size: 1.6em;
+  text-transform: uppercase;
+  margin-bottom: 0.75em;
+  padding: 0.3em 0.5em;
+  font-weight: 800;
+}
+
+h3 {
+  font-size: 1.15em;
+  font-weight: 700;
+  margin-bottom: 0.6em;
+  margin-top: 1.5em;
+}
+
+h4.item-label,
+p > strong {
+  font-weight: 700;
+}
+
+ul,
+ol {
+  padding-left: 1.25em;
+}
+
+/* Figures */
+.grid-wrapper {
+  column-span: all;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12em, 18em));
+  align-items: end;
+  gap: 1.5em;
+  margin: 1em 0 1.5em;
+}
+.grid-wrapper figure {
+  margin: 0;
+  text-align: center;
+}
+.grid-wrapper img {
+  margin-bottom: 0.4em;
+}
+figcaption {
+  font-size: 0.9em;
+}
+
+.screenshot {
+  display: block;
+  width: 100%;
+  max-width: 620px;
+  margin: 0 auto 1em;
+  border: 1px solid #ddd;
+}
+
+/* Reference tables */
+.doc-table {
+  width: auto;
+  max-width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85em;
+  margin-bottom: 1em;
+}
+.doc-table td:first-child,
+.doc-table th:first-child {
+  width: 10em;
+}
+.doc-table th,
+.doc-table td {
+  border: 1px solid var(--accent);
+  padding: 0.4em 0.5em;
+  text-align: left;
+  vertical-align: top;
+}
+.doc-table th {
+  background: var(--accent);
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 0.9em;
+}
+.table-scroll {
+  overflow-x: auto;
+  margin-bottom: 1em;
+}
+
+/* Specification list */
+.spec-list {
+  column-span: all;
+  display: grid;
+  grid-template-columns: 9em 1fr;
+  gap: 0.5em 1em;
+}
+.spec-list dt {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.9em;
+}
+.spec-list dd {
+  margin: 0 0 0.75em;
+}
+
+.notice {
+  background: var(--paper);
+  border-left: 4px solid var(--accent);
+  padding: 0.85em 1.1em;
+  font-size: 0.95em;
+}
+
+footer {
+  margin-left: 20vw;
+  padding: 2em;
+  text-align: center;
+  font-size: 0.85em;
+  color: #666;
+  border-top: 1px solid #ddd;
+}
+footer img {
+  width: auto;
+  max-width: 160px;
+  margin: 0 auto 0.75em;
+}
+
+/* Column-break control */
+.keep-together {
+  break-inside: avoid;
+}
+li {
+  break-inside: avoid;
+}
+h3,
+h4,
+h5,
+h6 {
+  break-after: avoid;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 900px) {
+  .flex-container {
+    flex-direction: column;
+  }
+  .half-container {
+    width: 100%;
+    padding: 0;
+  }
+  nav {
+    display: none;
+  }
+  main,
+  footer {
+    margin: 0 auto;
+  }
+  #toc-mobile {
+    display: block;
+  }
+}
+/* 901, not 900: both queries match at exactly 900px, and this one comes
+   later, so at that width the nav is hidden and the mobile TOC stays */
+@media (min-width: 901px) {
+  #toc-mobile {
+    display: none;
+  }
+}
