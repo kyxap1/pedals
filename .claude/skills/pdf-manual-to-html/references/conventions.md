@@ -211,7 +211,7 @@ The repo folds them into one page rather than publishing three:
 
    It names each source PDF (link to the maker's URL when known, else the local
    file) and says in one or two sentences what changed.
-   *Note: If no official PDF manual exists and the page was compiled from manufacturer website specifications, use this same `.doc-update` banner to state "Compiled from manufacturer specifications" and briefly explain that no official PDF is provided.*
+   *Note: If no official PDF manual exists, use this same `.doc-update` banner for a single short sentence without a heading: "No official PDF manual, compiled from the official website."*
 5. If an older revision differs enough to be worth keeping, save it as
    `index-<year>.html` (older tokens, older content, its own trimmed TOC) and
    link it from the changelog banner: "Own an earlier pedal? Read the archived
