@@ -111,6 +111,12 @@ async function run() {
     deviceScaleFactor: 1,
     mobile: width < 900,
   });
+  // optimize_images.py marks images loading="lazy"; below the fold they never
+  // load in a headless capture and come out blank, so force and await them.
+  await send("Runtime.evaluate", {
+    expression: `Promise.all([...document.images].map((i) => { i.loading = "eager"; return i.decode().catch(() => {}); }))`,
+    awaitPromise: true,
+  });
   const metrics = await send("Page.getLayoutMetrics");
   const height = Math.ceil(metrics.result.cssContentSize.height);
   const sw = await send("Runtime.evaluate", { expression: "document.documentElement.scrollWidth" });

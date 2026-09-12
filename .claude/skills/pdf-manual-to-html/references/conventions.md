@@ -102,7 +102,7 @@ Layout rules that make the reference page work:
 | `section + section` | `margin-top: 3em` — keeps sections from running together |
 | `.flow > * + *` | `margin-bottom: 1em` — vertical rhythm without touching every element |
 | `.grid-wrapper` | `column-span: all; display: grid; grid-template-columns: repeat(auto-fit, minmax(12em, 18em))` — figure shots across the section, never upscaled past their native size |
-| `img` | `width: 100%; height: auto; margin-bottom: 0.75em` — `height: auto` keeps the `width`/`height` attributes `optimize_images.py` adds from stretching the image |
+| `img` | `max-width: 100%; height: auto; margin-bottom: 0.75em` — `max-width`, not `width: 100%`, so a pictogram keeps the size its `width`/`height` attributes give it instead of blowing up to the column; figures meant to fill their box (`.grid-wrapper` shots, the panel photo) get `width: 100%` on their own selector. `height: auto` keeps the attributes `optimize_images.py` adds from stretching a scaled image |
 | `h2` | reversed out: `color: #fff; background: var(--accent); text-transform: uppercase; padding: 0.25em` |
 | `h3` | `text-transform: uppercase; text-decoration: underline` |
 | `#side-nav a` | `color: inherit` — a global `a { color: var(--accent) }` otherwise paints the whole TOC in the accent |
@@ -120,6 +120,19 @@ Responsive — a single breakpoint:
 /* 901, not 900: both queries match at exactly 900px, and the later one would
    hide the mobile TOC on the same width that hides the nav — no TOC at all */
 @media (min-width: 901px) { #toc-mobile { display: none; } }
+```
+
+A diagram with small labels (cable hook-ups, signal flow) scaled down to a
+390-px screen sets its labels ~3 px tall, and a reversed-out title in large
+caps wraps into four ragged lines. The breakpoint takes care of both:
+
+```css
+h2.banner { text-wrap: balance; }
+@media (max-width: 900px) {
+  .wide-figure { overflow-x: auto; }     /* the diagram scrolls instead of shrinking */
+  .wide-figure img { min-width: 700px; }
+  h2.banner { font-size: 1.1em; }
+}
 ```
 
 Adjust the *values* (fonts, colours, whether h2 is reversed-out or just ruled) to
@@ -199,7 +212,7 @@ of its content, not from where the print page happened to fit it:
 | A short blurb — little *height*: under ~10–14 lines, no figures | `.no-columns` |
 | Numbered steps with a figure per step | The default two columns, each figure inside its `<li>` under the step text. Short on words but tall: `.no-columns` leaves the right half of the screen empty |
 | One figure plus a procedure (changing the battery) | The default two columns, the figure first in the flow, no `column-span` |
-| Per-part description cards around a panel diagram | The diagram beside the cards (`grid-template-columns: minmax(12em, 17em) 1fr`, figure `position: sticky`), the cards in `columns: 2 16em`, leader lines painted out of the diagram — they point at print positions that no longer exist. Never a grid of cards: each row stretches to its tallest card and leaves the rest mostly empty tint |
+| Per-part description cards around a panel diagram | The diagram beside the cards (`grid-template-columns: minmax(12em, 17em) 1fr`, figure `position: sticky`), the cards in `columns: 2 16em`, leader lines painted out of the diagram — they point at print positions that no longer exist. Never a grid of cards: each row stretches to its tallest card and leaves the rest mostly empty tint. Every card `break-inside: avoid`; only a card taller than a column may break, or a mid-length one splits its sub-heads from its title across the gutter |
 | Reference table (specs, MIDI map) | `.no-columns`, or `column-span: all` on the table |
 
 Symptoms in a desktop screenshot: the right half of a section empty → a

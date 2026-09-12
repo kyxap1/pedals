@@ -150,6 +150,10 @@ costs tokens on every job, the tool costs one install.
 
 - **Pick a device:** Check the root `catalog.txt`. If there are devices listed without a leading `+ `, pick ONE unprocessed device (1 session = 1 device).
 - **Download official manuals:** Find the latest official PDF manuals for this specific model **strictly on the manufacturer's website**. Download the main manual and *all* additional manuals offered (quick start guides, MIDI maps, addendums, etc.) into the repository root. If downloading is impossible (e.g. blocked, not found, or no PDF exists), **stop**, report this to the user, and offer to compile a DIY page from the descriptions and images available on the manufacturer's site.
+- **PDF handed over by the user:** still check the maker's site. `cmp` the
+  file against the official copy (a newer revision may be up) and download the
+  extra documents offered for the model — quick start, firmware update guide,
+  addendum; they fold in like any second PDF.
 - Identify **brand** and **model** from the downloaded PDF(s) (title, cover, footer).
 - One PDF → one page. Several PDFs for one pedal → give each a role by reading
   it (the survey in step 2 does), not by date or file name: **full manual**
@@ -338,6 +342,13 @@ leave the author's voice, slang and deliberate informality alone. Where one PDF
 garbles a sentence another prints cleanly, take the clean one. No `[sic]` — it
 helps nobody in a pedal manual.
 
+Log every departure as you write it, in `_cctmp.<slug>/copy-changes.md`:
+section, printed wording, page wording. Added words ("so", "in") count, and so
+do dropped or added punctuation and respacing. The reviewer's list of allowed
+changes and the report's **Copy changes** both come from this log;
+reconstructed from memory at the end, the NUX Atlantic list missed eight edits
+the reviewer then flagged.
+
 Where the sources disagree on a fact — the quick-start card says the power
 supply is included and the manual says it isn't, one CC number is mapped to
 two parameters — neither is a typo. Keep each as printed and list the conflict
@@ -367,6 +378,15 @@ section it illustrates.
   widen it until every pointer ends at its target. When auto-trimming
   whitespace out of a generous region, a trimmed box touching the region's
   edge means the subject was cut — widen and re-trim until it sits clear.
+  Pad every box by 20–30 px before `-fuzz 8% -trim`: the trim does the
+  tightening, so padding costs nothing, while a box drawn tight by eye cuts
+  arrowheads and pointer tips.
+- An icon printed in a box beside text drags letters and rule ends into any
+  crop that holds all of it: crop the box, then `scripts/clean_crop.py in.png
+  out.png` keeps the largest dark shape, whitens the rest and trims.
+- Pictograms carrying printed labels (toggle positions, jack names) ship at
+  their 300-dpi crop's native size, `width`/`height` equal to the file's;
+  scaled down, the labels blur into 4-px smudges.
 - A figure holds graphics only. Body text printed inside an image goes into the
   HTML and is painted out of the image with the background colour; integral
   labels (numbered pointers) stay. A wordmark crop is the logotype alone — a
@@ -408,7 +428,8 @@ Once the figures are final, shrink them for the web:
 
 It caps image width, quantises PNGs and recompresses JPEGs in place, gives
 every `<img>` its `width`/`height` and every one below the masthead
-`loading="lazy"`. `style.css` needs `img { height: auto }` so those
+`loading="lazy"` (`screenshot.mjs` forces those to load before it captures).
+`style.css` needs `img { height: auto }` so those
 attributes don't stretch a scaled image. It's lossy, so it runs before the
 step 7 screenshots, where a banded gradient or a fuzzed hairline would show;
 re-run it after adding or re-cropping a figure.
@@ -518,5 +539,7 @@ Actions on push to `master`; source PDFs live in the repo on purpose.
 - `scripts/optimize_images.py` — web-sized, recompressed images; `width`,
   `height` and `loading="lazy"` on every `<img>`.
 - `scripts/check_page.py` — anchor, image and stray-file check on the built page.
+- `scripts/clean_crop.py` — an icon crop stripped of neighbouring letters and
+  rule ends.
 - `references/conventions.md` — repo layout, the full HTML/CSS pattern from the
   reference implementation, the multi-PDF merge recipe, font-mapping table.
