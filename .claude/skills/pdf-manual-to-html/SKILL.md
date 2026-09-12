@@ -257,6 +257,12 @@ leave the author's voice, slang and deliberate informality alone. Where one PDF
 garbles a sentence another prints cleanly, take the clean one. No `[sic]` — it
 helps nobody in a pedal manual.
 
+Makers build manuals from shared templates, and steps carry leftovers from
+other products: the BOSS XS-1 manual says to plug into an "INPUT A (MONO)"
+jack the pedal doesn't have. Check every jack, knob and switch a step names
+against the panel descriptions, correct the ones that contradict it, and list
+each in the report.
+
 **Figures.**
 
 - Prefer embedded images from `raw/`; crop from the `pages/` renders when they
