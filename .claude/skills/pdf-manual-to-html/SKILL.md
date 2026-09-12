@@ -192,6 +192,12 @@ follow the page section by section without losing their place.
   then use the manufacturer's own product photo from their site or listing
   rather than promoting the diagram to hero image. A maker's promo shot of its
   own product needs no credit; a third-party seller's photo does.
+- **Masthead: same brand, same arrangement.** When a page of the same brand
+  already exists, copy its masthead structure — where the photo sits, how logo,
+  wordmark and document title (`Owner's Manual`, `Reference Manual`) group — so
+  the brand's pages read as one set. The title block itself carries this
+  manual's own lettering and ground: `boss-ge-7/` keeps its blue header band
+  inside `boss-rc-5/`'s photo-beside-title arrangement.
 - `<nav id="side-nav">` fixed TOC on desktop, `#toc-mobile` in the flow for
   narrow screens, one `@media (max-width: 900px)` breakpoint that hides the nav.
 - `<main>` with one `<section id="…">` per manual section; `id`s are kebab-case
@@ -203,8 +209,10 @@ follow the page section by section without losing their place.
 - Print layout yields to HTML semantics. Never break an `<ol>`/`<ul>` to drop an
   image in — group the images above or below the list. If a
   `column-span: all` figure makes text in a multi-column `.half-container` flow
-  oddly or pushes list items into the wrong column, give that section
-  `.no-columns`.
+  oddly or pushes list items into the wrong column, drop the `column-span` and
+  let the figure sit in its column; `.no-columns` is only for short sections.
+  Pick each section's layout from the table in conventions → "Sizing the
+  measure".
 
 **Copy.** Faithful to the manual — same wording, same order — with the typos
 fixed. Print manuals ship with them ("Smmoths everything out", "an experience

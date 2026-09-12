@@ -184,6 +184,22 @@ If a section contains very little text (e.g., under 10–14 lines like an "About
 .no-columns { columns: auto !important; }
 ```
 
+**Picking the layout per section.** Decide section by section from the shape
+of its content, not from where the print page happened to fit it:
+
+| Section content | Layout |
+|---|---|
+| Running prose, bullet lists | The default two columns |
+| A short blurb — little *height*: under ~10–14 lines, no figures | `.no-columns` |
+| Numbered steps with a figure per step | The default two columns, each figure inside its `<li>` under the step text. Short on words but tall: `.no-columns` leaves the right half of the screen empty |
+| One figure plus a procedure (changing the battery) | The default two columns, the figure first in the flow, no `column-span` |
+| Per-part description cards around a panel diagram | The diagram beside the cards (`grid-template-columns: minmax(12em, 17em) 1fr`, figure `position: sticky`), the cards in `columns: 2 16em`, leader lines painted out of the diagram — they point at print positions that no longer exist. Never a grid of cards: each row stretches to its tallest card and leaves the rest mostly empty tint |
+| Reference table (specs, MIDI map) | `.no-columns`, or `column-span: all` on the table |
+
+Symptoms in a desktop screenshot: the right half of a section empty → a
+`.no-columns` on content that is tall rather than short; a tinted card with a
+large empty bottom → cards in grid rows.
+
 ## Multiple PDFs (revisions / addenda / quick-starts)
 
 The repo folds them into one page rather than publishing three:
