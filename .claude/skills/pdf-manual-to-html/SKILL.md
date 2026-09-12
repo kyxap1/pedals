@@ -347,6 +347,21 @@ what the pedal is, e.g. `Compressor`.
 Don't declare the job done unprompted — show the result and ask the user
 whether it looks right, and wait for their acceptance or corrections.
 
+Show it as a short report under three headings, so the user can review it
+without opening the diff:
+
+- **What's inside** — the sections, in the PDF's order; where the style came
+  from (sibling page, online manual, the PDF) and the heading, step and table
+  treatment it gave; each layout call a reader would notice (a sticky diagram,
+  a table restacked on mobile); what `check_page.py` and the screenshots at
+  each width showed.
+- **Copy changes** — every place the page's wording departs from the PDF, with
+  the reason: typos, mangled phrases, template leftovers that contradict the
+  pedal, page references turned into anchor links. Nothing listed means
+  verbatim.
+- **Files** — the pedal directory and what moved into it, the catalog card,
+  `pedals.txt`, scratch deleted, commit status.
+
 Once they accept it, look back at what this job actually taught you: a
 masthead proportion worth measuring rather than eyeballing, a same-brand quirk,
 a layout call this manual forced, an extraction edge case you had to work
