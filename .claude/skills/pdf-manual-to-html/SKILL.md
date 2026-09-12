@@ -311,6 +311,10 @@ there (`brand` / `model` / `note`). Read the file rather than trusting this
 one — the catalog is hand-tuned and drifts. `note` is a short descriptor of
 what the pedal is, e.g. `Compressor`.
 
+Then mark the pedal in the root `pedals.txt`, the list of pedals to convert:
+a leading `+ ` flags a line as done. Edit the pedal's existing line rather
+than adding one.
+
 ### 7. Verify before declaring done
 
 - `scripts/check_page.py <pedal-dir>/index.html` — dangling TOC anchors,
