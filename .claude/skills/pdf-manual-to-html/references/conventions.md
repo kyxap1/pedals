@@ -95,7 +95,7 @@ Layout rules that make the reference page work:
 | `main` | `margin-left: 20vw` to clear the fixed nav |
 | `.flex-container` | `display: flex; padding-left: 2em` — section body; never size it in `vw`, it lives inside a `main` already inset by the nav |
 | `.half-container` | `width: 100%; padding: 0 1em` — a column inside the flex row |
-| `.half-container` (measure) | `columns: 2 30em; column-gap: 3em` — see "Sizing the measure" |
+| `.half-container` (measure) | `columns: 2 30rem; column-gap: 3em` — see "Sizing the measure" |
 | `.half-container > header` | `column-span: all` — the title rules across the section |
 | `section + section` | `margin-top: 3em` — keeps sections from running together |
 | `.flow > * + *` | `margin-bottom: 1em` — vertical rhythm without touching every element |
@@ -133,7 +133,7 @@ long lines did. The measure has to come *from* the window.
 
 ```css
 .half-container {
-  columns: 2 30em;      /* at most two columns, one below ~63em of room */
+  columns: 2 30rem;     /* at most two columns, one below ~63rem of room */
   column-gap: 3em;
 }
 .half-container > header { column-span: all; }
@@ -144,6 +144,10 @@ decides how many columns actually fit, the count caps it at two, and the columns
 then stretch to fill whatever is there. The window widens, the columns widen;
 the window narrows past two columns' worth, it becomes one. No breakpoint, no
 fixed strip of text, no empty right-hand half.
+
+Size the column in `rem`, not `em`. An `em` column grows with the body type,
+so a manual set a size up from 16 px no longer fits two columns beside the
+side nav at common desktop widths, and every section drops to one.
 
 Multi-column, not a grid: a grid's rows are as tall as their tallest cell, so
 one long knob description leaves a hole under every short one beside it, and
@@ -164,13 +168,13 @@ gap above one, that's this — drop the `column-span: all`.
 
 **Controlling Column Breaks & Logical Blocks:**
 - When using multi-column layout, the browser will balance content by splitting it arbitrarily. To prevent related text from breaking in half, you **must wrap logical blocks** (e.g., an `h3` plus its following paragraphs, a FAQ question plus its answer) in a `<div class="keep-together">` wrapper.
-- List items should never split in half. Add `li { break-inside: avoid; }` to the stylesheet. Do *not* restrict the entire `ul` or `ol` though, as long lists should be allowed to flow across multiple columns.
+- List items and paragraphs should never split in half. Add `p, li { break-inside: avoid; }` to the stylesheet — a manual's paragraphs run a few lines, and one split across the gutter reads as two fragments. Do *not* restrict the entire `ul` or `ol` though, as long lists should be allowed to flow across multiple columns.
 - Sub-headings should receive `break-after: avoid` so they never sit alone at the foot of a column.
 - Scope `keep-together` narrowly — a heading plus its lead-in line, never a heading + a long list + trailing notes as one block. `break-inside: avoid` makes the whole wrapper indivisible; if it doesn't fit in the shorter sibling column, it jumps whole into the other one and strands the first column empty. Symptom: one column mostly blank, the other crammed with everything past a subheading, even in a section that isn't short overall (that's the separate short-section case below). Fix: keep only the heading+intro in `keep-together`; let the list/notes flow free below it so the balancer can split them normally.
 
 ```css
 .keep-together { break-inside: avoid; }
-li { break-inside: avoid; }
+p, li { break-inside: avoid; }
 h3, h4, h5, h6 { break-after: avoid; }
 ```
 
