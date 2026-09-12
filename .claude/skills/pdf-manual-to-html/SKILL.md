@@ -258,7 +258,10 @@ helps nobody in a pedal manual.
   `<img>` at `width: 100%`.
 - `pdfimages` also dumps alpha masks and technical layers as separate grayscale
   images. Look at each image you pick (or `file` it for 3-channel RGB) so you
-  ship the colour figure, not its mask.
+  ship the colour figure, not its mask. A mask directly after a colour image of
+  the same size is that image's transparency — icons (warning sign, "!" mark)
+  come this way; merge it in as alpha (PIL `putalpha`) and ship a `.png`
+  instead of discarding it.
 - Crop by eye, never from text coordinates alone, and look at the edges of the
   result: a stroke or leader line running off the edge means the crop cut the
   drawing. Widen it until every pointer ends at the thing it points to. The
