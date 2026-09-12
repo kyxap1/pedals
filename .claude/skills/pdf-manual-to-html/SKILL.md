@@ -137,7 +137,12 @@ Three sources, in order of preference:
    than re-deriving them. Verify the fonts actually match first
    (`pdffonts` on both PDFs, or `info.txt` from each extract): brands reuse
    the same template — and dingbat glyph set — across whole product lines, but
-   don't assume it without checking.
+   don't assume it without checking. **Important**: A brand's design language
+   evolves. A newer manual might drop heavy background blocks, dotted rules,
+   or numbered badges in favor of a clean, minimal look. Check the page renders
+   (`pages/`); if the manual you are converting is minimalist, strip out the
+   heavy chrome you inherited from the sibling page rather than just changing
+   its colors.
 2. **The brand's own online manual.** Many makers (Wampler included) publish
    one in HTML — search for it. If it exists, its CSS *is* the answer: font
    stack, colours, heading treatment, often the section structure too. This is

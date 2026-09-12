@@ -261,6 +261,11 @@ The repo folds them into one page rather than publishing three:
 .table-scroll { overflow-x: auto; }
 ```
 
+*Note on borders:* The baseline pattern uses a fully enclosed grid (`border: 1px solid`).
+Many manuals use cleaner tables without vertical dividers. Check the PDF renders and override
+the `border` properties in the local `style.css` (e.g. keeping only `border-bottom` on rows)
+if the original table is not a fully enclosed grid.
+
 ## Font mapping (PDF embedded → Google Font)
 
 Embedded names show up in `info.txt`. Pick the closest free web font:
