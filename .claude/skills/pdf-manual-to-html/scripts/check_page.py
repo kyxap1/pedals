@@ -37,6 +37,11 @@ if os.path.isfile(css):
                if not u.startswith(("http:", "https:", "data:"))]  # not @import
 
 dangling = sorted(anchors - ids)
+# site search links hits only to headings with an id, so a section whose id
+# sits on the <section> gets no hit of its own
+off_heading = re.findall(
+    r'<section\b[^>]*\bid=["\']([^"\']+)[^>]*>'
+    r'(?:(?!</?section\b|<h[1-6]\b).)*<h[1-6]\b(?![^>]*\bid=)', html, re.S)
 missing = [s for s in images if not s.startswith(("http:", "https:", "data:"))
            and not os.path.exists(os.path.join(root, s))]
 
@@ -52,4 +57,5 @@ print(f"sections: {html.count('<section')}  anchors: {len(anchors)}  images: {le
 print(f"dangling anchors:      {dangling or 'none'}")
 print(f"missing images:        {missing or 'none'}")
 print(f"unreferenced in Images/: {strays or 'none'}")
-sys.exit(1 if dangling or missing or strays else 0)
+print(f"section ids off heading: {off_heading or 'none'}")
+sys.exit(1 if dangling or missing or strays or off_heading else 0)

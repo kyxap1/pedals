@@ -7,7 +7,7 @@ doubt, open that page and copy what it does.
 
 ```
 pedals/
-  index.html                 root catalog — grid of pedal cards
+  index.html                 root catalog — searchable list of pedals
   favicon.svg
   <brand>-<model>[-<variant>]/
     index.html               the manual
@@ -20,7 +20,7 @@ pedals/
 - Directory and `id` names: kebab-case, ASCII.
 - One stylesheet per pedal. Do **not** try to share a stylesheet across pedals —
   the whole point is that each manual looks like itself.
-- The root `index.html` is hand-maintained; just add a `<li>` card.
+- The root `index.html` is hand-maintained; just add a `<li>` row.
 
 ## HTML skeleton
 
@@ -53,7 +53,9 @@ pedals/
           </div>
         </div>
       </div>
-      <section id="welcome">
+      <!-- the id goes on the heading, not the <section>: search results
+           link only to headings with an id -->
+      <section>
         <div class="flex-container">
           <div class="half-container flow">
             <header><h2 id="intro">Welcome</h2></header>
@@ -65,7 +67,7 @@ pedals/
           </div>
         </div>
       </section>
-      <!-- more <section id="…"> … -->
+      <!-- more <section><…><h2 id="…"> … -->
     </main>
     <footer>…</footer>
   </body>
@@ -294,6 +296,7 @@ guessing.
   <a href="<brand>-<model>/">
     <span class="brand">&lt;Brand&gt;</span>
     <span class="model">&lt;Model&gt;</span>
+    <span class="type">&lt;filter category, e.g. Dynamics&gt;</span>
     <span class="note">&lt;pedal type, e.g. Compressor&gt;</span>
   </a>
 </li>

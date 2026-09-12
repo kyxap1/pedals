@@ -313,8 +313,10 @@ follow the page section by section without losing their place.
   cover render before moving on.
 - `<nav id="side-nav">` fixed TOC on desktop, `#toc-mobile` in the flow for
   narrow screens, one `@media (max-width: 900px)` breakpoint that hides the nav.
-- `<main>` with one `<section id="…">` per manual section; `id`s are kebab-case
-  and match the TOC anchors exactly.
+- `<main>` with one `<section>` per manual section. The `id` goes on the
+  section's heading, never on the `<section>`: site search links its hits
+  only to headings with an `id`. `id`s are kebab-case and match the TOC
+  anchors exactly; give sub-headings the reader would jump to one too.
 - Semantic headings (`h2` section, `h3` sub-section …) — style them, don't pick
   tags by size.
 - Reference tables (MIDI maps, spec sheets) → `.doc-table` inside
@@ -411,10 +413,12 @@ re-run it after adding or re-cropping a figure.
 
 ### 6. Add the catalog card
 
-Append a `<li>` to the root `index.html` pedal grid by copying a card already
-there (`brand` / `model` / `note`). Read the file rather than trusting this
-one — the catalog is hand-tuned and drifts. `note` is a short descriptor of
-what the pedal is, e.g. `Compressor`.
+Add a `<li>` to the root `index.html` pedal list by copying a row already
+there (`brand` / `model` / `type` / `note`), keeping the list sorted by brand,
+then model. Read the file rather than trusting this one — the catalog is
+hand-tuned and drifts. `type` is the filter category: reuse an existing one
+(e.g. `Drive`, `Time`); a new value adds its own filter chip. `note` is a short
+descriptor of what the pedal is, e.g. `Compressor`.
 
 Then mark the pedal in the root `pedals.txt`, the list of pedals to convert:
 a leading `+ ` flags a line as done. Edit the pedal's existing line rather
