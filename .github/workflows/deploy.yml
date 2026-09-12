@@ -27,6 +27,13 @@ jobs:
         run: |
           mkdir _site
           rsync -a --exclude='.git' --exclude='.github' --exclude='_site' ./ _site/
+      - name: Inject analytics
+        env:
+          GA_MEASUREMENT_ID: ${{ vars.GA_MEASUREMENT_ID }}
+          CF_BEACON_TOKEN: ${{ vars.CF_BEACON_TOKEN }}
+        run: .github/scripts/inject-analytics.sh _site
+      - name: Build search
+        run: .github/scripts/build-search.sh _site
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
