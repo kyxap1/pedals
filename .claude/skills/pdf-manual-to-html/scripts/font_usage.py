@@ -54,7 +54,8 @@ per_face = int(sys.argv[2]) if len(sys.argv) > 2 else 8
 
 doc = json.loads(
     subprocess.run(
-        ["qpdf", "--json=2", "--json-stream-data=inline", "--decode-level=generalized", pdf],
+        # exit 3 means "done, with warnings" — common on damaged but readable files
+        ["qpdf", "--warning-exit-0", "--json=2", "--json-stream-data=inline", "--decode-level=generalized", pdf],
         capture_output=True,
         check=True,
     ).stdout
