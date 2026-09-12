@@ -203,6 +203,13 @@ follow the page section by section without losing their place.
   the brand's pages read as one set. The title block itself carries this
   manual's own lettering and ground: `boss-ge-7/` keeps its blue header band
   inside `boss-rc-5/`'s photo-beside-title arrangement.
+- **Masthead: panel proportions.** When the cover splits into a colour-block
+  panel (logo/wordmark ground) beside a photo panel, measure the split on the
+  cover render (crop width vs. total width) instead of picking a round
+  `flex`/`flex-basis` ratio by eye. An even-looking 50/50 or 1:2 grow ratio
+  tends to overweight the colour panel next to a source cover that actually
+  runs closer to 30/70 — screenshot the masthead and compare it side by side
+  with the cover render before moving on.
 - `<nav id="side-nav">` fixed TOC on desktop, `#toc-mobile` in the flow for
   narrow screens, one `@media (max-width: 900px)` breakpoint that hides the nav.
 - `<main>` with one `<section id="…">` per manual section; `id`s are kebab-case
