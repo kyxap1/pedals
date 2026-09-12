@@ -1,0 +1,496 @@
+/* FONTS
+   Every word in the PDF is outlined; the only embedded face,
+   NewsGothicBT-BoldExtraCondensed (700), sets the section titles and
+   run-in labels. The rest judged by eye off the renders:
+   NewsGothic Bold Extra Condensed -> Oswald 700 (section titles, WARNING:/CAUTION:)
+   warning banner, a lighter extra-condensed cap -> Oswald 500
+   NewsGothic Condensed body      -> Roboto Condensed 400 (italic for the closing line)
+   NewsGothic Bold Condensed subs -> Roboto Condensed 700
+   Cover lettering (NDR-5, Owner's Manual) is Helvetica Bold -> Arial/Helvetica 700 */
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto+Condensed:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+:root {
+  --ink: #231f20; /* body text, rules, the cover's ground and the warning banner */
+  --accent: #db5533; /* the cover's ATLANTIC circle: links, the guide note */
+  --paper: #f4f2f1; /* tint behind the sources banner */
+  --head: "Oswald", "Arial Narrow", sans-serif;
+  --body: "Roboto Condensed", "Arial Narrow", sans-serif;
+  --cover: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin-top: 0;
+}
+
+body {
+  color: var(--ink);
+  background: #fff;
+  font-family: var(--body);
+  font-size: 1.05em;
+  margin: 0;
+}
+p,
+li {
+  line-height: 1.5;
+}
+main {
+  margin-left: 20vw;
+  padding-bottom: 3em;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+figure {
+  margin: 0;
+}
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover,
+a:active {
+  text-decoration: underline;
+}
+
+/* MASTHEAD: the cover on its own ground beside the product photo */
+#masthead {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 18em;
+}
+#masthead .brand-panel {
+  flex: 0 0 32%;
+  min-width: 16em;
+  background: var(--ink);
+  color: #fff;
+  padding: 1.5em 2em 2em;
+}
+#masthead h1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: 0;
+  font-size: 1em;
+}
+#masthead h1 .logo {
+  width: 7em;
+}
+#masthead h1 .series {
+  font: 400 0.85em var(--cover);
+  margin-top: 0.25em;
+}
+#masthead h1 .wordmark {
+  align-self: center;
+  width: min(100%, 16em);
+  margin-top: 1.25em;
+}
+#masthead .product-panel {
+  flex: 1 1 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  text-align: right;
+  padding: 2em 3em;
+}
+#masthead .photo {
+  width: min(20em, 100%);
+  margin-bottom: 1em;
+}
+#masthead .model {
+  font: 700 2.6em var(--cover);
+  margin: 0;
+}
+#masthead .doc-type {
+  font: 700 1.3em var(--cover);
+  margin: 0.2em 0 0;
+}
+
+/* HEADINGS: bold extra-condensed title over a hairline rule */
+.flow h2 {
+  font-family: var(--head);
+  font-weight: 700;
+  font-size: 2.1em;
+  line-height: 1.15;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 0.1em;
+  margin: 0 0 0.75em;
+}
+.flow h2.banner {
+  background: var(--ink);
+  color: #fff;
+  border: 0;
+  font-weight: 500;
+  font-size: 1.45em;
+  text-align: center;
+  text-transform: uppercase;
+  text-wrap: balance;
+  padding: 0.35em 0.5em;
+}
+.flow h2.banner span {
+  display: block;
+}
+.flow h3 {
+  font-weight: 700;
+  font-size: 1.3em;
+  margin: 0 0 0.3em;
+}
+.flow h4 {
+  font-weight: 700;
+  font-size: 1em;
+  margin: 0.9em 0 0.15em;
+}
+.flow h3,
+.flow h4 {
+  break-after: avoid;
+}
+/* set in the section-title face in print, not as a sub-head */
+#features {
+  font-family: var(--head);
+  font-size: 1.6em;
+}
+.half-container > header + * {
+  margin-top: 0;
+}
+
+/* SIDE NAVIGATION */
+#side-nav {
+  width: 20vw;
+  background: #fff;
+  position: fixed;
+  z-index: 5;
+  height: 100%;
+  overflow-y: auto;
+  border-right: 1px solid rgba(35, 31, 32, 0.15);
+}
+.nav-container {
+  display: flex;
+  flex-direction: column;
+  margin: 1em 1em 2em;
+}
+.nav-container h3 {
+  font-family: var(--head);
+  font-size: 1.4em;
+  margin-bottom: 1rem;
+}
+.nav-container h4,
+#toc-mobile h4 {
+  font-size: 1em;
+  font-weight: 700;
+  margin: 0.6em 0 0.2em;
+}
+.nav-container h5,
+#toc-mobile h5 {
+  font-size: 0.95em;
+  font-weight: 400;
+  margin: 0.2em 0 0.2em 1em;
+}
+.nav-container a,
+#toc-mobile a {
+  color: var(--ink);
+}
+#toc-mobile h2 {
+  font-family: var(--head);
+}
+
+/* CONTAINERS */
+.flex-container {
+  display: flex;
+  padding-left: 2em;
+}
+.half-container {
+  padding: 0 1em;
+  width: 100%;
+  columns: 2 30rem;
+  column-gap: 3em;
+}
+.half-container > header {
+  column-span: all;
+}
+.no-columns {
+  columns: auto !important;
+}
+.flow p,
+.flow li,
+.keep-together {
+  break-inside: avoid;
+}
+section + section {
+  margin-top: 2.5em;
+}
+.flow > * + * {
+  margin-bottom: 1em;
+}
+
+.doc-update {
+  background: var(--paper);
+  border-left: 4px solid var(--accent);
+  padding: 1em 1.25em;
+  margin: 2em 1em;
+  line-height: 1.5;
+}
+.doc-update > strong {
+  display: block;
+  font-family: var(--head);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* SAFETY: ruled boxes, triangle icons, numbered list */
+.warn-box {
+  border: 1px solid var(--ink);
+  padding: 0.5em 0.75em;
+}
+.warn-box p {
+  margin: 0;
+}
+.warn-box strong {
+  font-family: var(--head);
+  font-weight: 700;
+}
+.icon-note {
+  display: flex;
+  align-items: center;
+  gap: 0.9em;
+}
+.icon-note img {
+  width: 3em;
+  flex: 0 0 auto;
+}
+.safety-list {
+  padding-left: 1.4em;
+}
+.safety-list li + li {
+  margin-top: 0.35em;
+}
+.closing {
+  text-align: center;
+  font-style: italic;
+  font-size: 1.35em;
+  line-height: 1.3;
+}
+.closing strong {
+  display: block;
+  text-transform: uppercase;
+}
+
+/* CONTROL PANEL / I/O JACKS: sticky photo beside the part descriptions */
+.panel-layout {
+  display: grid;
+  grid-template-columns: minmax(14em, 20em) 1fr;
+  gap: 2.5em;
+  align-items: start;
+}
+.panel-layout > figure {
+  position: sticky;
+  top: 1em;
+}
+.panel-layout > figure img {
+  width: 100%;
+}
+.parts {
+  columns: 2 16em;
+  column-gap: 2.5em;
+}
+.part {
+  break-inside: avoid;
+  margin-bottom: 1.5em;
+}
+.part.long {
+  break-inside: auto;
+}
+.part p {
+  margin: 0 0 0.6em;
+}
+.part-icon {
+  display: block;
+  margin: 0.15em 0 0.4em 1.5em;
+}
+.polarity {
+  width: auto;
+  height: 1.2em;
+  vertical-align: middle;
+}
+
+/* CONNECTION METHODS */
+.connection-intro {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5em 2.5em;
+}
+.connection-intro figure {
+  flex: 0 1 26em;
+}
+.connection-intro p {
+  flex: 1 1 16em;
+}
+.wide-figure {
+  margin: 0.3em 0 1.75em;
+}
+
+/* INSIDE ROUTING: block diagram over three step photos */
+.steps {
+  counter-reset: step;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 1.5em 3.5em;
+  padding: 0;
+  margin: 1.25em 0 2.5em 2em;
+}
+.steps li {
+  text-align: center;
+  max-width: 12em;
+}
+.steps img {
+  display: block;
+  width: auto;
+  height: 11em;
+  margin: 0 auto 0.5em;
+}
+.steps p {
+  margin: 0;
+}
+.steps p::before {
+  counter-increment: step;
+  content: counter(step) ". ";
+}
+.parallel {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5em 3em;
+  margin: 1em 0 0 2em;
+}
+.parallel figure {
+  text-align: center;
+}
+.parallel figcaption {
+  margin-top: 0.4em;
+}
+.parallel .switch {
+  width: auto;
+  height: 11em;
+}
+
+/* SPECIFICATIONS */
+.spec-list {
+  list-style-type: "- ";
+  padding-left: 0.9em;
+}
+.fine-print {
+  font-size: 0.85em;
+}
+.compliance {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1em 2.5em;
+  margin-top: 2em;
+}
+.compliance p {
+  margin: 0;
+}
+
+/* FIRMWARE UPGRADE: from the separate update guide */
+.guide-note {
+  border-left: 3px solid var(--accent);
+  padding-left: 1.25em;
+}
+.guide-note ol ol {
+  list-style-type: upper-alpha;
+  padding-left: 1.4em;
+}
+.guide-note li {
+  margin-bottom: 0.35em;
+}
+.guide-note a {
+  overflow-wrap: anywhere;
+}
+
+footer {
+  margin-left: 20vw;
+  text-align: center;
+  padding: 2em 1em;
+  font-size: 0.9em;
+}
+
+@media (max-width: 900px) {
+  .flex-container {
+    flex-direction: column;
+    padding-left: 0;
+  }
+  .half-container {
+    width: 100%;
+    padding: 0;
+  }
+  nav#side-nav {
+    display: none;
+  }
+  main,
+  footer {
+    margin: 0 auto;
+  }
+  main {
+    padding: 0 1em 3em;
+  }
+  #masthead {
+    flex-direction: column;
+    margin: 0 -1em;
+  }
+  #masthead .brand-panel,
+  #masthead .product-panel {
+    flex-basis: auto;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+  #masthead h1 {
+    align-items: center;
+  }
+  .doc-update {
+    margin: 1.5em 0;
+  }
+  .flow h2.banner {
+    font-size: 1.1em;
+  }
+  /* cable labels stay legible: the diagram scrolls instead of shrinking */
+  .wide-figure {
+    overflow-x: auto;
+  }
+  .wide-figure img {
+    min-width: 700px;
+  }
+  .panel-layout {
+    grid-template-columns: 1fr;
+  }
+  .panel-layout > figure {
+    position: static;
+    width: 100%;
+    max-width: 20em;
+    margin: 0 auto;
+  }
+  .guide-note {
+    padding-left: 1em;
+  }
+  .steps,
+  .parallel {
+    margin-left: 0;
+    justify-content: center;
+  }
+  #toc-mobile {
+    display: block;
+    padding: 0 0 1em;
+  }
+}
+
+@media (min-width: 901px) {
+  #toc-mobile {
+    display: none;
+  }
+}

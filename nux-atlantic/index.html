@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="style.css" />
+    <title>NUX Atlantic NDR-5 Pedal Manual</title>
+  </head>
+  <body>
+    <nav id="side-nav">
+      <header>
+        <div class="nav-container">
+          <h3>Contents</h3>
+          <h4><a href="#copyright">Copyright</a></h4>
+          <h4><a href="#safety">Safety Instructions</a></h4>
+          <h4><a href="#overview">Overview</a></h4>
+          <h5><a href="#features">Features</a></h5>
+          <h4><a href="#control-panel">Control Panel</a></h4>
+          <h5><a href="#tap-tempo">TAP TEMPO</a></h5>
+          <h4><a href="#io-jacks">I/O Jacks</a></h4>
+          <h4><a href="#connection-methods">Connection Methods</a></h4>
+          <h4><a href="#inside-routing">Inside Routing</a></h4>
+          <h4><a href="#specifications">Specifications</a></h4>
+          <h4><a href="#firmware-upgrade">Firmware Upgrade</a></h4>
+        </div>
+      </header>
+    </nav>
+    <main id="main-doc">
+      <div id="masthead">
+        <div class="brand-panel">
+          <h1>
+            <img class="logo" src="Images/logo-nux.png" alt="NUX" width="253" height="40" />
+            <span class="series">Verdugo Series</span>
+            <img class="wordmark" src="Images/wordmark-atlantic.png" alt="Atlantic delay &amp; reverb" width="830" height="830" />
+          </h1>
+        </div>
+        <div class="product-panel">
+          <img
+            class="photo"
+            src="Images/atlantic-top.jpg"
+            alt="The NUX Atlantic delay and reverb pedal from above: black enclosure, red knobs, two footswitches" width="572" height="632"
+          />
+          <p class="model">NDR-5</p>
+          <p class="doc-type">Owner&rsquo;s Manual</p>
+        </div>
+      </div>
+
+      <nav id="toc-mobile">
+        <h2>Contents</h2>
+        <h4><a href="#copyright">Copyright</a></h4>
+        <h4><a href="#safety">Safety Instructions</a></h4>
+        <h4><a href="#overview">Overview</a></h4>
+        <h5><a href="#features">Features</a></h5>
+        <h4><a href="#control-panel">Control Panel</a></h4>
+        <h5><a href="#tap-tempo">TAP TEMPO</a></h5>
+        <h4><a href="#io-jacks">I/O Jacks</a></h4>
+        <h4><a href="#connection-methods">Connection Methods</a></h4>
+        <h4><a href="#inside-routing">Inside Routing</a></h4>
+        <h4><a href="#specifications">Specifications</a></h4>
+        <h4><a href="#firmware-upgrade">Firmware Upgrade</a></h4>
+      </nav>
+
+      <div class="flex-container">
+        <div class="doc-update">
+          <strong>Sources</strong>
+          This page combines the
+          <a href="https://nux.cherubtechnology.com/download/Manual/Effects/Verdugo_Series_Stompboxes/Atlantic_NDR5/NUX_NDR5_UserManual_English.pdf">NDR-5 Owner&rsquo;s Manual</a>
+          (<a href="NUX_NDR5_UserManual_English.pdf">local copy</a>) with the
+          <a href="https://nux.cherubtechnology.com/download/Firmware/Effects/Verdugo/Atlantic/Guide/NUX_Atlantic_FirmwareUpdateGuide_EN.pdf">Atlantic Firmware Update Guide</a>
+          (<a href="NUX_Atlantic_FirmwareUpdateGuide_EN.pdf">local copy</a>). The manual has no update
+          procedure; the guide&rsquo;s steps are in <a href="#firmware-upgrade">Firmware Upgrade</a>.
+        </div>
+      </div>
+
+      <section>
+        <div class="flex-container">
+          <div class="half-container flow no-columns">
+            <header><h2 id="copyright">Copyright</h2></header>
+            <p>
+              Copyright 2017 Cherub Technology Co., Ltd. All rights reserved. NUX and Atlantic
+              Delay &amp; Reverb are trademarks of Cherub Technology Co., Ltd. Other product names
+              modeled in this product are trademarks of their respective companies that do not
+              endorse and are not associated or affiliated with Cherub Technology Co., Ltd.
+            </p>
+            <h3>Accuracy</h3>
+            <p>
+              Whilst every effort has been made to ensure the accuracy and content of this manual,
+              Cherub Technology Co., Ltd. makes no representations or warranties regarding the
+              contents.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="flex-container">
+          <div class="half-container flow">
+            <header>
+              <h2 id="safety" class="banner">
+                Warning! Important Safety Instructions
+                <span>Before connecting, read instructions</span>
+              </h2>
+            </header>
+            <div class="warn-box">
+              <p>
+                <strong>WARNING:</strong> To reduce the risk of fire or electric shock, do not
+                expose this appliance to rain or moisture.
+              </p>
+            </div>
+            <div class="warn-box">
+              <p>
+                <strong>CAUTION:</strong> To reduce the risk of fire or electric shock, do not
+                remove screws. No user-serviceable parts inside. Refer servicing to qualified
+                service personnel.
+              </p>
+            </div>
+            <div class="warn-box">
+              <p>
+                <strong>CAUTION:</strong> This equipment has been tested and found to comply with
+                the limits for a Class B digital device pursuant to Part 15 of FCC Rules. Operation
+                is subject to the following two conditions: (1) This device may not cause harmful
+                interference, and (2) this device must accept any interference received, including
+                interference that may cause undesired operation.
+              </p>
+            </div>
+            <div class="warn-box icon-note">
+              <img src="Images/icon-electrical.png" alt="Lightning symbol within a triangle" width="95" height="84" loading="lazy" />
+              <p>
+                The lightning symbol within a triangle means &ldquo;electrical caution!&rdquo; It
+                indicates the presence of information about operating voltage and potential risks
+                of electrical shock.
+              </p>
+            </div>
+            <div class="warn-box icon-note">
+              <img src="Images/icon-caution.png" alt="Exclamation point within a triangle" width="95" height="84" loading="lazy" />
+              <p>
+                The exclamation point within a triangle means &ldquo;caution!&rdquo; Please read
+                the information next to all caution signs.
+              </p>
+            </div>
+            <ol class="safety-list">
+              <li>
+                Use only the supplied power supply or power cord. If you are not sure of the type of
+                power available, consult your dealer.
+              </li>
+              <li>
+                Do not place near heat sources, such as radiators, heat registers, or appliances
+                which produce heat.
+              </li>
+              <li>Guard against objects or liquids entering the enclosure.</li>
+              <li>
+                Do not attempt to service this product yourself, as opening or removing covers may
+                expose you to dangerous voltage points or other risks. Refer all servicing to
+                qualified service personnel.
+              </li>
+              <li>
+                Servicing is required when the apparatus has been damaged in any way, such as when
+                the power supply cord or plug is damaged, liquid has been spilled or objects have
+                fallen into the apparatus, the apparatus has been exposed to rain or moisture, does
+                not operate normally or has been dropped.
+              </li>
+              <li>
+                The power supply cord should be unplugged when the unit is to be unused for long
+                periods of time.
+              </li>
+              <li>
+                Protect the power cord from being walked on or pinched particularly at plugs,
+                convenience receptacles and at the point where they exit from the apparatus.
+              </li>
+              <li>
+                Prolonged listening at high volume levels may cause irreparable hearing loss and/or
+                damage. Always be sure to practice &ldquo;safe listening&rdquo;.
+              </li>
+            </ol>
+            <p class="closing">
+              Follow all instructions and heed all warnings
+              <strong>Keep these instructions!</strong>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="flex-container">
+          <div class="half-container flow">
+            <header><h2 id="overview">Overview</h2></header>
+            <p>
+              One of the best Delay and Reverb algorithms in a stomp box. NUX Atlantic Delay &amp;
+              Reverb pedal has specially selected 3 Delay &amp; 3 Reverb effects with an additional
+              dreamy Shimmer effect. And now with NUX&rsquo;s latest Core Image technology, the
+              Verdugo series offers one of the best sound enhancements. We are choosing the best
+              ideas to make it real for musicians.
+            </p>
+            <p>
+              NUX Atlantic Delay &amp; Reverb pedal also has inside routing control between the
+              effects, so you can choose which effect comes first. In serial mode you can create a
+              deep reflection reverb with wet or dry repeats, or you can split your guitar signal
+              and add both effects in a parallel chain. Each effect will be mixed with separate dry
+              signals.
+            </p>
+            <p>
+              It has a 6.35 mm mono jack input and 2 outputs, so you can also connect in stereo for
+              the real Delay &amp; Reverb experience.
+            </p>
+            <p>
+              It has an Input Level toggle switch, so you can optimize the input signal for your
+              signal level.
+            </p>
+            <div class="keep-together">
+              <h3 id="features">Features</h3>
+              <ul>
+                <li>3 Delay Effects &ndash; 70&rsquo;s Analog, 60&rsquo;s Tape and 80&rsquo;s Digital</li>
+                <li>NUX SMART TAP with Tap Subdivision Options</li>
+                <li>3 Reverb Effects &ndash; Spring, Plate and Hall</li>
+                <li>Plate Reverb with Shimmer Effect</li>
+                <li>TRS Input &ndash; Insert Connection</li>
+                <li>Input Level Switch (&minus;10dB / +4dB)</li>
+                <li>Parallel or Serial Routing</li>
+                <li>Stereo Output</li>
+                <li>USB Port for firmware updates</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="flex-container">
+          <div class="half-container flow no-columns">
+            <header><h2 id="control-panel">Control Panel</h2></header>
+            <div class="panel-layout">
+              <figure>
+                <img
+                  src="Images/atlantic-top.jpg"
+                  alt="Top panel: LEVEL (DELAY), REPEAT, TIME, DECAY and LEVEL (REVERB) knobs, the Delay and Reverb toggle switches, the DELAY and REVERB LEDs, and the Delay (Smart TAP) and Reverb (Hold For Shimmer) footswitches" width="572" height="632" loading="lazy"
+                />
+              </figure>
+              <div class="parts">
+                <div class="part long">
+                  <h3 id="delay-toggle-switch">Delay toggle switch</h3>
+                  <img class="part-icon" src="Images/ic-delay-toggle.png" alt="Delay toggle switch: 70's, 60's, 80's" width="34" height="78" loading="lazy" />
+                  <h4>70&rsquo;s (40ms &ndash; 400ms)</h4>
+                  <p>
+                    Retro-delay meets modern technology, without losing the realistic BBD-effected
+                    repeats, so essential for capturing the 70&rsquo;s retro feel.
+                  </p>
+                  <h4>60&rsquo;s (55ms &ndash; 550ms)</h4>
+                  <p>
+                    A warm &amp; dusty tape-echo machine effect, packed with an array of
+                    analogue-only goodies. Saturated colors that turn any sound into vintage. Tweak
+                    the Repeat knob to the max and use the Time knob to get an experience, just like
+                    the real Tape-Echo Machine.
+                  </p>
+                  <h4>80&rsquo;s (80ms &ndash; 800ms)</h4>
+                  <p>
+                    A digital era invention, crystal clear repeats. Digitally-copied clean repeats
+                    carry your signal with absolutely zero color particles. This is the best option
+                    if you don&rsquo;t want to mix your favorite chorus with another colorization
+                    effect&mdash;or your favorite modulation effect.
+                  </p>
+                </div>
+                <div class="part">
+                  <h3 id="level-delay-knob">LEVEL (DELAY) knob</h3>
+                  <img class="part-icon" src="Images/ic-level-delay.png" alt="LEVEL knob" width="81" height="93" loading="lazy" />
+                  <p>Controls the wet/dry balance. Adjusts the volume for your repeats.</p>
+                </div>
+                <div class="part">
+                  <h3 id="repeat-knob">REPEAT knob</h3>
+                  <img class="part-icon" src="Images/ic-repeat.png" alt="REPEAT knob" width="54" height="66" loading="lazy" />
+                  <p>
+                    Varies the number of repeats. When set to the MAX, sustained runaway will start.
+                    You can create an infinite sustained runaway on 60&rsquo;s Delay mode.
+                  </p>
+                </div>
+                <div class="part">
+                  <h3 id="time-knob">TIME knob</h3>
+                  <img class="part-icon" src="Images/ic-time.png" alt="TIME knob with the TAP subdivisions 1/8, 1/6, 1/4, 1/3, 1/2, 3/4 and 1 around it" width="79" height="80" loading="lazy" />
+                  <p>
+                    Controls the delay time. Turning the Time knob while repeating can produce
+                    interesting pitch effects.
+                  </p>
+                  <p>
+                    Time knob also changes the TAP subdivision on TAP TEMPO mode. (See
+                    <a href="#tap-tempo">TAP TEMPO</a>)
+                  </p>
+                </div>
+                <div class="part">
+                  <h3 id="delay-led-indicator">DELAY LED indicator</h3>
+                  <img class="part-icon" src="Images/ic-delay-led.png" alt="DELAY LED" width="34" height="32" loading="lazy" />
+                  <p>It also shows the TAP TEMPO.</p>
+                </div>
+                <div class="part">
+                  <h3 id="delay-footswitch">Delay footswitch</h3>
+                  <img class="part-icon" src="Images/ic-delay-footswitch.png" alt="Delay footswitch, labelled Smart TAP" width="56" height="67" loading="lazy" />
+                  <p>Engages and disengages the Delay effect. And activates TAP TEMPO.</p>
+                </div>
+                <div class="part">
+                  <img class="part-icon" src="Images/ic-time.png" alt="TIME knob with the TAP subdivisions" width="79" height="80" loading="lazy" />
+                  <h3 id="tap-tempo">TAP TEMPO</h3>
+                  <p>
+                    Instantly sync up your delays with the tempo you want to accompany. Simply tap
+                    the tempo with your foot. TAP TEMPO Speed range is 125 ms &ndash; 1500 ms for
+                    all delay types.
+                  </p>
+                  <h4>Delay Pattern</h4>
+                  <p>
+                    Before you set the TAP TEMPO, use the Time Knob and choose any desired time
+                    signature to change the delay pattern. When TAP TEMPO is engaged, your repeats
+                    will create a delay pattern according to selected time signature.
+                  </p>
+                  <h4>TAP Values</h4>
+                  <p>1/8, 1/6, 1/4, 1/3, 1/2, 3/4 and 1.</p>
+                </div>
+                <div class="part long">
+                  <h3 id="reverb-toggle-switch">Reverb toggle switch</h3>
+                  <img class="part-icon" src="Images/ic-reverb-toggle.png" alt="Reverb toggle switch: SPR, PLA, HAL" width="35" height="78" loading="lazy" />
+                  <h4>Spring Reverb</h4>
+                  <p>
+                    Creates a polyphonic atmosphere filter that catches the sound reflections from
+                    deep down spring reverb tank. You can adjust the tank size with the level knob
+                    and set the reflection distance with the decay knob.
+                  </p>
+                  <h4>Plate Reverb &amp; Shimmer</h4>
+                  <p>
+                    Straight and clean reflections inside a flat-walled room. You can control the
+                    room-size with the Level knob and then tweak the Delay bounce point with the
+                    Decay knob.
+                  </p>
+                  <p>
+                    If you hold down the Reverb switch, straight reflections will be heated and
+                    swirled throughout the inside of the room creating a Shimmer effect.
+                  </p>
+                  <h4>Hall Reverb</h4>
+                  <p>
+                    The sound of a well-designed hall. Whether the hall size is big or small, the
+                    reflections will be emitted by wall furniture. You can adjust the interior
+                    hall-size, from a small garage to a huge structure with the Level knob and
+                    increase or decrease the number of objects on the walls with the Decay knob.
+                    Less decay means more objects and faster reflection fading.
+                  </p>
+                </div>
+                <div class="part">
+                  <h3 id="level-reverb-knob">LEVEL (REVERB) knob</h3>
+                  <img class="part-icon" src="Images/ic-level-reverb.png" alt="LEVEL knob" width="81" height="95" loading="lazy" />
+                  <p>
+                    Controls the balance of wet signal and dry signal. Adjusts the Reverb level and
+                    size of the area.
+                  </p>
+                </div>
+                <div class="part">
+                  <h3 id="decay-knob">DECAY knob</h3>
+                  <img class="part-icon" src="Images/ic-decay.png" alt="DECAY knob" width="55" height="68" loading="lazy" />
+                  <p>
+                    Controls the decay time of the wet signal. The range depends on the selected
+                    reverb type.
+                  </p>
+                </div>
+                <div class="part">
+                  <h3 id="reverb-led-indicator">Reverb LED indicator</h3>
+                  <img class="part-icon" src="Images/ic-reverb-led.png" alt="REVERB LED" width="40" height="32" loading="lazy" />
+                </div>
+                <div class="part">
+                  <h3 id="reverb-footswitch">Reverb footswitch</h3>
+                  <img class="part-icon" src="Images/ic-reverb-footswitch.png" alt="Reverb footswitch, labelled Hold For Shimmer" width="89" height="67" loading="lazy" />
+                  <p>Engages and disengages the Reverb effect. And controls the Shimmer effect.</p>
+                </div>
+                <p class="part">
+                  <strong>Shimmer:</strong> Choose Plate Reverb. Then hold the Reverb foot-switch
+                  (as long as you want) until your effect takes flight. The effect will fade out
+                  when you release the foot-switch.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="flex-container">
+          <div class="half-container flow no-columns">
+            <header><h2 id="io-jacks">I/O Jacks</h2></header>
+            <div class="panel-layout">
+              <figure>
+                <img
+                  src="Images/atlantic-io.jpg"
+                  alt="Rear panel: INPUT jack, LEVEL (+4dB / -10dB) and D&amp;R (SERIAL / PARALLEL) toggle switches, MONO and STEREO output jacks, USB port and DC 9V jack" width="618" height="341" loading="lazy"
+                />
+              </figure>
+              <div class="parts">
+                <div class="part">
+                  <h3 id="input">Input</h3>
+                  <img class="part-icon" src="Images/ic-input.png" alt="INPUT jack" width="50" height="67" loading="lazy" />
+                  <p>6.35 mm Insert jack.</p>
+                </div>
+                <div class="part">
+                  <h3 id="input-level-toggle-switch">Input Level toggle switch</h3>
+                  <img class="part-icon" src="Images/ic-input-level.png" alt="LEVEL toggle switch: +4dB, -10dB" width="40" height="100" loading="lazy" />
+                  <p>
+                    Adjusts the input headroom. If the input signal is too strong, switch to +4 dB to
+                    increase the headroom.
+                  </p>
+                </div>
+                <div class="part">
+                  <h3 id="routing-toggle-switch">Routing toggle switch</h3>
+                  <img class="part-icon" src="Images/ic-routing.png" alt="D&amp;R toggle switch: SERIAL, PARALLEL" width="57" height="99" loading="lazy" />
+                  <p>
+                    You can use the Delay and Reverb effect with parallel or serial connection. In
+                    serial mode, you can change the signal routing. Before plugging in the power
+                    cable, hold the footswitch of the effect you want to come first, then plug in
+                    the power cable.
+                  </p>
+                </div>
+                <div class="part">
+                  <h3 id="stereo-outputs">Stereo Outputs</h3>
+                  <img class="part-icon" src="Images/ic-stereo-outputs.png" alt="MONO and STEREO output jacks" width="99" height="68" loading="lazy" />
+                  <p>Use the right output for mono connection.</p>
+                </div>
+                <div class="part">
+                  <h3 id="micro-usb-port">Micro USB port</h3>
+                  <img class="part-icon" src="Images/ic-usb.png" alt="USB port" width="31" height="26" loading="lazy" />
+                  <p>Connect to PC for <a href="#firmware-upgrade">firmware update</a>.</p>
+                </div>
+                <div class="part">
+                  <h3 id="dc-jack">DC jack</h3>
+                  <img class="part-icon" src="Images/ic-dc-jack.png" alt="DC 9V jack" width="36" height="57" loading="lazy" />
+                  <p>
+                    9V DC
+                    <img class="polarity" src="Images/ic-dc-polarity.png" alt="(centre negative)" width="62" height="25" loading="lazy" />.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="flex-container">
+          <div class="half-container flow no-columns">
+            <header><h2 id="connection-methods">Connection Methods</h2></header>
+            <div class="connection-intro">
+              <figure>
+                <img
+                  src="Images/connection-overview.png"
+                  alt="A guitar cabled into the Atlantic's INPUT jack, and the Atlantic's output cabled to an amp head and cabinet" width="641" height="476" loading="lazy"
+                />
+              </figure>
+              <p>
+                Atlantic&rsquo;s input jack can support stereo cable as insert (send/return) method.
+                Please see the two drawings below:
+              </p>
+            </div>
+            <h3 id="y-cable-connection">Using &ldquo;Y&rdquo; cable connection</h3>
+            <figure class="wide-figure">
+              <img
+                src="Images/cable-y.png"
+                alt="Y cable: a TRS plug in the Atlantic's INPUT splits into two plugs to the amp — Tip (Send) and Ring (Return), with Sleeve as common ground" width="1057" height="180" loading="lazy"
+              />
+            </figure>
+            <h3 id="insert-cable-connection">Using &ldquo;Insert&rdquo; cable connection</h3>
+            <figure class="wide-figure">
+              <img
+                src="Images/cable-insert.png"
+                alt="Insert cable: a TRS-to-TRS cable from the Atlantic's INPUT to an INSERT jack — Tip (Send), Ring (Return), Sleeve (Common Ground) at both ends" width="870" height="148" loading="lazy"
+              />
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="flex-container">
+          <div class="half-container flow no-columns">
+            <header><h2 id="inside-routing">Inside Routing</h2></header>
+            <h3 id="delay-first">DELAY first</h3>
+            <figure>
+              <img src="Images/flow-delay-first.png" alt="Signal flow: INPUT, DELAY, REVERB, OUTPUT" width="703" height="42" loading="lazy" />
+            </figure>
+            <ol class="steps">
+              <li>
+                <img src="Images/step-serial.png" alt="Routing toggle switch set to SERIAL" width="107" height="205" loading="lazy" />
+                <p>Set SERIAL</p>
+              </li>
+              <li>
+                <img src="Images/step-delay-hold.png" alt="The Delay footswitch held down, power cable unplugged" width="201" height="274" loading="lazy" />
+                <p>Hold down the Delay footswitch</p>
+              </li>
+              <li>
+                <img src="Images/step-delay-power.png" alt="The power cable plugged in with the Delay footswitch still held" width="201" height="271" loading="lazy" />
+                <p>Plug in the power cable</p>
+              </li>
+            </ol>
+            <h3 id="reverb-first">REVERB first</h3>
+            <figure>
+              <img src="Images/flow-reverb-first.png" alt="Signal flow: INPUT, REVERB, DELAY, OUTPUT" width="704" height="42" loading="lazy" />
+            </figure>
+            <ol class="steps">
+              <li>
+                <img src="Images/step-serial.png" alt="Routing toggle switch set to SERIAL" width="107" height="205" loading="lazy" />
+                <p>Set SERIAL</p>
+              </li>
+              <li>
+                <img src="Images/step-reverb-hold.png" alt="The Reverb footswitch held down, power cable unplugged" width="200" height="272" loading="lazy" />
+                <p>Hold down the Reverb footswitch</p>
+              </li>
+              <li>
+                <img src="Images/step-reverb-power.png" alt="The power cable plugged in with the Reverb footswitch still held" width="200" height="271" loading="lazy" />
+                <p>Plug in the power cable</p>
+              </li>
+            </ol>
+            <h3 id="parallel-routing">Parallel Routing</h3>
+            <div class="parallel">
+              <figure>
+                <img class="switch" src="Images/step-parallel.png" alt="Routing toggle switch set to PARALLEL" width="108" height="206" loading="lazy" />
+                <figcaption>Set PARALLEL</figcaption>
+              </figure>
+              <figure>
+                <img
+                  src="Images/flow-parallel.png"
+                  alt="Signal flow: INPUT splits into REVERB and DELAY side by side, both joining at OUTPUT"
+                  width="490"
+                  height="150" loading="lazy"
+                />
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="flex-container">
+          <div class="half-container flow no-columns">
+            <header><h2 id="specifications">Specifications</h2></header>
+            <ul class="spec-list">
+              <li>Sampling rate: 44.1kHz</li>
+              <li>A/D Converter: 32bit</li>
+              <li>Signal Processing: 32bit</li>
+              <li>Frequency Response: 20Hz~20kHz</li>
+              <li>THD+N: -100dBu (A-Weighting)</li>
+              <li>Dynamic Range: 102dB</li>
+              <li>Input Impedance: 1M&Omega;</li>
+              <li>Output Impedance: 1k&Omega;</li>
+              <li>Power: 9V DC (Negative tip, Optional ACD-006A adapter)</li>
+              <li>Dimensions: 105mm(L) x 115mm(W) x 57mm(H)</li>
+              <li>Weight: 420g</li>
+            </ul>
+            <p>Accessories: User manual, NUX sticker.</p>
+            <p class="fine-print">*Specifications and features are subject to change without notice.</p>
+            <div class="compliance">
+              <img src="Images/compliance-logos.png" alt="FCC, CE, UKCA, WEEE and RoHS marks" width="280" height="49" loading="lazy" />
+              <p><a href="https://www.nuxaudio.com">www.nuxaudio.com</a></p>
+              <p>Made in China</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="flex-container">
+          <div class="half-container flow no-columns guide-note">
+            <header><h2 id="firmware-upgrade">Firmware Upgrade</h2></header>
+            <p class="fine-print">
+              From the separate
+              <a href="NUX_Atlantic_FirmwareUpdateGuide_EN.pdf">Atlantic Firmware Update Guide</a>.
+            </p>
+            <ol>
+              <li>
+                Download the firmware update kit from the website using a PC or Mac.
+                (<a href="https://www.nuxefx.com/atlantic.html">https://www.nuxefx.com/atlantic.html</a>)
+              </li>
+              <li>
+                Connect your NDR-5 to your Mac or PC using a quality micro USB sync/data cable.
+              </li>
+              <li>
+                <ol>
+                  <li>Run &ldquo;NUX Device Firmware Updater (DFU)&rdquo;.</li>
+                  <li>
+                    Hold down the &ldquo;DELAY&rdquo; and &ldquo;Reverb&rdquo; footswitches together
+                    and plug in your power supply (9V/DC, Negative Center). Release both
+                    foot-switches when you see &ldquo;Device connected.&rdquo;
+                  </li>
+                </ol>
+              </li>
+              <li>
+                <ol>
+                  <li>
+                    Select the new firmware file (bin file) that was downloaded along with the NUX
+                    Device Firmware Updater (DFU).
+                  </li>
+                  <li>Click the &ldquo;Start Update&rdquo; button.</li>
+                </ol>
+              </li>
+              <li>
+                Wait until the update is completed. During the upgrade process, both LED indicators
+                will keep flashing, and once the progress is done, both LED indicators stay on.
+              </li>
+              <li>
+                Finish updating.
+                <ol>
+                  <li>Close &ldquo;NUX Device Firmware Updater (DFU)&rdquo;.</li>
+                  <li>Unplug the power supply and micro-USB cable from the pedal.</li>
+                  <li>Try out the new features and tones.</li>
+                </ol>
+              </li>
+            </ol>
+            <p>
+              You can also refer to this tutorial made by our friend Ryan Lutton:
+              <a href="https://youtu.be/pxpXoFZ_yUw">https://youtu.be/pxpXoFZ_yUw</a>
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      &copy; 2017 Cherub Technology Co., Ltd. NUX and Atlantic Delay &amp; Reverb are trademarks of
+      Cherub Technology Co., Ltd. &mdash;
+      <a href="https://www.nuxaudio.com">www.nuxaudio.com</a>
+    </footer>
+  </body>
+</html>
