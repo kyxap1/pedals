@@ -103,15 +103,17 @@ Git, only when the user asks for a commit:
 
 ### 2. Extract
 
-Run once per PDF (poppler only, nothing to install):
+Run once per PDF (poppler, plus qpdf for `fonts-used.txt` — skipped with a
+warning when qpdf is missing):
 
 ```
 .claude/skills/pdf-manual-to-html/scripts/extract_pdf.sh <manual.pdf> _cctmp.<slug>/extract/<pdf-stem>/
 ```
 
 It writes `info.txt` (metadata + **embedded fonts**, which drive the font
-choice), `text.txt` (copy source), `raw/` (embedded images in their native
-format) and `pages/` (150 dpi renders). `text.txt` loses layout and colour, so
+choice), `fonts-used.txt` (which text each face sets, and its CSS weight),
+`text.txt` (copy source), `raw/` (embedded images in their native format) and
+`pages/` (150 dpi renders). `text.txt` loses layout and colour, so
 also open the PDF with the Read tool (`pages:`) to see the real thing.
 
 Render with `pdftocairo`, never `pdftoppm`. Poppler's Splash backend
@@ -161,7 +163,15 @@ Three sources, in order of preference:
    photos usually come out of `raw/` as `.jpg`, so don't glob `*.png` only.
 
 Put the result in a handful of CSS custom properties at the top of `style.css`
-so the palette is swappable, with the font mapping recorded in a comment.
+so the palette is swappable, with the font mapping — face → family and
+weight — recorded in a comment.
+
+Map weights as well as families. Every `font-weight` in the stylesheet comes
+from a face in `fonts-used.txt` (Regular → 400, Semibold → 600, Bold → 700,
+Black → 900): look up there which face sets the table labels, step
+instructions and run-in heads instead of picking a weight by eye. A web
+semibold standing in for a print Bold reads as a washed-out label. No semibold
+face setting body text means no 600 anywhere on the page.
 
 The page ground is light on every pedal in this repo, whatever the manual is
 printed on. A manual set light-on-dark keeps its dark ground for the masthead
@@ -348,6 +358,8 @@ Actions on push to `master`; source PDFs live in the repo on purpose.
 ## Bundled files
 
 - `scripts/extract_pdf.sh` — text, images, page renders and font list from a PDF.
+- `scripts/font_usage.py` — which text each embedded face sets, and its CSS
+  weight; `extract_pdf.sh` writes its output to `fonts-used.txt`.
 - `scripts/sample_colors.py` — dominant colours of an image, as hex.
 - `scripts/check_page.py` — anchor, image and stray-file check on the built page.
 - `references/conventions.md` — repo layout, the full HTML/CSS pattern from the
