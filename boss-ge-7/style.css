@@ -7,8 +7,7 @@
 /* PALETTE — sampled off the reference manual's page */
 :root {
   --ink: #231f20; /* body text */
-  --navy: #10508c; /* section bars, rules, links */
-  --navy-deep: #0d3867; /* header band */
+  --navy: #10508c; /* header band, section bars, rules, links */
   --tint: #dfe5f1; /* panel-description card background */
   --cond: "Fira Sans Condensed", "Arial Narrow", sans-serif;
 }
@@ -43,35 +42,47 @@ a:active {
   text-decoration: underline;
 }
 
-/* MASTHEAD: the manual's own blue band, wordmark and BOSS logo cut from it */
+/* MASTHEAD: boss-rc-5's arrangement (pedal beside the title block), the title
+   block being this manual's own header band: wordmark, title, BOSS logo */
 #masthead {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 1.5em 2em;
-  background: var(--navy-deep);
-  padding: 1.5em 3em;
+  gap: 1.5em 3em;
+  padding: 2em 3em;
 }
-#masthead h1 {
-  display: flex;
-  align-items: center;
-  gap: 1.5em;
-  flex: 1 1 20em;
-  font-size: 1rem; /* neutralise the UA default h1 size so the em values below stay predictable */
+#masthead > img {
+  order: -1;
+  width: 10em;
   margin: 0;
 }
-#masthead h1 img {
+#masthead .title {
+  flex: 1 1 24em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em 2em;
+  background: var(--navy);
+  padding: 1em 1.5em;
+}
+#masthead h1 {
+  font-size: 1rem; /* neutralise the UA default h1 size so the em values below stay predictable */
+  line-height: 0;
+  margin: 0;
+}
+#masthead .title img {
   width: auto;
   height: 3.6em;
   margin: 0;
 }
-#masthead h1 img:last-child {
-  height: 2em;
-  margin-left: auto;
+#masthead .title > img {
+  height: 1.8em;
 }
-#masthead .photo {
-  width: 9em;
-  flex: 0 0 auto;
+#masthead .title p {
+  color: #fff;
+  font-size: 1.9em;
+  font-weight: 700;
   margin: 0;
 }
 
@@ -98,8 +109,7 @@ a:active {
 }
 .flow h2,
 .table-scroll,
-.parts-grid,
-figure.wide {
+.panel-layout {
   column-span: all;
 }
 .half-container > header + * {
@@ -168,19 +178,36 @@ section + section {
   margin-bottom: 1em;
 }
 
-/* Panel Descriptions: one tinted card per labelled part, no leader lines */
+/* Panel Descriptions: the diagram beside one tinted card per labelled part,
+   leader lines painted out of the diagram. Cards flow in columns so each
+   keeps its own height instead of stretching to the tallest in its row. */
+.panel-layout {
+  display: grid;
+  grid-template-columns: minmax(12em, 17em) 1fr;
+  gap: 2em;
+  align-items: start;
+}
+.panel-layout > figure {
+  position: sticky;
+  top: 1em;
+}
 .parts-grid {
   list-style: none;
   padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
-  gap: 1em;
-  margin-bottom: 1.5em;
+  margin: 0;
+  columns: 2 16em;
+  column-gap: 1em;
 }
 .parts-grid > li {
   background: var(--tint);
   border-radius: 6px;
   padding: 0.8em 1em;
+  margin-bottom: 1em;
+}
+.parts-grid figure img {
+  width: auto;
+  max-width: 100%;
+  max-height: 8em;
 }
 
 /* Figures */
@@ -196,8 +223,8 @@ figure figcaption {
   font-weight: 600;
   font-size: 0.9em;
 }
-figure.wide img {
-  max-width: 22em;
+.fig-m img {
+  max-width: 28em;
 }
 .icon-row {
   column-span: all;
@@ -293,6 +320,15 @@ dl.pairs dd {
   }
   #masthead {
     padding: 1.25em 1.5em;
+  }
+  .panel-layout {
+    grid-template-columns: 1fr;
+  }
+  .panel-layout > figure {
+    position: static;
+    width: 100%;
+    max-width: 16em;
+    margin: 0 auto;
   }
   #toc-mobile {
     display: block;
