@@ -143,7 +143,10 @@ Three sources, in order of preference:
 1. **An existing pedal page in this repo, same brand.** Its `style.css` was
    already tuned to that maker's real palette and typefaces from a real
    manual — reuse its tokens, heading treatment and callout patterns rather
-   than re-deriving them. Verify the fonts actually match first
+   than re-deriving them. If that page shows as modified in `git status`,
+   another session is reworking it: read its committed version
+   (`git show HEAD:<sibling>/style.css`), not the half-finished working copy.
+   Verify the fonts actually match first
    (`pdffonts` on both PDFs, or `info.txt` from each extract): brands reuse
    the same template — and dingbat glyph set — across whole product lines, but
    don't assume it without checking. **Important**: A brand's design language
