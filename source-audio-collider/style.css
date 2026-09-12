@@ -1,0 +1,497 @@
+/* FONTS
+   The manual is a Word document printed to PDF; its companion guides share the
+   Office faces:
+     Calibri Regular / Italic (400), Bold / BoldItalic (700) -> Carlito (metric-compatible)
+     ArialMT (cover title) -> Arial
+     Cambria (400) / Cambria-Bold (700), quick-start card table -> Caladea (metric-compatible)
+   Run-in heads and table labels are Calibri-Bold: 700, no semibold anywhere */
+@import url("https://fonts.googleapis.com/css2?family=Caladea:wght@400;700&family=Carlito:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+/* PALETTE — sampled off the manual's pages and the companion guides */
+:root {
+  --ink: #000;
+  --blue: #2e74b5; /* section and sub-section titles */
+  /* small-caps engine names and italic sub-titles; #5b9bd5 in print, darkened for contrast */
+  --blue-light: #4a8bcb;
+  --link: #0563c1;
+  /* "Warning:" labels; #ff0000 in print, darkened for contrast */
+  --red: #e00000;
+  --table-head: #4d72be; /* Auto Routing table header */
+  --row-a: #cfd5e8;
+  --row-b: #e9ebf4;
+  --grid: #000; /* ruled tables: MIDI guide, control options, FAQ */
+  --card-head: #1f497d; /* quick-start card table */
+  --card-a: #d3dfee;
+  --card-b: #a7bfde;
+}
+
+* {
+  box-sizing: border-box;
+  margin-top: 0;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: #fff;
+  font-family: Carlito, Calibri, "Segoe UI", sans-serif;
+  font-size: 1.0625rem;
+}
+p,
+li {
+  line-height: 1.5;
+}
+p {
+  margin-bottom: 0.7em;
+}
+main {
+  margin-left: 20vw;
+  padding-bottom: 3em;
+}
+img {
+  max-width: 100%;
+}
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+a:hover,
+a:active {
+  text-decoration: underline;
+}
+b,
+strong {
+  font-weight: 700;
+}
+
+/* MASTHEAD: the cover — logo top right, the Arial title line, the pedal photo */
+#masthead {
+  padding: 1.5em 3em 1em;
+}
+#masthead h1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6em;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 2.3em;
+  line-height: 1.15;
+  text-align: center;
+}
+#masthead h1 img {
+  align-self: flex-end;
+  width: 8.5rem;
+}
+#masthead > img {
+  display: block;
+  width: min(24em, 100%);
+  margin: 1em auto 0;
+}
+
+/* HEADINGS: plain blue Calibri, no rules or blocks */
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+  color: var(--blue);
+  break-after: avoid;
+}
+h2 {
+  font-size: 1.9em;
+  line-height: 1.2;
+  margin-bottom: 0.5em;
+}
+h3 {
+  font-size: 1.3em;
+  line-height: 1.25;
+  margin: 1.2em 0 0.3em;
+}
+h4 {
+  font-size: 1.1em;
+  margin: 1em 0 0.25em;
+}
+h5,
+h6 {
+  font-size: 1em;
+  margin: 0.9em 0 0.2em;
+}
+.sc {
+  font-variant: small-caps;
+  color: var(--blue-light);
+}
+.it {
+  font-style: italic;
+  font-size: 1em;
+  color: var(--blue-light);
+  margin: 0.9em 0 0.2em;
+}
+.half-container > header + *,
+.panel-text > h3:first-child {
+  margin-top: 0;
+}
+
+/* SIDE NAVIGATION */
+#side-nav {
+  width: 20vw;
+  background: #fff;
+  position: fixed;
+  z-index: 5;
+  height: 100%;
+  overflow-y: auto;
+  border-right: 1px solid rgba(46, 116, 181, 0.2);
+}
+.nav-container {
+  display: flex;
+  flex-direction: column;
+  margin: 1em 1em 2em;
+}
+.nav-container h3,
+#toc-mobile h2 {
+  color: var(--blue);
+  margin: 0 0 1rem;
+}
+.nav-container h4,
+#toc-mobile h4 {
+  font-size: 1em;
+  margin: 0.55em 0 0.2em;
+}
+.nav-container h5,
+#toc-mobile h5 {
+  font-size: 0.92em;
+  margin: 0 0 0.2em 0.9em;
+}
+.nav-container a,
+#toc-mobile a {
+  color: var(--ink);
+}
+
+/* CONTAINERS */
+.flex-container {
+  display: flex;
+  padding-left: 2em;
+}
+.half-container {
+  padding: 0 1em;
+  width: 100%;
+  /* 28em, not 30em: with 17px body type, 30em columns drop to one at desktop widths */
+  columns: 2 28em;
+  column-gap: 3em;
+}
+.half-container > header {
+  column-span: all;
+}
+.no-columns {
+  columns: auto !important;
+}
+section + section {
+  margin-top: 2.5em;
+}
+.keep-together,
+p,
+li,
+figure {
+  break-inside: avoid;
+}
+ul,
+ol {
+  padding-left: 1.4em;
+  margin-bottom: 0.8em;
+}
+li + li {
+  margin-top: 0.3em;
+}
+
+/* Engine control lines and the like, indented under their paragraph */
+.ctl {
+  padding-left: 1.5em;
+}
+.warn {
+  color: var(--red);
+}
+.red-note {
+  color: var(--red);
+}
+/* The power warning is set bold and underlined, not red */
+.u {
+  text-decoration: underline;
+}
+/* Italic blue run-in labels ("Input 2 as an Audio Input:") */
+.lbl {
+  font-style: italic;
+  color: var(--blue-light);
+}
+.note-it {
+  font-style: italic;
+}
+
+/* Changelog banner and markers for material folded in from the companion guides */
+.doc-update {
+  column-span: all;
+  background: var(--row-b);
+  border-left: 4px solid var(--blue);
+  padding: 0.9em 1.2em;
+  margin-bottom: 1.5em;
+}
+.doc-update > strong {
+  display: block;
+  text-transform: uppercase;
+  margin-bottom: 0.3em;
+}
+.doc-update p:last-child {
+  margin-bottom: 0;
+}
+.src-note {
+  border-left: 3px solid var(--blue);
+  padding-left: 0.75em;
+}
+
+/* FIGURES: never upscaled past their native size */
+figure {
+  margin: 0 0 1em;
+}
+figure img {
+  display: block;
+  margin: 0 auto;
+}
+figure.wide {
+  column-span: all;
+}
+figure.wide img {
+  max-width: min(100%, 60em);
+}
+.fig-s img {
+  max-width: min(100%, 13em);
+}
+.fig-m img {
+  max-width: min(100%, 20em);
+}
+.weee {
+  width: 3em;
+  margin-bottom: 0.5em;
+}
+
+/* Controls: the labelled panel photo stays in view beside the descriptions */
+.panel-layout {
+  display: grid;
+  grid-template-columns: minmax(16em, 30em) minmax(0, 1fr);
+  gap: 2.5em;
+  align-items: start;
+}
+.panel-layout > figure {
+  position: sticky;
+  top: 1em;
+}
+
+/* Routing diagrams: each mode's panels side by side, captions above as in print */
+.mode {
+  column-span: all;
+  margin-bottom: 1.5em;
+}
+.mode > p {
+  max-width: 48em;
+}
+.routing {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14em, 21em));
+  gap: 1.5em 3em;
+  align-items: start;
+  margin-top: 0.8em;
+}
+.routing figure {
+  margin: 0;
+}
+.routing figcaption ul {
+  font-weight: 700;
+  font-size: 0.9em;
+  margin-bottom: 0.5em;
+}
+.routing figcaption li + li {
+  margin-top: 0;
+}
+
+/* TABLES */
+.table-scroll {
+  overflow-x: auto;
+  margin-bottom: 1.2em;
+}
+.span-all {
+  column-span: all;
+}
+.doc-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95em;
+  line-height: 1.35;
+}
+.doc-table th,
+.doc-table td {
+  padding: 0.35em 0.6em;
+  text-align: left;
+  vertical-align: top;
+}
+/* Auto Routing: white-ruled, blue header, banded rows */
+.routing-table th,
+.routing-table td {
+  border: 2px solid #fff;
+  white-space: nowrap;
+}
+.routing-table thead th {
+  background: var(--table-head);
+  color: #fff;
+  font-weight: 700;
+}
+.routing-table tbody tr:nth-child(odd) {
+  background: var(--row-a);
+}
+.routing-table tbody tr:nth-child(even) {
+  background: var(--row-b);
+}
+.routing-table tbody tr.split {
+  background: #fff;
+  font-weight: 700;
+}
+/* Ruled grids: MIDI guide, control options guide, FAQ byte table */
+.grid-table th,
+.grid-table td {
+  border: 1px solid var(--grid);
+}
+.grid-table thead th {
+  font-weight: 700;
+  vertical-align: bottom;
+}
+.grid-table tbody th {
+  font-weight: 700;
+}
+.midi-table thead th {
+  text-decoration: underline;
+}
+.midi-table .cc {
+  font-weight: 700;
+  text-align: right;
+}
+.midi-table .val {
+  text-align: right;
+}
+.midi-table tbody td,
+.midi-table tbody th {
+  padding-top: 0.15em;
+  padding-bottom: 0.15em;
+}
+.byte-table {
+  width: auto;
+}
+.byte-table thead th {
+  background: #d9d9d9;
+}
+.byte-table td,
+.byte-table th {
+  text-align: center;
+}
+/* Control options guide: the print's colour coding */
+.options-table td.na {
+  background: #aeaaaa;
+}
+.options-table td.yes {
+  background: #00b050;
+}
+.options-table td.assign {
+  background: #00b0f0;
+}
+.options-table td.tap {
+  background: #ffff00;
+}
+.options-table td.hold {
+  background: #ff0000;
+}
+.options-table tbody th {
+  font-weight: 400;
+}
+/* Quick-start card: Cambria table on navy and two blues */
+.card-table {
+  font-family: Caladea, Cambria, Georgia, serif;
+}
+.card-table th,
+.card-table td {
+  border: 2px solid #fff;
+}
+.card-table thead th {
+  background: var(--card-head);
+  color: #fff;
+  font-weight: 700;
+}
+.card-table tbody th {
+  font-weight: 700;
+}
+.card-table tbody tr:nth-child(odd) {
+  background: var(--card-a);
+}
+.card-table tbody tr:nth-child(even) {
+  background: var(--card-b);
+}
+.card-wordmark img {
+  max-width: min(100%, 26em);
+}
+.card-text p {
+  margin-bottom: 0.35em;
+}
+
+.colophon {
+  font-size: 0.9em;
+  padding-left: 3em;
+  margin-top: 3em;
+}
+
+@media (max-width: 900px) {
+  .flex-container {
+    flex-direction: column;
+    padding-left: 0;
+  }
+  .half-container {
+    width: 100%;
+    padding: 0;
+  }
+  nav#side-nav {
+    display: none;
+  }
+  main {
+    margin: 0 auto;
+    padding: 0 1em 3em;
+  }
+  #masthead {
+    padding: 1em 0;
+  }
+  #masthead h1 {
+    font-size: 1.7em;
+  }
+  #masthead h1 img {
+    width: 6.5rem;
+  }
+  .panel-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .panel-layout > figure {
+    position: static;
+  }
+  .routing {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .colophon {
+    padding-left: 0;
+  }
+  #toc-mobile {
+    display: block;
+    padding-bottom: 1em;
+  }
+}
+
+/* 901, not 900: both queries match at exactly 900px, and this one comes later,
+   so at that width the nav is hidden and the mobile TOC would be too */
+@media (min-width: 901px) {
+  #toc-mobile {
+    display: none;
+  }
+}

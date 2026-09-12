@@ -1,0 +1,2577 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Source Audio Collider Delay+Reverb Pedal Manual</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav id="side-nav">
+      <header>
+        <div class="nav-container">
+          <h3>Contents</h3>
+          <h4><a href="#welcome">Welcome</a></h4>
+          <h4><a href="#overview">Overview</a></h4>
+          <h4><a href="#connecting">Connecting the Pedal</a></h4>
+          <h4><a href="#connections">Connections</a></h4>
+          <h4><a href="#reverb-engines">Reverb Engines</a></h4>
+          <h4><a href="#delay-engines">Delay Engines</a></h4>
+          <h4><a href="#controls">Controls</a></h4>
+          <h4><a href="#hardware-shortcuts">Hardware Shortcuts</a></h4>
+          <h4><a href="#presets">Preset Storage and Recall</a></h4>
+          <h4><a href="#universal-bypass">Universal Bypass</a></h4>
+          <h4><a href="#stereo">Stereo Operation &amp; Signal Routing</a></h4>
+          <h4><a href="#external-control">External Control</a></h4>
+          <h5><a href="#control-options">External Control Options Guide</a></h5>
+          <h4><a href="#neuro">Neuro Desktop and Mobile Editors</a></h4>
+          <h5><a href="#neuro-desktop">The Neuro Desktop Editor</a></h5>
+          <h5><a href="#neuro-mobile">The Neuro Mobile App</a></h5>
+          <h5><a href="#neuro-hub">Neuro Hub</a></h5>
+          <h4><a href="#midi">MIDI</a></h4>
+          <h5><a href="#midi-implementation">MIDI Implementation</a></h5>
+          <h4><a href="#usb">USB</a></h4>
+          <h4><a href="#specifications">Specifications</a></h4>
+          <h4><a href="#troubleshooting">Troubleshooting</a></h4>
+          <h4><a href="#faq">Frequently Asked Questions</a></h4>
+          <h4><a href="#rubber-feet">Rubber Feet</a></h4>
+          <h4><a href="#waste-disposal">Waste Disposal Notes</a></h4>
+          <h4><a href="#warranty">Warranty</a></h4>
+          <h4><a href="#version-history">Version History</a></h4>
+          <h4><a href="#quick-start">Quick Start Reference Card</a></h4>
+        </div>
+      </header>
+    </nav>
+
+    <main id="main-doc">
+      <header id="masthead">
+        <h1>
+          <img src="Images/source-audio-logo.png" alt="Source Audio" />
+          <span>Collider Delay+Reverb User Guide</span>
+        </h1>
+        <img src="Images/pedal.jpg" alt="The Collider Delay+Reverb pedal" />
+      </header>
+
+      <nav id="toc-mobile">
+        <h2>Contents</h2>
+        <h4><a href="#welcome">Welcome</a></h4>
+        <h4><a href="#overview">Overview</a></h4>
+        <h4><a href="#connecting">Connecting the Pedal</a></h4>
+        <h4><a href="#connections">Connections</a></h4>
+        <h4><a href="#reverb-engines">Reverb Engines</a></h4>
+        <h4><a href="#delay-engines">Delay Engines</a></h4>
+        <h4><a href="#controls">Controls</a></h4>
+        <h4><a href="#hardware-shortcuts">Hardware Shortcuts</a></h4>
+        <h4><a href="#presets">Preset Storage and Recall</a></h4>
+        <h4><a href="#universal-bypass">Universal Bypass</a></h4>
+        <h4><a href="#stereo">Stereo Operation &amp; Signal Routing</a></h4>
+        <h4><a href="#external-control">External Control</a></h4>
+        <h5><a href="#control-options">External Control Options Guide</a></h5>
+        <h4><a href="#neuro">Neuro Desktop and Mobile Editors</a></h4>
+        <h5><a href="#neuro-desktop">The Neuro Desktop Editor</a></h5>
+        <h5><a href="#neuro-mobile">The Neuro Mobile App</a></h5>
+        <h5><a href="#neuro-hub">Neuro Hub</a></h5>
+        <h4><a href="#midi">MIDI</a></h4>
+        <h5><a href="#midi-implementation">MIDI Implementation</a></h5>
+        <h4><a href="#usb">USB</a></h4>
+        <h4><a href="#specifications">Specifications</a></h4>
+        <h4><a href="#troubleshooting">Troubleshooting</a></h4>
+        <h4><a href="#faq">Frequently Asked Questions</a></h4>
+        <h4><a href="#rubber-feet">Rubber Feet</a></h4>
+        <h4><a href="#waste-disposal">Waste Disposal Notes</a></h4>
+        <h4><a href="#warranty">Warranty</a></h4>
+        <h4><a href="#version-history">Version History</a></h4>
+        <h4><a href="#quick-start">Quick Start Reference Card</a></h4>
+      </nav>
+
+      <section id="welcome">
+        <div class="flex-container">
+          <div class="half-container">
+            <header><h2>Welcome</h2></header>
+            <div class="doc-update">
+              <strong>About this page</strong>
+              <p>
+                Built from the Collider Delay+Reverb User Guide (SA263, last revised December 27, 2019 — see
+                <a href="#version-history">Version History</a>). Three companion documents are folded in: the
+                MIDI Implementation Guide as the <a href="#midi-implementation">MIDI Implementation</a> table,
+                the Control Options Guide as the <a href="#control-options">External Control Options Guide</a>
+                table, and the <a href="#quick-start">Quick Start Reference Card</a> at the end. The
+                <a href="#midi">MIDI</a> section also carries the Collider’s row of Source Audio’s MIDI Support
+                chart.
+              </p>
+              <p>
+                Sources: <a href="SA263_Collider_User_Manual.pdf">User Guide</a> ·
+                <a href="collider_midi_guide.pdf">MIDI Implementation Guide</a> ·
+                <a href="collider_external_switch_guide.pdf">Control Options Guide</a> ·
+                <a href="collider_quick_reference_card_86a3e9c3-c261-465d-a822-2142f68f7455.pdf">Quick Start Reference Card</a> ·
+                <a href="MIDI_Support.webp">MIDI Support chart</a>
+              </p>
+            </div>
+            <p>
+              Thank you for purchasing the Collider Delay+Reverb. This powerful, yet easy-to-use stereo effects
+              pedal features 12 meticulously crafted delay and reverb engines. Each effect was handpicked from our
+              award winning and highly regarded Nemesis Delay and Ventris Dual Reverb pedals. The Collider’s
+              intuitive control surface makes it easy to mix-and-match any two-engine combination of delay and
+              reverb. Plus, dual footswitches provide individual Engage/Bypass control over each effect in a
+              two-engine combination.
+            </p>
+            <p>
+              The Collider offers an exceptional collection of rich, spacious tones, including realistic
+              reproductions of vintage Analog, Tape, and Oil Can Delays, classic models of Spring and Plate Reverb,
+              natural replications of large and small acoustic spaces, and an intriguing and highly musical
+              selection of “unnatural” tones including Reverse Delay and Shimmer Reverb.
+            </p>
+            <p>
+              The pedal also features dual DSP architecture, 8 user presets (or 128 user presets with MIDI), stereo
+              inputs and outputs, analog dry through, delay tap tempo, reverb hold, full MIDI functionality,
+              external expression capabilities, and extra editing and signal routing options via the Neuro Desktop
+              and Mobile App Editors.
+            </p>
+            <p>
+              We built the Collider Delay+Reverb for supreme sonic exploration. We cannot wait to hear where it
+              takes you.
+            </p>
+            <p>– The Source Audio Team</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="overview">
+        <div class="flex-container">
+          <div class="half-container">
+            <header><h2>Overview</h2></header>
+            <p>
+              <b>12 Hand Picked Engines</b> – Includes vintage Spring, Plate, and Hall reverbs, natural Room
+              sounds, and unnatural Shimmer, E-Dome, and Swell reverbs. Also includes classic Digital, Analog, and
+              Tape delay sounds, a haunting Reverse sound, and a unique, dark, reverb-like Oil Can.
+            </p>
+            <p>
+              <b>Flexible Stereo Routing</b> – Collider is equally at home in a mono or stereo rig. The Collider
+              Auto-Detects the Inputs and Outputs that are being used and accordingly routes every delay and reverb
+              effect engine in Mono-to-Mono, Mono-to-Stereo, or Stereo-to-Stereo modes. It is also possible to
+              select between series, parallel, and split stereo modes, when both engines are engaged.
+            </p>
+            <p>
+              <b>Dual Processing</b> – Features two completely independent processors. Its Dual DSP platform gives
+              the pedal massive processing power, essentially providing two high-powered pedals in a single
+              enclosure.
+            </p>
+            <p>
+              <b>Analog Dry Through</b> – For most configurations the incoming dry signal maintains an independent
+              path around the effects processors (for most engines) while an effect is engaged, thereby
+              maintaining a 100% pure dry signal without D/A conversions.
+            </p>
+            <p>
+              <b>Universal Bypass</b> – Select between true bypass, buffered bypass, or soft bypass with reverb
+              trails. The Collider features high-quality signal relays for true bypass and transparent buffers for
+              analog bypass.
+            </p>
+            <p>
+              <b>Compact Design</b> – The extruded anodized aluminum housing, with its slim profile and small
+              footprint, is built for the rigors of the road.
+            </p>
+            <p>
+              <b>Presets</b> – Save your favorite sounds with the touch of a button. Save up to 8 presets
+              recallable with the pedal’s onboard controls, plus a total of 128 presets recallable with an
+              external MIDI controller.
+            </p>
+            <p>
+              <b>Dual Delay or Reverb Control Set</b> – The Collider’s “Unlock” feature allows you to unlock the
+              Effect Selector knob and access both delay and reverb effects from either footswitch. This means that
+              it is possible to use Collider as a Dual Delay or a Dual Reverb pedal.
+            </p>
+            <p>
+              <b>Neuro Mobile App</b> – The Neuro App is a free download for iOS and Android mobile devices. The
+              App offers a powerful extension to the basic pedal functionality with the options of preset saving
+              and publishing. Edit your presets and upload them directly to your pedal, save them in your private
+              library, or publish and share them with the rest of the Neuro Community.
+            </p>
+            <p>
+              <b>The Neuro Desktop Editor</b> – Connect your Collider Delay+Reverb to the USB port on your Mac or
+              Windows PC to create and save advanced presets with the Neuro Desktop’s sleek editing interface. The
+              Neuro software is a free download for Mac or Windows based PCs. Two-way communication between the
+              pedal and your computer also allows the Desktop Editor to see the parameter settings of every preset
+              stored in your Collider.
+            </p>
+            <p>
+              <b>Neuro Hub</b> – The Source Audio Neuro Hub connects up to five compatible Source Audio pedals and
+              stores the settings of multi-pedal “Scenes.” Up to 128 Scenes can be saved and recalled using the
+              Neuro Hub alongside a standard MIDI controller. This option combines the power of a multi-effects
+              system with the ease and flexibility of a traditional pedal board.
+            </p>
+            <p>
+              <b>Full MIDI Implementation</b> – Collider’s parameters can be accessed and controlled using MIDI
+              messages via its 5-pin DIN Input, a Neuro Hub connection, or USB port. Use MIDI messages to
+              engage/disengage the pedal, change presets, move parameters with a MIDI expression controller, and
+              more. Class compliant USB-MIDI allows the Collider to work as a plug-and-play device with recording
+              software running on Mac and Windows.
+            </p>
+            <p>
+              <b>External Control</b> – Easily configure the Collider to work with a variety of expression pedals
+              and footswitches for various external control options.
+            </p>
+            <p>
+              <b>Discover Knobs Position</b> – Allows you to “discover” where the pedal’s knobs are set for a given
+              preset, via the Control LED flashing when you’ve reached the correct knob position on the dial.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="connecting">
+        <div class="flex-container">
+          <div class="half-container no-columns">
+            <header><h2>Connecting the Pedal</h2></header>
+            <h3>Power</h3>
+            <p>
+              To power the unit, connect a 9V DC negative-tipped power supply to the jack labeled <b>DC 9V</b> on
+              the back panel. Collider needs at least 300mA of current to operate as intended. Please note that
+              your Collider does not include a power supply.
+            </p>
+            <p>
+              <b class="u">Warning:</b> Using an unregulated supply could damage the unit. A power supply with
+              insufficient current levels may also cause noise or other unpredictable behavior. Please be very
+              cautious when using a power supply and refer to the power supply requirements printed on the bottom
+              of the Collider’s housing.
+            </p>
+            <figure class="fig-m">
+              <img src="Images/pedal-cables.jpg" alt="The Collider with cables plugged into its jacks" />
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="connections">
+        <div class="flex-container">
+          <div class="half-container">
+            <header><h2>Connections</h2></header>
+            <h3>Guitar/Audio Connections</h3>
+            <p>
+              Using standard ¼” mono cables, connect your guitar, bass, or other instrument to the INPUT 1 jack and
+              your amp (or the next audio device in the signal chain) to the OUTPUT 1 jack. If you have a second
+              amp, connect it to OUTPUT 2.
+            </p>
+            <p>When the power and audio connections have been made, Collider is ready for use.</p>
+
+            <h3>Input Side Connections</h3>
+            <figure>
+              <img src="Images/jacks-input.jpg" alt="Input side: MIDI IN, INPUT 2 and INPUT 1 jacks" />
+            </figure>
+            <h4>Input 1</h4>
+            <p>
+              INPUT 1 is the primary input for guitar, bass, or other instruments. It can also accept line-level
+              inputs and will work in your amp’s effect loop. Connect it to your instrument or other audio source
+              using a mono (TS) ¼” cable. Details about the allowed signal levels are available in the
+              <a href="#specifications">Specifications</a> section.
+            </p>
+            <h4>Input 2</h4>
+            <p>
+              The secondary audio input for stereo sources or as the data connection to your mobile device when
+              using the Neuro App.
+            </p>
+            <ul>
+              <li>
+                <span class="lbl">Input 2 as an Audio Input:</span> The tip contact on INPUT 2 acts as a secondary
+                input for guitar, bass, or other instruments. Connect your instrument (or the previous effect in the
+                signal chain) using a mono (TS) ¼” cable. The Collider will automatically configure itself for
+                stereo audio input. Other routing options are available using the Neuro App. For more information
+                about stereo routing, refer to the <a href="#stereo">Stereo Operation</a> section.
+              </li>
+              <li>
+                <span class="lbl">Input 2 as a Neuro App Data Input:</span> The ring contact on INPUT 2 acts as a
+                data connection for the Neuro Mobile App. The Neuro App sends data to the pedal using your mobile
+                device’s headphone jack. Connect it to your mobile device using the included stereo (TRS) ⅛” to ¼”
+                cable. It can also accept daisy-chained Neuro data from another Neuro-compatible pedal in the
+                chain, provided that a TRS cable is used. The audio signal (if applicable) will be on the tip
+                contact of the plug, and the Neuro App data will be on the ring contact. This allows audio and
+                Neuro data to flow on the same cable.
+              </li>
+            </ul>
+            <h4>MIDI Input</h4>
+            <p>
+              This is a standard 5-pin DIN connector that accepts MIDI control messages from external devices,
+              including program change (PC) and continuous controller (CC) messages. Please email
+              <a href="mailto:contact@sourceaudio.net">contact@sourceaudio.net</a> regarding any questions about
+              the Collider Delay+Reverb’s MIDI implementation.
+            </p>
+
+            <h3>Output Side Connections</h3>
+            <figure>
+              <img src="Images/jacks-output.jpg" alt="Output side: OUTPUT 1, OUTPUT 2 and MIDI THRU jacks" />
+            </figure>
+            <h4>Output 1</h4>
+            <p>
+              This is the primary audio output. Connect it to your amplifier, recording interface, or the next
+              device in your effects signal chain using a mono (TS) ¼” cable.
+            </p>
+            <h4>Output 2</h4>
+            <p>OUTPUT 2 can act either as an audio output or a daisy-chain data connection for the Neuro App.</p>
+            <ul>
+              <li>
+                <span class="lbl">Output 2 as an Audio Output:</span> The tip contact on OUTPUT 2 acts as the
+                secondary audio output. It carries an audio signal when the Collider is configured with a signal
+                routing that uses stereo outputs. Connect it to your amplifier, recording interface, or the next
+                device in your effects signal chain using a mono (TS) ¼” cable.
+              </li>
+              <li>
+                <span class="lbl">Output 2 as a Neuro App Data Daisy-Chain Output:</span> The ring contact on
+                OUTPUT 2 acts as a data connection for the Neuro App, passing data from the Collider to the next
+                Source Audio effect in your signal chain. You can daisy-chain the Neuro App data regardless of
+                whether OUTPUT 2 is configured to output audio or not. Connect OUTPUT 2 to the next device’s Neuro
+                App Data input (usually INPUT 2) using a stereo (TRS) ¼” cable. The audio signal (if applicable)
+                will be on the tip contact of the plug, and the Neuro App data will be on the ring contact. This
+                allows audio and Neuro data to flow on the same cable.
+              </li>
+            </ul>
+            <h4>MIDI Thru</h4>
+            <p>
+              This is a standard 5-pin DIN connector that echoes MIDI messages from the MIDI INPUT jack and sends
+              them to other devices. The Collider does not generate any of its own MIDI data, but it will copy and
+              output any data it receives.
+            </p>
+
+            <h3>Power and Control Connections</h3>
+            <figure>
+              <img src="Images/jacks-top.jpg" alt="Top panel: CONTROL INPUT, DC 9V, EXP/SWITCH, PEDAL IN and USB" />
+            </figure>
+            <h4 id="dc-9v">DC 9V (Power)</h4>
+            <p>
+              Please use a regulated 9V DC, center-negative power supply rated for at least 300mA (not included).
+              Unregulated or lower-current supplies may cause noise or unpredictable performance.
+            </p>
+            <h4>USB</h4>
+            <p>
+              Connect your computer (Mac or Windows) to the Collider’s USB port (marked with the USB icon) using a
+              standard mini USB cable. The Collider is a class compliant USB device, meaning that it does not
+              require any custom drivers. For more information about the Collider’s USB capabilities, refer to the
+              <a href="#usb">USB</a> section.
+            </p>
+            <h4>Control Input</h4>
+            <p>
+              The 3.5 mm CONTROL INPUT port connects to external control devices such as the Source Audio Tap Tempo
+              Switch, Source Audio Dual Expression Pedal, Neuro Hub, and Hot Hand Motion Controller. For more
+              information, refer to the <a href="#expression">Expression Pedal Input</a>,
+              <a href="#hot-hand-input">Hot Hand Input</a>, and <a href="#neuro-hub">Neuro Hub</a> sections.
+            </p>
+            <h4>Expression/Switch Pedal Input</h4>
+            <p>
+              The PEDAL IN jack on the back panel connects to either an external passive expression pedal or
+              footswitch. The PEDAL IN SWITCH allows the user to select which type of external controller is being
+              used. Set to EXP for expression control or SWITCH for footswitch control. See the
+              <a href="#external-control">External Control</a> section for details.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="reverb-engines">
+        <div class="flex-container">
+          <div class="half-container">
+            <header><h2>Reverb Engines</h2></header>
+            <p>
+              The Collider includes seven onboard reverb effect engines, carefully selected from the Ventris Dual
+              Reverb. Because of the wide tonal possibilities of each reverb engine in the Collider Delay+Reverb,
+              it was necessary to arm the pedal with two variable knobs labeled CONTROL 1 and CONTROL 2. When a new
+              reverb engine is selected, two engine specific parameters are automatically assigned to the CONTROL
+              knobs.
+            </p>
+            <p>
+              Below are descriptions of each reverb engine and how the CONTROL knobs are configured respectively.
+            </p>
+
+            <h3 class="sc" id="room">Room</h3>
+            <p>
+              The ROOM engines capture the ambient reverberations of a real acoustic space. In contrast with the
+              E-DOME engine (which offers a massive, arena-sized reverb) the ROOM engine can summon a variety of
+              room sizes from a warm and intimate household room to a larger theatre sized space. Use the FEEDBACK
+              (decay), DELAY (pre-delay), and MIX knobs to alter the size and feel of your room.
+            </p>
+            <p class="ctl">
+              <b>CONTROL 1:</b> <i>Bass</i> – Adjusts the level of the low-end frequencies on the wet signal. Turn
+              the knob counterclockwise for a lighter reverb or clockwise for thicker, more bass-heavy sound.
+            </p>
+            <p class="ctl">
+              <b>CONTROL 2:</b> <i>Mod Depth</i> – Adds a pitch modulation to the wet signal. Turn the knob fully
+              counterclockwise for zero modulation and clockwise to gradually increase the pitch depth.
+            </p>
+
+            <h3 class="sc">Hall</h3>
+            <p>
+              Patterned after the lush sounds of studio rack units from the 80s, the HALL engine is distinguished
+              by its highly diffuse tones and glorious blooming characteristic. The Source Audio engineering team
+              invested massive research time in perfectly capturing the complex sounds of these powerful effects
+              units. It should be noted that while we place this grand effect engine among the classic reverbs, it
+              has little resemblance to reverberations found in the natural or analog world, rather the HALL
+              replicates the extravagant wash of sound popular during the first wave of ambient music recordings.
+            </p>
+            <p class="ctl"><b>CONTROL 1:</b> <i>Bass</i> – See the description in the <a href="#room">ROOM</a> engine section.</p>
+            <p class="ctl">
+              <b>CONTROL 2:</b> <i>Hall Size</i> – Select between 5 different hall sizes. Turn the knob
+              counterclockwise for smaller, tighter hall sounds and clockwise for grander reverberations. Please
+              note that this knob does not gradually increase the size of the hall, rather the knob is split into
+              five regions. As you turn the knob you may hear the transition points where a new hall size is
+              engaged.
+            </p>
+
+            <h3 class="sc">True Spring</h3>
+            <p>
+              Source Audio’s Chief Scientist, Bob Chidlaw, worked long and hard to perfectly capture the sweet
+              idiosyncrasies of a vintage spring reverb tank. The result is an exceptionally realistic effect with
+              the unmistakable “drip” heard in vintage spring reverb equipped amplifiers.
+            </p>
+            <p class="ctl"><b>CONTROL 1:</b> <i>Bass</i> – Find the description in the <a href="#room">ROOM</a> engine section.</p>
+            <p class="ctl">
+              <b>CONTROL 2:</b> <i>Spring Length</i> – Selects between three different virtual spring lengths. The
+              longer the springs in a reverb tank the more distinguishable the “echo” effect becomes as the
+              incoming signal travels back and forth across the length of the springs. Please note that this knob
+              does not gradually increase the size of the springs, rather the knob is split into three regions. As
+              you turn the knob you may hear the transition points when a new spring length is engaged.
+            </p>
+
+            <h3 class="sc">Plate</h3>
+            <p>
+              This authentic sounding reverb engine is a spot-on simulation of the highly diffuse effect synonymous
+              with vintage plate reverb units of the 50s and 60s. Like the True Spring engine, Bob Chidlaw was
+              relentless in crafting the perfect emulation of this beautiful and distinct sound. The critical
+              component of a plate reverb is a large plate of suspended sheet metal. Blasting audio into the face
+              of the sheet metal creates the beautifully lush and resonant tones found in countless classic
+              recordings.
+            </p>
+            <p class="ctl"><b>CONTROL 1:</b> <i>Bass</i> – Find the description in the <a href="#room">ROOM</a> engine section.</p>
+            <p class="ctl">
+              <b>CONTROL 2:</b> <i>Plate Size</i> – Selects between three different plate sizes: Small, Medium and
+              Large. In general, as the plate size gets larger the reverberations will sustain longer and develop
+              varying characteristics in the decay. Please note that this knob does not gradually increase the
+              size of the plate, rather the knob is split into three regions. As you turn the knob you may hear the
+              transition points when a new plate size is engaged.
+            </p>
+
+            <h3 class="sc">Shimmer</h3>
+            <p>
+              This pitch shifting reverb engine mixes traditional room sounds with octave-up reflections for an
+              angelic reverb effect.
+            </p>
+            <p class="ctl">
+              <b>CONTROL 1:</b> <i>Normal/Shimmer Crossfade</i> – Controls the mix ratio between the normal reverb
+              effect and the pitch shifting reverb reflections. Turn the knob clockwise to gradually increase the
+              pitch shifting reverb and decrease the normal reverb in the wet mix.
+            </p>
+            <p class="ctl">
+              <b>CONTROL 2:</b> <i>Shimmer Regeneration</i> – Increases the amount of Shimmer signal that is fed
+              back into the reverb processor. To the listener, the Shimmer effect becomes more pronounced as this
+              knob is turned clockwise.
+            </p>
+
+            <h3 class="sc">E-Dome</h3>
+            <p>
+              The cavernous E-DOME (a.k.a. “Enormo-Dome”) produces long, lush reverb trails that linger for days.
+              Invoke the sound of massive, arena settings with the Ventris Reverb’s largest room simulation. This
+              one is huuuuge, spacious, cloud-like and ambient.
+            </p>
+            <p class="ctl"><b>CONTROL 1:</b> <i>Bass</i> – See the description in the <a href="#room">ROOM</a> engine section.</p>
+            <p class="ctl"><b>CONTROL 2:</b> <i>Mod Depth</i> – See the description in the <a href="#room">ROOM</a> engine section.</p>
+
+            <h3 class="sc">Swell</h3>
+            <p>
+              Creates smooth, amorphous volume swells. This engine applies a volume swell effect to your
+              instrument’s dry signal, which is then fed into the reverb effect for super-long and ambient clouds
+              of sound. This effect is great for creating soft, atmospheric chord pads. The Swell engine also
+              sounds fantastic when it is placed first in a dual reverb preset set to Cascade Mode (this can be
+              achieved by “unlocking” the Reverb engines on the Delay side of the pedal).
+            </p>
+            <p class="ctl">
+              <b>CONTROL 1:</b> <i>Swell Sensitivity</i> – Controls the sensitivity of the envelope follower. Turn
+              this knob down if you have low impedance pickups or you want to dig in with some hard picking, turn
+              it up for high impedance pickups or soft picking.
+            </p>
+            <p class="ctl">
+              <b>CONTROL 2:</b> <i>Swell Time</i> – Adjust the speed of the volume swell. Turn the control
+              counterclockwise for quicker swells and clockwise for a longer, smooth effect.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="delay-engines">
+        <div class="flex-container">
+          <div class="half-container">
+            <header><h2>Delay Engines</h2></header>
+            <p>
+              The Collider includes five onboard delay effect engines, hand-picked from the Nemesis Delay. Because
+              of the wide tonal possibilities of each delay engine in the Collider Delay+Reverb, it was necessary
+              to arm the pedal with two variable knobs labeled CONTROL 1 and CONTROL 2. When a new delay engine is
+              selected, two engine specific parameters are automatically assigned to the CONTROL knobs.
+            </p>
+            <p>
+              Below are descriptions of each delay engine and how the CONTROL knobs are configured respectively.
+            </p>
+
+            <h3 class="sc">Digital</h3>
+            <p>
+              Pristine digital repeats. Turning the TONE knob to the right of 12 o’clock adds low cut (high pass)
+              filtering and creates a thinner delay sound. Turning the TONE knob to the left of 12 o’clock adds
+              high cut (low pass) filtering and creates a warmer delay sound. Setting the TONE knob to 12 o’clock
+              produces a pure, unfiltered delay.
+            </p>
+            <p class="ctl">
+              <b>Time Knob Range:</b> 10 milliseconds to 2.6 seconds<br />
+              <b>CONTROL 1:</b> <i>Modulation Depth</i> – Controls the depth of the modulation.<br />
+              <b>CONTROL 2:</b> <i>Modulation Rate</i> – Controls the speed of the modulation. Turn all the way to
+              the left for no modulation.
+            </p>
+
+            <h3 class="sc">Analog</h3>
+            <p>
+              This delay engine reproduces the characteristic dark sound of bucket brigade analog delays.
+              Traditional analog bucket brigade delays can be either resonant or warm. This engine focuses on
+              warmth and was inspired in part by the classic Memory Man© delay.
+            </p>
+            <p class="ctl">
+              <b>Time Knob Range:</b> 40 milliseconds to 1.2 seconds<br />
+              <b>CONTROL 1:</b> <i>Modulation Depth</i> – Controls the depth of the modulation.<br />
+              <b>CONTROL 2:</b> <i>Modulation Rate</i> – Controls the speed of the modulation. Turn all the way to
+              the left for no modulation.
+            </p>
+
+            <h3 class="sc">Tape</h3>
+            <p>
+              A detailed re-creation of classic moving-head tape delays. Repeats are bandwidth limited and have
+              artifacts characteristic of vintage tape delay units, such as filtering, preamp saturation, noise,
+              wow and flutter.
+            </p>
+            <p class="ctl">
+              <b>Time Knob Range:</b> 20 milliseconds to 1.2 seconds<br />
+              <b>CONTROL 1:</b> <i>Modulation Depth</i> – Controls the depth of the modulation.<br />
+              <b>CONTROL 2:</b> <i>Modulation Rate</i> – Controls the speed of the modulation. Turn all the way to
+              the left for no modulation.
+            </p>
+
+            <h3 class="sc">Reverse</h3>
+            <p>
+              A classic reverse tape sound that became popular in 60s psychedelic rock. The Collider can create
+              several overlapping reversed delays that fade in and fade out regularly to create a pulsing tremolo
+              effect. The TONE knob mixes in additional delay taps to add more layering to the reverse sound.
+            </p>
+            <p class="ctl">
+              <b>Time Knob Range:</b> 200 milliseconds to 2.6 seconds<br />
+              <b>TONE:</b> Mixes in an additional Reverse Delay tap.<br />
+              <b>CONTROL 1:</b> <i>Modulation Depth</i> – Controls the depth of the modulation.<br />
+              <b>CONTROL 2:</b> <i>Modulation Rate</i> – Controls the speed of the modulation. Turn all the way to
+              the left for no modulation.
+            </p>
+
+            <h3 class="sc">Oil Can</h3>
+            <p>
+              This is a dark, jangly, warbling and distorted delay inspired by old oil can designs. It previously
+              appeared in the “Extended Delay Engines” on the Nemesis, but we felt it deserved a spot on the face
+              of the Collider.
+            </p>
+            <p class="ctl">
+              <b>Time Knob Range:</b> 20 milliseconds to 800 milliseconds<br />
+              <b>CONTROL 1:</b> <i>Modulation Depth</i> – Controls the depth of the modulation.<br />
+              <b>CONTROL 2:</b> <i>Modulation Rate</i> – Controls the speed of the modulation. Turn all the way to
+              the left for no modulation.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="controls">
+        <div class="flex-container">
+          <div class="half-container no-columns">
+            <header><h2>Controls</h2></header>
+            <div class="panel-layout">
+              <figure>
+                <img src="Images/controls.jpg" alt="Collider top panel with every control labelled" />
+              </figure>
+              <div class="panel-text">
+                <h3>KNOBS Toggle Switch</h3>
+                <p>
+                  This is the key to the whole operation. Flip the switch to the DELAY side to change Delay engines
+                  and parameters with the knobs. Flip it to the REVERB side to alter Reverb settings. Flip it to the
+                  center “LOCK” position to lock all controls in place, preventing accidental bumps in a live
+                  setting.
+                </p>
+
+                <h3>DELAY Knob (Time/Pre)</h3>
+                <p>
+                  <b>REVERB (Pre-Delay):</b> Sets the Pre-Delay, meaning the amount of time between the dry signal
+                  and the initial reverb reflections. As the DELAY knob is turned clockwise the pre-delay time
+                  increases creating a sound similar to a natural echo or “slapback” effect.
+                </p>
+                <p>
+                  <b>DELAY (Time):</b> Adjust the delay time, or speed of the repeats. Turn counter-clockwise for
+                  short, “slapback” style repeats, or clockwise for long, ambient repeats.
+                </p>
+
+                <h3>MIX Knob</h3>
+                <p>
+                  The MIX knob is primarily used to set the ratio between your wet and dry signals. This knob has a
+                  slightly different function depending on whether you are in Cascade Mode or Parallel Mode. Please
+                  note that Kill Dry Mode is also available as a global option (see Kill Dry Mode in the Neuro
+                  <a href="#hardware-options">Hardware Options</a> section of this manual).
+                </p>
+                <h4 class="it">Cascade Mode</h4>
+                <p class="ctl">
+                  Sets the relative levels of the wet and dry signals. Fully counterclockwise is 100% dry, fully
+                  clockwise is 100% wet. Roughly 3 o’clock on the MIX knob is where a 50/50 split between wet and
+                  dry occurs.
+                </p>
+                <figure>
+                  <img
+                    src="Images/mix-knob.png"
+                    alt="MIX knob positions from 100% dry through 50% wet / 50% dry to 100% wet"
+                  />
+                </figure>
+                <h4 class="it">Parallel Mode</h4>
+                <p class="ctl">
+                  When the Collider is set to Parallel Mode, the MIX knob controls the level of the wet signal only,
+                  with fully counterclockwise being no wet signal, and fully clockwise being a 50/50 wet/dry mix.
+                  This control works independently with each effect.
+                </p>
+
+                <h4 class="it">Alternate MIX Knob Function</h4>
+                <p>
+                  On the Collider, the MIX knob has a secondary, or alternate (ALT) function, which varies depending
+                  on whether you’re in Cascade or Parallel Mode. To access the ALT MIX knob function, hold the
+                  CONTROL INPUT button down while turning the MIX knob.
+                </p>
+                <h4 class="it">Cascade Mode</h4>
+                <p class="ctl">
+                  When the Collider is set to Cascade Mode, the ALT MIX knob controls the overall level of the
+                  Output signal of either engine, with fully counterclockwise being zero output, and fully clockwise
+                  being +6 dB of output. 12 o’clock on this knob is “unity”.
+                </p>
+                <h4 class="it">Parallel Mode</h4>
+                <p class="ctl">
+                  When the Collider is set to Parallel Mode, the ALT MIX knob controls the level of the analog dry
+                  through signal, with fully counterclockwise being no dry signal, and fully clockwise being “unity”
+                  analog dry level. Since you are only manipulating a single dry signal, this control functions the
+                  same no matter which engine you are currently editing.
+                </p>
+
+                <h3>FEEDBACK Knob (Regeneration/Decay)</h3>
+                <p>
+                  <b>REVERB (Decay):</b> Sets the sustain time of the reverb trail. Turn the FEEDBACK knob
+                  counter-clockwise for a quicker decay and clockwise for a slower decay and longer reverb trail.
+                </p>
+                <p>
+                  <b>DELAY (Regeneration):</b> Controls the amount of delay repeats. Turn the knob counterclockwise
+                  for fewer repeats and clockwise for more repeats. Turning the FEEDBACK knob all the way to the
+                  left will produce a single repeat (or two repeats in stereo). For most of the engines (REVERSE
+                  being the exception) turning the knob all the way to the right puts the effect into
+                  self-oscillation. Setting the knob to somewhere around 3 o’clock produces semi-constant repeats,
+                  which will degrade over time.
+                </p>
+
+                <h3>TONE Knob</h3>
+                <p>
+                  Controls the amount of high frequency damping applied to the wet signal. Turn the knob clockwise
+                  for a brighter delay/reverb trail and counterclockwise for a darker delay/reverb. With the REVERSE
+                  delay engine, the TONE knob affects the number of voices. Turn clockwise for more voices added to
+                  your signal, or counterclockwise for fewer.
+                </p>
+
+                <h3>CONTROL 1 and CONTROL 2</h3>
+                <p>
+                  Because of the wide tonal possibilities of each engine in the Collider Delay+Reverb, it was
+                  necessary to arm the pedal with two “wildcard” knobs labeled CONTROL 1 and CONTROL 2. In DELAY
+                  mode, the mapping is simple: CONTROL 1 is Modulation Depth, and CONTROL 2 is Modulation Rate.
+                </p>
+                <p>
+                  In REVERB mode, the function of the CONTROL knobs varies depending on the active reverb engine.
+                  Details on the function of each knob are available in the
+                  <a href="#reverb-engines">Reverb Engines</a> section of this manual.
+                </p>
+
+                <h3>Effect Engine Selector Encoder &amp; LEDs</h3>
+                <p>Selects the active Delay and Reverb engines and sets the function of the CONTROL knobs.</p>
+                <p>
+                  The REVERB ENGINE LEDS that encircle the yellow side of the ENGINE SELECTOR indicate which REVERB
+                  engine is currently active.
+                </p>
+                <p>
+                  The DELAY ENGINE LEDS that encircle the green side of the ENGINE SELECTOR indicate which DELAY
+                  engine is currently active.
+                </p>
+                <h4 class="it">Unlocking the Effect Engine Selector</h4>
+                <p>
+                  It is also possible to “unlock” the REVERB and DELAY engines, by both a hardware shortcut and via
+                  the UNLOCK button on the Neuro Desktop Editor.
+                </p>
+                <p>
+                  “Unlocking” the Engine Selector gives you the option of simultaneously running two delay engines
+                  or two reverb engines, as opposed to being limited to one delay and one reverb. To unlock, press
+                  down the CONTROL INPUT button and turn the Engine Selector, this allows you to continue turning
+                  through effect engines and assign Reverb engines to the Delay footswitch and Delay engines to the
+                  Reverb footswitch.
+                </p>
+                <p>
+                  The natural series order of effects in the Collider is delay before reverb, but the Unlock
+                  function also allows you to switch this order.
+                </p>
+
+                <h3>DELAY/TAP Footswitch</h3>
+                <p>
+                  Enables or bypasses the delay effect. By default the Collider uses a True/Hard Bypass Mode, but it
+                  is also possible to switch to a Buffered Bypass (see the
+                  <a href="#universal-bypass">Universal Bypass</a> section for more information) or Trails Mode
+                  (Soft) Bypass (see the <a href="#trails-mode">Trails Mode</a> section).
+                </p>
+                <p>
+                  The DELAY/TAP Footswitch also serves a second function. When the effect is engaged, lightly
+                  tapping the DELAY/TAP switch at least three consecutive times in a desired tempo will engage Tap
+                  Tempo mode, allowing you to control the rate of your delay on the fly. This feature can also be
+                  disabled in Hardware Options by unchecking “Enable Tap Tempo on Delay/Tap Footswitch”. It is
+                  important to note that because of the dual functionality of the DELAY/TAP switch, you must press
+                  and hold the switch for a split second to bypass the delay. It is also possible with the Neuro
+                  Editor to reset the amount of hold-down time necessary to bypass the delay, which has an effect
+                  on the sensitivity of the tap tempo.
+                </p>
+                <p>
+                  The DELAY/TAP switch can also be used to scroll through the user presets. While the delay is
+                  bypassed, press and hold the DELAY/TAP switch to scroll downward through user presets.
+                </p>
+
+                <h3>Tap Beat Division Toggle Switch</h3>
+                <p>
+                  Use this switch to select the beat division of your tapped tempo. Quarter note will give you
+                  exactly what you tapped in. Dotted Eighth will divide your tapped beats into dotted eighth notes
+                  for the classic “Edge” effect, and Triplets will divide your tapped beats into triplets. Alternate
+                  beat division options are available in the Neuro Mobile App and Neuro Desktop Editors.
+                </p>
+
+                <h3>REVERB Footswitch</h3>
+                <p>
+                  Enables or bypasses the reverb effect. By default the Collider uses a True/Hard Bypass Mode, but
+                  it is also possible to switch to a Buffered Bypass (see the
+                  <a href="#universal-bypass">Universal Bypass</a> section for more information) or Trails Mode
+                  Bypass (see the <a href="#trails-mode">Trails Mode</a> section).
+                </p>
+                <p>
+                  The REVERB Footswitch also serves a second function. When the effect is engaged, pressing and
+                  holding the REVERB footswitch will engage Reverb HOLD Mode, freezing your reverb tail indefinitely
+                  and allowing you to play on top of the sustained reverb.
+                </p>
+                <p>
+                  The REVERB switch can also be used to scroll through the user presets. While the reverb is
+                  bypassed, press and hold the REVERB switch to scroll upward through user presets.
+                </p>
+
+                <h4 class="it" id="trails-mode">Trails Mode</h4>
+                <p>
+                  By default, the Collider is set to Hard Bypass Mode, which means that the delay/reverb trails will
+                  stop immediately upon bypassing the pedal. Trails Mode (also known as “Soft Bypass”) is an
+                  optional bypass mode that allows the delay/reverb trails to fade out naturally after the effect
+                  has been bypassed.
+                </p>
+                <p>
+                  Trails mode can be enabled from the <a href="#hardware-options">Hardware Options</a> menu of the
+                  Neuro Mobile App or Desktop Editor. It is also possible to put the pedal into Trails mode by
+                  pressing the DELAY/TAP FOOTSWITCH while holding the CONTROL INPUT BUTTON. This will toggle between
+                  enabling and disabling trails mode. The small CONTROL INPUT LED on the right corner of the pedal
+                  will blink one time when the pedal is in Normal Bypass mode and twice when the pedal is in Trails
+                  mode. Trails Mode is a <b>global</b> setting and is NOT saved per preset.
+                </p>
+
+                <h3>Delay On/Off LED</h3>
+                <p>
+                  The ON/OFF LED above the DELAY/TAP FOOTSWITCH indicates if the delay effect is active (lit green)
+                  or bypassed (not lit). This LED also monitors the rate of Tap Tempo with alternating red and green
+                  blinks.
+                </p>
+
+                <h3>Reverb On/Off LED</h3>
+                <p>
+                  The ON/OFF LED above the REVERB FOOTSWITCH indicates if the reverb effect is active (lit red) or
+                  bypassed (not lit). This LED also blinks while using the Reverb Hold function.
+                </p>
+                <h4 class="it">Reverb Hold Function with Dual Processor Architecture</h4>
+                <p>
+                  One of the great advantages of the Collider Delay+Reverb’s dual processor architecture is the
+                  opportunity it offers to the Hold function. The Hold function sustains any Reverb engine’s wet
+                  signal indefinitely while pressing down on the REVERB footswitch. As with most effects units that
+                  offer some type of a Hold (a.k.a. “Freeze”) function, it is also possible to continue playing over
+                  the top of the sustained reverb tail. Collider provides the exciting new functionality of being
+                  able to play with delay engaged while holding the reverb trail…all in one pedal.
+                </p>
+
+                <h3>Control Input Button</h3>
+                <p>
+                  This small button located at the top of the pedal is used when configuring external control. It
+                  also plays a role in many of the Hardware Shortcuts. See the
+                  <a href="#external-control">External Control</a> section and the
+                  <a href="#hardware-shortcuts">Hardware Shortcuts</a> section for more details.
+                </p>
+
+                <h3>External Control LED</h3>
+                <p>
+                  The small LED located to the left of the MIX KNOB is the CONTROL/ACTIVITY LED. When lit, it
+                  indicates that external control mode (expression or MIDI) is active or that incoming data is being
+                  received via MIDI or a Neuro connection. For more information, see the
+                  <a href="#external-control">External Control</a> section.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="hardware-shortcuts">
+        <div class="flex-container">
+          <div class="half-container">
+            <header><h2>Hardware Shortcuts</h2></header>
+            <p>
+              The Collider comes with many “hidden” controls and features that will help you calibrate the pedal to
+              your specific needs. There are two types of shortcuts: “Normal” shortcuts that are done without
+              changing the power of the pedal, and “Power-Up” shortcuts that are options set by depowering and
+              repowering the pedal.
+            </p>
+
+            <h3>Normal Mode Shortcuts</h3>
+            <p class="ctl">
+              <b>Trails Mode:</b> To toggle Trails Mode for your delay/reverb, hold the CONTROL INPUT button on the
+              top side of the pedal, and press the DELAY/TAP switch. The Control Indicator LED will flash once for
+              Trails Mode OFF, and twice for Trails Mode ON.
+            </p>
+            <p class="ctl">
+              <b>Preset Extension Mode:</b> To toggle Preset Extension Mode, which doubles the amount of available
+              preset slots from 4 to 8, hold the CONTROL INPUT button on the top side of the pedal, and press the
+              PRESET SELECT Button.
+            </p>
+            <p class="ctl">
+              <b>Adjust Delay Time Division:</b> To toggle between stereo delay time divisions, hold the CONTROL
+              INPUT button while moving the DELAY knob. There are four divisions spread out evenly across the knob.
+            </p>
+            <p class="ctl">
+              <b>Hidden Output Level Knob:</b> To access the hidden “Output Level” knob, hold the CONTROL INPUT
+              button while moving the MIX knob. This will control the overall output of the Collider. Unity gain is
+              at 12 o’clock. This combination is also used to control the level of the dry signal when the effects
+              are in Parallel Mode.
+            </p>
+            <p class="ctl">
+              <b>Cascade/Parallel Mode Toggle:</b> To toggle between Cascade and Parallel Mode on the pedal, hold
+              the CONTROL INPUT button down while flipping the “KNOBS” switch to the center “LOCK” position. If your
+              switch is already in this position, flip it to either side and then back to the center while holding
+              the CONTROL INPUT button.
+            </p>
+
+            <h3>Power-Up Shortcuts</h3>
+            <p class="ctl" id="factory-reset">
+              <b>Factory Reset:</b> To perform a factory reset on the Collider, unplug the power cable. Then, press
+              + hold the REVERB Footswitch while plugging the power supply back in.
+            </p>
+            <p class="ctl">
+              <b>Disable Internal Tap:</b> To disable the integrated Tap Tempo feature located on the DELAY/TAP
+              Footswitch, unplug the power cable. Then, press + hold the DELAY/TAP Footswitch while plugging the
+              power supply back in. The DELAY/TAP LED Indicator will flash once for disabled, twice for enabled.
+            </p>
+            <p class="ctl">
+              <b>Control Input Jack Assign Options:</b> To toggle between Control Input Jack assignments, unplug
+              the power cable. Then, press + hold the CONTROL INPUT Button while plugging the power supply back in.
+              Keep holding the CONTROL INPUT Button to cycle through the options. The Control LED Indicator will
+              flash once for Option 1 (Neuro Hub/Expression), twice for Option 2 (Preset Increment), three times for
+              Option 3 (Preset Decrement), and four times for Option 4 (Tap). Release the CONTROL INPUT Button to
+              select one of these four options.
+            </p>
+
+            <h3 id="preset-select">Preset Select/(Hold) Save Button and LEDs</h3>
+            <p>
+              Press the SELECT button to scroll through and select saved user presets. The four PRESET LEDS next to
+              the PRESET BUTTON indicate which preset is active for presets 1 through 4. If a preset has been
+              modified, the corresponding PRESET LED will blink slowly. To save a preset, press and hold this
+              button – the associated preset LED will blink for a few seconds. When the LED stops blinking, the
+              updated preset will be saved to the current preset position.
+            </p>
+            <p>
+              <b>Preset Extension Mode:</b> Allows for easy access to an additional 4 presets for a total of 8
+              onboard presets. To enable Preset Extension Mode, go to the Hardware Options section of the Neuro
+              Mobile or Desktop Editor (see <a href="#hardware-options">Neuro Hardware Options</a>) and select the
+              appropriate option. The illumination patterns of the Preset Select LEDs indicate which Preset has
+              been selected (see the figure below).
+            </p>
+            <p>
+              Preset Extension Mode can also be enabled as a hardware shortcut on the Collider itself. To Enable
+              Preset Extension Mode, hold down the CONTROL INPUT button + press the PRESET SELECT button.
+            </p>
+            <figure>
+              <img
+                src="Images/preset-leds.png"
+                alt="PRESET LED patterns for presets 1 to 8, and all four lit for presets 9 to 128"
+              />
+            </figure>
+            <p>
+              <b>Note:</b> when using a MIDI controller to select a preset outside of the normal bank (presets 1 to
+              4) or extended bank (presets 5 to 8), then all 4 PRESET LEDS will be lit, indicating that a preset in
+              the range between 9 and 128 is active. For details on preset editing and saving, see the
+              <a href="#presets">next section</a>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="presets">
+        <div class="flex-container">
+          <div class="half-container">
+            <header><h2>Preset Storage and Recall</h2></header>
+            <p>
+              User Presets store all user editable parameters. This includes the knob positions, current effect
+              engines, routing options, external control, and the full list of Neuro/MIDI accessible parameters.
+              Included in every preset are settings for either position of the KNOBS Switch (Delay or Reverb). After
+              a preset is recalled, you can always tweak it in a performance situation by turning a knob. The knob
+              parameter will then “jump” to the knob position as the knob is moved.
+            </p>
+
+            <h3>Recalling Presets</h3>
+            <p>
+              The first 4 User Presets (or 8 in Preset Extension Mode) are accessible via the onboard hardware or
+              with an external footswitch in the following ways:
+            </p>
+            <ol>
+              <li>
+                Click the SELECT button to cycle through the hardware user presets. This function works whether the
+                pedal is engaged or bypassed.
+              </li>
+              <li>
+                When the effect is bypassed, press and hold down the REVERB footswitch to cycle forward through
+                presets. Release when you’ve arrived at your desired slot. Press and hold the DELAY/TAP switch to
+                cycle backward through presets. If Reverb is engaged you will not be able to cycle forward through
+                presets, and vice versa.
+              </li>
+              <li>
+                Connect an external footswitch to the PEDAL IN jack and select SWITCH mode (located next to the
+                PEDAL IN jack) to scroll upward through presets. Please note that the Collider’s default external
+                switch assignment is Tap Tempo, but it can be easily changed to Increment or Decrement Preset in the
+                <a href="#hardware-options">Hardware Options</a> section of the Neuro Desktop or Mobile App Editors.
+                These control assignments are global.
+              </li>
+            </ol>
+
+            <h3>Recalling MIDI Presets</h3>
+            <p>
+              All 128 available User Presets are accessible with an external MIDI controller. MIDI controllers can
+              be connected via either the 5-Pin DIN (MIDI IN) jack on the side of the pedal, the USB port at the top
+              of the pedal, or through a Neuro Hub, which connects to the CONTROL INPUT at the top of the pedal. All
+              128 User Presets can be recalled with the corresponding MIDI program change (PC) messages.
+            </p>
+            <p>
+              <b>Note:</b> When recalling presets via MIDI PC messages, you may wish to queue up your preset with
+              effect bypassed. To do this, simply engage the preset, bypass it with both footswitches, then re-save
+              the preset normally. When recalled, the pedal will load the saved user settings, but the effects will
+              be bypassed until you engage either engine.
+            </p>
+
+            <h3>Copying a Preset to a New Location Using the Select/(Hold) Save Button</h3>
+            <ol>
+              <li>
+                Select the preset you would like to copy by pressing the SELECT Button until the corresponding
+                PRESET LED is lit.
+              </li>
+              <li>
+                Press and hold the SELECT Button for one second until the corresponding PRESET LED begins blinking
+                rapidly. Quickly release the SELECT Button. The PRESET LED should continue to blink rapidly. This
+                indicates that the Collider is in copy mode.
+              </li>
+              <li>
+                Tap the SELECT Button to increment the preset. The corresponding PRESET LED should continue to blink
+                rapidly. Tap the SELECT Button again until the desired copy destination is selected.
+              </li>
+              <li>
+                Press and hold the SELECT Button until the PRESET LED blinks slowly and then turns solid. This
+                indicates that the preset has been saved to the new location. The original location will not be
+                changed or overwritten.
+              </li>
+            </ol>
+
+            <h3>Copying a Preset to a New Location Using an External MIDI Controller</h3>
+            <ol>
+              <li>Select the preset you would like to copy by sending a MIDI program change message to the Collider.</li>
+              <li>
+                Press and hold the SELECT Button for one second until the corresponding PRESET LED begins blinking
+                rapidly. Quickly release the SELECT Button. The PRESET LED(S) should continue to blink rapidly. This
+                indicates that the Collider is in copy mode.
+              </li>
+              <li>Send a desired MIDI Program Change number to indicate the desired copy destination for the preset.</li>
+              <li>
+                PRESET LED will blink fast and then turn solid. This indicates that the preset has been saved to the
+                new location.
+              </li>
+            </ol>
+
+            <h3>Copying a Preset to a New Location Using the Neuro App</h3>
+            <p>
+              Using the BURN command in Neuro Mobile or Desktop Editors, it is possible to copy presets to any
+              location in memory.
+            </p>
+
+            <h3>Clearing all Presets</h3>
+            <p>
+              All 128 User Presets can be erased using the <a href="#factory-reset">Factory Reset</a> procedure.
+              <b class="warn">Warning:</b> The Factory Reset procedure resets the entire pedal back to the state in
+              which it was originally shipped – this includes all global settings and User Presets. A Factory Reset
+              will not erase any firmware updates.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="universal-bypass">
+        <div class="flex-container">
+          <div class="half-container">
+            <header><h2>Universal Bypass</h2></header>
+            <p>
+              Most effect pedals offer either true bypass or buffered bypass. The Collider contains two separate
+              circuits for bypass mode, allowing you to choose the method you prefer. The true bypass path uses
+              signal relays, which are electromechanical switches. This provides an ultra-low resistance path from
+              the input jacks to the output jacks, which is effectively the same as a wire. The buffered bypass path
+              uses extremely low noise buffers, which provide a very low output impedance and are effective for
+              driving long cables or long chains of effects following the Collider’s audio output.
+            </p>
+            <p>
+              Out of the box, the Collider operates in true bypass mode. In order to switch to buffered bypass mode,
+              edit the Collider Delay+Reverb’s global settings using the Neuro Desktop or Mobile App.
+            </p>
+            <p>
+              We recommend you choose between the active analog bypass (a.k.a. buffered bypass) and relay-based
+              true bypass based on what is needed in your signal chain. Ideally, on a larger pedalboard the first
+              pedal in a signal chain is a buffered input followed by true bypass in the rest of the signal chain.
+            </p>
+            <p>
+              Both bypass methods have pros and cons associated with them. Buffered bypass provides consistent input
+              impedance so that if the source is susceptible to variations in input impedance (similar to a guitar
+              pickup), there won’t be a noticeable change in tone. True bypass has the benefit of providing a
+              dedicated hardwired bypass signal path. The Collider features small-signal relays for true bypass
+              switching that offer reduced pops and clicks compared to the traditional true bypass switching method
+              using a mechanical switch.
+            </p>
+            <p>
+              When using Trails Mode, a function called “soft bypass” is used in order to maintain the reverb trails
+              after the effect has been bypassed. Trails Mode sends the audio through the DSP at all times so the
+              Collider must remain in the buffered bypass path. Select the Reverb Trails Mode option in the
+              <a href="#hardware-options">Hardware Options</a> page of the Neuro Desktop or Mobile App to put the
+              Collider into Trails Mode.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="stereo">
+        <div class="flex-container">
+          <div class="half-container">
+            <header><h2>Stereo Operation &amp; Signal Routing</h2></header>
+            <p>
+              The Collider Delay+Reverb creates dramatic mono or stereo effects via its stereo Input and Output
+              jacks. By default, the Collider auto-detects the cables connected to INPUTS and OUTPUTS 1 &amp; 2 and
+              engages the appropriate Routing Mode. Stereo Routing can also be performed manually with the Neuro
+              Editors: select between “Mono In, Stereo Out” or “Stereo In, Stereo Out.”
+            </p>
+
+            <h3>Signal Path Options</h3>
+            <h4>Cascade Mode</h4>
+            <p>
+              The Collider Delay+Reverb’s standard signal path is Cascade Mode, or A -&gt; B. This means that when
+              your guitar signal hits the pedal, it is processed first by Delay, then Reverb, then goes outbound.
+              This is the same as running a delay pedal before a reverb pedal in your pedal chain. In Stereo Out,
+              Cascade Mode always routes A -&gt; B (the Delay side before the Reverb side) through both outputs.
+            </p>
+            <p>
+              <b>PLEASE NOTE:</b> If you’d like to run your Reverb effect before your Delay effect, this is possible
+              in Cascade Mode. Use the “Unlock” feature on the Delay side to select a Reverb engine, then use it
+              again on the Reverb side to select a Delay engine.
+            </p>
+            <h4>Parallel Mode</h4>
+            <p>
+              The other routing option for signal path is Parallel Mode, or A + B. In Parallel Mode, when your
+              guitar signal hits the pedal, it is split, and processed by Delay and Reverb at the same time, then
+              mixed together. This is effectively running a delay effect and a reverb effect at the same time,
+              similar to the vintage analog Space Echo unit. In Mono Out, the signal is summed, and both effects are
+              heard at the same time. In Stereo Out, the default routing is that effects A+B are combined and sent
+              to each output.
+            </p>
+            <h5 class="it">Split Stereo (Left=A, Right=B)</h5>
+            <p>
+              In Parallel Mode, it is possible to split your signal so that engine A (Delay) and engine B (Reverb)
+              are sent to separate outputs. To achieve this, select the Split Stereo (Left=A, Right=B) option in the
+              Neuro Editors.
+            </p>
+
+            <h3 id="auto-routing">Auto Routing and Default Modes</h3>
+            <p>
+              By default, the Collider detects what has been plugged into its inputs and outputs and sets the
+              routing mode automatically. The table below summarizes each Auto Routing Mode and its corresponding
+              cable connections.
+            </p>
+            <div class="table-scroll span-all">
+              <table class="doc-table routing-table">
+                <thead>
+                  <tr>
+                    <th>INPUT 1</th>
+                    <th>INPUT 2</th>
+                    <th>OUTPUT 1</th>
+                    <th>OUTPUT 2</th>
+                    <th>Resulting Auto Routing Mode</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Connected</td><td></td><td>Connected</td><td></td><td>Mono in, Mono Out, Cascade</td></tr>
+                  <tr><td>Connected</td><td>Connected</td><td>Connected</td><td></td><td>Stereo in, Wet Stereo Out, Mono Dry, Cascade</td></tr>
+                  <tr><td>Connected</td><td></td><td>Connected</td><td>Connected</td><td>Mono in, Stereo Out, Cascade</td></tr>
+                  <tr><td>Connected</td><td>Connected</td><td>Connected</td><td>Connected</td><td>Stereo in, Stereo Out, Cascade</td></tr>
+                  <tr class="split"><td>SPLIT</td><td>STEREO</td><td>SELECTED</td><td></td><td></td></tr>
+                  <tr><td>Connected</td><td>Connected</td><td>Connected</td><td>Connected</td><td>Stereo in, 1=Delay, 2=Reverb</td></tr>
+                  <tr><td>Connected</td><td></td><td>Connected</td><td>Connected</td><td>Mono in, 1=Delay, 2=Reverb</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>
+              <span class="warn">Warning:</span> If you connect the Neuro App cable from your mobile device to INPUT
+              2, the Collider will detect it as an audio input and adopt one of the Stereo In Modes, which might
+              create additional noise and affect the stereo signal. This is especially true when the Neuro App cable
+              is not connected to the phone. You can override this action by going into the app and selecting the
+              Mono In routing mode that you want. If you want to connect a stereo input AND the Neuro App cable into
+              INPUT 2, use a TRS (Tip, Ring, Sleeve) stereo splitter and make sure that the Neuro signal is on the
+              Ring and the instrument signal is on the Tip (the Sleeve acts as the ground).
+            </p>
+
+            <h3>Auto Routing Modes</h3>
+            <p>
+              There are four routing modes available when the Collider is in its default Auto Detect mode. See
+              detailed descriptions of each Auto Detect mode in the sections below.
+            </p>
+            <ul>
+              <li><a href="#mono-mono">Mono In, Mono Out</a></li>
+              <li><a href="#mono-stereo">Mono In, Stereo Out</a></li>
+              <li><a href="#stereo-stereo">Stereo In, Stereo Out</a></li>
+              <li><a href="#stereo-mono">Stereo In, Mono Out</a></li>
+            </ul>
+
+            <div class="mode" id="mono-mono">
+              <h3>Mono In, Mono Out</h3>
+              <p>
+                This is the most common use case. Plugging the incoming signal into Input 1 with Output 1 connected
+                to an amp (or the next device in the signal chain) produces a standard mono signal. Dual processing
+                effects are also mixed down a single output.
+              </p>
+              <div class="routing">
+                <figure>
+                  <figcaption><ul><li>I/O Config = Mono In, Mono Out</li><li>State = Delay ON</li><li>Mode = Parallel or Cascade</li></ul></figcaption>
+                  <img src="Images/routing-mono-mono-1.png" alt="Delay alone, input 1 to output 1; output 2 not connected" />
+                </figure>
+                <figure>
+                  <figcaption><ul><li>I/O Config = Mono In, Mono Out</li><li>State = Reverb ON</li><li>Mode = Parallel or Cascade</li></ul></figcaption>
+                  <img src="Images/routing-mono-mono-2.png" alt="Reverb alone, input 1 to output 1; output 2 not connected" />
+                </figure>
+                <figure>
+                  <figcaption><ul><li>I/O Config = Mono In, Mono Out</li><li>State = Reverb ON, Delay ON</li><li>Mode = Parallel</li></ul></figcaption>
+                  <img src="Images/routing-mono-mono-3.png" alt="Delay and Reverb in parallel, summed to output 1" />
+                </figure>
+                <figure>
+                  <figcaption><ul><li>I/O Config = Mono In, Mono Out</li><li>State = Reverb ON, Delay ON</li><li>Mode = Cascade</li></ul></figcaption>
+                  <img src="Images/routing-mono-mono-4.png" alt="Delay into Reverb in series, to output 1" />
+                </figure>
+              </div>
+            </div>
+
+            <div class="mode" id="mono-stereo">
+              <h3>Mono In, Stereo Out</h3>
+              <p>
+                This is a very common use case that allows you to create some nice stereo imaging from a single mono
+                instrument input.
+              </p>
+              <div class="routing">
+                <figure>
+                  <figcaption><ul><li>I/O Config = Mono In, Stereo Out</li><li>State = Delay ON</li><li>Mode = Parallel or Cascade</li></ul></figcaption>
+                  <img src="Images/routing-mono-stereo-1.png" alt="Delay alone, input 1 to outputs 1 and 2" />
+                </figure>
+                <figure>
+                  <figcaption><ul><li>I/O Config = Mono In, Stereo Out</li><li>State = Reverb ON</li><li>Mode = Parallel or Cascade</li></ul></figcaption>
+                  <img src="Images/routing-mono-stereo-2.png" alt="Reverb alone, input 1 to outputs 1 and 2" />
+                </figure>
+                <figure>
+                  <figcaption><ul><li>I/O Config = Mono In, Stereo Out</li><li>State = Delay ON, Reverb ON</li><li>Mode = Parallel</li></ul></figcaption>
+                  <img src="Images/routing-mono-stereo-3.png" alt="Delay and Reverb in parallel, each to outputs 1 and 2" />
+                </figure>
+                <figure>
+                  <figcaption><ul><li>I/O Config = Mono In, Stereo Out</li><li>State = Reverb ON, Delay ON</li><li>Mode = Cascade</li></ul></figcaption>
+                  <img src="Images/routing-mono-stereo-4.png" alt="Delay into Reverb in series, to outputs 1 and 2" />
+                </figure>
+              </div>
+            </div>
+
+            <div class="mode" id="stereo-stereo">
+              <h3>Stereo In, Stereo Out</h3>
+              <p>
+                This mode should be your default selection for Stereo In, Stereo Out applications. Most effective
+                stereo reverb processing is performed with information from both input channels, so the modes in
+                this section should not be considered as completely independent audio channels. If you want channel
+                independence, set the Routing Option to “Parallel Delay/Reverb” and choose the “Split Stereo
+                (Left=A, Right=B)” option.
+              </p>
+              <div class="routing">
+                <figure>
+                  <figcaption><ul><li>I/O Config = Stereo In, Stereo Out</li><li>State = Delay ON</li><li>Mode = Parallel or Cascade</li></ul></figcaption>
+                  <img src="Images/routing-stereo-stereo-1.png" alt="Delay alone, inputs 1 and 2 to outputs 1 and 2" />
+                </figure>
+                <figure>
+                  <figcaption><ul><li>I/O Config = Stereo In, Stereo Out</li><li>State = Reverb ON</li><li>Mode = Parallel or Cascade</li></ul></figcaption>
+                  <img src="Images/routing-stereo-stereo-2.png" alt="Reverb alone, inputs 1 and 2 to outputs 1 and 2" />
+                </figure>
+                <figure>
+                  <figcaption><ul><li>I/O Config = Stereo In, Stereo Out</li><li>State = Delay ON, Reverb ON</li><li>Mode = Parallel</li></ul></figcaption>
+                  <img src="Images/routing-stereo-stereo-3.png" alt="Delay and Reverb in parallel, stereo in and out" />
+                </figure>
+                <figure>
+                  <figcaption><ul><li>I/O Config = Stereo In, Stereo Out</li><li>State = Delay ON, Reverb ON</li><li>Mode = Cascade</li></ul></figcaption>
+                  <img src="Images/routing-stereo-stereo-4.png" alt="Delay into Reverb in series, stereo in and out" />
+                </figure>
+              </div>
+            </div>
+
+            <div class="mode" id="stereo-mono">
+              <h3>Stereo In, Mono Out</h3>
+              <p>
+                This mode allows you to plug in to both inputs, but only Output 1. This combines your wet/dry mix of
+                Input 1 with your wet signal from Input 2.
+              </p>
+              <div class="routing">
+                <figure>
+                  <figcaption><ul><li>I/O Config = Stereo In, Mono Out</li><li>State = Delay ON</li><li>Mode = Parallel or Cascade</li></ul></figcaption>
+                  <img src="Images/routing-stereo-mono-1.png" alt="Delay alone, inputs 1 and 2 summed to output 1" />
+                </figure>
+                <figure>
+                  <figcaption><ul><li>I/O Config = Stereo In, Mono Out</li><li>State = Reverb ON</li><li>Mode = Parallel or Cascade</li></ul></figcaption>
+                  <img src="Images/routing-stereo-mono-2.png" alt="Reverb alone, inputs 1 and 2 summed to output 1" />
+                </figure>
+                <figure>
+                  <figcaption><ul><li>I/O Config = Stereo In, Mono Out</li><li>State = Reverb ON, Delay ON</li><li>Mode = Parallel</li></ul></figcaption>
+                  <img src="Images/routing-stereo-mono-3.png" alt="Delay and Reverb in parallel, summed to output 1" />
+                </figure>
+                <figure>
+                  <figcaption><ul><li>I/O Config = Stereo In, Mono Out</li><li>State = Reverb ON, Delay ON</li><li>Mode = Cascade</li></ul></figcaption>
+                  <img src="Images/routing-stereo-mono-4.png" alt="Delay into Reverb in series, summed to output 1" />
+                </figure>
+              </div>
+            </div>
+
+            <div class="mode" id="split-stereo">
+              <h3>Split Stereo Modes</h3>
+              <p>
+                An additional option is available when using the Collider in Parallel Mode. In the Routing Options
+                block of the Neuro Editors there is a button labeled “Split Stereo (Left=A, Right=B).” This option
+                provides independent processing, meaning you can apply only delay to Input and Output 1 and only
+                Reverb to Input and Output 2. See detailed descriptions of the Split Stereo options in the section
+                below.
+              </p>
+              <p>
+                <b>Note:</b> Using a Swell Reverb engine in Split Stereo mode will kill the dry signal on the Delay
+                side as well due to the architecture of the Swell engine.
+              </p>
+              <ul>
+                <li><a href="#split-mono">Mono In, Stereo Out (Split Stereo)</a></li>
+                <li><a href="#split-stereo-in">Stereo In, Stereo Out (Split Stereo)</a></li>
+              </ul>
+            </div>
+
+            <div class="mode" id="split-mono">
+              <h3>Mono In, Stereo Out (Split Stereo)</h3>
+              <p>This mode is used when routing a single mono signal to Split Stereo (Left=A, Right=B).</p>
+              <div class="routing">
+                <figure>
+                  <figcaption><ul><li>I/O Config = Mono In, Stereo Out</li><li>State = Delay ON</li><li>Mode = Split Stereo</li></ul></figcaption>
+                  <img src="Images/routing-split-mono-1.png" alt="Delay alone, input 1 to output 1; output 2 not connected" />
+                </figure>
+                <figure>
+                  <figcaption><ul><li>I/O Config = Mono In, Stereo Out</li><li>State = Reverb ON</li><li>Mode = Split Stereo</li></ul></figcaption>
+                  <img src="Images/routing-split-mono-2.png" alt="Reverb alone, input 1 to output 2; output 1 not connected" />
+                </figure>
+                <figure>
+                  <figcaption><ul><li>I/O Config = Mono In, Stereo Out</li><li>State = Reverb ON, Delay ON</li><li>Mode = Split Stereo</li></ul></figcaption>
+                  <img src="Images/routing-split-mono-3.png" alt="Input 1 feeds Delay to output 1 and Reverb to output 2" />
+                </figure>
+              </div>
+            </div>
+
+            <div class="mode" id="split-stereo-in">
+              <h3>Stereo In, Stereo Out (Split Stereo)</h3>
+              <p>This mode is used when routing stereo input signals to Split Stereo (Left=A, Right=B).</p>
+              <div class="routing">
+                <figure>
+                  <figcaption><ul><li>I/O Config = Stereo In, Stereo Out</li><li>State = Delay ON</li><li>Mode = Split Stereo</li></ul></figcaption>
+                  <img src="Images/routing-split-stereo-1.png" alt="Delay alone, input 1 to output 1; output 2 not connected" />
+                </figure>
+                <figure>
+                  <figcaption><ul><li>I/O Config = Stereo In, Stereo Out</li><li>State = Reverb ON</li><li>Mode = Split Stereo</li></ul></figcaption>
+                  <img src="Images/routing-split-stereo-2.png" alt="Reverb alone, input 2 to output 2; output 1 not connected" />
+                </figure>
+                <figure>
+                  <figcaption><ul><li>I/O Config = Stereo In, Independent Stereo Out</li><li>State = Reverb ON, Delay ON</li><li>Mode = Split Stereo</li></ul></figcaption>
+                  <img src="Images/routing-split-stereo-3.png" alt="Delay from input 1 to output 1, Reverb from input 2 to output 2" />
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="external-control">
+        <div class="flex-container">
+          <div class="half-container">
+            <header><h2>External Control</h2></header>
+            <p>
+              Plug an expression pedal, an external footswitch, the Source Audio Tap Tempo Switch, or the Source
+              Audio Hot Hand 3 Universal Wireless Controller into the Collider Delay+Reverb’s CONTROL INPUT or PEDAL
+              IN jack and access an array of external functionality and expression control.
+            </p>
+            <figure>
+              <img src="Images/jacks-top.jpg" alt="Top panel: CONTROL INPUT, DC 9V, EXP/SWITCH, PEDAL IN and USB" />
+            </figure>
+
+            <h3>External Switches</h3>
+            <p>
+              External switches can be used for several different control options. They provide an easy way to
+              remotely step through presets, input a tap tempo signal, and more. The Collider is compatible with
+              most passive single or dual external footswitches. The Collider is also compatible with the Source
+              Audio Tap Tempo Switch, which can be purchased directly from the Source Audio online store:
+              <a href="http://www.sourceaudiostore.net">www.sourceaudiostore.net</a>
+            </p>
+            <h4>External Switches (¼” TRS Connection)</h4>
+            <p>
+              Use an external switch to access an assortment of useful control options. Connect a passive single or
+              dual footswitch to the ¼” PEDAL IN jack on the top of the pedal and set the PEDAL IN switch (located
+              next to the PEDAL IN jack) to the SWITCH setting. If using a single switch, connect using a regular
+              mono (TS) cable. If using a dual switch use a stereo (TRS) cable. By default, the TIP signal is used
+              to Tap Tempo and the RING signal is used to increment the current preset.
+            </p>
+            <figure>
+              <img
+                src="Images/plug-switch-pedal-in.png"
+                alt="TS plug: tip Tap Tempo, sleeve Ground. TRS plug: tip Tap Tempo, ring Preset Increment, sleeve Ground"
+              />
+            </figure>
+            <p>
+              With the Neuro Desktop Editor, it is also possible to reassign control functions to an external
+              switch. Go to the Neuro Desktop <a href="#hardware-options">Hardware Options</a> section for
+              instructions on assigning alternate control options to an external dual or single external switch.
+            </p>
+            <h4>External Switches (⅛” TRRS Connection)</h4>
+            <p>
+              The Source Audio Tap Tempo footswitch can also be connected to the CONTROL INPUT jack using a 3.5mm
+              (⅛ inch) cable. By default the CONTROL INPUT jack is assigned to Neuro Hub or External Expression
+              Control. If you wish to change the function of this connection, it can be done with the “Control
+              Input Function” dropdown menu in the <a href="#hardware-options">Hardware Options</a> section of the
+              Neuro Desktop Editor. The alternate options are Increment Preset, Decrement Preset, and Tap Tempo.
+              These are global settings.
+            </p>
+            <p>
+              Source Audio Tap Tempo footswitches can be purchased directly from the Reverb.com Official Source
+              Audio Online Store.
+            </p>
+
+            <h3 id="expression">External Expression Control</h3>
+            <p>
+              A variety of the Collider’s effects parameters can be controlled with a passive expression pedal
+              connected to either the PEDAL IN or the CONTROL INPUT jacks. The expression pedal can be mapped to
+              simultaneously control any combination of up to three knobs. Mapping parameters can be done either in
+              the <a href="#external-control-block">External Control</a> section of the Neuro Desktop Editor or with
+              the pedal by itself (see the <a href="#configuring-expression">Configuring the Expression Pedal</a>
+              section for instructions on mapping knob parameters to an expression pedal without the Neuro
+              Desktop).
+            </p>
+            <h4>External Expression Controller (¼” TRS Connection – PEDAL IN jack)</h4>
+            <p>
+              Passive expression pedals such as the Source Audio Dual Expression Pedal can be connected directly to
+              the ¼” PEDAL IN jack with a TRS cable. Make sure that the PEDAL IN switch (next to the PEDAL IN jack)
+              is set to EXP when using this input for expression control. Third-party expression pedals can be used
+              as well, as long as they have a TRS (Tip Ring Sleeve) plug with power on the ring, expression (the
+              wiper of the potentiometer) on the tip, and ground on the sleeve, as seen in the diagram below.
+            </p>
+            <figure class="fig-m">
+              <img src="Images/plug-exp-pedal-in.png" alt="TRS plug: tip Expression, ring Power, sleeve Ground" />
+            </figure>
+            <p>
+              Please note, expression pedals with TS (Tip Sleeve) plugs will not work correctly with the expression
+              input (PEDAL IN jack) of the Collider. Also, the resistance of the expression pedal is not critical.
+              Pedal calibration is done automatically when a new external control mapping is created.
+            </p>
+            <h4>External Expression Controller (⅛”/3.5mm TRRS Connection – CONTROL INPUT jack)</h4>
+            <p>
+              The Source Audio Dual Expression Pedal can be directly connected to the CONTROL INPUT jack using a
+              3.5mm (⅛ inch), TRRS cable. In the case of an expression pedal with a TRRS plug, the tip connection is
+              power, the first ring is the X-axis expression signal, the second ring is the Y-axis expression
+              signal, and the sleeve connection is ground. In this configuration, the Collider uses the X expression
+              signal as its expression source.
+            </p>
+            <figure class="fig-m">
+              <img src="Images/plug-exp-pedal-in.png" alt="Plug diagram: Ground, Power, Expression" />
+            </figure>
+            <p>
+              Third party expression pedals can be connected to the CONTROL INPUT as well, as long as they have a
+              3.5 mm (⅛”) TRS (Tip Ring Sleeve) plug with power on the tip, expression (the wiper of the
+              potentiometer) on the ring, and ground on the sleeve, as seen in the diagram below.
+            </p>
+            <figure class="fig-m">
+              <img src="Images/plug-exp-control-in.png" alt="3.5 mm TRS plug: tip Power, ring Expression, sleeve Ground" />
+            </figure>
+            <p>
+              Expression pedals with TS (Tip Sleeve) plugs will not work correctly with the CONTROL INPUT of the
+              Collider. For proper operation, the configuration steps in the next section must be followed when
+              using any expression pedal, whether from a third party or from Source Audio.
+            </p>
+
+            <h4 class="it" id="configuring-expression">Configuring the Expression Pedal</h4>
+            <p>
+              When the expression pedal is connected to the Collider, follow these simple steps to calibrate it and
+              map it to control different effect parameters.
+            </p>
+            <ol>
+              <li>Press the CONTROL INPUT button to enable external control mode. The CONTROL LED should be lit red.</li>
+              <li>
+                Press and hold the CONTROL INPUT button until the CONTROL LED begins to blink slowly (approximately
+                one blink per second).
+              </li>
+              <li>
+                Move the expression pedal over the range of motion you would like to use to control the Collider. If
+                you would like to use the expression pedal’s full range of motion, make sure to move the pedal all
+                the way from its minimum position to its maximum position. Note that you can create “dead zones,” if
+                desired, by only moving the expression pedal over a limited region of its full range of motion.
+              </li>
+              <li>
+                After setting the expression pedal range, click the DELAY/TAP footswitch once. The calibration is
+                now complete, and the CONTROL LED will blink faster (about 2 blinks per second). Now, it is time to
+                map the expression pedal to the effect parameters.
+              </li>
+              <li>
+                Move the knobs you wish to control with the expression pedal to the minimum desired position and
+                then click the DELAY/TAP footswitch. The CONTROL LED will now blink even faster (about 4 blinks per
+                second). Note that you may control one or more knobs with the expression pedal, up to three total
+                knobs.
+              </li>
+              <li>
+                Move the knobs you wish to control with the expression pedal to the maximum desired position and
+                then click the DELAY/TAP footswitch. The CONTROL LED will now be lit solid red.
+              </li>
+              <li>After setting the minimum and maximum knob positions, the parameter mapping is complete.</li>
+            </ol>
+            <p>
+              <b>Note:</b> The parameter range can be inverted by swapping the minimum and maximum position of the
+              knobs during steps 5 and 6.
+            </p>
+            <p>
+              <b>Note:</b> To cancel a control assignment, press the CONTROL INPUT button at any time during the
+              process above.
+            </p>
+            <p>
+              Once a mapping is created, it can be stored as part of a user preset. This way, each preset can be
+              configured to have its own custom mapping.
+            </p>
+            <p>External Control can be toggled on/off at any time by pressing the CONTROL INPUT button.</p>
+
+            <h3>External Switch Used as Expression Input (Expression “Toggle”)</h3>
+            <p>
+              An external switch can also work as a sort of expression pedal that only has two positions: on and
+              off. The external switch can be either momentary or latching.
+            </p>
+            <h4>External Switch as Expression Toggle (¼” TRS Connection – PEDAL IN Jack)</h4>
+            <p>
+              To use this mode, connect an external switch to PEDAL IN and set the PEDAL IN switch to the EXP
+              position instead of the SWITCH position. The following plug configuration is required:
+            </p>
+            <figure class="fig-m">
+              <img
+                src="Images/plug-toggle-pedal-in.png"
+                alt="¼ inch plug: tip Switch Out, ring Power (switch pull-up), sleeve Ground"
+              />
+            </figure>
+            <p>Follow these steps for configuration:</p>
+            <ol>
+              <li>Press the CONTROL INPUT button to enable external control. The CONTROL LED should be lit red.</li>
+              <li>
+                Press and hold the CONTROL INPUT button until the CONTROL LED begins to blink slowly (approximately
+                one blink per second).
+              </li>
+              <li>Tap the external switch once.</li>
+              <li>
+                Click the DELAY/TAP footswitch once. The CONTROL LED will blink faster (about 2 blinks per second).
+                Now, it is time to map the external switch to the effect parameters.
+              </li>
+              <li>
+                Move the knobs you wish to control with the external footswitch to the minimum desired position and
+                then click the DELAY/TAP footswitch. The CONTROL LED will now blink even faster (about 4 blinks per
+                second). Note that you may control up to three knobs.
+              </li>
+              <li>
+                Move the knobs you wish to control with the footswitch to the maximum desired position and then
+                click the DELAY/TAP footswitch. The CONTROL LED will now be lit solid red.
+              </li>
+              <li>After setting the minimum and maximum knob positions, the parameter mapping is complete.</li>
+            </ol>
+            <h4>External Switch as Expression Toggle (⅛” (3.5mm) TRRS Connection – CONTROL INPUT Jack)</h4>
+            <p>
+              To use this mode, connect an external switch to CONTROL INPUT and set the PEDAL IN SWITCH to the
+              SWITCH position instead of the EXP position. The following plug configuration is required:
+            </p>
+            <figure class="fig-m">
+              <img
+                src="Images/plug-toggle-control-in.png"
+                alt="3.5 mm plug: tip Power (switch pull-up), ring Switch Out, sleeve Ground"
+              />
+            </figure>
+            <p>Follow these steps for configuration:</p>
+            <ol>
+              <li>Press the CONTROL INPUT BUTTON to enable external control. The CONTROL LED should be lit red.</li>
+              <li>
+                Press and hold the CONTROL INPUT BUTTON until the CONTROL LED begins to blink slowly (approximately
+                one blink per second).
+              </li>
+              <li>Tap the external switch once.</li>
+              <li>
+                Click the DELAY/TAP footswitch once. The CONTROL LED will blink faster (about 2 blinks per second).
+                Now, it is time to map the external switch to the effect parameters.
+              </li>
+              <li>
+                Move the knobs you wish to control with the external footswitch to the minimum desired position and
+                then click the DELAY/TAP footswitch. The CONTROL LED will now blink even faster (about 4 blinks per
+                second). Note that you may control up to three knobs.
+              </li>
+              <li>
+                Move the knobs you wish to control with the switch to the maximum desired position and then click
+                the DELAY/TAP footswitch. The CONTROL LED will now be lit solid red.
+              </li>
+              <li>After setting the minimum and maximum knob positions, the parameter mapping is complete.</li>
+            </ol>
+
+            <h3 id="hot-hand-input">Hot Hand Input</h3>
+            <p>
+              The Hot Hand 3 Wireless Effects Controller can be connected directly to the CONTROL INPUT jack for
+              wireless motion control of the Collider Delay+Reverb’s effect parameters. The Hot Hand has two axes of
+              expression: X and Y. These signals are carried on the two rings of the TRRS cable that comes from the
+              Hot Hand receiver. The Collider uses the X expression signal.
+            </p>
+            <figure class="fig-m">
+              <img
+                src="Images/plug-hot-hand.png"
+                alt="TRRS plug: tip Power, first ring X Exp, second ring Y Exp, sleeve Ground"
+              />
+            </figure>
+            <h4 class="it">Configuring the Hot Hand</h4>
+            <p>
+              When the Hot Hand is connected to the Collider, follow these simple steps to calibrate it and map it
+              to control different effect parameters.
+            </p>
+            <ol>
+              <li>Press the CONTROL INPUT button to enable external control. The CONTROL LED should be lit red.</li>
+              <li>
+                Press and hold the CONTROL INPUT button until the CONTROL LED begins to blink slowly (approximately
+                one blink per second).
+              </li>
+              <li>
+                Move the Hot Hand ring over the range of motion you would like to use to control the Collider. The
+                easiest way to do this is to move the ring in the same way that you intend to move it as you
+                perform. The Collider will intelligently select the X or Y axis of the Hot Hand automatically, based
+                on the motion of the ring.
+              </li>
+              <li>
+                After setting Hot Hand range of motion, click the DELAY/TAP footswitch once. The calibration is now
+                complete, and the CONTROL LED will blink faster (about 2 blinks per second). Now, it is time to map
+                the Hot Hand to the effect parameters.
+              </li>
+              <li>
+                Move the knobs you wish to control with the Hot Hand to their minimum desired position and then
+                click the DELAY/TAP footswitch. The CONTROL LED will now blink even faster (about 4 blinks per
+                second). Note that you may control up to three knobs.
+              </li>
+              <li>
+                Move the knobs you wish to control with the Hot Hand to the maximum desired position and then click
+                the DELAY/TAP footswitch. The CONTROL LED will now be lit solid red.
+              </li>
+              <li>After setting the minimum and maximum knob positions, the parameter mapping is complete.</li>
+            </ol>
+
+            <h3>Reset Expression Control Mapping</h3>
+            <p>
+              To clear the expression control mapping (Expression or Hot Hand), first press the CONTROL INPUT BUTTON
+              to turn OFF control mode. The CONTROL LED should be off. Then, press and hold the CONTROL INPUT BUTTON
+              until the CONTROL LED blinks 3 times. This clears all expression or Hot Hand mapping.
+            </p>
+
+            <h3 id="control-options">External Control Options Guide</h3>
+            <p class="src-note">
+              The Collider Delay+Reverb Control Options Guide, reproduced below from
+              <a href="collider_external_switch_guide.pdf">its PDF</a>, is a quick reference to all of the
+              Collider’s external control options.
+            </p>
+            <p>
+              This is a quick reference guide for all of the Collider Delay+Reverb’s onboard (DELAY/TAP and REVERB)
+              footswitches and external switch options. The Collider is compatible with most passive single (TS ¼”
+              connection), dual (TRS ¼” connection), or the Source Audio Tap Tempo (⅛” TRRS and ¼” TRS connection)
+              external footswitches.
+            </p>
+            <div class="table-scroll span-all">
+              <table class="doc-table grid-table options-table">
+                <thead>
+                  <tr>
+                    <th>Function</th>
+                    <th>DELAY/TAP Switch</th>
+                    <th>REVERB Switch</th>
+                    <th>PEDAL IN (Ext. ¼”)</th>
+                    <th>CONTROL IN (Ext. ⅛”)</th>
+                    <th>MIDI</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>Reverb Hold</th>
+                    <td class="na">N/A</td>
+                    <td class="yes">Yes, <b>Hold</b> it (Engaged)</td>
+                    <td class="na">N/A</td>
+                    <td class="na">N/A</td>
+                    <td class="yes">Yes</td>
+                  </tr>
+                  <tr>
+                    <th>Delay Hold / Self Oscillation</th>
+                    <td class="na">N/A</td>
+                    <td class="assign">Assignable (Engaged, Use “Unlock” Feature)</td>
+                    <td class="na">N/A</td>
+                    <td class="na">N/A</td>
+                    <td class="yes">Yes</td>
+                  </tr>
+                  <tr>
+                    <th>Delay Tap Tempo</th>
+                    <td class="tap">Yes, <b>Tap</b> it (Engaged or Bypassed)</td>
+                    <td class="na">N/A</td>
+                    <td class="assign">Assignable</td>
+                    <td class="assign">Assignable</td>
+                    <td class="yes">Yes</td>
+                  </tr>
+                  <tr>
+                    <th>Preset Increment</th>
+                    <td class="na">N/A</td>
+                    <td class="hold">Yes, <b>Hold</b> it (Bypassed)</td>
+                    <td class="assign">Assignable</td>
+                    <td class="assign">Assignable</td>
+                    <td class="yes">Yes</td>
+                  </tr>
+                  <tr>
+                    <th>Preset Decrement</th>
+                    <td class="hold">Yes, <b>Hold</b> it (Bypassed)</td>
+                    <td class="na">N/A</td>
+                    <td class="assign">Assignable</td>
+                    <td class="assign">Assignable</td>
+                    <td class="yes">Yes</td>
+                  </tr>
+                  <tr>
+                    <th>Engine On/Off</th>
+                    <td class="yes">Yes, <b>Tap</b> it</td>
+                    <td class="yes">Yes, <b>Tap</b> it</td>
+                    <td class="na">N/A</td>
+                    <td class="na">N/A</td>
+                    <td class="yes">Yes</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>
+              <b>Please Note:</b> Delay Hold / Self Oscillation is available by using the “unlock” feature and
+              assigning a Delay engine to the Reverb side of the Collider.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="neuro">
+        <div class="flex-container">
+          <div class="half-container">
+            <header><h2>Neuro Desktop and Mobile Editors</h2></header>
+            <figure class="fig-m">
+              <img src="Images/neuro-logo.png" alt="Neuro" />
+            </figure>
+            <p>
+              Like all pedals in the Source Audio One Series line, the Collider Delay+Reverb features access to
+              more precise editing parameters, preset sharing, and added functionality via the Neuro Desktop Editor
+              and Mobile App. The Neuro Desktop Editor is currently available as a free download for Apple and
+              Windows on the <a href="http://www.sourceaudio.net/support/downloads">Downloads page</a> of the
+              Source Audio website.
+            </p>
+
+            <h3 id="neuro-desktop">The Neuro Desktop Editor</h3>
+            <p>
+              The Neuro Desktop Editor is an excellent tool for creating and organizing highly customized presets
+              for your Collider Delay+Reverb. The Desktop offers an advanced cataloging system for naming and
+              storing Collider presets. The Desktop is also a tool for installing the latest updates to your
+              Collider Delay+Reverb firmware.
+            </p>
+            <h4>Downloading and Connecting the Neuro Desktop Editor</h4>
+            <p>
+              The Neuro Desktop Editor is a free download for Mac and Windows PCs. To download the Neuro Desktop, go
+              to the Source Audio <a href="http://www.sourceaudio.net/support/downloads">Downloads page</a>. In the
+              Software tab select the appropriate file (you have a choice between the Mac and Windows versions) and
+              download it. This file also includes all of the latest One Series Pedal Firmware files.
+            </p>
+            <p>
+              Please note that in order to use the Neuro Desktop Editor, you must create an account. This can only
+              be done with the Neuro Mobile App.
+            </p>
+            <p>
+              After the download process, connect your Collider Delay+Reverb with a USB Type A male to mini Type B
+              male cable (<b>Warning:</b> don’t use a charger cable). Connect the cable from the mini USB port on
+              the pedal to the USB port on your computer. Once you’ve made the connection a blue box will appear in
+              the Connections field indicating that the Collider is ready to be edited.
+            </p>
+            <p>
+              If a new Collider firmware update is available, the Firmware Update icon (the arrow icon) will be
+              framed in yellow. When you click the arrow icon, you will be instructed on the updating procedure.
+            </p>
+            <p>
+              (<b>Note:</b> It is important to disconnect all other Source Audio pedals and turn off MIDI software
+              during the firmware updating process.)
+            </p>
+
+            <h4>Neuro Desktop Editor User Interface</h4>
+            <p>
+              The Neuro Desktop’s user interface features three primary sections: Connections, Sound Editor, and
+              Presets.
+            </p>
+            <figure class="wide">
+              <img
+                src="Images/neuro-desktop.png"
+                alt="The Neuro Desktop Editor: Connections on the left, Sound Editor in the centre, Presets on the right"
+              />
+            </figure>
+
+            <h4>Connections</h4>
+            <p>
+              The Connections section is located on the left side of the Neuro Desktop Editor. This field displays
+              all connected One Series pedals. Each connected pedal offers the three options listed below:
+            </p>
+            <figure>
+              <img
+                src="Images/neuro-connections.png"
+                alt="Connections box for the Collider Delay/Reverb with arrow, gear and wrench icons"
+              />
+            </figure>
+            <ul>
+              <li>
+                <b>Firmware Updates:</b> The arrow icon checks for any recent firmware updates to the connected
+                pedal. If an update is available this icon will be framed in yellow. To update your Collider, click
+                on this icon and follow the update process.
+              </li>
+              <li>
+                <b>Hardware Option:</b> The gear icon opens the Hardware Options window. Each Source Audio pedal has
+                its own set of global hardware settings. The attached pedal will retain all hardware option edits
+                until either the option is de-selected or a Factory Reset is performed.
+              </li>
+              <li>
+                <b>Open Editing Interface:</b> The wrench icon opens the Collider Delay+Reverb’s Sound Editor,
+                revealing a deep set of editing controls for creating custom presets.
+              </li>
+            </ul>
+
+            <h4 id="hardware-options">Hardware Options</h4>
+            <p>
+              Clicking the gear icon in the Collider Delay+Reverb’s Connections window opens the Hardware Options
+              menu (see the graphic below). Use the Hardware Options window to choose your pedal’s universal
+              hardware settings.
+            </p>
+            <figure>
+              <img src="Images/hardware-options.png" alt="The Collider Delay+Reverb Hardware Options window" />
+            </figure>
+            <p>The Collider Delay+Reverb’s Hardware Options include the following:</p>
+            <ul>
+              <li><b>Hardware Bypass Mode:</b> Selects between True or Buffered Bypass.</li>
+              <li><b>MIDI Channel:</b> Selects the pedal’s MIDI channel (1 through 16).</li>
+              <li>
+                <b>Control Input:</b> This dropdown menu assigns the control function of the external switch
+                connected to the CONTROL INPUT. There are four choices: <i>Neuro Hub/Expression</i>,
+                <i>Increment Preset</i>, <i>Decrement Preset</i>, and <i>Tap Tempo</i>.
+              </li>
+              <li>
+                <b>Preset Extension Mode:</b> Adds an additional 4 user presets for a total of 8 presets accessible
+                without MIDI messages.
+              </li>
+              <li>
+                <b>Delay/Reverb Trails Mode:</b> Checking this box allows your delay or reverb trail to decay
+                naturally upon bypassing the effect.
+              </li>
+              <li>
+                <b>Kill Dry Mode:</b> Completely eliminates the dry signal from the pedal’s output. Kill Dry Mode is
+                helpful when using the Collider in an effects send.
+              </li>
+              <li>
+                <b>Knob Action after:</b> Allows you to select the function of the knobs after a preset is
+                selected. There are three different options:
+                <ul>
+                  <li><i>Always Write</i> – Knob positions will be recalled as exactly how they are set on the pedal</li>
+                  <li>
+                    <i>Show Preset Value</i> – This is the default mode. Discover where the knobs are set in each
+                    preset by rotating them. The Control LED will flash when each knob position has been discovered.
+                  </li>
+                  <li>
+                    <i>Write After Preset Value is Reached</i> – Rotating the knob will initially discover its
+                    position within the preset, but once it has been discovered, the Control LED will blink, and the
+                    knob will begin writing a new position.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <b>Ext. Footswitch:</b> Plug a standard ¼” TRS, one or two button external footswitch to the
+                Collider’s PEDAL IN jack and use it as an external Tap Tempo or to externally scroll through user
+                presets. These two dropdown menus select the control assignments for each button on a two-button
+                switch (use the top field only when connected to a single button switch). There are three choices:
+                <i>Tap Tempo</i>, <i>Increment Preset</i>, and <i>Decrement Preset</i>.
+              </li>
+              <li>
+                <b>Power Up State:</b> Selects between engaging or bypassing the effect upon the initial power up of
+                the pedal. You may also decide to engage one effect by default, and bypass the other.
+              </li>
+              <li>
+                <b>Default I/O:</b> Sets the default I/O signal routing mode. Descriptions of the available routing
+                modes are available in the <a href="#stereo">Stereo Operation &amp; Signal Routing</a> section of
+                this manual.
+              </li>
+              <li>
+                <b>Keep Delay Time Constant with Preset Change:</b> Does exactly what it says – change presets
+                without changing the time of the delay.
+              </li>
+              <li>
+                <b>Enable Tap Tempo on DELAY/TAP Footswitch:</b> Check or uncheck this box to turn off or enable the
+                DELAY/TAP footswitch’s Tap Tempo functionality.
+              </li>
+              <li>
+                <b>Tap Tempo Toggle Left:</b> Select between different beat divisions to map to the left position of
+                the tap tempo switch.
+              </li>
+              <li>
+                <b>Tap Tempo (Toggle Center):</b> Select between different beat divisions to map to the center
+                position of the tap tempo switch.
+              </li>
+              <li>
+                <b>Tap Tempo Toggle Right:</b> Select between different beat divisions to map to the right position
+                of the tap tempo switch.
+              </li>
+              <li>
+                <b>Delay Bypass Hold:</b> This dropdown menu allows you to extend the amount of time required when
+                holding down the DELAY/TAP footswitch to bypass the delay effect. Extending the Delay Bypass Hold
+                time also affects the action of the tap tempo and makes the pedal less likely to bypass while tapping
+                in a tempo.
+              </li>
+              <li>
+                <b>Enable DELAY/TAP Footswitch Preset Decrement Function:</b> Check or uncheck this box to turn off
+                or enable the DELAY/TAP footswitch’s ability to scroll through presets.
+              </li>
+              <li>
+                <b>Enable REVERB Footswitch Preset Increment Function:</b> Check or uncheck this box to turn off or
+                enable the REVERB footswitch’s ability to scroll through presets.
+              </li>
+              <li>
+                <b>Recall Effect On/Off States on Preset Increment/Decrement:</b> Checking this box allows you to
+                include the On/Off states of both the Delay and Reverb effects when scrolling through presets.
+              </li>
+              <li>
+                <b>Pedal Input &amp; Control Input Calibration</b> (Accessible via the Show Expression Pedal
+                Calibration dropdown controls): In the vast majority of cases, it is not necessary to change any of
+                these values. However, in rare cases certain expression pedals require a custom range. When using a
+                non-standard expression pedal, check its user manual for the specific calibration range.
+              </li>
+            </ul>
+
+            <h4 id="sound-editor">Sound Editor</h4>
+            <p>
+              Upon clicking the wrench icon in the Connections section, the Collider Delay+Reverb’s Sound Editor
+              interface appears in a tab in the center field. This is where all of the sound editing work takes
+              place.
+            </p>
+            <p>
+              The Sound Editor is broken into several sub-sections, each containing a unique variation of virtual
+              knobs and dropdown menus. The following is a brief explanation of each Sound Editor sub-section.
+            </p>
+            <figure>
+              <img src="Images/sound-editor.png" alt="The Collider Delay+Reverb Sound Editor tab" />
+            </figure>
+            <h5>Delay Controls (Engine A)</h5>
+            <p>
+              This block contains a comprehensive collection of editing tools for the Delay engine. The block
+              contains the following controls:
+            </p>
+            <ul>
+              <li><b>Enable Status:</b> This green button labeled ON or OFF indicates whether Delay is engaged or bypassed.</li>
+              <li><b>Delay Engine:</b> Select the Delay engine.</li>
+              <li><b>Unlock:</b> This button allows you to “unlock” the Delay side of the pedal and access Reverb engines.</li>
+              <li>
+                <b>Primary Engine Controls:</b> There are 7 primary control knobs for customizing each delay
+                preset. Among this set of virtual knobs are controls like DELAY TIME and FEEDBACK, which are also
+                found on the face of the Collider Delay+Reverb.
+              </li>
+              <li>
+                <b>Tap Tempo Division:</b> Select between 6 different beat divisions for the TAP footswitch
+                including Quarter note, Dotted Eighth, and the Golden Ratio.
+              </li>
+              <li>
+                <b>Stereo Delay Option:</b> Select between 4 different delay patterns when using the Collider in
+                stereo, including the classic “Ping-Pong” stereo delay effect.
+              </li>
+            </ul>
+            <h5>Reverb Controls (Engine B)</h5>
+            <p>
+              This block contains a comprehensive collection of editing tools for the Reverb engine. The block
+              contains the following controls:
+            </p>
+            <ul>
+              <li><b>Enable Status:</b> This green button labeled ON or OFF indicates whether Reverb is engaged or bypassed.</li>
+              <li><b>Reverb Engine:</b> Select the reverb engine.</li>
+              <li><b>Unlock:</b> This button allows you to “unlock” the Reverb side of the pedal and access Delay engines.</li>
+              <li>
+                <b>Primary Engine Controls:</b> There are 7 primary control knobs for customizing each reverb
+                preset. Among this set of virtual knobs are controls like PRE-DELAY and FEEDBACK (DECAY), which are
+                also found on the face of the Collider Delay+Reverb.
+              </li>
+            </ul>
+            <h5>Routing Options</h5>
+            <p>
+              Select the routing configurations of Inputs and Outputs 1 &amp; 2. See the
+              <a href="#stereo">Stereo Operation &amp; Signal Routing section</a> for a detailed explanation of each
+              routing option.
+            </p>
+            <h6 class="it">Parallel Analog Dry</h6>
+            <p class="ctl">
+              This knob controls the level of your dry signal (or ADT level) while in Parallel Mode. 100% on this
+              knob is unity level, while 0% on the knob is no dry signal at all.
+            </p>
+            <h5>Tap Tempo</h5>
+            <p>
+              This section allows you to manually enter a tempo for your Delay repeats. You may type in a BPM (beats
+              per minute) or ms (milli-seconds) numerically or use your cursor to “tap” the button at your desired
+              tempo. Also in this section is the option to Sync to MIDI Clock.
+            </p>
+            <h5 id="external-control-block">External Control</h5>
+            <p>
+              Control up to three parameters with an external expression pedal or a Hot Hand 3 Universal Wireless
+              Expression Controller. Use the dropdown menus in the External Control block to select the expression
+              device (Control Source) and controlled parameter (Control Option). Use the Min and Max fields to set
+              the depth of the expression sweep.
+            </p>
+
+            <h4 id="desktop-presets">Presets</h4>
+            <p>
+              The Presets section is located on the right side of the Neuro Desktop interface. The Presets section
+              is comprised of two different tabs: Device and Cloud. Open either tab by clicking on the blue icons in
+              the top right corner.
+            </p>
+            <h5>Device Tab</h5>
+            <p>
+              In the Device tab you will find a list of all the presets and empty preset positions available in your
+              Collider. The Presets section is also where you Save, Import, and Export presets. The buttons located
+              at the top of the Presets field perform the functions listed below:
+            </p>
+            <figure class="fig-m">
+              <img src="Images/presets-device.png" alt="Presets, Device tab: Save, Save As, Import, Export, Save To Cloud and the preset list" />
+            </figure>
+            <ul>
+              <li>
+                <b>Save Button:</b> If you have made edits to a pre-existing preset, use the Save button to update
+                the preset without changing its name or preset position.
+              </li>
+              <li>
+                <b>Save As Button:</b> After creating a new preset hit the Save As button and you will be prompted
+                to name it and select the preset or Effect Selector position to which it will be saved.
+              </li>
+              <li>
+                <b>Import Button:</b> Use the Import button to upload saved .pre files to your Collider and Neuro
+                Desktop Editor. Upon clicking the Import button, you will be asked to find the .pre file. Simply go
+                to your Neuro presets folder, select file, and upload.
+              </li>
+              <li>
+                <b>Export Button:</b> Use the Export button to save a preset on your computer or share it with
+                other musicians. Presets are saved as .pre files and stored anywhere on your computer (we recommend
+                creating a dedicated folder to store your presets). After creating a preset, hit the Export button -
+                a window will pop up, asking you to name, tag, and select a location for the preset. After the
+                preset is saved, the .pre file can be shared via email or any common file sharing method.
+              </li>
+              <li>
+                <b>Save To Cloud Button:</b> Publishes a preset to the Cloud. Saving a preset to the Cloud (a.k.a.
+                the “Neuro Community”) makes it available to anybody who owns a Collider Delay+Reverb.
+              </li>
+              <li>
+                <b>Refresh Button:</b> Hit the Refresh button to restore the Neuro Desktop edits to the state
+                immediately after your last save procedure.
+              </li>
+              <li>
+                <b>Hardware Presets:</b> This is where all of your pedal presets are listed. Use the Save As button
+                to select where you would like to store an edited preset - you can choose from any of the 128 preset
+                positions on the Collider Delay+Reverb.
+              </li>
+            </ul>
+            <h5>Cloud Tab</h5>
+            <p>
+              The Cloud is the portal to your personal preset library, Source Audio created presets, as well as the
+              entire catalog of user created Community Presets. The Cloud tab is broken into four different
+              sub-tabs: Community, Factory, My Library, My Published.
+            </p>
+            <figure class="fig-m">
+              <img src="Images/presets-cloud.png" alt="Presets, Cloud tab: Community, Factory, My Library and My Published" />
+            </figure>
+            <ul>
+              <li>
+                <b>Community:</b> Contains all of the user presets created and published by the entire Neuro
+                Community. Use the Search button to help narrow your search for specific presets.
+              </li>
+              <li><b>Factory:</b> Contains presets created by the Source Audio staff for One Series pedals.</li>
+              <li><b>My Library:</b> Where all of the presets that you have created and saved will reside.</li>
+              <li>
+                <b>My Published:</b> Stores all of the presets that you have created and published to the Neuro
+                Community tab.
+              </li>
+            </ul>
+
+            <h3 id="neuro-mobile">The Neuro Mobile App</h3>
+            <figure class="fig-s">
+              <img src="Images/neuro-app.png" alt="The Neuro Mobile App start screen on a phone" />
+            </figure>
+            <p>
+              The Neuro Desktop Editor is also available in a mobile version for iPhone or Android. Visit Google Play
+              or the App Store and search for “Source Audio Neuro.” The Neuro Mobile App is a free download and
+              contains all the editing and preset capabilities of the desktop version.
+            </p>
+
+            <h3 id="neuro-hub">Neuro Hub</h3>
+            <p>
+              The Source Audio Neuro Hub (sold separately) unites Source Audio pedals from the Soundblox 2 and One
+              Series families to create a single, stage-ready effects system. It features shared MIDI, passive
+              expression pedal input, Hot Hand connectivity, and USB, and can connect up to five Source Audio pedals.
+              The Neuro Hub features a powerful scene saving functionality, which allows you to create up to 128
+              multi-pedal presets known as scenes, each recallable via MIDI program change messages. Connect the
+              Neuro Hub to your computer via USB for updates, saving and editing multi-pedal presets, and more. To
+              connect the Collider to the Neuro Hub, use a 3.5 mm TRRS cable and make a connection between the
+              Collider’s CONTROL INPUT jack and any of the Neuro Hub’s multi-function outputs. For more information,
+              refer to the Neuro Hub documentation on the Source Audio website.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="midi">
+        <div class="flex-container">
+          <div class="half-container">
+            <header><h2>MIDI</h2></header>
+            <p class="src-note">
+              Source Audio’s <a href="MIDI_Support.webp">MIDI Support chart</a> lists the Collider with Full Direct
+              support: PC &amp; CC messages need no MIDI adapter, and it takes Neuro Hub scenes &amp; CC messages,
+              USB-MIDI CC and PC messages and direct MIDI I/O, with 128 presets.
+            </p>
+            <p>
+              Using the MIDI IN jack (5-pin DIN) or a USB connection, the Collider can be controlled by generic MIDI
+              Continuous Controller (CC) and Program Change (PC) messages. All of the Collider’s adjustable
+              parameters are directly accessible via MIDI continuous controller messages.
+            </p>
+            <h3>MIDI Channel</h3>
+            <p>
+              By default, the Collider responds to MIDI Channel 1. The Collider ignores all MIDI messages sent to it
+              that are not on its channel. The input MIDI channel for the Collider can be changed in the
+              <a href="#hardware-options">Hardware Options</a> menu of the Neuro Editors. Note that the MIDI Input
+              Channel is a global setting that is NOT saved per preset. Note that some manufacturers begin counting
+              MIDI channels at zero (from 0 to 15), while the Source Audio Neuro Editors use the convention of
+              counting from 1 to 16.
+            </p>
+            <h3>Selecting Presets via Program Change (PC) Messages</h3>
+            <p>
+              The 128 user presets on the Collider can be recalled via program change messages. Presets 1 to 128 are
+              mapped to MIDI Program Change messages 1 to 128.
+            </p>
+            <p>
+              It is possible to save presets with the Collider bypassed. This means a preset can be recalled without
+              actually engaging one or both of the effects. The effect can then be engaged either by pressing the
+              footswitches or by sending the proper MIDI Continuous Control message.
+            </p>
+            <p>
+              Many of the parameters in the Collider can be controlled via MIDI. For more details, see
+              <a href="#midi-implementation">MIDI Implementation</a>.
+            </p>
+            <h3>Controlling the Collider with MIDI Continuous Controller (CC) Messages</h3>
+            <p>
+              The Collider responds to MIDI Continuous Controller (CC) messages. The pedal comes already mapped to a
+              default set of CC numbers. For a complete list of default MIDI mappings and ranges, see the
+              <a href="#midi-implementation">MIDI Implementation</a> table below.
+            </p>
+            <h3>Custom CC Mapping</h3>
+            <p>
+              The default MIDI map provides control over parameters using specific Continuous Controller messages. It
+              is also possible to override the default map and create custom mapping. Custom MIDI CC mappings are
+              global, meaning they are not unique per preset. The CC mapping will apply in all situations, regardless
+              of which preset is active.
+            </p>
+            <p>To create a custom MIDI CC mapping, follow these steps:</p>
+            <ul>
+              <li>Connect your Collider to the Neuro Desktop Editor.</li>
+              <li>In the top bar menu select Device then Edit Device MIDI Map from the dropdown menu.</li>
+              <li>
+                The Collider Delay+Reverb MIDI Map Editor window will open. Simply scroll to the MIDI CC value you
+                wish to remap and click that CC’s dropdown menu. A list of parameter choices will unfold.
+              </li>
+              <li>Select the parameter you wish to re-assign to the chosen CC. The process is complete.</li>
+            </ul>
+
+            <h3 id="midi-implementation">MIDI Implementation</h3>
+            <p class="src-note">
+              The MIDI Parameter Details table from the Collider Delay+Reverb
+              <a href="collider_midi_guide.pdf">MIDI Implementation Guide</a>.
+            </p>
+            <div class="table-scroll span-all">
+              <table class="doc-table grid-table midi-table">
+                <thead>
+                  <tr><th>Parameter</th><th class="cc">CC#</th><th>Range</th><th class="val">Value</th><th>Description</th></tr>
+                </thead>
+                <tbody>
+                  <tr><th rowspan="13">Delay (A) Engine</th><td class="cc" rowspan="13">1</td><td rowspan="13">0-11</td><td></td><td>Selects and loads Delay (&amp; Reverb) engines into A</td></tr>
+                  <tr><td class="val">0</td><td>Digital</td></tr>
+                  <tr><td class="val">1</td><td>Analog</td></tr>
+                  <tr><td class="val">2</td><td>Tape</td></tr>
+                  <tr><td class="val">3</td><td>Reverse</td></tr>
+                  <tr><td class="val">4</td><td>Oil Can</td></tr>
+                  <tr><td class="val">5</td><td>Room</td></tr>
+                  <tr><td class="val">6</td><td>Hall</td></tr>
+                  <tr><td class="val">7</td><td>True Spring</td></tr>
+                  <tr><td class="val">8</td><td>Plate</td></tr>
+                  <tr><td class="val">9</td><td>Shimmer</td></tr>
+                  <tr><td class="val">10</td><td>E-Dome</td></tr>
+                  <tr><td class="val">11</td><td>Swell</td></tr>
+                  <tr><th>Delay (A) Time</th><td class="cc">2</td><td>0-127</td><td></td><td>Sets min and max delay times</td></tr>
+                  <tr><th>Delay (A) Mix</th><td class="cc">3</td><td>0-127</td><td></td><td>Sets the wet/dry mix - 50/50 point at approx. 95</td></tr>
+                  <tr><th>Delay (A) Feedback</th><td class="cc">4</td><td>0-127</td><td></td><td>Sets Delay Regeneration amount</td></tr>
+                  <tr><th>Delay (A) Tone</th><td class="cc">5</td><td>0-127</td><td></td><td>Sets the brightness of the wet signal</td></tr>
+                  <tr><th>Delay (A) Control 1</th><td class="cc">6</td><td>0-127</td><td></td><td>Sets whichever parameter is assigned to CONTROL 1</td></tr>
+                  <tr><th>Delay (A) Control 2</th><td class="cc">7</td><td>0-127</td><td></td><td>Sets whichever parameter is assigned to CONTROL 2</td></tr>
+                  <tr><th>Delay (A) Output</th><td class="cc">8</td><td>0-127</td><td></td><td>Sets the level of the wet signal</td></tr>
+                  <tr><th rowspan="7">Delay Tap Tempo Division</th><td class="cc" rowspan="7">9</td><td rowspan="7">0-5</td><td></td><td>Selects the tap tempo beat division</td></tr>
+                  <tr><td class="val">0</td><td>Quarter</td></tr>
+                  <tr><td class="val">1</td><td>Dotted Eighth</td></tr>
+                  <tr><td class="val">2</td><td>Golden Ratio</td></tr>
+                  <tr><td class="val">3</td><td>Eighth</td></tr>
+                  <tr><td class="val">4</td><td>Triplet</td></tr>
+                  <tr><td class="val">5</td><td>Sixteenth</td></tr>
+                  <tr><th>Delay (A) Stereo Division</th><td class="cc">24</td><td>0-5</td><td></td><td>Sets the stereo division ratio</td></tr>
+                  <tr><th rowspan="13">Reverb (B) Engine</th><td class="cc" rowspan="13">15</td><td rowspan="13">0-11</td><td></td><td>Selects and loads Reverb (&amp; Delay) engines into B</td></tr>
+                  <tr><td class="val">0</td><td>Digital</td></tr>
+                  <tr><td class="val">1</td><td>Analog</td></tr>
+                  <tr><td class="val">2</td><td>Tape</td></tr>
+                  <tr><td class="val">3</td><td>Reverse</td></tr>
+                  <tr><td class="val">4</td><td>Oil Can</td></tr>
+                  <tr><td class="val">5</td><td>Room</td></tr>
+                  <tr><td class="val">6</td><td>Hall</td></tr>
+                  <tr><td class="val">7</td><td>True Spring</td></tr>
+                  <tr><td class="val">8</td><td>Plate</td></tr>
+                  <tr><td class="val">9</td><td>Shimmer</td></tr>
+                  <tr><td class="val">10</td><td>E-Dome</td></tr>
+                  <tr><td class="val">11</td><td>Swell</td></tr>
+                  <tr><th>Reverb (B) Time</th><td class="cc">16</td><td>0-127</td><td></td><td>Sets Pre Delay of the Reverb</td></tr>
+                  <tr><th>Reverb (B) Mix</th><td class="cc">17</td><td>0-127</td><td></td><td>Sets the wet/dry mix - 50/50 point at approx. 95</td></tr>
+                  <tr><th>Reverb (B) Feedback</th><td class="cc">18</td><td>0-127</td><td></td><td>Sets the decay rate of the Reverb</td></tr>
+                  <tr><th>Reverb (B) Tone</th><td class="cc">19</td><td>0-127</td><td></td><td>Sets the brightness of the wet signal</td></tr>
+                  <tr><th>Reverb (B) Control 1</th><td class="cc">20</td><td>0-127</td><td></td><td>Sets whichever parameter is assigned to CONTROL 1</td></tr>
+                  <tr><th>Reverb (B) Control 2</th><td class="cc">21</td><td>0-127</td><td></td><td>Sets whichever parameter is assigned to CONTROL 2</td></tr>
+                  <tr><th>Reverb (B) Output</th><td class="cc">22</td><td>0-127</td><td></td><td>Sets the level of the wet signal</td></tr>
+                  <tr><th rowspan="7">Reverb (B) Tap Tempo Division</th><td class="cc" rowspan="7">23</td><td rowspan="7">0-5</td><td></td><td>Selects the tap tempo beat division</td></tr>
+                  <tr><td class="val">0</td><td>Quarter</td></tr>
+                  <tr><td class="val">1</td><td>Dotted Eighth</td></tr>
+                  <tr><td class="val">2</td><td>Golden Ratio</td></tr>
+                  <tr><td class="val">3</td><td>Eighth</td></tr>
+                  <tr><td class="val">4</td><td>Triplet</td></tr>
+                  <tr><td class="val">5</td><td>Sixteenth</td></tr>
+                  <tr><th>Reverb (B) Stereo Division</th><td class="cc">24</td><td>0-5</td><td></td><td>Sets the stereo division ratio</td></tr>
+                  <tr><th>Preset Decrement</th><td class="cc">80</td><td>any</td><td></td><td></td></tr>
+                  <tr><th>Preset Increment</th><td class="cc">82</td><td>any</td><td></td><td></td></tr>
+                  <tr><th>Remote Tap Function</th><td class="cc">93</td><td>any</td><td></td><td>Same as tapping the DELAY/TAP footswitch</td></tr>
+                  <tr><th>Remote Hold Function</th><td class="cc">97</td><td>any</td><td></td><td>Same as pressing the REVERB footswitch</td></tr>
+                  <tr><th>Remote Expression</th><td class="cc">100</td><td>0-127</td><td></td><td>Overrides all expression inputs</td></tr>
+                  <tr><th>Delay (A) Bypass/Engage</th><td class="cc">101</td><td>0-127</td><td></td><td>0-64 Bypass, 65-127 Engage</td></tr>
+                  <tr><th>Toggle Delay (A) Bypass/Engage</th><td class="cc">102</td><td>any</td><td></td><td></td></tr>
+                  <tr><th>Reverb (B) Bypass/Engage</th><td class="cc">103</td><td>0-127</td><td></td><td>0-64 Bypass, 65-127 Engage</td></tr>
+                  <tr><th>Toggle Reverb (B) Bypass/Engage</th><td class="cc">104</td><td>any</td><td></td><td></td></tr>
+                  <tr><th>Recall Preset Both Bypassed</th><td class="cc">105</td><td>0-127</td><td></td><td>Recalls any preset with Delay (A) &amp; Reverb (B) Bypassed</td></tr>
+                  <tr><th>Recall Preset Delay Engaged</th><td class="cc">106</td><td>0-127</td><td></td><td>Recalls any preset with Delay (A) Engaged</td></tr>
+                  <tr><th>Recall Preset Both Engaged</th><td class="cc">107</td><td>0-127</td><td></td><td>Recalls any preset with Delay (A) &amp; Reverb (B) Engaged</td></tr>
+                  <tr><th>Recall Preset Reverb Engaged</th><td class="cc">108</td><td>0-127</td><td></td><td>Recalls any preset with Reverb (B) Engaged</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="usb">
+        <div class="flex-container">
+          <div class="half-container">
+            <header><h2>USB</h2></header>
+            <p>
+              The Collider’s USB port is plug-and-play ready for Windows and Mac computers. The Collider uses
+              class-compliant drivers, so no special drivers are needed. Just power up the Collider and connect it to
+              the computer using a USB cable. The computer will automatically recognize the Collider, which will be
+              identified as “One Series Collider Delay+Reverb” in the operating system.
+            </p>
+            <p>
+              USB connectivity brings many benefits, such as the ability to connect with the Neuro Desktop Editor for
+              downloading Collider firmware updates, accessing an advanced set of effect editing parameters, and
+              downloading alternate reverb engines. The USB port also provides MIDI connectivity to audio production
+              software.
+            </p>
+            <h3>USB-MIDI</h3>
+            <p>
+              The Collider will appear as a MIDI device in your computer’s operating system. As a result, the
+              Collider can communicate with audio production software that utilizes MIDI, such as Pro Tools, Ableton
+              Live, Logic Pro, and more. MIDI messages can be sent directly to the Collider using the USB connection,
+              which allows for full automation of the Collider within host software such as a DAW. For example, the
+              amount of Delay Feedback can be automated by outputting MIDI continuous controller messages from the
+              host software to the Collider via the USB connection. For more details, see
+              <a href="#midi-implementation">MIDI Implementation</a>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="specifications">
+        <div class="flex-container">
+          <div class="half-container">
+            <header><h2>Specifications</h2></header>
+            <h3>Dimensions</h3>
+            <ul>
+              <li>Length: 11.63 cm (4.58 inches)</li>
+              <li>Width: 11.17 cm (4.40 inches)</li>
+              <li>Height (not including knobs and footswitches): 3.71 cm (1.46 inches)</li>
+              <li>Height (including knobs and footswitches): 5.61 cm (2.21 inches)</li>
+            </ul>
+            <h3>Weight</h3>
+            <ul>
+              <li>450 grams (1 pound)</li>
+            </ul>
+            <h3>Power</h3>
+            <ul>
+              <li>300mA @ 9V DC</li>
+              <li>Center negative, Barrel positive plug, 2.1 mm inner diameter, 5.5 mm outer diameter</li>
+            </ul>
+            <h3>Audio Performance</h3>
+            <ul>
+              <li>Maximum Input Level: +6.54 dBV = 8.76 dBu = 2.12 V RMS = 6.0 V p-p</li>
+              <li>Full Scale Output Level: +6.54 dBV = 8.76 dBu = 2.12 V RMS = 6.0 V p-p</li>
+              <li>Input Impedance: 1 Mega Ohm (1 MΩ)</li>
+              <li>Output Impedance: 600 Ohm (600 Ω)</li>
+              <li>110 dB DNR Audio Path</li>
+              <li>24-bit Audio Conversion</li>
+              <li>56-bit Digital Data Path</li>
+              <li>Universal Bypass (relay-based true bypass and analog buffered bypass)</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="troubleshooting">
+        <div class="flex-container">
+          <div class="half-container">
+            <header><h2>Troubleshooting</h2></header>
+            <h3>Restore Factory Settings</h3>
+            <p>
+              In order to revert the Collider to its factory settings, clearing all user data, presets, expression
+              mappings and custom effect engines, use either the Neuro Mobile App or Neuro Desktop Editor and choose
+              the Factory Reset option in the Hardware Options menus. It is also possible to perform a factory reset
+              without the Neuro App by following these steps:
+            </p>
+            <ul>
+              <li>Press and hold the REVERB FOOTSWITCH.</li>
+              <li>Connect the power supply.</li>
+              <li>
+                The CONTROL LED will blink rapidly until the reset is complete. You can stop holding the REVERB
+                FOOTSWITCH once the CONTROL LED starts to blink.
+              </li>
+            </ul>
+            <h3>Noise</h3>
+            <p><b>Power source:</b> Ensure that the proper power supply is being used.</p>
+            <p><b>Near noise source:</b> Move pedal away from power supplies and other equipment.</p>
+            <p><b>Other equipment:</b> Remove other effects from signal chain; see if noise persists.</p>
+            <p><b>Bad cables:</b> Swap out audio cables.</p>
+            <p>
+              <b>USB ground loop:</b> When connected to a computer using a USB cable, noise can appear in the audio
+              signal. This usually results from ground loop noise due to the Collider and computer running on
+              separate power supplies. In the case of laptops, disconnecting the computer’s power supply and running
+              it on a battery can often mitigate the noise. External display monitors are often the primary source
+              of noise, and powering down monitors can also resolve noise issues.
+            </p>
+            <p>
+              <b>Ground loop with amp:</b> Make sure your Collider is running on the same power mains circuit as
+              your guitar amplifier.
+            </p>
+            <h3>Hot Hand Doesn’t Work</h3>
+            <p><b>Low power:</b> Ensure that the proper power supply is being used.</p>
+            <p>
+              <b>Not calibrated properly:</b> Calibrate the Hot Hand. See the
+              <a href="#hot-hand-input">Hot Hand Input</a> section for more details.
+            </p>
+            <p><b>Not connected properly:</b> Check Hot Hand connections.</p>
+            <h3>Unit Appears Dead / No LEDs Lit</h3>
+            <p>
+              <b>Wrong power supply:</b> Use correct power supply. See the <a href="#dc-9v">DC 9V (Power)</a>
+              section for more details.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq">
+        <div class="flex-container">
+          <div class="half-container">
+            <header><h2>Frequently Asked Questions</h2></header>
+            <h3>What kind of instruments can I connect to the Collider’s inputs?</h3>
+            <p>
+              The Collider’s audio inputs are high impedance (~ 1 MΩ) and they can accept high impedance signal
+              sources like guitars/basses with passive pickups, as well as low impedance sources like line-level
+              audio circuits, guitars/basses with active pickups, electronic keyboards, or mixer outputs. The input
+              circuit can handle signals ranging up to 6.0 Volts, peak-to-peak.
+            </p>
+            <h3>Can I power the Collider directly over USB, without using the 9 Volt supply?</h3>
+            <p>
+              No. USB provides 5 Volts, but the Collider needs 9 Volts, so the Collider cannot be powered directly
+              from USB.
+            </p>
+            <h3>
+              When connecting the Collider to a recording interface or mixer, should I use a Lo-Z (microphone) or
+              Hi-Z (line / instrument) input?
+            </h3>
+            <p>
+              The Collider’s output will be low impedance when the effect is active or in buffered bypass mode, but
+              it will be high impedance when using true bypass mode and a guitar with passive pickups. Therefore, it
+              is recommended that you use a high impedance (Hi-Z) input on your recording interface or mixer to
+              avoid signal loss.
+            </p>
+            <h3>Why doesn’t the Collider respond to MIDI messages being sent to it?</h3>
+            <p>
+              By default, the Collider should respond to MIDI continuous controller messages on channel 1. The
+              Collider’s MIDI channel can be configured using the Neuro Editors. Channel numbers in MIDI use
+              zero-based counting, so MIDI channel 1 is described as 0 in hexadecimal, MIDI channel 2 is described
+              as 1 in hexadecimal, and so on, concluding with MIDI channel 16, which is described as F in
+              hexadecimal. A continuous controller message starts with a hexadecimal B and is followed by the
+              channel number (0 through F).
+            </p>
+            <p>So, the command byte from your MIDI controller should be formatted as shown in the following table:</p>
+            <div class="table-scroll">
+              <table class="doc-table grid-table byte-table">
+                <thead>
+                  <tr><th>MIDI Channel (Decimal)</th><th>CC Command Byte (Hex)</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>1</td><td>B0</td></tr>
+                  <tr><td>2</td><td>B1</td></tr>
+                  <tr><td>3</td><td>B2</td></tr>
+                  <tr><td>4</td><td>B3</td></tr>
+                  <tr><td>5</td><td>B4</td></tr>
+                  <tr><td>6</td><td>B5</td></tr>
+                  <tr><td>7</td><td>B6</td></tr>
+                  <tr><td>8</td><td>B7</td></tr>
+                  <tr><td>9</td><td>B8</td></tr>
+                  <tr><td>10</td><td>B9</td></tr>
+                  <tr><td>11</td><td>BA</td></tr>
+                  <tr><td>12</td><td>BB</td></tr>
+                  <tr><td>13</td><td>BC</td></tr>
+                  <tr><td>14</td><td>BD</td></tr>
+                  <tr><td>15</td><td>BE</td></tr>
+                  <tr><td>16</td><td>BF</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>
+              Each continuous controller command byte is followed by two bytes, the CC number and the value. So, each
+              CC message consists of a total of three bytes. If the Collider is not responding to MIDI, make sure
+              that your MIDI controller is properly configured and sending messages in the format described above.
+            </p>
+            <h3>Can I use the Collider in my amp’s effects loop?</h3>
+            <p>
+              The Collider’s audio inputs can handle up to 8.76 dBu or 6.0 Volts peak-to-peak, which allows it to
+              work in most amp effects loops. Be sure to check your amp’s documentation to verify that the maximum
+              send level is less than the Collider’s maximum input level.
+            </p>
+            <h3>How do I update the firmware?</h3>
+            <p>
+              Firmware updates are available via the Neuro Desktop Editor using the USB port. Power the pedal and
+              connect it to your computer using a mini USB cable. The Neuro Desktop Editor is available from Source
+              Audio’s website:
+              <a href="http://www.sourceaudio.net/support/downloads">http://www.sourceaudio.net/support/downloads</a>.
+              While the pedal is connected, select the Arrow Icon located in the Collider Delay+Reverb square in the
+              Connections field.
+            </p>
+            <h4>Mac Gatekeeper</h4>
+            <p>
+              Mac users may see this warning message when trying to open the updater software: “App can’t be opened
+              because it was not downloaded from the Mac App Store.” In order to run the updater, please refer to the
+              steps in this Apple support article:
+              <a href="https://support.apple.com/en-us/HT202491">https://support.apple.com/en-us/HT202491</a>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="rubber-feet">
+        <div class="flex-container">
+          <div class="half-container no-columns">
+            <header><h2>Rubber Feet</h2></header>
+            <p>
+              The Collider comes standard with a flat aluminum bottom, making it easy to apply Velcro and mount to a
+              pedalboard. Additionally, adhesive rubber feet are included in the Collider box. Applying the rubber
+              feet to the Collider can help prevent it from sliding on flat surfaces such as a hardwood floor.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="waste-disposal">
+        <div class="flex-container">
+          <div class="half-container no-columns">
+            <header><h2>Waste Disposal Notes</h2></header>
+            <img class="weee" src="Images/weee.png" alt="Crossed-out wheelie bin: do not dispose of with household waste" />
+            <p>
+              If possible, dispose of the device at an electronics recycling center. Do not dispose of the device
+              with the household waste.
+            </p>
+            <p>For full compliance with EN 61000-4-6 standard, input cable must be less than 3 meters in length.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="warranty">
+        <div class="flex-container">
+          <div class="half-container">
+            <header><h2>Warranty</h2></header>
+            <h3>Limited Transferrable Warranty</h3>
+            <p>
+              Source Audio, LLC (hereinafter “Source Audio”) warrants that your new Source Audio One Series Collider
+              Delay+Reverb, when purchased at an authorized Source Audio dealer in the United States of America
+              (“USA”), shall be free from defects in materials and workmanship under normal use for a period of two
+              (2) years from the date of purchase by the original purchaser. Please contact your dealer for
+              information on warranty and service outside of the USA.
+            </p>
+            <p>
+              Under this Limited Warranty, Source Audio’s sole obligation and the purchaser’s sole remedy shall be
+              repair, replacement, or upgrade, at Source Audio’s sole discretion, of any product that, if properly
+              used and maintained, proves to be defective upon inspection by Source Audio. Source Audio reserves the
+              right to update any unit returned for repair and to change or improve the design of the product at any
+              time without notice. Source Audio reserves the right to use reconditioned parts and assemblies as
+              warranty replacements for authorized repairs. Any product repaired, replaced, or upgraded pursuant to
+              this Limited Warranty will be warranted for the remainder of the original warranty period.
+            </p>
+            <p>
+              This Limited Warranty is extended to the original retail purchaser. This Limited Warranty can be
+              transferred to anyone who may subsequently purchase this product provided that such transfer is made
+              within the applicable warranty period and Source Audio is provided with all of the following
+              information: (i) all warranty registration information (as set forth on the registration card) for the
+              new owner, (ii) proof of the transfer, within thirty (30) days of the transfer, and (iii) a photocopy of
+              the original sales receipt. Warranty coverage shall be determined by Source Audio in its sole
+              discretion. This is your sole warranty. Source Audio does not authorize any third party, including any
+              dealer or sales representatives, to assume any liability on behalf of Source Audio or to make any
+              warranty on behalf of Source Audio.
+            </p>
+            <h3>Warranty Information</h3>
+            <p>
+              Source Audio may, at its option, require proof of the original purchase date in the form of a dated
+              copy of the original authorized dealer’s invoice or sales receipt. Service and repairs of Source Audio
+              products are to be performed only at the Source Audio factory or a Source Audio authorized service
+              center. Prior to service or repair under this Limited Warranty, the purchaser must request from Source
+              Audio a return authorization, which is available at:
+            </p>
+            <p>
+              Source Audio LLC<br />
+              120 Cummings Park, Woburn, MA 01801<br />
+              (781) 932-8080 or at <a href="http://www.sourceaudio.net">www.sourceaudio.net</a>
+            </p>
+            <p>Unauthorized service, repair, or modification will void this Limited Warranty.</p>
+            <h3>Disclaimer and Limitation of Warranty</h3>
+            <p>Do not open the effects pedal under any circumstance. This will void the warranty.</p>
+            <p>
+              The foregoing limited warranty is the only warranty given by Source Audio and is in lieu of all other
+              warranties. All implied warranties, including warranties of merchantability and fitness for any
+              particular purpose, exceeding the specific provisions of this limited warranty, are hereby disclaimed
+              and excluded from this limited warranty. Upon expiration of the applicable express warranty period,
+              Source Audio shall have no further warranty obligation of any kind, express or implied. Source Audio
+              shall in no event be liable for any special, incidental, or consequential damages suffered by the
+              purchaser or any third party, including without limitation, damages for loss of profits or business or
+              damages resulting from use or performance of the product, whether in contract or in tort. Source Audio
+              shall not be liable for any expenses, claims, or suits arising out of or relating to any of the
+              foregoing. Some states do not allow the exclusion or limitation of implied warranties so some of the
+              above limitations and exclusions may not apply to you. This Limited Warranty gives you specific legal
+              rights, and you may also have other rights, which vary, from state to state. This Limited Warranty only
+              applies to products sold and used in the USA. Source Audio shall not be liable for damages or loss
+              resulting from the negligent or intentional acts of the shipper or its contracted affiliates. You
+              should contact the shipper for proper claims procedures in the event of damage or loss resulting from
+              shipment.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="version-history">
+        <div class="flex-container">
+          <div class="half-container no-columns">
+            <header><h2>Version History</h2></header>
+            <p>October 8, 2019: Initial Release</p>
+            <p>November 14, 2019: Includes additional Hardware Options</p>
+            <p>December 27, 2019: Includes an additional Hardware Shortcut</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="quick-start">
+        <div class="flex-container">
+          <div class="half-container no-columns">
+            <header><h2>Quick Start Reference Card</h2></header>
+            <figure class="card-wordmark">
+              <img src="Images/collider-wordmark.png" alt="Collider Delay+Reverb" />
+            </figure>
+            <p class="src-note">
+              The one-page <a href="collider_quick_reference_card_86a3e9c3-c261-465d-a822-2142f68f7455.pdf">Quick
+              Start Reference Card</a> that ships with the pedal.
+            </p>
+            <div class="card-text">
+              <p><span class="red-note"><b>POWER:</b></span> Power your Collider with the included power supply. If using a pedalboard power supply, be sure to use a regulated 9 Volt DC output that can source at least 300mA.</p>
+              <p><span class="red-note"><b>CONTROLS:</b></span></p>
+              <p><b>TIME</b> - Adjusts delay time for the delays and pre-delay for the reverbs.</p>
+              <p><b>MIX</b> - Adjusts the ratio between the wet and dry signals. 50/50 wet/dry is at 3 o’clock.</p>
+              <p><b>FEEDBACK</b> - Adjusts regeneration amount for the delays and decay time for the reverbs.</p>
+              <p><b>TONE and CONTROL 1 &amp; 2</b> - Varies depending on the selected engine (see table below).</p>
+              <p><b>TAP Toggle</b> - Selects a Tap Tempo beat division for the delay engines.</p>
+              <p><b>KNOBS Toggle</b> - Selects whether the knobs control delay or reverb parameters. LOCK position prevents accidentally bumped knobs from changing the settings.</p>
+              <p><b>DELAY/TAP Switch</b> - Engage/bypass delay engines &amp; Tap Tempo. While engaged, quick presses on the footswitch will be used for tap tempo, a slightly longer press will bypass the delay.</p>
+              <p><b>REVERB Switch</b> - Engage/bypass reverb engines. Press + hold to freeze/hold reverb tail.</p>
+              <p><b>TRAILS MODE</b> - Press + hold CONTROL INPUT then press DELAY/TAP to toggle on/off.</p>
+              <p><b>SELECT/SAVE Button</b> - Press to scroll through presets. Press + hold to save a preset.</p>
+              <p><b>PRESET SCROLLING</b> - When bypassed, press + hold DELAY or REVERB footswitches to scroll down or up through presets, respectively.</p>
+              <p><b>DISCOVER THE KNOB POSITION OF AN ACTIVE PRESET</b> - The activity LED will blink twice to indicate when the knob position matches the saved preset position. This feature can be modified in the Hardware Options to other styles of preset knob behavior.</p>
+            </div>
+            <div class="table-scroll">
+              <table class="doc-table card-table">
+                <thead>
+                  <tr><th>Delay/Reverb Engine</th><th>TONE</th><th>CONTROL 1 Knob</th><th>CONTROL 2 Knob</th></tr>
+                </thead>
+                <tbody>
+                  <tr><th>Digital Delay</th><td>Dark/Bright</td><td>Modulation Depth</td><td>Modulation Rate</td></tr>
+                  <tr><th>Analog Delay</th><td>Dark/Bright</td><td>Modulation Depth</td><td>Modulation Rate</td></tr>
+                  <tr><th>Tape Delay</th><td>Dark/Bright</td><td>Modulation Depth</td><td>Modulation Rate</td></tr>
+                  <tr><th>Reverse Delay</th><td># of Voices</td><td>Modulation Depth</td><td>Modulation Rate</td></tr>
+                  <tr><th>Oil Can Delay</th><td>Dark/Bright</td><td>Modulation Depth</td><td>Modulation Rate</td></tr>
+                  <tr><th>Room Reverb</th><td>Treble</td><td>Bass</td><td>Modulation Depth</td></tr>
+                  <tr><th>Hall Reverb</th><td>Treble</td><td>Bass</td><td>Hall Size (5)</td></tr>
+                  <tr><th>True Spring Reverb</th><td>Treble</td><td>Bass</td><td>Spring Length (3)</td></tr>
+                  <tr><th>Plate Reverb</th><td>Treble</td><td>Bass</td><td>Plate Size (3)</td></tr>
+                  <tr><th>Shimmer Reverb</th><td>Treble</td><td>Shimmer Crossfade</td><td>Regeneration</td></tr>
+                  <tr><th>E-Dome Reverb</th><td>Treble</td><td>Bass</td><td>Modulation Depth</td></tr>
+                  <tr><th>Swell Reverb</th><td>Treble</td><td>Swell Sensitivity</td><td>Swell Time</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>
+              <span class="red-note">USERS GUIDE – NEURO EDITOR – NEURO MOBILE – SUPPORT</span><br />
+              <b><a href="http://www.sourceaudio.net">www.sourceaudio.net</a></b>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <p class="colophon">
+        ©Source Audio LLC | 120 Cummings Park, Woburn, MA 01801 |
+        <a href="http://www.sourceaudio.net">www.sourceaudio.net</a>
+      </p>
+    </main>
+  </body>
+</html>
