@@ -253,17 +253,28 @@
           display: none;
         }
         .pedals a {
-          grid-template-columns: minmax(0, 1fr) auto;
-          gap: 0.125rem 1rem;
+          display: flex;
+          flex-wrap: wrap;
+          align-items: baseline;
+          gap: 0.125rem 0.5rem;
           padding: 0.75rem 0.25rem;
         }
+        .brand {
+          order: 1;
+        }
         .type {
-          grid-row: 1;
-          grid-column: 2;
+          order: 2;
+          padding: 0.1875rem 0.4375rem;
+          background: var(--paper);
+          opacity: 1;
         }
         .model,
         .note {
-          grid-column: 1 / -1;
+          order: 3;
+          flex-basis: 100%;
+        }
+        .note {
+          order: 4;
         }
       }
       footer {
