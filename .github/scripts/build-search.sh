@@ -14,7 +14,7 @@ manuals=("$site"/*/index.html)
 perl -0777 -pi -e 's{<section\b([^>]*?)\s+id="([^"]+)"([^>]*)>((?:(?!</?section\b|<h[1-6]\b).)*)<(h[1-6])\b((?![^>]*\bid=)[^>]*)>}{<section$1$3>$4<$5 id="$2"$6>}gs' "${manuals[@]}"
 
 export PF_HEAD='<link href="../pagefind/pagefind-component-ui.css" rel="stylesheet"><script src="../pagefind/pagefind-component-ui.js" type="module"></script><style>pagefind-modal-trigger{display:block;margin-bottom:1.5rem}</style>'
-export PF_TRIGGER='<pagefind-modal-trigger placeholder="Search manuals"></pagefind-modal-trigger>'
+export PF_TRIGGER='<pagefind-modal-trigger placeholder="Search manual"></pagefind-modal-trigger>'
 export PF_MODAL='<pagefind-modal></pagefind-modal>'
 # The <title> names the pedal on every page; the first h1 is often a wordmark image.
 perl -pi -e '

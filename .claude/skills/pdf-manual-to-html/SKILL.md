@@ -52,7 +52,7 @@ exception is your own slug: `<slug>/` or `_cctmp.<slug>/` already present,
 uncommitted and not created in this conversation means another session is on
 the same pedal — stop and ask the user.
 
-Shared files — root `index.html`, `pedals.txt`, this skill's `SKILL.md` and
+Shared files — root `index.html`, `catalog.txt`, this skill's `SKILL.md` and
 `references/` — take concurrent edits:
 
 - Change them with small `Edit` calls only; `Write` rewrites the file from your
@@ -64,7 +64,7 @@ Git, only when the user asks for a commit:
 
 - Stage your own paths by name and commit by path, so whatever another session
   staged stays out: `git add <slug>/ && git commit -m "…" -- <slug>/
-  index.html pedals.txt`. Never `git add -A`, `git add .`, `git commit -a`,
+  index.html catalog.txt`. Never `git add -A`, `git add .`, `git commit -a`,
   `git stash`.
 - A shared file is committed whole. `git diff` it first; if it carries another
   session's hunk (a card for an uncommitted page deploys as a broken link), ask
@@ -148,7 +148,9 @@ costs tokens on every job, the tool costs one install.
 
 ### 1. Frame the job
 
-- Identify **brand** and **model** from the PDF (title, cover, footer).
+- **Pick a device:** Check the root `catalog.txt`. If there are devices listed without a leading `+ `, pick ONE unprocessed device (1 session = 1 device).
+- **Download official manuals:** Find the latest official PDF manuals for this specific model **strictly on the manufacturer's website**. Download the main manual and *all* additional manuals offered (quick start guides, MIDI maps, addendums, etc.) into the repository root. If downloading is impossible (e.g. blocked, not found, or no PDF exists), **stop**, report this to the user, and offer to compile a DIY page from the descriptions and images available on the manufacturer's site.
+- Identify **brand** and **model** from the downloaded PDF(s) (title, cover, footer).
 - One PDF → one page. Several PDFs for one pedal → give each a role by reading
   it (the survey in step 2 does), not by date or file name: **full manual**
   (every control), **quick start** (small foldout card: hook-up and a few
@@ -420,7 +422,7 @@ hand-tuned and drifts. `type` is the filter category: reuse an existing one
 (e.g. `Drive`, `Time`); a new value adds its own filter chip. `note` is a short
 descriptor of what the pedal is, e.g. `Compressor`.
 
-Then mark the pedal in the root `pedals.txt`, the list of pedals to convert:
+Then mark the pedal in the root `catalog.txt`, the list of pedals to convert:
 a leading `+ ` flags a line as done. Edit the pedal's existing line rather
 than adding one.
 
@@ -490,7 +492,7 @@ without opening the diff:
   pedal, page references turned into anchor links — plus the conflicts
   between sources left as printed. Nothing listed means verbatim.
 - **Files** — the pedal directory and what moved into it, the catalog card,
-  `pedals.txt`, scratch deleted, commit status.
+  `catalog.txt`, scratch deleted, commit status.
 
 Once they accept it, look back at what this job actually taught you: a
 masthead proportion worth measuring rather than eyeballing, a same-brand quirk,
