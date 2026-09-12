@@ -27,7 +27,8 @@
       <div id="masthead">
         <div class="title">
           <h1>
-            <img src="Images/wordmark.png" alt="BOSS NS-1X" />
+            <img src="Images/boss-logo.png" alt="BOSS" />
+            <img src="Images/wordmark.png" alt="Noise Suppressor NS-1X" />
           </h1>
           <p>Owner&rsquo;s Manual</p>
         </div>
@@ -57,27 +58,28 @@
             
             <div class="table-scroll">
               <table class="doc-table">
-                <colgroup><col class="c-name" /><col /></colgroup>
+                <colgroup><col class="c-num" /><col class="c-name" /><col /></colgroup>
                 <thead>
-                  <tr><th>Name</th><th>Function</th></tr>
+                  <tr><th colspan="2">Name</th><th>Function</th></tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <th scope="row"><span class="n">1</span>DC OUT jack</th>
+                    <td class="num">1</td><th scope="row" class="name">DC OUT jack</th>
                     <td>
                       <p>When using an AC adaptor, you can connect the PCS-20A parallel DC cord (sold separately) to supply power from this unit to another 9 V effect unit.</p>
                       <ul>
                         <li>Power can&rsquo;t be supplied while you&rsquo;re using battery power.</li>
                         <li>When using the PSA series and the PCS-20A, make sure that the total current draw of this unit and the other effect unit you want to supply power to does not exceed the maximum output current of the PSA series.</li>
                       </ul>
-                      <div class="box">
-                        <strong>WARNING: Connect only specified devices to DC OUT jack</strong>
-                        <p>Connect only the specified device (PCS-20A) to the DC OUT jack (which provide a supply of power).</p>
+                      <div class="warning">
+                        <p class="warning-label"><img src="Images/warning-sign.png" alt="" />WARNING</p>
+                        <strong>Connect only specified devices to DC OUT jack</strong>
+                        <p><img src="Images/caution-mark.png" alt="" />Connect only the specified device (PCS-20A) to the DC OUT jack (which provide a supply of power).</p>
                       </div>
                     </td>
                   </tr>
                   <tr>
-                    <th scope="row"><span class="n">2</span>DC IN jack</th>
+                    <td class="num">2</td><th scope="row" class="name">DC IN jack</th>
                     <td>
                       <p>Accepts connection of an AC Adaptor (PSA series; sold separately). By using an AC Adaptor, you can play without being concerned about how much battery power you have left.</p>
                       <ul>
@@ -89,7 +91,7 @@
                     </td>
                   </tr>
                   <tr>
-                    <th scope="row"><span class="n">3</span>CHECK indicator</th>
+                    <td class="num">3</td><th scope="row" class="name">CHECK indicator</th>
                     <td>
                       <p>This indicator shows whether the effect is on/off, as well as the mute on/off status and battery check indication.</p>
                       <ul>
@@ -98,11 +100,11 @@
                     </td>
                   </tr>
                   <tr>
-                    <th scope="row"><span class="n">4</span>OUTPUT jack</th>
+                    <td class="num">4</td><th scope="row" class="name">OUTPUT jack</th>
                     <td>Connect this jack to your amplifier or effect unit.</td>
                   </tr>
                   <tr>
-                    <th scope="row"><span class="n">5</span>INPUT jack</th>
+                    <td class="num">5</td><th scope="row" class="name">INPUT jack</th>
                     <td>
                       <p>Connect the output of your electric guitar, other musical instruments or effect units to this input jack. Use a 1/4&rdquo; phone type (TS) &ndash; 1/4&rdquo; phone type (TS) cable to connect to this jack.</p>
                       <ul>
@@ -112,22 +114,22 @@
                     </td>
                   </tr>
                   <tr>
-                    <th scope="row"><span class="n">6</span>SEND jack</th>
+                    <td class="num">6</td><th scope="row" class="name">SEND jack</th>
                     <td>The signal that&rsquo;s input to the INPUT jack is sent to other effect units through this jack. Connect an effect unit here for which you want to suppress noise such as distortion.</td>
                   </tr>
                   <tr>
-                    <th scope="row"><span class="n">7</span>RETURN jack</th>
+                    <td class="num">7</td><th scope="row" class="name">RETURN jack</th>
                     <td>Use this jack to receive the input signal from the effect unit for which you want to suppress noise such as distortion.</td>
                   </tr>
                   <tr>
-                    <th scope="row"><span class="n">8</span>Pedal switch</th>
+                    <td class="num">8</td><th scope="row" class="name">Pedal switch</th>
                     <td>
                       <p>This switch turns the effect on/off.</p>
                       <p>In mute mode, this switches between reduction and mute.</p>
                     </td>
                   </tr>
                   <tr>
-                    <th scope="row"><span class="n">9</span>[DAMP] knob</th>
+                    <td class="num">9</td><th scope="row" class="name">[DAMP] knob</th>
                     <td>
                       <p>Adjusts the amount of the gate and reduction effects.</p>
                       <p>When this knob is turned all the way clockwise, the effect&rsquo;s attenuation is at maximum, which clearly distinguishes between the sound you&rsquo;re playing and the silence. This is optimal when you want the silence to be dynamically distinct.</p>
@@ -135,21 +137,21 @@
                     </td>
                   </tr>
                   <tr>
-                    <th scope="row"><span class="n">10</span>[THRESHOLD] knob</th>
+                    <td class="num">10</td><th scope="row" class="name">[THRESHOLD] knob</th>
                     <td>
                       <p>Adjusts the signal level at which the gate and reduction effects start.</p>
                       <p>Turn this counterclockwise to make the effect activate at lower input signal levels. Turn this clockwise if there is a lot of noise, and turn this counterclockwise if the noise is not as noticeable.</p>
                     </td>
                   </tr>
                   <tr>
-                    <th scope="row"><span class="n">11</span>[DECAY] knob</th>
+                    <td class="num">11</td><th scope="row" class="name">[DECAY] knob</th>
                     <td>
                       <p>Adjusts the time it takes for the sound to attenuate when the input signal level falls below the threshold level.</p>
                       <p>Turn the knob clockwise for a longer attenuation time (decay time). Normally, this should be set all the way counterclockwise.</p>
                     </td>
                   </tr>
                   <tr>
-                    <th scope="row"><span class="n">12</span>[MODE] knob</th>
+                    <td class="num">12</td><th scope="row" class="name">[MODE] knob</th>
                     <td>
                       <p>Switches the mode.</p>
                       <ul>
@@ -158,7 +160,7 @@
                     </td>
                   </tr>
                   <tr>
-                    <th scope="row"><span class="n">13</span>REDUCTION indicator</th>
+                    <td class="num">13</td><th scope="row" class="name">REDUCTION indicator</th>
                     <td>
                       <p>Indicates the strength of the gate and reduction effects.</p>
                       <p>A stronger effect attenuates the sound more, making more indicators light up.</p>
@@ -175,7 +177,7 @@
             </ul>
 
             <div class="keep-together">
-              <h3 id="power" class="rule">Turning the power on/off</h3>
+              <h3 id="power">Turning the power on/off</h3>
               <p>Once everything is properly connected, be sure to follow the procedure below to turn on their power. If you turn on equipment in the wrong order, you risk causing malfunction or equipment failure.</p>
               <ul>
                 <li>Before turning the unit on/off, always be sure to turn the volume down. Even with the volume turned down, you might hear some sound when switching the unit on/off. However, this is normal and does not indicate a malfunction.</li>
@@ -193,12 +195,15 @@
 
       <section id="modes-section">
         <div class="flex-container">
-          <div class="half-container flow">
+          <div class="half-container flow no-columns">
             <header>
               <h2 id="modes">Switching between modes</h2>
             </header>
             
             <p>Turn the [MODE] knob to select the mode.</p>
+            <figure class="fig-knob">
+              <img src="Images/mode-knob.jpg" alt="The [MODE] knob with its GATE, REDUCTION and MUTE positions" />
+            </figure>
 
             <div class="table-scroll">
               <table class="doc-table">
@@ -222,7 +227,7 @@
               </table>
             </div>
 
-            <h3 class="tint">CHECK indicator status</h3>
+            <h3>CHECK indicator status</h3>
             <div class="table-scroll">
               <table class="doc-table">
                 <thead>
@@ -236,10 +241,10 @@
               </table>
             </div>
 
-            <ul>
-              <li>You can use the gate effect instead of the reduction effect when mute is turned off. In mute mode, long-press the pedal switch to switch to the gate effect (the left half of the REDUCTION indicator lights up). Long-press again to switch to the reduction effect (the right half of the REDUCTION indicator lights up).</li>
-              <li>The settings are remembered even when the power is switched off.</li>
-            </ul>
+            <div class="note">
+              <span class="badge">MEMO</span>
+              <p>You can use the gate effect instead of the reduction effect when mute is turned off.<br />In mute mode, long-press the pedal switch to switch to the gate effect (the left half of the REDUCTION indicator lights up).<br />Long-press again to switch to the reduction effect (the right half of the REDUCTION indicator lights up).<br />The settings are remembered even when the power is switched off.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -319,16 +324,14 @@
               <li><span class="do">Finally, hold down the pedal while tightening the thumbscrew into the guide bush hole.</span></li>
             </ol>
 
-            <div class="box">
-              <strong>Battery usage</strong>
-              <ul>
-                <li>If you handle the battery improperly, you risk explosion and fluid leakage. Make sure that you carefully observe all of the items related to batteries that are listed in &ldquo;USING THE UNIT SAFELY&rdquo; and &ldquo;IMPORTANT NOTES&rdquo; (the leaflet &ldquo;USING THE UNIT SAFELY&rdquo;).</li>
-                <li>Use alkaline batteries if you are running the unit on battery power.</li>
-                <li>This device already contains a battery when shipped from the factory. This is a test battery, which may not last as long as a new one.</li>
-                <li>The sound may distort when the battery is nearly depleted. This is not a malfunction. If this happens, replace the battery or use the AC adaptor (sold separately).</li>
-                <li>When the battery voltage drops, the effects may not work as well as usual, the sound may become unstable, the CHECK indicator may become dimmer, the unit may stop outputting sound and so on. For this reason, you should replace the battery with a new one.</li>
-              </ul>
-            </div>
+            <h3>Battery usage</h3>
+            <ul class="strong">
+              <li>If you handle the battery improperly, you risk explosion and fluid leakage. Make sure that you carefully observe all of the items related to batteries that are listed in &ldquo;USING THE UNIT SAFELY&rdquo; and &ldquo;IMPORTANT NOTES&rdquo; (the leaflet &ldquo;USING THE UNIT SAFELY&rdquo;).</li>
+              <li>Use alkaline batteries if you are running the unit on battery power.</li>
+              <li>This device already contains a battery when shipped from the factory. This is a test battery, which may not last as long as a new one.</li>
+              <li>The sound may distort when the battery is nearly depleted. This is not a malfunction. If this happens, replace the battery or use the AC adaptor (sold separately).</li>
+              <li>When the battery voltage drops, the effects may not work as well as usual, the sound may become unstable, the CHECK indicator may become dimmer, the unit may stop outputting sound and so on. For this reason, you should replace the battery with a new one.</li>
+            </ul>
           </div>
         </div>
       </section>

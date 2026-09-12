@@ -1,24 +1,22 @@
 /* FONTS
    Mapped from the reference manual's embedded faces:
-     MyriadPro-Regular / Semibold / Bold (body, tables, steps) -> Source Sans 3
-     MyriadPro-Cond / BoldCond (section bars, sub-heads, screens) -> Fira Sans Condensed
-   RolandOwnersManual-01rev1 is Roland's dingbat font (bullets, arrows, the
-   display cursor); its glyphs are replaced by Unicode • ➡ ▸ */
-@import url("https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@400;600&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap");
+     MyriadPro-Regular (body, headings, cover title) -> Source Sans 3 400
+     MyriadPro-Bold (table labels, run-in heads, steps) -> Source Sans 3 700
+   No semibold face sets visible text, so no 600 on the page.
+   RolandOwnersManual-01rev2 is Roland's dingbat font (bullets, arrows);
+   its glyphs are replaced by Unicode • ➡ */
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,700;1,400&display=swap");
 
 /* PALETTE — sampled off the reference manual's pages */
 :root {
-  --ink: #231f20; /* body text */
-  --accent: #a5c4af; /* chapter rules, section bars, sub-heads */
-  --accent-tint: #eef0ef; /* sub-section bars */
-  --accent-head: #8ca896; /* table header row, dotted rules */
-  --navy: #231f20; /* step text, default values, NOTE badge, table group rows */
-  --navy-deep: #000000; /* state-card headers */
-  --lavender: #a5c4af; /* row-header column */
-  --tint: #fafafa; /* description rows spanning a table */
-  --orange: #231f20; /* step numbers */
-  --lcd: #7b7979; /* display screens */
-  --cond: "Fira Sans Condensed", "Arial Narrow", sans-serif;
+  --ink: #231f20; /* body text, box titles, table rules */
+  --green: #1c844d; /* chapter rule and bar, MEMO badge */
+  --green-deep: #007139; /* sub-heading text, WARNING label */
+  --green-tint: #a5c4af; /* table header row, row-header column */
+  --dots: #8bb498; /* dotted rule under sub-headings and WARNING */
+  --blue: #4f81bd; /* bold instruction text in numbered steps */
+  --link: #0070c0; /* hyperlinks */
+  --orange: #d36a41; /* step numbers */
 }
 
 /* RESETS */
@@ -51,7 +49,7 @@ img {
 }
 a {
   text-decoration: none;
-  color: var(--navy);
+  color: var(--link);
 }
 a:hover,
 a:active {
@@ -92,65 +90,42 @@ a:active {
 }
 #masthead .title p {
   font-size: 1.9em;
-  font-weight: 600;
+  font-weight: 400;
   text-align: right;
   border-bottom: 3px solid var(--ink);
   margin: 0.5em 0 0;
 }
 
 /* HEADINGS
-   Chapter: large regular type behind a green block, over a green rule */
+   Chapter: large black type with a heavy green bar to its left, over a green rule */
 .flow h2 {
   font-weight: 400;
   font-size: 2.4em;
   line-height: 1.15;
-  border-bottom: 2px solid var(--accent);
-  padding: 0.1em 0 0.05em 0;
+  border-left: 6px solid var(--green);
+  border-bottom: 4px solid var(--green);
+  padding: 0 0 0.05em 0.3em;
   margin-bottom: 0.75em;
 }
-/* Section: reversed out of a green bar in the condensed face */
-.flow h3 {
-  font-family: var(--cond);
-  font-weight: 600;
-  font-size: 1.7em;
+/* Section: regular green text over a row of square green dots */
+.flow h3,
+.warning-label {
+  font-weight: 400;
+  font-size: 1.45em;
   line-height: 1.2;
-  color: var(--ink);
-  background: transparent;
-  padding: 0.1em 0;
+  color: var(--green-deep);
+  padding-bottom: 0.25em;
+  background: linear-gradient(90deg, var(--dots) 57%, transparent 0) left bottom / 0.55rem 0.28rem repeat-x;
+}
+.flow h3 {
   margin: 1.5em 0 0.6em;
 }
-.flow h3.tint,
-.flow h4.tint {
-  font-size: 1.5em;
-  color: var(--ink);
-  background: var(--accent-tint);
-  background-image: none;
-  padding: 0.1em 0.3em;
-}
-/* Sub-section: green condensed text over a row of dots */
-.flow h4,
-.flow h5,
-.flow h3.rule {
-  font-family: var(--cond);
-  font-weight: 600;
-  font-size: 1.3em;
-  color: var(--ink);
-  background-image: none;
-  background-color: transparent;
-  padding: 0 0 0.4em;
-  margin: 1.25em 0 0.6em;
-}
-.flow h5 {
-  font-size: 1.3em;
-}
-/* Small run-in heads stay inside their column and their box */
+/* Small run-in heads stay inside their column, plain black text */
 .flow h4.plain {
   column-span: none;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1.05em;
   color: var(--ink);
-  background-image: none;
-  padding: 0;
   margin: 1em 0 0.4em;
 }
 .flow h3,
@@ -162,9 +137,7 @@ a:active {
 .flow h3,
 .flow h4,
 .table-scroll,
-figure.wide,
-.states,
-.stop-row {
+figure.wide {
   column-span: all;
 }
 .half-container > header + * {
@@ -226,6 +199,9 @@ figure.wide,
   columns: 2 30em;
   column-gap: 3em;
 }
+.no-columns {
+  columns: auto !important;
+}
 /* The title rules across the whole section, not across one column */
 .half-container > header {
   column-span: all;
@@ -233,13 +209,8 @@ figure.wide,
 /* Short blocks move to the next column whole instead of splitting a line off */
 .flow p,
 .flow li,
-.flow dl,
 figure,
-.box,
-.note,
-.screen,
-.doc-update,
-.om-note {
+.note {
   break-inside: avoid;
 }
 section + section {
@@ -259,6 +230,9 @@ figure img {
   margin: 0;
 }
 /* Upper bounds keep crops near their native size instead of upscaling */
+.fig-knob img {
+  max-width: 6.5em;
+}
 .fig-s img {
   max-width: 16em;
 }
@@ -281,8 +255,8 @@ ol.steps p {
   margin-bottom: 0.4em;
 }
 ol.steps .do {
-  color: var(--navy);
-  font-weight: 600;
+  color: var(--blue);
+  font-weight: 700;
 }
 ol.steps ul {
   padding-left: 1.2em;
@@ -292,205 +266,49 @@ ol.steps ul {
 .xref::before {
   content: "➡ ";
 }
-
-/* THE DISPLAY: grey LCD with callouts aligned to its two lines */
-.screen {
-  display: flex;
-  gap: 0.6em;
-  align-items: stretch;
-  margin: 0.4em 0 0.8em;
-}
-.lcd {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  flex: 0 0 auto;
-  width: 8.5em;
-  background: var(--lcd);
-  border: 3px solid #5f5d5d;
-  color: #fff;
-  font-family: var(--cond);
-  font-weight: 600;
-  font-size: 1.25em;
-  line-height: 1.15;
-  padding: 0.15em 0.35em;
-}
-.lcd .line {
-  display: flex;
-  white-space: pre;
-}
-/* a value sits flush right; inline marks inside a line (the cursor underline) stay put */
-.lcd .line > span:last-child {
-  margin-left: auto;
-}
-.lcd i {
-  font-style: normal;
-  font-size: 0.6em;
-  align-self: center;
-}
-.lcd.play {
-  flex-direction: row;
-  align-items: center;
-  gap: 0.3em;
-}
-.lcd.play .num {
-  font-size: 2.1em;
-  line-height: 1;
-}
-.screen figcaption {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  font-size: 0.8em;
-}
-.screen figcaption span:not(:empty)::before {
-  content: "— ";
+/* The battery-usage cautions are set bold */
+ul.strong {
+  font-weight: 700;
 }
 
-/* BADGES AND CALLOUT BOXES */
+/* BADGES AND CALLOUTS */
+/* The MEMO pill: white text on the manual's green */
 .badge {
   display: inline-block;
   font-weight: 700;
-  font-size: 0.85em;
-  letter-spacing: 0.02em;
+  font-size: 1.2em;
+  letter-spacing: 0.04em;
   color: #fff;
-  background: var(--navy);
-  padding: 0 0.35em;
-  margin-bottom: 0.3em;
-}
-.badge.memo,
-.badge.os {
-  background: var(--accent);
+  background: var(--green);
   border-radius: 1em;
-  padding: 0 0.6em;
-}
-.badge.op {
-  background: var(--accent);
-  font-size: 1em;
-  padding: 0.05em 1em;
+  padding: 0 0.7em;
+  margin-bottom: 0.2em;
 }
 .note p,
 .note ul {
   margin-bottom: 0.4em;
 }
-.box {
-  border: 1px solid #8a8a8a;
-  border-radius: 4px;
-  padding: 0.6em 0.9em;
-  margin-bottom: 1em;
+/* WARNING: the sign beside a green label over the dotted rule, then a bold
+   title and the blue "!" before the instruction */
+.warning {
+  margin: 1em 0 0.3em;
 }
-.box.dashed {
-  border: 1px dashed var(--navy);
+.warning img {
+  width: 1.9em;
+  margin: 0 0.4em 0 0;
+  vertical-align: bottom;
 }
-.box > strong:first-child {
+.warning-label {
+  margin-bottom: 0.4em;
+}
+.warning-label img {
+  width: 1.8em;
+}
+.warning > strong {
   display: block;
-  color: var(--navy);
-  font-size: 1.1em;
-  margin-bottom: 0.3em;
-}
-.box p:last-child,
-.box ul:last-child {
-  margin-bottom: 0;
-}
-dl.terms dt {
-  color: var(--navy);
-  font-weight: 700;
-  font-size: 1.15em;
-}
-dl.terms dd {
-  margin: 0 0 1em;
-}
-dl.pairs {
-  display: grid;
-  grid-template-columns: max-content 1fr;
-  gap: 0.3em 1.5em;
-}
-dl.pairs dt {
-  font-weight: 700;
-}
-dl.pairs dd {
-  margin: 0;
 }
 
-/* BASIC OPERATION: the record/play/overdub cards */
-.states {
-  list-style: none;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(13em, 1fr));
-  gap: 1em 1.5em;
-  margin-bottom: 1.5em;
-}
-.stop-row {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(16em, 1fr));
-  gap: 1em 1.5em;
-  align-items: start;
-  margin-bottom: 1em;
-}
-.state {
-  background: var(--lavender);
-  border: 1px solid #8b90a0;
-  border-radius: 3px;
-  padding: 0 0.7em 0.6em;
-}
-.state .press {
-  display: block;
-  font-size: 0.8em;
-  font-weight: 700;
-  color: var(--navy);
-  margin-top: 0.4em;
-}
-.state .title {
-  display: block;
-  background: var(--navy-deep);
-  color: #fff;
-  text-align: center;
-  font-weight: 600;
-  font-size: 1.15em;
-  padding: 0.1em;
-  margin: 0.2em 0 0.5em;
-}
-.state p {
-  margin-bottom: 0.3em;
-}
-.stop-row .box figure {
-  margin: 0.5em 0 0;
-}
-
-/* Changelog banner under the first chapter heading */
-.doc-update {
-  font-size: 0.9em;
-  line-height: 1.6;
-  background: var(--tint);
-  border-left: 4px solid var(--accent);
-  padding: 1em 1.25em;
-}
-.doc-update > strong {
-  display: block;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  margin-bottom: 0.5em;
-}
-.doc-update p {
-  margin-bottom: 0.5em;
-}
-.doc-update p:last-child {
-  margin-bottom: 0;
-}
-.doc-update a {
-  text-decoration: underline;
-}
-
-/* Inline marker for material only the Owner's Manual carries */
-.om-note {
-  border-left: 3px solid var(--accent);
-  padding-left: 0.75em;
-  margin-bottom: 1em;
-}
-
-/* REFERENCE TABLES: green header row, lavender row headers, rules between rows */
+/* REFERENCE TABLES: green header row, green-tint row headers, rules between rows */
 .table-scroll {
   overflow-x: auto;
   margin-bottom: 1.5em;
@@ -509,32 +327,23 @@ dl.pairs dd {
 .doc-table td {
   border: 0;
   border-bottom: 1px solid var(--ink);
-  padding: 0.8em 0.5em;
+  padding: 0.2em 0.5em;
   text-align: left;
   vertical-align: top;
 }
 .doc-table thead th {
-  background: var(--accent-head);
-  font-weight: 600;
-  border-top: 1px solid var(--ink);
+  background: var(--green-tint);
+  font-weight: 700;
   border-bottom: 3px double var(--ink);
 }
 .doc-table tbody th {
-  background: var(--lavender);
-  font-weight: 600;
+  background: var(--green-tint);
+  font-weight: 700;
+  vertical-align: middle;
 }
-.doc-table td.lead {
-  background: var(--tint);
-}
-.doc-table tr.group > * {
-  background: var(--navy);
-  color: #fff;
-  font-weight: 600;
-  font-size: 1.1em;
-}
-/* Default values are set bold blue */
-.doc-table b {
-  color: var(--navy);
+/* A table without a header row opens on a rule */
+.doc-table tbody:first-child tr:first-child > * {
+  border-top: 1px solid var(--ink);
 }
 .doc-table small {
   font-size: 0.72em;
@@ -546,67 +355,33 @@ dl.pairs dd {
   margin-bottom: 0;
 }
 .doc-table ul {
-  margin: 0.2em 0 0.3em;
+  margin: 0.3em 0;
   padding-left: 1.2em;
 }
 .doc-table ol.steps {
   margin-bottom: 0;
 }
-.c-param {
-  width: 17%;
-}
-.c-value {
-  width: 19%;
-}
-.c-name {
-  width: 30%;
-}
-/* Tables nested inside a cell, and the short two-column lookups */
-.mini {
-  border-collapse: collapse;
-  margin: 0.4em 0;
-  font-size: 1em;
-}
-.mini th,
-.mini td {
-  border: 0;
-  border-bottom: 1px solid var(--ink);
-  padding: 0.1em 0.5em 0.1em 0.2em;
-  text-align: left;
+/* Panel callouts: the number in its own tinted column, the part name beside it on white */
+.doc-table .num {
+  background: var(--green-tint);
+  font-weight: 700;
   vertical-align: middle;
 }
-.mini tbody th,
-.mini thead th {
-  background: var(--accent-head);
-  font-weight: 600;
-}
-.doc-table .mini tbody th {
-  background: var(--accent-tint);
-}
-/* Panel callouts: white numerals in navy discs, battery parts in black squares */
-.n {
-  display: inline-block;
-  background: transparent;
-  color: var(--ink);
-  font-weight: 700;
-  font-size: 1em;
-  width: 1em;
-  margin-right: 0.5em;
+.doc-table tbody th.name {
+  background: none;
+  font-weight: 400;
   vertical-align: top;
 }
-.n.sq {
-  border-radius: 2px;
-  background: var(--ink);
-  margin: 0 0.15em;
+.c-num {
+  width: 2.2em;
+}
+.c-name {
+  width: 15%;
 }
 
 /* Legal notes keep the manual's smaller setting */
 .fine-print {
   font-size: 0.9em;
-}
-.license {
-  font-size: 0.85em;
-  line-height: 1.45;
 }
 
 @media (max-width: 900px) {
