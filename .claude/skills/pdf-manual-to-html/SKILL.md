@@ -166,7 +166,11 @@ helps nobody in a pedal manual.
   ship the colour figure, not its mask.
 - Crop by eye, never from text coordinates alone, and look at the edges of the
   result: a stroke or leader line running off the edge means the crop cut the
-  drawing. Widen it until every pointer ends at the thing it points to.
+  drawing. Widen it until every pointer ends at the thing it points to. The
+  same check applies to photos and wordmarks with no leader lines: if cropping
+  by auto-trimming whitespace out of a generously-sized region, and the
+  trimmed bbox touches that region's edge, the subject itself was cut off —
+  widen the region and re-trim until the bbox sits clear of every edge.
 - A figure holds graphics only. Body text printed inside an image goes into the
   HTML and is painted out of the image with the background colour; integral
   labels (numbered pointers) stay. A wordmark crop is the logotype alone — a

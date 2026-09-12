@@ -151,8 +151,16 @@ manual sections are never evenly sized. Multi-column balances the column heights
 itself and lets a long paragraph split across the gutter, which is what keeps
 them even.
 
-Things that shouldn't live inside one column get `column-span: all` — the
-section title, a figure grid, a wide table.
+Default a figure or table to living *inside* its column — sized to it
+(`max-width: 100%`), flowing with the surrounding text — because that's how it
+sits in the source print layout. Reach for `column-span: all` only when the
+source itself breaks the column for it: a multi-image comparison grid, a table
+wide enough to need every column's width to stay legible, the section title.
+Spanning a single-column-wide figure or a two-column table forces the browser
+to balance the columns *before* the span, which strands empty white space in
+the shorter column, and stretches content that was never meant to be that
+wide. If a screenshot shows an image or table interrupting the text flow, or a
+gap above one, that's this — drop the `column-span: all`.
 
 **Controlling Column Breaks & Logical Blocks:**
 - When using multi-column layout, the browser will balance content by splitting it arbitrarily. To prevent related text from breaking in half, you **must wrap logical blocks** (e.g., an `h3` plus its following paragraphs, a FAQ question plus its answer) in a `<div class="keep-together">` wrapper.
