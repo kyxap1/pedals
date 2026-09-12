@@ -428,6 +428,8 @@ than adding one.
 
 ### 7. Verify before declaring done
 
+Do all verification **before** deleting the `_cctmp.<slug>/` extract directory, so you don't have to extract twice if you need to fix something.
+
 - `scripts/check_page.py <pedal-dir>/index.html` — dangling TOC anchors,
   missing images and unreferenced files in `Images/`; none of them shows in a
   screenshot.
@@ -447,34 +449,28 @@ than adding one.
     "file://$PWD/<pedal-dir>/index.html" "$PWD/_cctmp.<slug>/shot/mobile.png" 390
   ```
 
-- Hand the looking to a fresh subagent, the verifier: a full pass is 20–40
-  images, and in the main conversation each would ride along on every
-  remaining request. Give it the page, the segment files, `pages/`, the
-  survey's section → page map and the checks below; it edits nothing and
-  reports each finding as text — section id, segment file, what the page
-  shows, what the PDF shows — plus a line for each section it checked, so a
-  gap in coverage shows.
-  - Desktop segments against the PDF `pages/`: every section present,
-    figures in the right place, nothing garbled.
-  - Mobile: the `scrollWidth` line answers horizontal scroll; look only at
-    the first segment (nav gone, mobile TOC shown) and the ones holding wide
-    tables or figure grids.
-  - Every table and callout cropped out of the desktop shot and set beside
-    the same block on the page render, at the same scale, in a `montage`
-    sheet. Check what a whole-page glance misses: text weight per column,
-    vertical alignment in cells (labels are often centred against multi-line
-    values), a rule above a table with no header row, the rule or dots under
-    each sub-heading.
-  - The palette on both light surroundings and the reversed-out header.
-- Fix what it finds. After a local fix, re-shoot and look at the touched
-  segment yourself; after a change to a shared rule (column width, figure
-  sizing, body type), send a verifier over every segment the rule shows in.
-  The report rests on one last full pass by a fresh verifier over the
-  finished page.
-- Delete your `_cctmp.<slug>/` — only that one; other `_cctmp.*` dirs belong
-  to sessions still running.
+- Hand the looking to a fresh subagent, the **reviewer/verifier**. It will check if everything converted correctly and tell you (the main model) what to fix. Give it the page, the segment files, `pages/`, the survey's section → page map and the checks below; it edits nothing and reports each finding as text — section id, segment file, what the page shows, what the PDF shows.
+  - **The Reviewer's Mandate:**
+    - Crookedly cropped images (figures cut off at the edges or containing stray lines from neighbouring elements).
+    - Images used where live text should be (except for logotypes).
+    - Incorrectly formatted text that differs from the original (missing bold/italic, wrong heading levels).
+    - Header/masthead position and layout against the cover art.
+    - Correctness of the menu / TOC (broken anchors, missing items).
+    - Crooked or unaligned columns (especially in lists or tables).
+    - Awkward or crooked word wraps (orphans, unbroken URLs breaking layout).
+    - Missing or misaligned table borders and divider rules.
+    - Inconsistent font weights (e.g. bold where it should be semibold).
+    - Missing footnotes or callout boxes.
+    - Desktop segments against the PDF `pages/`: every section present, figures in the right place, nothing garbled.
+    - Mobile: the `scrollWidth` line answers horizontal scroll; look only at the first segment (nav gone, mobile TOC shown) and the ones holding wide tables or figure grids.
+    - Every table and callout cropped out of the desktop shot and set beside the same block on the page render, at the same scale, in a `montage` sheet. Check vertical alignment in cells and rules under headings.
+    - The palette on both light surroundings and the reversed-out header.
+- **Redo Loop:** If the reviewer finds issues, **kick yourself (the main model) to fix the glitching parts**. You must redo the broken parts and re-screenshot them. You can loop this review-fix cycle **a maximum of 2 times in a row**. The report rests on one last full pass by the reviewer over the finished page or the exhaustion of the 2 retries.
+- **Only after passing review or hitting the retry limit**, delete your `_cctmp.<slug>/` — only that one; other `_cctmp.*` dirs belong to sessions still running.
 
 ### 8. Ask for review, propose skill updates
+
+Respond to the user in the same language they used for their request.
 
 Don't declare the job done unprompted — show the result and ask the user
 whether it looks right, and wait for their acceptance or corrections.
