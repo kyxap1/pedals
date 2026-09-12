@@ -82,6 +82,38 @@ Git, only when the user asks for a commit:
 - Push rejected because another session pushed first → tell the user; don't
   pull or rebase on your own.
 
+## Token budget
+
+Save tokens by not doing work twice, never by checking less: every rule below
+keeps the verification the workflow asks for.
+
+A response's output is capped (64K tokens here, thinking included), and a
+response that hits the cap is cut off with whatever it was drafting lost.
+Build `index.html` in pieces: write the skeleton (masthead, both TOCs, empty
+`<section>`s) first, then fill one or two sections per response with `Edit`,
+writing the copy straight into the file instead of drafting the page in
+thinking first.
+
+Every response also re-sends the whole conversation, so a job costs roughly
+its context size times its round trips. Whatever enters the context — a page
+render, a screenshot, a chunk of `text.txt` — is paid for again on every
+later call, and images are the heaviest part of it.
+
+- Look at an image to answer a specific question, and look once. A render or
+  screenshot you have seen doesn't change until you re-shoot it. After a
+  local fix, re-shoot and look at the segment it touched; after a change to a
+  shared rule (column width, figure sizing, body type), at every segment the
+  rule shows in. The report still rests on one full pass over the finished
+  page.
+- Set a handful of crops side by side in one contact sheet (PIL) instead of
+  reading them one by one, as long as each stays legible.
+- Let a script answer what a script can: `check_page.py` for anchors and
+  images, the `scrollWidth` line `screenshot.mjs` prints for horizontal
+  scroll, `pdftotext -f N -l N` for one passage instead of re-reading
+  `text.txt`.
+- Batch independent tool calls into one response; every extra round trip
+  re-sends everything.
+
 ## Workflow
 
 ### 1. Frame the job
@@ -257,11 +289,19 @@ leave the author's voice, slang and deliberate informality alone. Where one PDF
 garbles a sentence another prints cleanly, take the clean one. No `[sic]` — it
 helps nobody in a pedal manual.
 
+Where the sources disagree on a fact — the quick-start card says the power
+supply is included and the manual says it isn't, one CC number is mapped to
+two parameters — neither is a typo. Keep each as printed and list the conflict
+in the report instead of picking one.
+
 Makers build manuals from shared templates, and steps carry leftovers from
 other products: the BOSS XS-1 manual says to plug into an "INPUT A (MONO)"
 jack the pedal doesn't have. Check every jack, knob and switch a step names
 against the panel descriptions, correct the ones that contradict it, and list
-each in the report.
+each in the report. Figure captions and diagram labels carry the same
+leftovers — the Source Audio Collider's routing diagrams caption a
+stereo-in, mono-out mode "Stereo In, Stereo Out" — so check each against the
+section it illustrates.
 
 **Figures.**
 
@@ -333,8 +373,10 @@ than adding one.
   missing images and unreferenced files in `Images/`; none of them shows in a
   screenshot.
 - Screenshot the whole page with `scripts/screenshot.mjs` at a desktop and a
-  mobile width. It drives Chrome over CDP and captures true full-page height
-  in one shot — don't use `chrome --headless --screenshot --window-size=W,H`
+  mobile width. It drives Chrome over CDP, captures the page's real height as
+  numbered segments (`desktop-01.png`, `desktop-02.png`, …; a single capture
+  past ~16,000 px repeats the page from the top) and prints the page's
+  `scrollWidth`. Don't use `chrome --headless --screenshot --window-size=W,H`
   by hand: it crops to exactly W×H instead of the page's real height, and it
   has no timeout flag, so a bad size hangs with no way to detect it.
 
@@ -346,9 +388,11 @@ than adding one.
     "file://$PWD/<pedal-dir>/index.html" "$PWD/_cctmp.<slug>/shot/mobile.png" 390
   ```
 
-  Compare desktop against the PDF `pages/`: every section present, figures in
-  the right place, nothing garbled. On mobile: nav gone, mobile TOC shown, no
-  horizontal scroll.
+  Compare the desktop segments against the PDF `pages/`: every section
+  present, figures in the right place, nothing garbled. On mobile the
+  `scrollWidth` line answers horizontal scroll; look only at the first
+  segment (nav gone, mobile TOC shown) and the ones holding wide tables or
+  figure grids.
 - Crop every table and callout out of the desktop shot and set it beside the
   same block on the page render, at the same scale. Check what a whole-page
   glance misses: text weight per column, vertical alignment in cells (labels
@@ -373,8 +417,8 @@ without opening the diff:
   each width showed.
 - **Copy changes** — every place the page's wording departs from the PDF, with
   the reason: typos, mangled phrases, template leftovers that contradict the
-  pedal, page references turned into anchor links. Nothing listed means
-  verbatim.
+  pedal, page references turned into anchor links — plus the conflicts
+  between sources left as printed. Nothing listed means verbatim.
 - **Files** — the pedal directory and what moved into it, the catalog card,
   `pedals.txt`, scratch deleted, commit status.
 
