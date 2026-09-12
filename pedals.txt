@@ -1,6 +1,6 @@
 + BOSS GE-7 Equalizer
 BOSS NS-1X Noise Suppressor
-BOSS Poly Shifter XS-1
++ BOSS Poly Shifter XS-1
 + BOSS RC-5 Loop Station
 + Hotone Soul Press II
 + Mooer CAB X2
