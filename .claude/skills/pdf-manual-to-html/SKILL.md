@@ -31,6 +31,57 @@ recipe, font table. Read `conventions.md` and `wampler-terraform/style.css`
 before building. The page's `index.html` is ~85 KB — grep it for a specific
 pattern instead of reading it whole; conventions already carries its structure.
 
+Before reaching for that generic reference, check whether this repo already
+has a page for the **same brand** (`ls` the top level for `<brand>-*`). A
+sibling manual is a stronger match than Wampler's page: it was already tuned
+to that maker's actual palette and font family, and manuals from the same
+brand often share embedded fonts and even a dingbat glyph set (confirmed by
+`pdffonts` matching between the two PDFs) — reuse its `style.css` tokens and
+callout patterns instead of re-deriving them from scratch. Fall back to
+`wampler-terraform/` only when no sibling exists.
+
+## Parallel sessions
+
+Several sessions may convert different manuals in this checkout at once. A job
+owns only the paths keyed by its slug — the `<brand>-<model>` directory name
+from step 1:
+
+- `<slug>/` — the page, its images and source PDFs;
+- `_cctmp.<slug>/` — every scratch file: extracts, 300 dpi renders, crops,
+  screenshots, one-off scripts. Nothing loose in the repo root. `_cctmp.*` is
+  gitignored;
+- the PDF(s) the user handed over, until they move into `<slug>/`.
+
+Anything else in `git status` — another untracked pedal directory, other
+`_cctmp.*` dirs, unfamiliar PDFs in the root, uncommitted hunks in the catalog
+or in this skill — is a sibling session's work in progress. That is normal:
+don't open, move, delete, tidy, commit or ask about it; carry on. The one
+exception is your own slug: `<slug>/` or `_cctmp.<slug>/` already present,
+uncommitted and not created in this conversation means another session is on
+the same pedal — stop and ask the user.
+
+Shared files — root `index.html`, `pedals.txt`, this skill's `SKILL.md` and
+`references/` — take concurrent edits:
+
+- Change them with small `Edit` calls only; `Write` rewrites the file from your
+  copy and drops everyone else's hunks. Read right before editing; if Edit
+  reports the file changed since it was read, re-read and redo the edit.
+- Leave hunks you didn't write alone — no reverting, reformatting, reordering.
+
+Git, only when the user asks for a commit:
+
+- Stage your own paths by name and commit by path, so whatever another session
+  staged stays out: `git add <slug>/ && git commit -m "…" -- <slug>/
+  index.html pedals.txt`. Never `git add -A`, `git add .`, `git commit -a`,
+  `git stash`.
+- A shared file is committed whole. `git diff` it first; if it carries another
+  session's hunk (a card for an uncommitted page deploys as a broken link), ask
+  the user before committing it.
+- `.git/index.lock` exists → another session is mid-commit; wait and retry,
+  never delete the lock.
+- Push rejected because another session pushed first → tell the user; don't
+  pull or rebase on your own.
+
 ## Workflow
 
 ### 1. Frame the job
@@ -55,7 +106,7 @@ pattern instead of reading it whole; conventions already carries its structure.
 Run once per PDF (poppler only, nothing to install):
 
 ```
-.claude/skills/pdf-manual-to-html/scripts/extract_pdf.sh <manual.pdf> _cctmp.extract/<pdf-stem>/
+.claude/skills/pdf-manual-to-html/scripts/extract_pdf.sh <manual.pdf> _cctmp.<slug>/extract/<pdf-stem>/
 ```
 
 It writes `info.txt` (metadata + **embedded fonts**, which drive the font
@@ -69,8 +120,8 @@ off the `pages/` renders and judge the fonts by eye.
 
 An empty `raw/` means the art is vector and every figure gets cropped from
 renders. Crop from a 300 dpi render of that page (`pdftoppm -png -r 300 -f N
--l N <pdf> <prefix>`) — the 150 dpi `pages/` give figures too small for a
-high-density screen.
+-l N <pdf> _cctmp.<slug>/hires/p`) — the 150 dpi `pages/` give figures too
+small for a high-density screen.
 
 Printed page numbers rarely match the PDF page index (covers and TOCs shift
 them). Confirm the index (`pdftotext -f N -l N`) before cropping or quoting by
@@ -78,13 +129,20 @@ page, or you'll pull from the neighbouring section.
 
 ### 3. Decide the style
 
-Two sources, in order of preference:
+Three sources, in order of preference:
 
-1. **The brand's own online manual.** Many makers (Wampler included) publish
+1. **An existing pedal page in this repo, same brand.** Its `style.css` was
+   already tuned to that maker's real palette and typefaces from a real
+   manual — reuse its tokens, heading treatment and callout patterns rather
+   than re-deriving them. Verify the fonts actually match first
+   (`pdffonts` on both PDFs, or `info.txt` from each extract): brands reuse
+   the same template — and dingbat glyph set — across whole product lines, but
+   don't assume it without checking.
+2. **The brand's own online manual.** Many makers (Wampler included) publish
    one in HTML — search for it. If it exists, its CSS *is* the answer: font
    stack, colours, heading treatment, often the section structure too. This is
    how `wampler-terraform` was built.
-2. **The PDF.** Map each embedded font to the nearest Google Font with the
+3. **The PDF.** Map each embedded font to the nearest Google Font with the
    table in conventions (e.g. `MyriadPro` → "Source Sans 3"). For the palette,
    run `scripts/sample_colors.py <product photo> <cover render>` — the
    enclosure colour is the accent, the cover's ground is the dark band. Product
@@ -182,6 +240,15 @@ helps nobody in a pedal manual.
   holds figures, not leftovers.
 - Photos are `.jpg` (`.png` when they need transparency); line art, wordmarks
   and screenshots are `.png`.
+- A figure whose printed background doesn't match the container you're putting
+  it in (a white-ground icon dropped into a tinted card, a dark-ground diagram
+  on a light page) is a rendering problem to fix, not a reason to cut the
+  figure: recolour its background to match (safe on flat line art — replace
+  the near-white/near-black pixels, leave the strokes), place it where its
+  own background already belongs, or give it its own untinted spot. Dropping
+  manual content because the easy crop didn't fit is exactly the shortcut this
+  skill exists to catch — verify the fix by re-screenshotting, don't delete
+  your way to a clean screenshot.
 
 ### 5. Place the assets
 
@@ -194,8 +261,8 @@ helps nobody in a pedal manual.
   index-<year>.html  older revision, when folding in a newer one
 ```
 
-PDFs dropped in the repo root move into the pedal's directory (`git mv` if
-already tracked).
+The PDFs this job converts move from the repo root into the pedal's directory
+(`git mv` if already tracked). Other PDFs in the root belong to other jobs.
 
 ### 6. Add the catalog card
 
@@ -216,18 +283,19 @@ what the pedal is, e.g. `Compressor`.
   has no timeout flag, so a bad size hangs with no way to detect it.
 
   ```
-  mkdir -p _cctmp.shot
+  mkdir -p _cctmp.<slug>/shot
   node .claude/skills/pdf-manual-to-html/scripts/screenshot.mjs \
-    "file://$PWD/<pedal-dir>/index.html" "$PWD/_cctmp.shot/desktop.png" 1400
+    "file://$PWD/<pedal-dir>/index.html" "$PWD/_cctmp.<slug>/shot/desktop.png" 1400
   node .claude/skills/pdf-manual-to-html/scripts/screenshot.mjs \
-    "file://$PWD/<pedal-dir>/index.html" "$PWD/_cctmp.shot/mobile.png" 390
+    "file://$PWD/<pedal-dir>/index.html" "$PWD/_cctmp.<slug>/shot/mobile.png" 390
   ```
 
   Compare desktop against the PDF `pages/`: every section present, figures in
   the right place, nothing garbled. On mobile: nav gone, mobile TOC shown, no
   horizontal scroll.
 - The palette works on both light surroundings and the reversed-out header.
-- Delete `_cctmp.extract/` and `_cctmp.shot/` so they never get committed.
+- Delete your `_cctmp.<slug>/` — only that one; other `_cctmp.*` dirs belong
+  to sessions still running.
 
 ### 8. Deploy
 
