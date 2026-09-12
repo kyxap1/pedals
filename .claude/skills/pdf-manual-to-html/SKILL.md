@@ -211,7 +211,10 @@ follow the page section by section without losing their place.
   and set it as `<h1><img alt="<Brand> <Model>"></h1>` over the cover's ground
   colour; without it the page opens on an unlabelled photo and the model name
   lives only in `<title>`. `wampler-terraform/` predates this and opens on a
-  bare `<img>` — follow the skeleton, not that page.
+  bare `<img>` — follow the skeleton, not that page. When the cover sets the
+  model name as live text (it's in `text.txt`), keep it text: the logo is the
+  image and the model follows it in the same `h1`,
+  `<h1><img alt="<Brand>"> <span><Model></span></h1>`.
 - **Masthead: photo.** A real photo of the pedal, cropped from a page render
   when one has it. Some manuals (CAB X2's) show the enclosure only as line art;
   then use the manufacturer's own product photo from their site or listing
