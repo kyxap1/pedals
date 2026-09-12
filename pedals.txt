@@ -4,6 +4,7 @@ BOSS Poly Shifter XS-1
 + BOSS RC-5 Loop Station
 + Hotone Soul Press II
 + Mooer CAB X2
++ NUX NMP-2 Dual Footswitch
 Source Audio Collider
 + TC Electronic Plethora X1
 + TC Electronic Polytune 3
