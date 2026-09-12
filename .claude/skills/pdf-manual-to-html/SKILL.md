@@ -114,12 +114,19 @@ choice), `text.txt` (copy source), `raw/` (embedded images in their native
 format) and `pages/` (150 dpi renders). `text.txt` loses layout and colour, so
 also open the PDF with the Read tool (`pages:`) to see the real thing.
 
+Render with `pdftocairo`, never `pdftoppm`. Poppler's Splash backend
+(`pdftoppm`) silently drops some vector art — the green dotted rules under
+the BOSS NS-1X manual's sub-headings are missing from its renders — so
+colour sampling and page comparisons on it conclude that detail doesn't exist.
+If something the user sees in a PDF viewer isn't in a render, suspect the
+renderer before the PDF.
+
 A near-empty `text.txt` and no fonts in `info.txt` mean the type was converted
 to outlines at export — the file is fine, the words are curves. Read the copy
 off the `pages/` renders and judge the fonts by eye.
 
 An empty `raw/` means the art is vector and every figure gets cropped from
-renders. Crop from a 300 dpi render of that page (`pdftoppm -png -r 300 -f N
+renders. Crop from a 300 dpi render of that page (`pdftocairo -png -r 300 -f N
 -l N <pdf> _cctmp.<slug>/hires/p`) — the 150 dpi `pages/` give figures too
 small for a high-density screen.
 

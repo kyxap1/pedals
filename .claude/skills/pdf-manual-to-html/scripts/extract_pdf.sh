@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Extract everything needed to rebuild a pedal manual as HTML from one PDF.
-# Poppler-only (pdfinfo/pdffonts/pdftotext/pdfimages/pdftoppm) — no install, read-only.
+# Poppler-only (pdfinfo/pdffonts/pdftotext/pdfimages/pdftocairo) — no install, read-only.
 #
 # Usage: extract_pdf.sh <manual.pdf> <out_dir>
 # Produces in <out_dir>/:
@@ -24,7 +24,9 @@ pdftotext -layout "$pdf" "$out/text.txt"
 # -all keeps each image in its native format, so a cover photo comes out as the
 # original JPEG instead of a re-encoded PNG; -p keeps the page number in the name
 pdfimages -all -p "$pdf" "$out/raw/img"
-pdftoppm -png -r 150 "$pdf" "$out/pages/page"
+# cairo, not pdftoppm: Splash silently drops some vector art, e.g. the dotted
+# rules under the BOSS NS-1X sub-headings
+pdftocairo -png -r 150 "$pdf" "$out/pages/page"
 
 echo "done -> $out"
 ls -R "$out"
