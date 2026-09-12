@@ -355,6 +355,14 @@
           </a>
         </li>
         <li>
+          <a href="radial-prormp/">
+            <span class="brand">Radial</span>
+            <span class="model">ProRMP</span>
+            <span class="type">Utility</span>
+            <span class="note">Studio Reamper</span>
+          </a>
+        </li>
+        <li>
           <a href="source-audio-collider/">
             <span class="brand">Source Audio</span>
             <span class="model">Collider</span>
@@ -437,8 +445,26 @@
       const sortButtons = document.querySelectorAll(".head button");
       const typeOf = (li) => li.querySelector(".type").textContent;
       let active = "All";
-      let currentSort = "brand";
-      let sortAsc = true;
+      let currentSort = localStorage.getItem("pedalsSort") || "brand";
+      let sortAsc = localStorage.getItem("pedalsSortDir") !== "desc";
+
+      function applySort() {
+        const btn = document.querySelector(`.head button[data-sort="${currentSort}"]`);
+        if (!btn) return;
+
+        sortButtons.forEach(b => b.removeAttribute("data-dir"));
+        btn.dataset.dir = sortAsc ? "asc" : "desc";
+
+        rows.sort((a, b) => {
+          const valA = a.querySelector(`.${currentSort}`).textContent.trim().toLowerCase();
+          const valB = b.querySelector(`.${currentSort}`).textContent.trim().toLowerCase();
+          if (valA < valB) return sortAsc ? -1 : 1;
+          if (valA > valB) return sortAsc ? 1 : -1;
+          return 0;
+        });
+
+        rows.forEach(row => pedalsList.appendChild(row));
+      }
 
       sortButtons.forEach(btn => {
         btn.addEventListener("click", () => {
@@ -449,20 +475,15 @@
             currentSort = key;
             sortAsc = true;
           }
-          sortButtons.forEach(b => b.removeAttribute("data-dir"));
-          btn.dataset.dir = sortAsc ? "asc" : "desc";
-
-          rows.sort((a, b) => {
-            const valA = a.querySelector(`.${key}`).textContent.trim().toLowerCase();
-            const valB = b.querySelector(`.${key}`).textContent.trim().toLowerCase();
-            if (valA < valB) return sortAsc ? -1 : 1;
-            if (valA > valB) return sortAsc ? 1 : -1;
-            return 0;
-          });
-
-          rows.forEach(row => pedalsList.appendChild(row));
+          localStorage.setItem("pedalsSort", currentSort);
+          localStorage.setItem("pedalsSortDir", sortAsc ? "asc" : "desc");
+          applySort();
         });
       });
+
+      if (currentSort !== "brand" || !sortAsc) {
+        applySort();
+      }
 
       for (const t of ["All", ...new Set(rows.map(typeOf).sort())]) {
         const b = document.createElement("button");
