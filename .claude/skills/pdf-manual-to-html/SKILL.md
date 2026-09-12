@@ -27,18 +27,10 @@ a clean document outline.
 
 `wampler-terraform/` is the reference implementation, and
 `references/conventions.md` distils it: HTML skeleton, CSS pattern, multi-PDF
-recipe, font table. Read `conventions.md` and `wampler-terraform/style.css`
-before building. The page's `index.html` is ~85 KB — grep it for a specific
-pattern instead of reading it whole; conventions already carries its structure.
-
-Before reaching for that generic reference, check whether this repo already
-has a page for the **same brand** (`ls` the top level for `<brand>-*`). A
-sibling manual is a stronger match than Wampler's page: it was already tuned
-to that maker's actual palette and font family, and manuals from the same
-brand often share embedded fonts and even a dingbat glyph set (confirmed by
-`pdffonts` matching between the two PDFs) — reuse its `style.css` tokens and
-callout patterns instead of re-deriving them from scratch. Fall back to
-`wampler-terraform/` only when no sibling exists.
+recipe, font table. Read `conventions.md` and one `style.css` before
+building: a same-brand sibling's when one exists (step 3), else Wampler's.
+Don't read `wampler-terraform/index.html` (~85 KB) whole; grep it for a
+pattern, conventions already carries its structure.
 
 ## Parallel sessions
 
@@ -84,47 +76,85 @@ Git, only when the user asks for a commit:
 
 ## Token budget
 
-Save tokens by not doing work twice, never by checking less: every rule below
-keeps the verification the workflow asks for.
+Save tokens by not doing work twice and by not carrying what you are done
+with, never by checking less: every rule below keeps the verification the
+workflow asks for.
 
 A response's output is capped (64K tokens here, thinking included), and a
 response that hits the cap is cut off with whatever it was drafting lost.
 Build `index.html` in pieces: write the skeleton (masthead, both TOCs, empty
 `<section>`s) first, then fill one or two sections per response with `Edit`,
 writing the copy straight into the file instead of drafting the page in
-thinking first.
+thinking first. The same holds for `style.css` and image-processing scripts:
+decide the next piece, write it, run it. The Collider job lost two responses
+to the cap, one of them all thinking.
 
 Every response also re-sends the whole conversation, so a job costs roughly
 its context size times its round trips. Whatever enters the context — a page
 render, a screenshot, a chunk of `text.txt` — is paid for again on every
-later call, and images are the heaviest part of it.
+later call until the job ends, so the earlier it comes in, the more it costs.
+An image costs about width × height / 750 tokens once scaled to fit 2,000 px
+on its long edge: ~2,500 for a 3,000-px screenshot segment, ~2,800 for a
+150-dpi page render, ~450 for a 60-dpi thumbnail. The Collider job read 104
+images and all of `text.txt` into the main conversation, and by its
+screenshot pass every request re-sent over 300K tokens.
 
+- **Bulk looking happens in a subagent.** What a subagent (`Agent` tool,
+  general-purpose) reads leaves with it; the main conversation gets back a
+  text brief. A subagent starts at 25–45K tokens of context, a fraction of
+  the main one mid-job, so the two bulk passes run there: the survey
+  (step 2) and the screenshot verification (step 7). The main conversation
+  keeps the looks that feed the edit at hand — the page a section is written
+  from, the crop being checked.
+- **Read text when you use it.** Past a few pages, don't read `text.txt`
+  whole: the survey gives the outline with PDF page ranges, and each
+  section's passage comes from `pdftotext -layout -f A -l B <pdf> -` right
+  before you write it.
 - Look at an image to answer a specific question, and look once. A render or
-  screenshot you have seen doesn't change until you re-shoot it. After a
-  local fix, re-shoot and look at the segment it touched; after a change to a
-  shared rule (column width, figure sizing, body type), at every segment the
-  rule shows in. The report still rests on one full pass over the finished
-  page.
-- Set a handful of crops side by side in one contact sheet (PIL) instead of
-  reading them one by one, as long as each stays legible.
+  screenshot you have seen doesn't change until you re-shoot it; step 7 says
+  what to re-check after a fix.
+- Set a handful of crops side by side in one contact sheet instead of
+  reading them one by one, as long as each stays legible; tokens follow the
+  pixels shown, so nine third-size tiles cost about what one full image
+  does. `montage` labels each tile with its file name and native size (print
+  furniture gives itself away by size):
+
+  ```
+  montage -font /System/Library/Fonts/Supplemental/Arial.ttf -label '%f %wx%h' \
+    <images…> -tile 3x -geometry '600x>+8+8' -background white sheet.png
+  ```
 - Let a script answer what a script can: `check_page.py` for anchors and
   images, the `scrollWidth` line `screenshot.mjs` prints for horizontal
-  scroll, `pdftotext -f N -l N` for one passage instead of re-reading
-  `text.txt`.
+  scroll.
 - Batch independent tool calls into one response; every extra round trip
   re-sends everything.
+- After a compaction the summary carries the decisions. Re-read only what the
+  next step needs — the next section's passage, the region of the file being
+  edited — not the extracts: the Collider job re-read all of `text.txt` after
+  its `/compact`.
 
 ## Workflow
+
+### 0. Check the tools
+
+```
+.claude/skills/pdf-manual-to-html/scripts/check_tools.sh
+```
+
+It names whatever is missing with the `brew install` line that fixes it. If
+anything is, stop and ask the user to install it rather than writing a
+workaround: a hand-rolled PIL script for what `montage` does in one line
+costs tokens on every job, the tool costs one install.
 
 ### 1. Frame the job
 
 - Identify **brand** and **model** from the PDF (title, cover, footer).
 - One PDF → one page. Several PDFs for one pedal → give each a role by reading
-  it, not by date or file name: **full manual** (every control), **quick
-  start** (small foldout card: hook-up and a few settings), **addendum /
-  errata**, **older revision**. The full manual is the base page and the rest
-  fold in (conventions → "Multiple PDFs"); a newer quick start doesn't outrank
-  an older full manual.
+  it (the survey in step 2 does), not by date or file name: **full manual**
+  (every control), **quick start** (small foldout card: hook-up and a few
+  settings), **addendum / errata**, **older revision**. The full manual is the
+  base page and the rest fold in (conventions → "Multiple PDFs"); a newer
+  quick start doesn't outrank an older full manual.
 - No PDF at all → compile the page from the maker's site and say so in a
   `.doc-update` banner (conventions → "Multiple PDFs", step 4).
 - Target directory: `<brand>-<model>[-<variant>]/`, kebab-case, always in that
@@ -135,8 +165,7 @@ later call, and images are the heaviest part of it.
 
 ### 2. Extract
 
-Run once per PDF (poppler, plus qpdf for `fonts-used.txt` — skipped with a
-warning when qpdf is missing):
+Run once per PDF:
 
 ```
 .claude/skills/pdf-manual-to-html/scripts/extract_pdf.sh <manual.pdf> _cctmp.<slug>/extract/<pdf-stem>/
@@ -145,14 +174,13 @@ warning when qpdf is missing):
 It writes `info.txt` (metadata + **embedded fonts**, which drive the font
 choice), `fonts-used.txt` (which text each face sets, and its CSS weight),
 `text.txt` (copy source), `raw/` (embedded images in their native format) and
-`pages/` (150 dpi renders). `text.txt` loses layout and colour, so
-also open the PDF with the Read tool (`pages:`) to see the real thing.
+`pages/` (150 dpi renders). `text.txt` loses layout and colour, so every
+passage is read beside its page render or the PDF itself (Read, `pages:`).
 
-Render with `pdftocairo`, never `pdftoppm`. Poppler's Splash backend
-(`pdftoppm`) silently drops some vector art — the green dotted rules under
-the BOSS NS-1X manual's sub-headings are missing from its renders — so
-colour sampling and page comparisons on it conclude that detail doesn't exist.
-If something the user sees in a PDF viewer isn't in a render, suspect the
+Render with `pdftocairo`, never `pdftoppm`: its Splash backend silently drops
+some vector art (the green dotted rules under the BOSS NS-1X sub-headings),
+and sampling or comparing such a render concludes the detail doesn't exist.
+Something visible in a PDF viewer but missing from a render → suspect the
 renderer before the PDF.
 
 A near-empty `text.txt` and no fonts in `info.txt` mean the type was converted
@@ -168,27 +196,50 @@ Printed page numbers rarely match the PDF page index (covers and TOCs shift
 them). Confirm the index (`pdftotext -f N -l N`) before cropping or quoting by
 page, or you'll pull from the neighbouring section.
 
+**Survey in a subagent.** Once the extracts exist, hand the read-through to
+one subagent so its images stay out of the main conversation. Give it the
+PDFs, the extract dirs and `_cctmp.<slug>/` for its scratch; tell it to edit
+nothing, to look at pages through `montage` sheets first and open a full
+render only where a sheet is too small to read, and to return a text brief:
+
+1. each PDF's role, with the line of evidence;
+2. the outline — every section in the manual's order, its PDF page index
+   range (not the printed number), sub-headings, and what it holds: prose,
+   steps, table, knob cards, callouts;
+3. the figure inventory — per figure: page index, what it shows, its
+   section, and its source: a `raw/` file (the colour image, not its mask;
+   say when a mask belongs merged in as alpha), or "vector, crop from page N
+   at 300 dpi";
+4. the style — fonts per role (body, headings, table labels, steps) with
+   weights from `fonts-used.txt`; heading treatment per level; table borders;
+   callout and note styles; the cover's colour-panel/photo split, measured;
+   `sample_colors.py` on the cover render and product photo; whether the
+   maker publishes an HTML online manual (search), and its font stack and
+   colours if so;
+5. what to double-check while writing — facts the PDFs disagree on, and
+   jack, knob and switch names in steps or captions that contradict the
+   panel description.
+
+The brief drives steps 3 and 4; it doesn't replace your own reading. Each
+section is still written from its own passage and page render (step 4), and
+every copy check there stays yours.
+
 ### 3. Decide the style
 
 Three sources, in order of preference:
 
-1. **An existing pedal page in this repo, same brand.** Its `style.css` was
-   already tuned to that maker's real palette and typefaces from a real
-   manual — reuse its tokens, heading treatment and callout patterns rather
-   than re-deriving them. If that page shows as modified in `git status`,
-   another session is reworking it: read its committed version
-   (`git show HEAD:<sibling>/style.css`), not the half-finished working copy.
-   Verify the fonts actually match first
-   (`pdffonts` on both PDFs, or `info.txt` from each extract): brands reuse
-   the same template — and dingbat glyph set — across whole product lines, but
-   don't assume it without checking. **Important**: A brand's design language
-   evolves. A newer manual might drop heavy background blocks, dotted rules,
-   or numbered badges in favor of a clean, minimal look. Check the page renders
-   (`pages/`); if the manual you are converting is minimalist, strip out the
-   heavy chrome you inherited from the sibling page rather than just changing
-   its colors.
+1. **A same-brand page in this repo** (`ls -d <brand>-*`). Its `style.css`
+   is already tuned to the maker's real palette and typefaces — reuse its
+   tokens, heading treatment and callout patterns. Brands reuse one template,
+   dingbat glyph set included, across whole product lines, but check before
+   assuming: the fonts must match (`pdffonts` on both PDFs, or each extract's
+   `info.txt`). A sibling modified in `git status` is being reworked by
+   another session — read `git show HEAD:<sibling>/style.css`, not the
+   working copy. Design languages also evolve: when this manual drops the
+   sibling's heavy blocks, dotted rules or numbered badges for a cleaner
+   look, strip that chrome rather than recolouring it.
 2. **The brand's own online manual.** Many makers (Wampler included) publish
-   one in HTML — search for it. If it exists, its CSS *is* the answer: font
+   one in HTML; the survey searches for it. If it exists, its CSS *is* the answer: font
    stack, colours, heading treatment, often the section structure too. This is
    how `wampler-terraform` was built.
 3. **The PDF.** Map each embedded font to the nearest Google Font with the
@@ -238,33 +289,28 @@ follow the page section by section without losing their place.
 
 **Structure** (full skeleton and CSS in conventions):
 
-- **Masthead: wordmark.** The cover photo in the PDF usually carries no
-  lettering — the wordmark is separate vector art. Crop it from the page render
-  and set it as `<h1><img alt="<Brand> <Model>"></h1>` over the cover's ground
-  colour; without it the page opens on an unlabelled photo and the model name
-  lives only in `<title>`. `wampler-terraform/` predates this and opens on a
-  bare `<img>` — follow the skeleton, not that page. When the cover sets the
-  model name as live text (it's in `text.txt`), keep it text: the logo is the
-  image and the model follows it in the same `h1`,
+- **Masthead: wordmark.** The cover's wordmark is usually separate vector
+  art, not part of the photo. Crop it from the render and set it as
+  `<h1><img alt="<Brand> <Model>"></h1>` over the cover's ground colour;
+  without it the page opens on an unlabelled photo. (`wampler-terraform/`
+  predates this and opens on a bare `<img>` — follow the skeleton.) A model
+  name set as live text on the cover (it's in `text.txt`) stays text:
   `<h1><img alt="<Brand>"> <span><Model></span></h1>`.
-- **Masthead: photo.** A real photo of the pedal, cropped from a page render
-  when one has it. Some manuals (CAB X2's) show the enclosure only as line art;
-  then use the manufacturer's own product photo from their site or listing
-  rather than promoting the diagram to hero image. A maker's promo shot of its
-  own product needs no credit; a third-party seller's photo does.
-- **Masthead: same brand, same arrangement.** When a page of the same brand
-  already exists, copy its masthead structure — where the photo sits, how logo,
-  wordmark and document title (`Owner's Manual`, `Reference Manual`) group — so
-  the brand's pages read as one set. The title block itself carries this
-  manual's own lettering and ground: `boss-ge-7/` keeps its blue header band
-  inside `boss-rc-5/`'s photo-beside-title arrangement.
-- **Masthead: panel proportions.** When the cover splits into a colour-block
-  panel (logo/wordmark ground) beside a photo panel, measure the split on the
-  cover render (crop width vs. total width) instead of picking a round
-  `flex`/`flex-basis` ratio by eye. An even-looking 50/50 or 1:2 grow ratio
-  tends to overweight the colour panel next to a source cover that actually
-  runs closer to 30/70 — screenshot the masthead and compare it side by side
-  with the cover render before moving on.
+- **Masthead: photo.** A real photo of the pedal, cropped from a render when
+  the manual has one. If it shows the enclosure only as line art (CAB X2),
+  use the maker's own product photo from their site or listing rather than
+  promoting the diagram; a third-party seller's photo needs a credit, the
+  maker's doesn't.
+- **Masthead: same brand, same arrangement.** Copy a same-brand page's
+  masthead structure — where the photo sits, how logo, wordmark and document
+  title (`Owner's Manual`) group — so the brand's pages read as one set,
+  while the title block keeps this manual's lettering and ground: `boss-ge-7/`
+  puts its blue header band inside `boss-rc-5/`'s photo-beside-title layout.
+- **Masthead: panel proportions.** A cover split into a colour panel beside a
+  photo panel gets its ratio measured on the render (crop width ÷ total),
+  not picked by eye: a round 50/50 or 1:2 overweights the colour panel next
+  to covers that run closer to 30/70. Set the masthead screenshot beside the
+  cover render before moving on.
 - `<nav id="side-nav">` fixed TOC on desktop, `#toc-mobile` in the flow for
   narrow screens, one `@media (max-width: 900px)` breakpoint that hides the nav.
 - `<main>` with one `<section id="…">` per manual section; `id`s are kebab-case
@@ -273,15 +319,14 @@ follow the page section by section without losing their place.
   tags by size.
 - Reference tables (MIDI maps, spec sheets) → `.doc-table` inside
   `.table-scroll`.
-- Print layout yields to HTML semantics. Never break an `<ol>`/`<ul>` to drop an
-  image in — group the images above or below the list. If a
-  `column-span: all` figure makes text in a multi-column `.half-container` flow
-  oddly or pushes list items into the wrong column, drop the `column-span` and
-  let the figure sit in its column; `.no-columns` is only for short sections.
-  Pick each section's layout from the table in conventions → "Sizing the
-  measure".
+- Print layout yields to HTML semantics: never break an `<ol>`/`<ul>` to drop
+  an image in — the figure goes inside its `<li>` or above/below the list.
+  Pick each section's layout (columns, `.no-columns`, `column-span`) from
+  conventions → "Sizing the measure".
 
-**Copy.** Faithful to the manual — same wording, same order — with the typos
+**Copy.** Pull each section's passage when you reach it (`pdftotext -layout
+-f A -l B <pdf> -`) and look at its page render once beside it. Faithful to
+the manual — same wording, same order — with the typos
 fixed. Print manuals ship with them ("Smmoths everything out", "an experience
 radio/TV technician", "the option or repairing"), and reproduced verbatim they
 look like the page's mistake. Correct spelling, grammar and mangled phrases;
@@ -305,22 +350,19 @@ section it illustrates.
 
 **Figures.**
 
-- Prefer embedded images from `raw/`; crop from the `pages/` renders when they
-  are sliced, vector or absent. A row of knob shots goes in a `.grid-wrapper`,
-  `<img>` at `width: 100%`.
-- `pdfimages` also dumps alpha masks and technical layers as separate grayscale
-  images. Look at each image you pick (or `file` it for 3-channel RGB) so you
-  ship the colour figure, not its mask. A mask directly after a colour image of
-  the same size is that image's transparency — icons (warning sign, "!" mark)
-  come this way; merge it in as alpha (PIL `putalpha`) and ship a `.png`
-  instead of discarding it.
-- Crop by eye, never from text coordinates alone, and look at the edges of the
-  result: a stroke or leader line running off the edge means the crop cut the
-  drawing. Widen it until every pointer ends at the thing it points to. The
-  same check applies to photos and wordmarks with no leader lines: if cropping
-  by auto-trimming whitespace out of a generously-sized region, and the
-  trimmed bbox touches that region's edge, the subject itself was cut off —
-  widen the region and re-trim until the bbox sits clear of every edge.
+- Prefer embedded images from `raw/`; crop from a 300-dpi render (step 2)
+  when they are sliced, vector or absent. A row of knob shots goes in a
+  `.grid-wrapper`, `<img>` at `width: 100%`.
+- `pdfimages` also dumps alpha masks and technical layers as separate
+  grayscale images; ship the colour figure, not its mask (look at it, or
+  `file` it for 3-channel RGB). A mask right after a colour image of the same
+  size is that image's transparency — icons (warning sign, "!") come this
+  way: merge it in with PIL `putalpha` and ship a `.png`.
+- Crop by eye, never from text coordinates alone, then check the edges: a
+  stroke or leader line running off the edge means the crop cut the drawing —
+  widen it until every pointer ends at its target. When auto-trimming
+  whitespace out of a generous region, a trimmed box touching the region's
+  edge means the subject was cut — widen and re-trim until it sits clear.
 - A figure holds graphics only. Body text printed inside an image goes into the
   HTML and is painted out of the image with the background colour; integral
   labels (numbered pointers) stay. A wordmark crop is the logotype alone — a
@@ -332,15 +374,13 @@ section it illustrates.
   holds figures, not leftovers.
 - Photos are `.jpg` (`.png` when they need transparency); line art, wordmarks
   and screenshots are `.png`.
-- A figure whose printed background doesn't match the container you're putting
-  it in (a white-ground icon dropped into a tinted card, a dark-ground diagram
-  on a light page) is a rendering problem to fix, not a reason to cut the
-  figure: recolour its background to match (safe on flat line art — replace
-  the near-white/near-black pixels, leave the strokes), place it where its
-  own background already belongs, or give it its own untinted spot. Dropping
-  manual content because the easy crop didn't fit is exactly the shortcut this
-  skill exists to catch — verify the fix by re-screenshotting, don't delete
-  your way to a clean screenshot.
+- A figure whose printed background doesn't match its container (a
+  white-ground icon in a tinted card, a dark-ground diagram on a light page)
+  is a rendering problem, not a reason to cut it: recolour the background
+  (safe on flat line art — replace the near-white/near-black pixels, keep the
+  strokes), move it where its background belongs, or give it an untinted
+  spot, then re-screenshot. Never delete manual content to get a clean
+  screenshot.
 
 ### 5. Place the assets
 
@@ -355,6 +395,19 @@ section it illustrates.
 
 The PDFs this job converts move from the repo root into the pedal's directory
 (`git mv` if already tracked). Other PDFs in the root belong to other jobs.
+
+Once the figures are final, shrink them for the web:
+
+```
+.claude/skills/pdf-manual-to-html/scripts/optimize_images.py <pedal-dir>
+```
+
+It caps image width, quantises PNGs and recompresses JPEGs in place, gives
+every `<img>` its `width`/`height` and every one below the masthead
+`loading="lazy"`. `style.css` needs `img { height: auto }` so those
+attributes don't stretch a scaled image. It's lossy, so it runs before the
+step 7 screenshots, where a banded gradient or a fuzzed hairline would show;
+re-run it after adding or re-cropping a figure.
 
 ### 6. Add the catalog card
 
@@ -388,17 +441,30 @@ than adding one.
     "file://$PWD/<pedal-dir>/index.html" "$PWD/_cctmp.<slug>/shot/mobile.png" 390
   ```
 
-  Compare the desktop segments against the PDF `pages/`: every section
-  present, figures in the right place, nothing garbled. On mobile the
-  `scrollWidth` line answers horizontal scroll; look only at the first
-  segment (nav gone, mobile TOC shown) and the ones holding wide tables or
-  figure grids.
-- Crop every table and callout out of the desktop shot and set it beside the
-  same block on the page render, at the same scale. Check what a whole-page
-  glance misses: text weight per column, vertical alignment in cells (labels
-  are often centred against multi-line values), a rule above a table with no
-  header row, the rule or dots under each sub-heading.
-- The palette works on both light surroundings and the reversed-out header.
+- Hand the looking to a fresh subagent, the verifier: a full pass is 20–40
+  images, and in the main conversation each would ride along on every
+  remaining request. Give it the page, the segment files, `pages/`, the
+  survey's section → page map and the checks below; it edits nothing and
+  reports each finding as text — section id, segment file, what the page
+  shows, what the PDF shows — plus a line for each section it checked, so a
+  gap in coverage shows.
+  - Desktop segments against the PDF `pages/`: every section present,
+    figures in the right place, nothing garbled.
+  - Mobile: the `scrollWidth` line answers horizontal scroll; look only at
+    the first segment (nav gone, mobile TOC shown) and the ones holding wide
+    tables or figure grids.
+  - Every table and callout cropped out of the desktop shot and set beside
+    the same block on the page render, at the same scale, in a `montage`
+    sheet. Check what a whole-page glance misses: text weight per column,
+    vertical alignment in cells (labels are often centred against multi-line
+    values), a rule above a table with no header row, the rule or dots under
+    each sub-heading.
+  - The palette on both light surroundings and the reversed-out header.
+- Fix what it finds. After a local fix, re-shoot and look at the touched
+  segment yourself; after a change to a shared rule (column width, figure
+  sizing, body type), send a verifier over every segment the rule shows in.
+  The report rests on one last full pass by a fresh verifier over the
+  finished page.
 - Delete your `_cctmp.<slug>/` — only that one; other `_cctmp.*` dirs belong
   to sessions still running.
 
@@ -443,7 +509,12 @@ Actions on push to `master`; source PDFs live in the repo on purpose.
 - `scripts/extract_pdf.sh` — text, images, page renders and font list from a PDF.
 - `scripts/font_usage.py` — which text each embedded face sets, and its CSS
   weight; `extract_pdf.sh` writes its output to `fonts-used.txt`.
+- `scripts/check_tools.sh` — missing tools and the `brew install` line for them.
 - `scripts/sample_colors.py` — dominant colours of an image, as hex.
+- `scripts/screenshot.mjs` — full-page screenshot in segments, plus the page's
+  `scrollWidth`.
+- `scripts/optimize_images.py` — web-sized, recompressed images; `width`,
+  `height` and `loading="lazy"` on every `<img>`.
 - `scripts/check_page.py` — anchor, image and stray-file check on the built page.
 - `references/conventions.md` — repo layout, the full HTML/CSS pattern from the
   reference implementation, the multi-PDF merge recipe, font-mapping table.

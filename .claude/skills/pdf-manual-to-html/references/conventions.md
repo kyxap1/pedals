@@ -100,7 +100,7 @@ Layout rules that make the reference page work:
 | `section + section` | `margin-top: 3em` — keeps sections from running together |
 | `.flow > * + *` | `margin-bottom: 1em` — vertical rhythm without touching every element |
 | `.grid-wrapper` | `column-span: all; display: grid; grid-template-columns: repeat(auto-fit, minmax(12em, 18em))` — figure shots across the section, never upscaled past their native size |
-| `img` | `width: 100%; margin-bottom: 0.75em` |
+| `img` | `width: 100%; height: auto; margin-bottom: 0.75em` — `height: auto` keeps the `width`/`height` attributes `optimize_images.py` adds from stretching the image |
 | `h2` | reversed out: `color: #fff; background: var(--accent); text-transform: uppercase; padding: 0.25em` |
 | `h3` | `text-transform: uppercase; text-decoration: underline` |
 | `#side-nav a` | `color: inherit` — a global `a { color: var(--accent) }` otherwise paints the whole TOC in the accent |
@@ -125,11 +125,9 @@ the manual being converted. Keep the *structure*.
 
 ## Sizing the measure
 
-A section body that inherits the full window sets text 160+ characters wide,
-which is where a page stops being readable — the eye misses the start of the
-next line and re-reads. But the fix is not a fixed `max-width`: that leaves a
-narrow strip of text with a dead gutter beside it, which reads worse than the
-long lines did. The measure has to come *from* the window.
+A section body at full window width sets 160+ characters a line, and the eye
+loses the start of the next one. A fixed `max-width` is no fix: it leaves a
+narrow strip beside a dead gutter. The measure has to come *from* the window:
 
 ```css
 .half-container {
@@ -139,38 +137,39 @@ long lines did. The measure has to come *from* the window.
 .half-container > header { column-span: all; }
 ```
 
-`columns` with both a count and a width is the whole mechanism: the width
-decides how many columns actually fit, the count caps it at two, and the columns
-then stretch to fill whatever is there. The window widens, the columns widen;
-the window narrows past two columns' worth, it becomes one. No breakpoint, no
-fixed strip of text, no empty right-hand half.
+With both a count and a width, `columns` does it all: the width decides how
+many columns fit, the count caps them at two, and they stretch to fill the
+room — one column below ~63rem, no breakpoint, no empty right half. Size the
+column in `rem`, not `em`: an `em` column grows with the body type, so a
+manual set a size up from 16 px stops fitting two columns beside the side nav
+at common desktop widths.
 
-Size the column in `rem`, not `em`. An `em` column grows with the body type,
-so a manual set a size up from 16 px no longer fits two columns beside the
-side nav at common desktop widths, and every section drops to one.
+Multi-column, not a grid: a grid row is as tall as its tallest cell, so one
+long knob description leaves a hole under every short one beside it.
+Multi-column balances the column heights itself.
 
-Multi-column, not a grid: a grid's rows are as tall as their tallest cell, so
-one long knob description leaves a hole under every short one beside it, and
-manual sections are never evenly sized. Multi-column balances the column heights
-itself and lets a long paragraph split across the gutter, which is what keeps
-them even.
+A figure or table lives *inside* its column (`max-width: 100%`), flowing with
+the text, as in print. `column-span: all` is only for what the source itself
+breaks the column for: a multi-image comparison grid, a table that needs every
+column's width to stay legible, the section title. Spanning anything else
+makes the browser balance the columns *before* the span — empty space
+stranded in the shorter column, content stretched past its size. An image or
+table interrupting the text flow in a screenshot, a gap above one, or list
+items pushed into the wrong column mean a stray `column-span: all`: drop it
+and let the figure sit in its column.
 
-Default a figure or table to living *inside* its column — sized to it
-(`max-width: 100%`), flowing with the surrounding text — because that's how it
-sits in the source print layout. Reach for `column-span: all` only when the
-source itself breaks the column for it: a multi-image comparison grid, a table
-wide enough to need every column's width to stay legible, the section title.
-Spanning a single-column-wide figure or a two-column table forces the browser
-to balance the columns *before* the span, which strands empty white space in
-the shorter column, and stretches content that was never meant to be that
-wide. If a screenshot shows an image or table interrupting the text flow, or a
-gap above one, that's this — drop the `column-span: all`.
+**Column breaks.** The balancer splits content wherever it likes, so:
 
-**Controlling Column Breaks & Logical Blocks:**
-- When using multi-column layout, the browser will balance content by splitting it arbitrarily. To prevent related text from breaking in half, you **must wrap logical blocks** (e.g., an `h3` plus its following paragraphs, a FAQ question plus its answer) in a `<div class="keep-together">` wrapper.
-- List items and paragraphs should never split in half. Add `p, li { break-inside: avoid; }` to the stylesheet — a manual's paragraphs run a few lines, and one split across the gutter reads as two fragments. Do *not* restrict the entire `ul` or `ol` though, as long lists should be allowed to flow across multiple columns.
-- Sub-headings should receive `break-after: avoid` so they never sit alone at the foot of a column.
-- Scope `keep-together` narrowly — a heading plus its lead-in line, never a heading + a long list + trailing notes as one block. `break-inside: avoid` makes the whole wrapper indivisible; if it doesn't fit in the shorter sibling column, it jumps whole into the other one and strands the first column empty. Symptom: one column mostly blank, the other crammed with everything past a subheading, even in a section that isn't short overall (that's the separate short-section case below). Fix: keep only the heading+intro in `keep-together`; let the list/notes flow free below it so the balancer can split them normally.
+- Wrap each logical block — an `h3` with its lead-in, a FAQ question with its
+  answer — in `<div class="keep-together">`. Scope it narrowly, heading plus
+  intro, and let lists and notes below flow free: the wrapper is indivisible,
+  and one that doesn't fit the shorter column jumps whole into the other. A
+  section that isn't short yet has one column mostly blank is this.
+- `p, li { break-inside: avoid; }`: a paragraph split across the gutter reads
+  as two fragments. Never on a whole `ul`/`ol` — long lists flow across
+  columns.
+- Sub-headings get `break-after: avoid`, so none sits alone at a column's
+  foot.
 
 ```css
 .keep-together { break-inside: avoid; }
@@ -178,8 +177,9 @@ p, li { break-inside: avoid; }
 h3, h4, h5, h6 { break-after: avoid; }
 ```
 
-**Disabling Columns for Short Sections:**
-If a section contains very little text (e.g., under 10–14 lines like an "About this manual" or "Support" blurb), multi-column balancing will awkwardly split the single paragraph in half or create a tiny isolated column. For these short sections, explicitly disable columns so the text flows naturally at full width:
+**Short sections.** A blurb under ~10–14 lines (an "About this manual" or
+"Support") split into columns leaves a tiny isolated column; its container
+gets `.no-columns` and runs full width:
 
 ```html
 <div class="half-container no-columns">...</div>
@@ -265,10 +265,9 @@ The repo folds them into one page rather than publishing three:
 .table-scroll { overflow-x: auto; }
 ```
 
-*Note on borders:* The baseline pattern uses a fully enclosed grid (`border: 1px solid`).
-Many manuals use cleaner tables without vertical dividers. Check the PDF renders and override
-the `border` properties in the local `style.css` (e.g. keeping only `border-bottom` on rows)
-if the original table is not a fully enclosed grid.
+The baseline is a fully enclosed grid; many manuals rule rows only. Match the
+render — keep only `border-bottom` on rows when the source has no vertical
+dividers.
 
 ## Font mapping (PDF embedded → Google Font)
 
