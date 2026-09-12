@@ -166,6 +166,7 @@ gap above one, that's this — drop the `column-span: all`.
 - When using multi-column layout, the browser will balance content by splitting it arbitrarily. To prevent related text from breaking in half, you **must wrap logical blocks** (e.g., an `h3` plus its following paragraphs, a FAQ question plus its answer) in a `<div class="keep-together">` wrapper.
 - List items should never split in half. Add `li { break-inside: avoid; }` to the stylesheet. Do *not* restrict the entire `ul` or `ol` though, as long lists should be allowed to flow across multiple columns.
 - Sub-headings should receive `break-after: avoid` so they never sit alone at the foot of a column.
+- Scope `keep-together` narrowly — a heading plus its lead-in line, never a heading + a long list + trailing notes as one block. `break-inside: avoid` makes the whole wrapper indivisible; if it doesn't fit in the shorter sibling column, it jumps whole into the other one and strands the first column empty. Symptom: one column mostly blank, the other crammed with everything past a subheading, even in a section that isn't short overall (that's the separate short-section case below). Fix: keep only the heading+intro in `keep-together`; let the list/notes flow free below it so the balancer can split them normally.
 
 ```css
 .keep-together { break-inside: avoid; }

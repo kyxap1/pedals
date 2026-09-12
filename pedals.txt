@@ -5,8 +5,8 @@ BOSS Poly Shifter XS-1
 + Hotone Soul Press II
 + Mooer CAB X2
 Source Audio Collider
-TC Electronic Plethora X1
-TC Electronic Polytune 3
++ TC Electronic Plethora X1
++ TC Electronic Polytune 3
 + TC Electronic Spark Mini Booster
 + Tone City Bad Horse
 + Tone City Matcha Cream

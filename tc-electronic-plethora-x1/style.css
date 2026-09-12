@@ -1,0 +1,281 @@
+/* Fonts: MyriadPro (Regular/Light/Cond/SemiboldCond/BoldCond/Black) -> Source Sans 3 */
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;900&display=swap");
+
+:root {
+  --ink: #231f20;
+  --accent: #3f8dc4;
+  --dark: #4c4a4b;
+  --paper: #f5f5f5;
+}
+
+* {
+  box-sizing: border-box;
+  margin-top: 0;
+}
+
+body {
+  color: var(--ink);
+  font-family: "Source Sans 3", sans-serif;
+  line-height: 1.5;
+  margin: 0;
+  background: #fff;
+}
+
+p, span, li, td, th {
+  font-family: "Source Sans 3", sans-serif;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+main {
+  margin-left: 20vw;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  break-after: avoid;
+}
+
+h2 {
+  font-size: 1.9em;
+  font-weight: 700;
+  color: var(--ink);
+  border-bottom: 3px solid var(--accent);
+  padding-bottom: 0.25em;
+  margin-bottom: 0.75em;
+}
+
+h3 {
+  font-size: 1.2em;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.5em;
+}
+
+h4, h5 {
+  font-weight: 700;
+  margin-bottom: 0.5em;
+}
+
+img {
+  width: 100%;
+  margin-bottom: 0.75em;
+}
+
+ul {
+  list-style-type: square;
+}
+ul li::marker {
+  color: var(--accent);
+}
+
+li {
+  padding-left: 0.25em;
+  break-inside: avoid;
+}
+
+.caption {
+  font-size: 0.85em;
+  color: var(--dark);
+  margin-top: -0.5em;
+  margin-bottom: 1em;
+}
+
+/* --- Masthead --- */
+#masthead {
+  text-align: center;
+  padding: 3em 2em 2em;
+  border-bottom: 1px solid #e2e2e2;
+}
+.brand-logo {
+  width: auto;
+  max-width: 240px;
+  margin: 0 auto 2em;
+}
+#masthead h1 {
+  font-size: 2.75em;
+  font-weight: 900;
+  letter-spacing: 0.01em;
+  margin-bottom: 0.4em;
+}
+.tagline {
+  max-width: 40em;
+  margin: 0 auto 2em;
+  font-size: 1.1em;
+  color: var(--dark);
+}
+.hero-photo {
+  max-width: 320px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* --- Nav --- */
+#side-nav {
+  width: 20vw;
+  background: #fff;
+  border-right: 1px solid #e2e2e2;
+  position: fixed;
+  z-index: 5;
+  height: 100%;
+  overflow-y: auto;
+}
+.nav-container {
+  display: flex;
+  flex-direction: column;
+  margin: 1.5em 0 1.5em 1.5em;
+  padding-right: 1em;
+}
+.nav-container h3 {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.9em;
+  color: var(--dark);
+  margin-bottom: 1em;
+}
+#side-nav a {
+  color: inherit;
+}
+#side-nav h4 {
+  font-weight: 600;
+  font-size: 0.95em;
+  margin-bottom: 0.85em;
+}
+#side-nav h5 {
+  font-weight: 400;
+  font-size: 0.85em;
+  margin: -0.4em 0 0.6em 1em;
+}
+
+/* --- Layout --- */
+.flex-container {
+  display: flex;
+  padding-left: 2em;
+}
+.half-container {
+  width: 100%;
+  padding: 0 1em;
+  columns: 2 30em;
+  column-gap: 3em;
+}
+.half-container > header {
+  column-span: all;
+}
+.no-columns {
+  columns: auto !important;
+}
+section + section {
+  margin-top: 3em;
+}
+.flow > * + * {
+  margin-bottom: 1em;
+}
+.keep-together {
+  break-inside: avoid;
+}
+
+.grid-wrapper {
+  column-span: all;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12em, 18em));
+  gap: 1.5em;
+  margin-bottom: 1em;
+  align-items: start;
+}
+.grid-wrapper img {
+  margin-bottom: 0;
+}
+
+.figure {
+  margin-bottom: 1.5em;
+  break-inside: avoid;
+}
+.figure img {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto 0.5em;
+}
+.figure .caption {
+  text-align: center;
+  margin-top: 0;
+}
+
+/* Numbered callout badge, matches the manual's square-outline numbers */
+.callout-num {
+  display: inline-block;
+  min-width: 1.3em;
+  padding: 0 0.2em;
+  border: 1.5px solid var(--ink);
+  border-radius: 3px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.85em;
+  margin-right: 0.4em;
+}
+
+/* --- Tables --- */
+.doc-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9em;
+}
+.doc-table th, .doc-table td {
+  border: 1px solid #d9d9d9;
+  padding: 0.5em 0.75em;
+  vertical-align: top;
+  text-align: left;
+}
+.doc-table th {
+  background: var(--dark);
+  color: #fff;
+  font-weight: 600;
+}
+.table-scroll {
+  overflow-x: auto;
+  margin-bottom: 1em;
+  break-inside: avoid;
+}
+
+/* --- Callout box (FCC) --- */
+.fcc-box {
+  column-span: all;
+  border: 2px solid var(--ink);
+  border-radius: 6px;
+  padding: 1em 1.5em;
+  max-width: 22em;
+  margin-bottom: 1.5em;
+  font-weight: 700;
+}
+.fcc-box p {
+  margin: 0.2em 0;
+}
+
+/* --- Footer --- */
+footer {
+  margin-left: 20vw;
+  padding: 2em 3em 3em;
+  border-top: 1px solid #e2e2e2;
+  color: var(--dark);
+  font-size: 0.9em;
+}
+footer img {
+  width: auto;
+  max-width: 160px;
+  margin-bottom: 0.5em;
+}
+
+@media (max-width: 900px) {
+  .flex-container { flex-direction: column; padding-left: 0; }
+  .half-container { width: 100%; padding: 0 1em; columns: auto; }
+  nav { display: none; }
+  main, footer { margin: 0 auto; }
+  #toc-mobile { display: block; }
+}
+@media (min-width: 901px) {
+  #toc-mobile { display: none; }
+}
