@@ -317,7 +317,23 @@ what the pedal is, e.g. `Compressor`.
 - Delete your `_cctmp.<slug>/` — only that one; other `_cctmp.*` dirs belong
   to sessions still running.
 
-### 8. Deploy
+### 8. Ask for review, propose skill updates
+
+Don't declare the job done unprompted — show the result and ask the user
+whether it looks right, and wait for their acceptance or corrections.
+
+Once they accept it, look back at what this job actually taught you: a
+masthead proportion worth measuring rather than eyeballing, a same-brand quirk,
+a layout call this manual forced, an extraction edge case you had to work
+around. Write these as concrete, reusable suggestions for updating this skill
+— framed for the *next* PDF, not a log of what you did on this one — and put
+them to the user for review. Some jobs have nothing worth reporting, and
+that's fine — don't manufacture a suggestion to fill the step.
+
+Proposing a change is not permission to make it: only edit `SKILL.md` or
+`references/conventions.md` when the user explicitly says to add it.
+
+### 9. Deploy
 
 Don't commit or push unless the user asks. The repo auto-deploys via GitHub
 Actions on push to `master`; source PDFs live in the repo on purpose.
