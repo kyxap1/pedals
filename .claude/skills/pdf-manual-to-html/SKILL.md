@@ -333,6 +333,11 @@ what the pedal is, e.g. `Compressor`.
   Compare desktop against the PDF `pages/`: every section present, figures in
   the right place, nothing garbled. On mobile: nav gone, mobile TOC shown, no
   horizontal scroll.
+- Crop every table and callout out of the desktop shot and set it beside the
+  same block on the page render, at the same scale. Check what a whole-page
+  glance misses: text weight per column, vertical alignment in cells (labels
+  are often centred against multi-line values), a rule above a table with no
+  header row, the rule or dots under each sub-heading.
 - The palette works on both light surroundings and the reversed-out header.
 - Delete your `_cctmp.<slug>/` — only that one; other `_cctmp.*` dirs belong
   to sessions still running.
