@@ -1,0 +1,307 @@
+/* FONTS
+   Same embedded faces as the RC-5 manual (Boss/Roland's shared leaflet
+   template): MyriadPro-Regular/Semibold/Bold (body) -> Source Sans 3,
+   MyriadPro-BoldCond (section bars) -> Fira Sans Condensed. */
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@400;600&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap");
+
+/* PALETTE — sampled off the reference manual's page */
+:root {
+  --ink: #231f20; /* body text */
+  --navy: #10508c; /* section bars, rules, links */
+  --navy-deep: #0d3867; /* header band */
+  --tint: #dfe5f1; /* panel-description card background */
+  --cond: "Fira Sans Condensed", "Arial Narrow", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin-top: 0;
+}
+
+body {
+  color: var(--ink);
+  font-family: "Source Sans 3", sans-serif;
+  margin: 0;
+}
+p {
+  line-height: 1.55;
+}
+main {
+  margin-left: 20vw;
+  padding-bottom: 3em;
+}
+img {
+  width: 100%;
+  margin-bottom: 0.75em;
+}
+a {
+  text-decoration: none;
+  color: var(--navy);
+}
+a:hover,
+a:active {
+  text-decoration: underline;
+}
+
+/* MASTHEAD: the manual's own blue band, wordmark and BOSS logo cut from it */
+#masthead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5em 2em;
+  background: var(--navy-deep);
+  padding: 1.5em 3em;
+}
+#masthead h1 {
+  display: flex;
+  align-items: center;
+  gap: 1.5em;
+  flex: 1 1 20em;
+  font-size: 1rem; /* neutralise the UA default h1 size so the em values below stay predictable */
+  margin: 0;
+}
+#masthead h1 img {
+  width: auto;
+  height: 3.6em;
+  margin: 0;
+}
+#masthead h1 img:last-child {
+  height: 2em;
+  margin-left: auto;
+}
+#masthead .photo {
+  width: 9em;
+  flex: 0 0 auto;
+  margin: 0;
+}
+
+/* HEADINGS
+   Section: reversed white out of the navy bar, in the condensed face */
+.flow h2 {
+  font-family: var(--cond);
+  font-weight: 600;
+  font-size: 1.7em;
+  color: #fff;
+  background: var(--navy);
+  padding: 0.2em 0.4em;
+  margin: 1.5em 0 0.75em;
+}
+/* Part name inside a Panel Descriptions card */
+.flow h3 {
+  font-weight: 700;
+  font-size: 1.15em;
+  margin: 0 0 0.3em;
+}
+.flow h2,
+.flow h3 {
+  break-after: avoid;
+}
+.flow h2,
+.table-scroll,
+.parts-grid,
+figure.wide {
+  column-span: all;
+}
+.half-container > header + * {
+  margin-top: 0;
+}
+
+/* SIDE NAVIGATION */
+#side-nav {
+  width: 20vw;
+  background: white;
+  position: fixed;
+  z-index: 5;
+  height: 100%;
+  overflow-y: auto;
+  border-right: 1px solid rgba(16, 80, 140, 0.2);
+}
+.nav-container {
+  display: flex;
+  flex-direction: column;
+  margin: 1em 1em 2em;
+}
+.nav-container h3 {
+  margin-bottom: 1.5rem;
+}
+.nav-container h4,
+#toc-mobile h4 {
+  font-size: 1em;
+  font-weight: 700;
+  margin: 0.6em 0 0.2em;
+}
+.nav-container a,
+#toc-mobile a {
+  color: var(--ink);
+}
+#toc-mobile {
+  padding: 0 1em;
+}
+
+/* CONTAINERS */
+.flex-container {
+  display: flex;
+  padding-left: 2em;
+}
+.half-container {
+  padding: 0 1em;
+  width: 100%;
+  columns: 2 30em;
+  column-gap: 3em;
+}
+.half-container > header {
+  column-span: all;
+}
+.no-columns {
+  columns: auto !important;
+}
+.flow p,
+.flow li,
+figure,
+.parts-grid > * {
+  break-inside: avoid;
+}
+section + section {
+  margin-top: 2em;
+}
+.flow > * + * {
+  margin-bottom: 1em;
+}
+
+/* Panel Descriptions: one tinted card per labelled part, no leader lines */
+.parts-grid {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+  gap: 1em;
+  margin-bottom: 1.5em;
+}
+.parts-grid > li {
+  background: var(--tint);
+  border-radius: 6px;
+  padding: 0.8em 1em;
+}
+
+/* Figures */
+figure {
+  margin: 0 0 1em;
+}
+figure img {
+  display: block;
+  margin: 0 auto 0.5em;
+}
+figure figcaption {
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.9em;
+}
+figure.wide img {
+  max-width: 22em;
+}
+.icon-row {
+  column-span: all;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11em, 14em));
+  gap: 1em;
+  justify-content: center;
+  margin: 1em 0;
+}
+.icon-row figure img {
+  max-width: 12em;
+}
+.eq-steps li {
+  margin-bottom: 1.5em;
+}
+.eq-steps figure {
+  max-width: 20em;
+}
+.eq-steps .ast {
+  font-size: 0.9em;
+}
+
+dl.pairs {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.2em 1em;
+  margin: 0.75em 0;
+}
+dl.pairs dt {
+  font-weight: 700;
+}
+dl.pairs dd {
+  margin: 0;
+}
+
+/* "* note" lines hang their asterisk */
+.ast {
+  padding-left: 1em;
+  text-indent: -1em;
+}
+.ast::before {
+  content: "*";
+  display: inline-block;
+  width: 1em;
+  text-indent: 0;
+}
+
+/* REFERENCE TABLE: Main Specifications */
+.table-scroll {
+  overflow-x: auto;
+  margin-bottom: 1.5em;
+}
+.doc-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92em;
+  line-height: 1.4;
+}
+.doc-table th,
+.doc-table td {
+  border: 1px solid var(--navy);
+  padding: 0.4em 0.6em;
+  text-align: left;
+  vertical-align: top;
+}
+.doc-table th {
+  background: var(--navy);
+  color: #fff;
+  font-weight: 600;
+  width: 30%;
+}
+.doc-table small {
+  display: block;
+  font-size: 0.85em;
+  margin-top: 0.3em;
+}
+
+@media (max-width: 900px) {
+  .flex-container {
+    flex-direction: column;
+    padding-left: 0;
+  }
+  .half-container {
+    width: 100%;
+    padding: 0;
+  }
+  nav#side-nav {
+    display: none;
+  }
+  main {
+    margin: 0 auto;
+    padding: 0 1em 3em;
+  }
+  #masthead {
+    padding: 1.25em 1.5em;
+  }
+  #toc-mobile {
+    display: block;
+    padding: 0 0 1em;
+  }
+}
+
+@media (min-width: 901px) {
+  #toc-mobile {
+    display: none;
+  }
+}
