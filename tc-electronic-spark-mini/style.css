@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap");
 
 :root {
   --ink: #292829;
@@ -50,6 +50,7 @@ h4, h5 {
 
 img {
   width: 100%;
+  height: auto;
   margin-bottom: 0.75em;
 }
 
@@ -75,12 +76,51 @@ a:hover {
   position: fixed;
   z-index: 5;
   height: 100%;
+  overflow-y: auto;
+  border-right: 1px solid #e7e4de;
 }
 
 .nav-container {
   display: flex;
   flex-direction: column;
-  margin: 1em 0 0 1em;
+}
+
+.nav-container h3 {
+  margin: 0;
+  padding: 1.5em 1em 0.75em;
+  border-bottom: 2px solid var(--accent);
+}
+
+.nav-container h4,
+#toc-mobile h4 {
+  text-transform: none;
+  font-size: 0.95em;
+  font-weight: 700;
+  margin: 0;
+  padding: 0.7em 1em;
+  border-left: 3px solid transparent;
+}
+
+.nav-container h4:nth-of-type(even),
+#toc-mobile h4:nth-of-type(even) {
+  background: #f3f1ec;
+}
+
+.nav-container h4 a,
+#toc-mobile h4 a {
+  display: block;
+  color: var(--ink);
+}
+
+.nav-container h4:hover,
+#toc-mobile h4:hover {
+  border-left-color: var(--accent);
+}
+
+.nav-container h4 a:hover,
+#toc-mobile h4 a:hover {
+  color: var(--accent);
+  text-decoration: none;
 }
 
 .flex-container {
@@ -159,6 +199,56 @@ li {
 
 h1, h2, h3, h4, h5, h6 {
   break-after: avoid;
+}
+
+.tc-masthead {
+  display: flex;
+  align-items: stretch;
+  background: #fff;
+}
+
+.tc-masthead-main {
+  flex: 0 0 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.tc-logo {
+  width: 220px;
+  max-width: 100%;
+}
+
+.tc-photo {
+  width: auto;
+  max-height: 380px;
+  margin-bottom: 0;
+}
+
+.tc-masthead-title {
+  color: var(--ink);
+  font-size: 3.5em;
+  font-weight: 900;
+  text-transform: none;
+  letter-spacing: 0.01em;
+  text-align: center;
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .tc-masthead {
+    flex-direction: column;
+  }
+  .tc-masthead-main {
+    flex-basis: auto;
+    margin: 0 auto;
+  }
+  .tc-masthead-title {
+    font-size: 2.5em;
+  }
 }
 
 .no-columns {
