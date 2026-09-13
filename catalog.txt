@@ -6,6 +6,7 @@
 + Mooer CAB X2
 + NUX Atlantic
 + NUX NMP-2 Dual Footswitch
++ Old Blood Noise Endeavors MTET
 + Pirate MIDI Bridge4
 + Radial ProRMP Reamper
 + Source Audio Collider

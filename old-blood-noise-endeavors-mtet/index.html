@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Old Blood Noise Endeavors MTET</title>
+  </head>
+  <body>
+    <nav id="side-nav">
+      <header>
+        <div class="nav-container">
+          <h3>Contents</h3>
+          <h4><a href="#intro">Introduction</a></h4>
+          <h4><a href="#message-system">Message System</a></h4>
+          <h4><a href="#expression-setup">Expression Setup</a></h4>
+          <h4><a href="#faq">FAQ and Troubleshooting</a></h4>
+          <h4><a href="#midi-table">MIDI Command Table</a></h4>
+          <h4><a href="#user-notes">User Notes</a></h4>
+        </div>
+      </header>
+    </nav>
+    <main id="main-doc">
+      <div id="masthead">
+        <div class="flex-container">
+          <div class="half-container no-columns masthead-content">
+            <h1 class="masthead-title">MIDI TO<br>EXPRESSION<br>TRANSLATOR</h1>
+            <div class="figure-center">
+              <img src="Images/colored-dots.png" alt="" width="584" height="111" />
+            </div>
+            <div class="figure-center">
+              <img src="Images/wordmark.png" alt="OBNE MTET" width="700" height="684" />
+            </div>
+            <div class="figure-center">
+              <img src="Images/colored-dots.png" alt="" width="584" height="111" />
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+              <img src="Images/obne-logo.png" alt="OBNE" style="width: 100px; height: auto;" width="243" height="137" />
+              <div class="masthead-subtitle">OLD BLOOD<br>NOISE ENDEAVORS</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <section>
+        <div class="flex-container">
+          <div class="half-container flow">
+            <header><h2 id="intro">Introduction</h2></header>
+            <p style="text-align: right;"><i>Language is hard: let’s start at the start.<br>
+            Communication is complex, beautiful, a real thorn in our sides.<br>
+            Many languages, dialects, standards<br>
+            Some similar, some vastly different.<br>
+            A linear sweep, a barrage of bits.</i></p>
+            
+            <p style="text-align: right;"><i>Music, of course, is meant to be the universal language, but our devices don’t see it that way. One could argue even we don’t see it that way—tonal and microtonal, East+West, free jazz and bubblegum pop.<br>
+            But we’re not here to argue.<br>
+            We’re here to blame the devices.</i></p>
+            
+            <p>The <strong>MIDI To Expression Translator (MTET)</strong> does exactly what it says on the tin. It receives MIDI messages from external MIDI devices and uses those MIDI messages to create four separate Expression outputs for use with external expression-enabled devices.</p>
+          </div>
+          <div id="toc-mobile" class="half-container">
+            <h2>Contents</h2>
+            <h4><a href="#intro">Introduction</a></h4>
+            <h4><a href="#message-system">Message System</a></h4>
+            <h4><a href="#expression-setup">Expression Setup</a></h4>
+            <h4><a href="#faq">FAQ and Troubleshooting</a></h4>
+            <h4><a href="#midi-table">MIDI Command Table</a></h4>
+            <h4><a href="#user-notes">User Notes</a></h4>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="flex-container">
+          <div class="half-container flow">
+            <header><h2 id="message-system">Message System</h2></header>
+            <p>The message system is as follows:</p>
+            <p>From the factory, MTET is set to MIDI Channel 1. It will ignore messages sent on other channels.</p>
+            <p>To assign the value of an Expression out, CC messages are used. A CC message uses two values: the first should match the Expression out (1-4), and the second assigns a value from 0-127. You can use this to snap to a particular value or sweep through values continuously. It’s all up to your MIDI controller and what you tell it to do.</p>
+            <p>While MIDI messages range in value from 0-127, the expression outs can range in value from 0-255. In most cases, you will not need the extra bit of resolution, as sending values 0-127 will create values 0-255 by moving two at a time and ensuring minimum and maximum at 0 and 127.</p>
+            
+            <div class="keep-together">
+              <p>However, if something needs to be adjusted slightly, a <strong>Least Significant Bit CC</strong> can be used:</p>
+              <p>CC 11-14 will accept values of 0 or 1 to fine-tune the value of CC 1-4 (Expression Out 1-4).</p>
+              <p>For example:<br>
+              CC 1 100 followed by CC 11 0 creates a value of 200 (100 * 2 + 0).<br>
+              CC 1 100 CC 11 1 creates a value of 201 (100 * 2 + 1).</p>
+            </div>
+            
+            <div class="figure-center">
+              <img src="Images/midi-din-1.png" alt="" width="488" height="200" loading="lazy" />
+            </div>
+            
+            <p><strong>There is one special CC message: CC 100.</strong></p>
+            
+            <div class="figure-center">
+              <img src="Images/midi-din-2.png" alt="" width="500" height="200" loading="lazy" />
+            </div>
+            
+            <p>This is used to change MTET’s MIDI Channel. Using CC 100, use any value from 1-16 to assign MTET’s new channel. For example:</p>
+            <p>If MTET is currently on channel 1, sending CC 100 5 on channel 1 will reassign it to channel 5. It will then only pay attention to messages on channel 5. To set it back to 1, send CC 100 1 on channel 5.</p>
+            
+            <p>Upon successful reassignment, MTET will blink the EXP 1-4 LEDs.</p>
+            
+            <div class="figure-center">
+              <img src="Images/leds.png" alt="Orange, Yellow, Green, Blue LEDs" width="700" height="200" loading="lazy" />
+            </div>
+            
+            <p>The number of blinks indicates the new channel. This blinking also happens on startup, so if you ever forget what channel MTET is on, simply unplug the power, plug it back in, wait a couple seconds, then count the number of LED blinks.</p>
+            
+            <p>MIDI, thankfully, is a communication standard. MTET is configured to communicate with other devices using this standard. Expression, regretfully, is not so standardized. MTET’s primary purpose is to interface with Old Blood Noise Endeavors pedals and serve as a communicator between them and a MIDI controller.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="flex-container">
+          <div class="half-container flow">
+            <header><h2 id="expression-setup">Expression Setup</h2></header>
+            <p>However, it will work with many other units that use the same expression setup as OBNE. MTET uses a 50k digital pot, wired for TRS connection with the tip active (connected to the wiper). It is assumed the external expression-enabled unit will apply ground to the Sleeve and reference voltage to the Ring.</p>
+            
+            <div class="keep-together">
+              <p>Finally, there is one more feature:<br>
+              <strong>THRU</strong></p>
+              
+              <div class="figure-center">
+                <img src="Images/midi-thru.png" alt="MIDI THRU jack" width="500" height="300" loading="lazy" />
+              </div>
+              
+              <p><strong>MIDI THRU jack.</strong><br>
+              This is used to send copies of incoming messages back out through another MIDI cable, in order to daisy chain with other MIDI devices.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="flex-container">
+          <div class="half-container flow">
+            <header>
+              <div class="figure-center">
+                <img src="Images/mtet-logo-header.png" alt="MTET" width="500" height="363" loading="lazy" />
+              </div>
+              <h2 id="faq">FAQ and Troubleshooting</h2>
+            </header>
+            
+            <div class="keep-together">
+              <h3><em>Why isn’t MTET working with a particular pedal?</em></h3>
+              <p>Check the manual for your pedal - does its expression setup match the OBNE setup? Then check your TRS cable - it’s incredible how often these fail! When in doubt, reach out to us through our website.</p>
+            </div>
+
+            <div class="keep-together">
+              <h3><img src="Images/power-icon.png" alt="9v 50mA center negative" style="width: 2em; height: auto; vertical-align: middle; margin-right: 0.5em; margin-bottom: 0;" width="529" height="177" loading="lazy" /><em>Nothing seems to be happening?</em></h3>
+              <p>First, check the power LED. MTET requires 50mA of 9v center negative power, and the power LED will show that power is flowing.</p>
+              <p>Then, check the MIDI-In LED. When you send MIDI messages, does MIDI-In light up? If it does not light, check your MIDI cables and connections, and ensure you are sending messages to MTET. If it does light, it is receiving messages.</p>
+              <p>Now, CC messages 1-4 should light up their corresponding LEDs. If not, double check your MIDI channel. Remove power from MTET, then plug power back in, then count the number of EXP 1-4 LED blinks on startup (the blinks will begin a few seconds after power-up). This represents MTET’s current MIDI channel. Make sure the device sending MIDI messages to MTET is sending those messages on the correct channel.</p>
+            </div>
+            
+            <div class="keep-together">
+              <h3><em>Does this output CV?</em></h3>
+              <p>No. Control voltage is a voltage sent on a TS cable from the control device. Expression is a potentiometer in the control device connected to a TRS cable which expects voltage to exist on the other side.</p>
+            </div>
+            
+            <div class="keep-together">
+              <h3><em>So this turns expression pedals into MIDI signals?</em></h3>
+              <p>No. There are other cool devices that do that. This does it the other way around, MIDI input translated to expression output.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="flex-container">
+          <div class="half-container no-columns flow">
+            <header><h3 id="midi-table" class="table-heading">MIDI COMMAND TABLE</h3></header>
+            
+            <div class="table-scroll">
+              <table class="doc-table">
+                <thead>
+                  <tr>
+                    <th>Function</th>
+                    <th>CC Value</th>
+                    <th>Range</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Expression 1 MSB</td><td>1</td><td>0-127</td></tr>
+                  <tr><td>Expression 1 LSB</td><td>11</td><td>0-1</td></tr>
+                  <tr><td>Expression 2 MSB</td><td>2</td><td>0-127</td></tr>
+                  <tr><td>Expression 2 LSB</td><td>12</td><td>0-1</td></tr>
+                  <tr><td>Expression 3 MSB</td><td>3</td><td>0-127</td></tr>
+                  <tr><td>Expression 3 LSB</td><td>13</td><td>0-1</td></tr>
+                  <tr><td>Expression 4 MSB</td><td>4</td><td>0-127</td></tr>
+                  <tr><td>Expression 4 LSB</td><td>14</td><td>0-1</td></tr>
+                  <tr><td>MIDI Channel Assignment</td><td>100</td><td>1-16</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p style="text-align: center; margin-top: 2em;">MTET requires 50mA center-negative 9v power.</p>
+            <p style="text-align: center;">Come find us. We are everywhere.<br>oldbloodnoise.com &nbsp;<img src="Images/obne-logo.png" style="height:1em; width:auto; vertical-align:middle;" alt="" width="243" height="137" loading="lazy"> 2023</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="flex-container">
+          <div class="half-container no-columns flow">
+            <header><h3 id="user-notes">MTET USER NOTES</h3></header>
+            <hr class="notes-line"><hr class="notes-line"><hr class="notes-line"><hr class="notes-line"><hr class="notes-line">
+            <div class="figure-center" style="justify-content: flex-end;">
+              <img src="Images/obne-logo.png" alt="OBNE" width="243" height="137" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
