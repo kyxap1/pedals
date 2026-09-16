@@ -45,22 +45,28 @@
       <div id="masthead">
         <div class="flex-container">
           <div class="half-container no-columns">
-             <h1><img src="Images/pm-logo.png" alt="PM" style="height: 1em; vertical-align: baseline; margin-right: 0.2em; filter: invert(1);" width="296" height="144"> <span>PIRATE MIDI BRIDGE4</span></h1>
-             <p style="font-size: 1.2em; text-transform: uppercase; letter-spacing: 2px;">User Manual</p>
-             <img class="full-width-img" src="Images/header.jpg" alt="Pirate MIDI Bridge4" width="800" height="1187" />
+            <img class="full-width-img" src="Images/header.jpg" alt="Pirate MIDI Bridge4" width="800" height="1187" />
+            <div class="masthead-mark">
+              <img src="Images/pm-logo.png" alt="Pirate MIDI" width="296" height="144" />
+              <span>Think less. Create more.</span>
+            </div>
+            <div class="masthead-title">
+              <h1>Bridge4</h1>
+              <p>MIDI Controller<br>User Manual (v2.1.5)</p>
+            </div>
           </div>
         </div>
       </div>
 
       <section class="welcome-section">
-        <div class="content-wrapper">
-          <div class="flow">
+        <div class="flex-container">
+          <div class="half-container flow">
             <header><h2 id="welcome">Welcome</h2></header>
             <p><strong>This device was created and designed to empower your creativity.</strong></p>
             <p>It is the result of many long nights and early mornings. It is born from the desire to bridge the gap between musician and instrument, and we want to say a huge thank you for your support. Our brand is built around a strong community and we hope you love your new MIDI controller as much as we do.</p>
             <p>The PIRATE MIDI Team</p>
           </div>
-          <div id="toc-mobile" class="flow">
+          <div id="toc-mobile" class="half-container">
             <h2>Contents</h2>
             <h4><a href="#welcome">Welcome</a></h4>
             <h4><a href="#overview">Bridge4 Overview</a></h4>
@@ -94,10 +100,15 @@
       </section>
 
       <section>
-        <div class="flow">
+        <div class="flex-container">
+          <div class="half-container flow">
             <header><h2 id="overview">Bridge4 Overview</h2></header>
             <p>The Bridge4 is a 4-switch MIDI foot controller with RGB LEDs, an OLED screen, and a super tough aluminium enclosure. It’s made in New South Wales, Australia and was the result of a successful Kickstarter campaign in 2020. Now PIRATE MIDI builds and sells MIDI devices all over the world.</p>
-            <p>The Bridge4 can send stacks of MIDI messages through different footswitch press types (Press, Hold, Double-Press etc.) with 100 different bank of switches to scroll through. This means that the 400+ MIDI messages on each bank can be individually assigned across the whole device for a total over more than 40,000 unique messages and controls.</p>
+
+            <div style="text-align: center; margin: 1em 0;">
+                <img class="full-width-img" src="Images/overview-photo.jpg" alt="Bridge4 MIDI controller" loading="lazy" width="1422" height="1184" />
+            </div>
+            <p>The Bridge4 can send stacks of MIDI messages through different footswitch press types (Press, Hold, Double-Press etc.) with 100 different bank of switches to scroll through. This means that the 400+ MIDI messages on each bank can be individually assigned across the whole device for a total of more than 40,000 unique messages and controls.</p>
             <p>To help you connect to a wide variety of music gear, we’ve included two Flexiports of our own design. These ¼” (6.35mm) TRS jacks can be set to whatever mode best suits your setup. From expression pedals to beat sync pulse to switch emulation, you can use this MIDI controller to control devices that don’t even have MIDI!</p>
             <p>With all settings available to easily edit using the onboard display and menus as well as with the web editor, we hope you’ll agree that this is perfect for performing live or playing at home.</p>
           </div>
@@ -105,40 +116,41 @@
       </section>
 
       <section>
-        <div class="flow">
+        <div class="flex-container">
+          <div class="half-container flow">
             <header><h2 id="tech-info">Technical Information</h2></header>
             
             <div class="keep-together">
               <h3 class="tech-info-h3">Dimensions</h3>
-              <p>Metric (112x94x63 mm)<br>Imperial (4.4”x 3.7”x 2.5”)</p>
             </div>
+            <p>Metric (112x94x63 mm)<br>Imperial (4.4”x 3.7”x 2.5”)</p>
 
             <div class="keep-together">
               <h3 class="tech-info-h3">Weight</h3>
-              <p>Metric (335g)<br>Imperial (11.8v oz.)</p>
             </div>
+            <p>Metric (335g)<br>Imperial (11.8 oz.)</p>
 
             <div class="keep-together">
               <h3 class="tech-info-h3">Display</h3>
-              <p>OLED (3.2”)</p>
             </div>
+            <p>OLED (3.2”)</p>
 
             <div class="keep-together">
               <h3 class="tech-info-h3">Power Requirement</h3>
-              <p>9v DC or USB (200mA)</p>
             </div>
+            <p>9v DC or USB (200mA)</p>
 
             <div class="keep-together">
               <h3 class="tech-info-h3">Box Contents</h3>
-              <ul>
+            </div>
+            <ul>
                 <li>1x Bridge4 MIDI Foot Controller</li>
                 <li>1x USB Cable</li>
                 <li>4x Self-Adhesive Rubber Feet</li>
               </ul>
-            </div>
 
             <div class="callout">
-              <img src="Images/qr-code.png" alt="QR Code" style="float: right; width: 100px; margin-left: 1em;" width="150" height="150" loading="lazy" />
+              <img src="Images/qr-code.png" alt="QR Code" style="float: right; width: 100px; margin-left: 1em;" loading="lazy" width="150" height="150" />
               <p><strong>LINKS TO DOWNLOADS:</strong><br><a href="https://learn.piratemidi.com">https://learn.piratemidi.com</a></p>
               <p>It’s important that firmware updates are installed when they are available. Old firmware may not be supported by the web editor.</p>
               <p>Firmware updates are released frequently and offer new features, bug fixes and other improvements.</p>
@@ -151,79 +163,93 @@
       </section>
 
       <section>
-        <div class="flow">
+        <div class="flex-container">
+          <div class="half-container flow">
             <header><h2 id="hardware-layout">Hardware Layout</h2></header>
             
-            <img class="full-width-img" src="Images/hardware-layout-1.png" alt="Bridge4 Top Panel Layout" width="2125" height="2316" loading="lazy" />
-            <div class="keep-together">
-              <h3>1</h3>
-              <p>4 soft-touch footswitches. No clicking. Work with multiple press types (double-press, hold, etc).</p>
-            </div>
+            <div class="hw-grid">
+              <div>
+                <img class="full-width-img" src="Images/hardware-layout-1.png" alt="Bridge4 Top Panel Layout" loading="lazy" width="2125" height="1650" />
+                <div class="hardware-item keep-together">
+                  <h3 class="hw-num">1</h3>
+                  <p>4 soft-touch footswitches. No clicking. Work with multiple press types (double-press, hold, etc).</p>
+                </div>
 
-            <div class="keep-together">
-              <h3>2</h3>
-              <p>Heavy-duty aluminium enclosure with black anodising. Scratch-resistant and no flex.</p>
-            </div>
+                <div class="hardware-item keep-together">
+                  <h3 class="hw-num">2</h3>
+                  <p>Heavy-duty aluminium enclosure with black anodising. Scratch-resistant and no flex.</p>
+                </div>
 
-            <div class="keep-together">
-              <h3>3</h3>
-              <p>Bright, crisp, and easy to read OLED graphical display. Menus, icons, scribble strips are all a breeze on this beautiful display</p>
-            </div>
+                <div class="hardware-item keep-together">
+                  <h3 class="hw-num">3</h3>
+                  <p>Bright, crisp, and easy to read OLED graphical display. Menus, icons, scribble strips are all a breeze on this beautiful display</p>
+                </div>
 
-            <div class="keep-together">
-              <h3>4</h3>
-              <p>8 RGB LEDs which you can assign to any colour you like for any function you like. Flashing, solid, dim etc.</p>
-            </div>
+                <div class="hardware-item keep-together">
+                  <h3 class="hw-num">4</h3>
+                  <p>8 RGB LEDs which you can assign to any colour you like for any function you like. Flashing, solid, dim etc.</p>
+                </div>
+              </div>
+              <div>
+                <img class="full-width-img" src="Images/hardware-layout-2.png" alt="Bridge4 Rear Panel Layout" loading="lazy" width="2070" height="1350" />
 
-            <img class="full-width-img" src="Images/hardware-layout-2.png" alt="Bridge4 Rear Panel Layout" width="2070" height="2677" loading="lazy" />
+                <div class="hardware-item keep-together">
+                  <h3 class="hw-num">5</h3>
+                  <p>USB type C for USB MIDI, using the web editor, and powering the device.</p>
+                </div>
 
-            <div class="keep-together">
-              <h3>5</h3>
-              <p>USB type C for USB MIDI, using the web editor, and powering the device.</p>
-            </div>
+                <div class="hardware-item keep-together">
+                  <h3 class="hw-num">6</h3>
+                  <p>Flexiports 1 and 2. Multi-function ¼” (6.35mm) TRS jacks which can be used in a number of different modes.</p>
+                </div>
 
-            <div class="keep-together">
-              <h3>6</h3>
-              <p>Flexiports 1 and 2. Multi-function ¼” (6.35mm) TRS jacks which can be used in a number of different modes.</p>
-            </div>
+                <div class="hardware-item keep-together">
+                  <h3 class="hw-num">7</h3>
+                  <p>Dedicated 3.5mm TRS MIDI Out conforming to the MIDI.org specification (Type A).</p>
+                </div>
 
-            <div class="keep-together">
-              <h3>7</h3>
-              <p>Dedicated 3.5mm TRS MIDI Out conforming to the MIDI.org specification (Type A).</p>
-            </div>
+                <div class="hardware-item keep-together">
+                  <h3 class="hw-num">8</h3>
+                  <p>Dedicated 3.5mm TRS MIDI In conforming to the MIDI.org specification (Type A).</p>
+                </div>
 
-            <div class="keep-together">
-              <h3>8</h3>
-              <p>Dedicated 3.5mm TRS MIDI In conforming to the MIDI.org specification (Type A).</p>
-            </div>
-
-            <div class="keep-together">
-              <h3>9</h3>
-              <p>2.1mm 9v DC barrel jack - as standard on most effects pedals and power supplies.</p>
+                <div class="hardware-item keep-together">
+                  <h3 class="hw-num">9</h3>
+                  <p>2.1mm 9v DC barrel jack - as standard on most effects pedals and power supplies.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       <section>
-        <div class="flow">
+        <div class="flex-container">
+          <div class="half-container flow">
             <header><h2 id="quick-start">Quick Start</h2></header>
 
             <h3>1. Bank Up/Down</h3>
             <p>To go to the next bank, press switch 3 and switch 4 together.<br>
             To go to the previous bank, press switch 1 and switch 2 together.<br>
-            These can be customised or turned off (See chapter 18).</p>
+            These can be customised or turned off (See <a href="#bank-navigation">chapter 18</a>).</p>
 
             <h3>2. Entering the Menu</h3>
             <p>To enter the onboard menu, hold switch 1 and switch 3 simultaneously.<br>
             All settings can be changed with onboard menus as well as the editor.<br>
             Hold switches 3 & 4 to exit the menu.</p>
 
+            <div style="text-align: center; margin: 1em 0;">
+                <img class="full-width-img" src="Images/qs-screen-lfo.png" alt="Menu screen with a second page of settings" loading="lazy" width="1030" height="780" />
+            </div>
+
             <h3>3. Don’t Miss the Rest!</h3>
             <p>Many menus and settings have a second or third page of settings. Always make sure you haven’t missed vital settings by scrolling to the right using switch 4 until you get back to the first position.</p>
             
-            <p>Move Left - FS3  |  Exit/Back - FS 3&4  |  Move Right - FS4</p>
-            <p>Down/Decr. - FS1  |  Save/Edit - FS1&2  |  Up/Incr. - FS2</p>
+            <figure class="screen-nav">
+              <p class="screen-labels"><span><span class="nw">Move Left</span> <span class="nw">- FS3</span></span><span><span class="nw">Exit/Back</span> <span class="nw">- FS&nbsp;3&amp;4</span></span><span><span class="nw">Move Right</span> <span class="nw">- FS4</span></span></p>
+              <img class="full-width-img" src="Images/qs-screen-nav.png" alt="Menu screen navigation" loading="lazy" width="1793" height="485" />
+              <p class="screen-labels"><span><span class="nw">Down/Decr.</span> <span class="nw">- FS1</span></span><span><span class="nw">Save/Edit</span> <span class="nw">- FS1&amp;2</span></span><span><span class="nw">Up/Incr.</span> <span class="nw">- FS2</span></span></p>
+            </figure>
 
             <h3>4. General Navigation</h3>
             <ul>
@@ -234,19 +260,19 @@
             </ul>
 
             <h3>Check the MIDI outputs</h3>
-            <p>When you create a message, make sure you scroll across to the second/third screen to check that the message is being sent to the correct MIDI outputs (Flexiport 1, Flexiport 2, TRS, or USB). All outputs are on by default, but if you’re having trouble sending messages, you should check the outputs. Read more in chapter 8.</p>
+            <p>When you create a message, make sure you scroll across to the second/third screen to check that the message is being sent to the correct MIDI outputs (Flexiport 1, Flexiport 2, TRS, or USB). All outputs are on by default, but if you’re having trouble sending messages, you should check the outputs. Read more in <a href="#message-stacks">chapter 8</a>.</p>
 
             <h3>Set Flexiport Mode Before Using Flexiports</h3>
             <p>Before you plug something into a Flexiport, make sure you set the Flexiport mode in</p>
-            <p>Menu > Global > Flexiports > Flexiport ‘x’ > Mode</p>
+            <p><span class="menu-path">Menu > Global > Flexiports > Flexiport ‘x’ > Mode</span></p>
             <p>You won’t get the function you want unless you set the Flexiport mode. There is no mode set to the Flexiports by default - you must always set the mode.</p>
 
             <h3>Set Banking Program Change Outputs</h3>
             <p>By default, the BRIDGE will send Program Change (PC) MIDI messages out all 4 MIDI outputs when you change the bank (corresponding to the BRIDGE bank number). If you want to turn some/all outputs off, or change the MIDI channel that the PC are sent on, go to:<br>
-            “Menu > Global > MIDI > Banking PC Outputs”</p>
+            <span class="menu-path">Menu > Global > MIDI > Banking PC Outputs</span></p>
 
             <h3>Switch Groups & Broadcast/Response Settings</h3>
-            <p>When modifying switch group settings, the broadcast/response settings may seem overwhelming. If you leave the defaults unedited, the switch will behave in a simple “exclusive” mode where only one switch will be on at a time. If you want to learn what these powerful settings are capable of, read more in chapter 13.</p>
+            <p>When modifying switch group settings, the broadcast/response settings may seem overwhelming. If you leave the defaults unedited, the switch will behave in a simple “exclusive” mode where only one switch will be on at a time. If you want to learn what these powerful settings are capable of, read more in <a href="#switch-groups">chapter 13</a>.</p>
 
             <div class="callout">
               <p><strong>Check that your BRIDGE4 firmware is up to date.</strong><br>
@@ -255,7 +281,7 @@
             </div>
 
             <div class="warning-center" style="border-color: var(--accent); padding: 2em;">
-              <img src="Images/warning-coffee.png" alt="Coffee Cup" style="display: block; margin: 0 auto 1em; max-width: 50px;" width="192" height="192" loading="lazy" />
+              <img src="Images/warning-coffee.png" alt="Coffee Cup" style="display: block; margin: 0 auto 1em; max-width: 50px;" loading="lazy" width="192" height="192" />
               <p><strong>Warning: technical documentation enclosed.<br>Coffee required.</strong></p>
             </div>
           </div>
@@ -263,7 +289,8 @@
       </section>
 
       <section>
-        <div class="flow">
+        <div class="flex-container">
+          <div class="half-container flow">
             <header><h2 id="device-interface">1. Device Interface</h2></header>
 
             <h3>Footswitches</h3>
@@ -296,11 +323,16 @@
       </section>
 
       <section>
-        <div class="flow">
+        <div class="flex-container">
+          <div class="half-container flow">
             <header><h2 id="power-navigation">2. Power & Navigation</h2></header>
 
             <h3>Powering Your Bridge4</h3>
             <p>You can power your Bridge4 with either a USB cable, or a centre-negative 9v DC jack (2.1mm) commonly used for guitar pedals.</p>
+
+            <div style="text-align: center; margin: 1em 0;">
+                <img class="full-width-img" src="Images/power-icons.png" alt="Centre-negative DC power and USB power symbols" loading="lazy" width="1898" height="95" />
+            </div>
 
             <h3>Switching Power Sources</h3>
             <p>The Bridge4 uses smart power switching so you can have both plugged in at once, and if you need to remove one or the other, the unit will seamlessly switch power sources without shutting down or restarting.</p>
@@ -312,16 +344,16 @@
 
             <h3>Basic Navigation</h3>
             <h4>Bank Up & Bank Down</h4>
-            <p>As indicated by the arrows at the bottom of the OLED screen, pressing switches 3 & 4 at the same time will advance to the next bank (Bank Up) and pressing switches 1 & 2 at the same time will go to the previous bank (Bank Down). This is indicated by the two arrows displayed on the screen (visible on below diagram). Holding down the bank change triggers will result in an automatic scroll through the banks. Bank scrolling accellerates the longer you hold the switches.</p>
+            <p>As indicated by the arrows at the bottom of the OLED screen, pressing switches 3 & 4 at the same time will advance to the next bank (Bank Up) and pressing switches 1 & 2 at the same time will go to the previous bank (Bank Down). This is indicated by the two arrows displayed on the screen (visible on below diagram). Holding down the bank change triggers will result in an automatic scroll through the banks. Bank scrolling accelerates the longer you hold the switches.</p>
             <div style="text-align: center; margin: 1em 0;">
-                <img class="full-width-img" src="Images/bank-up-down.png" alt="Bank Up Down Layout" width="2122" height="869" loading="lazy" />
+                <img class="full-width-img" src="Images/bank-up-down.png" alt="Bank Up Down Layout" loading="lazy" width="858" height="650" />
             </div>
             <p>There are 100 banks (1-100). Banking up from bank 100 will return you to bank 1. Banking down from bank 1 will send you to bank 100. Banks can be counted from 0-99 or 1-100 using the global interface settings.</p>
 
             <h4>Opening the Menu</h4>
             <p>To enter the menu, press and hold down switches 1 & 3 simultaneously (as pictured below). You will know you’ve entered the menu when the screen layout changes.</p>
             <div style="text-align: center; margin: 1em 0;">
-                <img class="full-width-img" src="Images/menu-entry.png" alt="Menu Screen Layout" width="2124" height="877" loading="lazy" />
+                <img class="full-width-img" src="Images/menu-entry.png" alt="Menu Screen Layout" loading="lazy" width="858" height="650" />
             </div>
             <ul>
               <li>Press switch 1 or switch 2 to navigate the menu (note the arrows on screen).</li>
@@ -342,35 +374,37 @@
       </section>
 
       <section>
-        <div class="flow">
+        <div class="flex-container">
+          <div class="half-container flow">
             <header><h2 id="overview-connectors">3. Overview of Connectors</h2></header>
 
-            <img class="full-width-img" src="Images/connectors.jpg" alt="Connectors" width="1256" height="598" loading="lazy" />
+            <img class="full-width-img" src="Images/connectors.jpg" alt="Connectors" loading="lazy" width="1256" height="598" />
 
             <div class="keep-together">
               <h3>USB (type-C)</h3>
-              <p>The Bridge4 can be powered by USB, and is also a class-compliant USB MIDI device. This means it will be recognised as a MIDI device without any drivers. Use it with your DAW, plugins, or music apps.</p>
             </div>
+            <p>The Bridge4 can be powered by USB, and is also a class-compliant USB MIDI device. This means it will be recognised as a MIDI device without any drivers. Use it with your DAW, plugins, or music apps.</p>
 
             <div class="keep-together">
               <h3>TRS MIDI In</h3>
-              <p>A 3.5mm TRS Jack designated as a dedicated MIDI input. This Input conforms to the MIDI Specification (Type A).</p>
             </div>
+            <p>A 3.5mm TRS Jack designated as a dedicated MIDI input. This Input conforms to the MIDI Specification (Type A).</p>
 
             <div class="keep-together">
               <h3>TRS MIDI Out</h3>
-              <p>A 3.5mm TRS Jack designated as a dedicated MIDI output. This Output conforms to the MIDI Specification (Type A) and can power CME WIDI products.</p>
             </div>
+            <p>A 3.5mm TRS Jack designated as a dedicated MIDI output. This Output conforms to the MIDI Specification (Type A) and can power CME WIDI products.</p>
 
             <div class="keep-together">
               <h3>9v DC (centre-negative)</h3>
-              <p>A 2.1mm centre-negative barrel jack (common with standard guitar pedal power supplies). Requires 200mA.</p>
             </div>
+            <p>A 2.1mm centre-negative barrel jack (common with standard guitar pedal power supplies). Requires 200mA.</p>
 
             <div class="keep-together">
               <h3>TRS Flexiports 1 & 2</h3>
               <p>¼” (6.35mm) TRS jacks with 12 modes:</p>
-              <ul>
+            </div>
+            <ul>
                 <li>MIDI Out</li>
                 <li>Type A</li>
                 <li>Type B</li>
@@ -387,107 +421,190 @@
               </ul>
               <p>The extreme flexibility of the Bridge4 is due partly to the two Flexiports we’ve included. The Flexiport is a multi-function TRS port that we’ve designed (and named) to give you a truly flexible experience with our devices.<br>
               Flexiports will be included in most PIRATE MIDI devices and will offer the same functionality across all devices. So, if you see the name Flexiport you know what it does.</p>
-            </div>
           </div>
         </div>
       </section>
 
       <section>
-        <div class="flow">
+        <div class="flex-container">
+          <div class="half-container flow">
             <header><h2 id="flexiports">4. Flexiports</h2></header>
 
             <h3>Flexiport Modes Summary</h3>
             <p>Each Flexiport on the Bridge4 is a 6.35mm (¼”) TRS Jack. They have 12 modes that are assignable in the menu under</p>
-            <p>Menu > Global > Flexiports > Flexiport ‘x’ > Mode</p>
+            <p><span class="menu-path">Menu > Global > Flexiports > Flexiport ‘x’ > Mode</span></p>
 
             <div class="keep-together">
               <h4>1. MIDI Out - Type A</h4>
-              <p>(Can power CME WIDI devices. Type A is the MIDI TRS standard.)</p>
             </div>
+            <p>(Can power CME WIDI devices. Type A is the MIDI TRS standard.)</p>
 
             <div class="keep-together">
               <h4>2. MIDI Out - Type B</h4>
-              <p>(As used by Arturia, Novation and others)</p>
             </div>
+            <p>(As used by Arturia, Novation and others)</p>
 
             <div class="keep-together">
               <h4>3. MIDI Out - Tip Active</h4>
-              <p>(Empress, Alexander Pedals, Meris, Bondi Effects and more)</p>
             </div>
+            <p>(Empress, Alexander Pedals, Meris, Bondi Effects and more)</p>
 
             <div class="keep-together">
               <h4>4. MIDI Out - Ring Active</h4>
-              <p>(Chase Bliss Audio)</p>
             </div>
+            <p>(Chase Bliss Audio)</p>
 
             <div class="keep-together">
               <h4>5. Device Link</h4>
-              <p>(connect multiple PIRATE MIDI devices together)</p>
             </div>
+            <p>(connect multiple PIRATE MIDI devices together)</p>
 
             <div class="keep-together">
               <h4>6. Exp-Doubler In</h4>
-              <p>(Enables two expression pedal inputs per Flexiport with our Exp-Doubler device)</p>
             </div>
+            <p>(Enables two expression pedal inputs per Flexiport with our Exp-Doubler device)</p>
 
             <div class="keep-together">
               <h4>7. Exp In</h4>
-              <p>(Single TRS expression pedal input)</p>
             </div>
+            <p>(Single TRS expression pedal input)</p>
 
             <div class="keep-together">
               <h4>8. Aux Switch In</h4>
-              <p>(1, 2, or 3 switch TRS aux switches supported - add more footswitches to your controller)</p>
             </div>
+            <p>(1, 2, or 3 switch TRS aux switches supported - add more footswitches to your controller)</p>
 
             <div class="keep-together">
               <h4>9. Switch Out</h4>
-              <p>(Send TRS switch emulation to non-MIDI devices)</p>
             </div>
+            <p>(Send TRS switch emulation to non-MIDI devices)</p>
 
             <div class="keep-together">
               <h4>10. MS Relay</h4>
-              <p>(Send TRS commands to your Morningstar Omniport Relay Interface)</p>
             </div>
+            <p>(Send TRS commands to your Morningstar Omniport Relay Interface)</p>
 
             <div class="keep-together">
               <h4>11. Tap Tempo Out</h4>
-              <p>(MIDI Clock as switch output)</p>
             </div>
+            <p>(MIDI Clock as switch output)</p>
 
             <div class="keep-together">
               <h4>12. Pulse Clock Out</h4>
-              <p>(Send MIDI clock as a square wave to sync non-MIDI devices)</p>
             </div>
+            <p>(Send MIDI clock as a square wave to sync non-MIDI devices)</p>
 
-            <div class="warning-center">
-              <p style="text-align:center; font-size:2em; margin:0;">⚠️</p><p><strong>FLEXIPORT WARNING!</strong></p>
+            <div class="warning">
+              <p><strong>⚠️ FLEXIPORT WARNING!</strong></p>
               <p>Flexiports offer many operating modes. Not all of these modes are compatible with all external devices.<br>
               In particular, the Switch Out mode allows a Flexiport to emulate a TRS switch output. This is designed to control devices that have an auxiliary switch input or tap tempo footswitch jack where the device that is connected does not have more than 3.3 volts on the jack the Flexiport will connect to. This can be tested using a TRS patch cable and a multimeter.</p>
               <p>Many devices use larger operating voltage and/or currents than the 3.3 volts that a Flexiport can handle. Please contact us to see if your device may be compatible with this mode if you are unsure.<br>
               A Flexiport can also be damaged when using an incorrect mode with an external device attached. Make sure that you have enabled the correct Flexiport mode BEFORE connecting an external device.</p>
-              <p>Ignoring these warnings may void your warranty. Please make sure to contact us if you’re unsure. Email support@piratemidi.com</p>
+              <p>Ignoring these warnings may void your warranty. Please make sure to contact us if you’re unsure. Email <a href="mailto:support@piratemidi.com">support@piratemidi.com</a></p>
             </div>
 
             <h3>MIDI Out</h3>
             <p>When set to ‘’MIDI Out’ mode, the Flexiport is a dedicated MIDI TRS Output. There are 4 MIDI Out modes: Type A, Type B, Tip Active, & Ring Active. You can choose the MIDI Out mode in the Global settings menu:</p>
-            <p>Menu > Global > Flexiports > Flexiport ‘x’ > Mode > MIDI Out (type x)</p>
-            <p>TRS A is the standard MIDI specification for TRS MIDI. It use the ‘Tip’ to send MIDI. However, because MIDI over TRS was introduced before the specification was decided, there are some brands that send on the ‘Ring.’ This is called TRS B.<br>
+            <p><span class="menu-path">Menu > Global > Flexiports > Flexiport ‘x’ > Mode > MIDI Out (type x)</span></p>
+            <p>TRS A is the standard MIDI specification for TRS MIDI. It uses the ‘Tip’ to send MIDI. However, because MIDI over TRS was introduced before the specification was decided, there are some brands that send on the ‘Ring.’ This is called TRS B.<br>
             Again, there are other brands who do not adhere to the specification and only use two pins, instead of three to send MIDI data. Brands such as Empress, Meris, Bondi Effects, Alexander Pedals, and Chase Bliss Audio use either Tip active or Ring active modes.<br>
-            If you are unsure which pedals or devices use which mode, a quick google will probably answer your question. If you’re having trouble finding out, feel free to ask in our Facebook group which will get the fastest response, or you can ask us in an email to support@piratemidi.com<br>
+            If you are unsure which pedals or devices use which mode, a quick google will probably answer your question. If you’re having trouble finding out, feel free to ask in our Facebook group which will get the fastest response, or you can ask us in an email to <a href="mailto:support@piratemidi.com">support@piratemidi.com</a><br>
             Once the Flexiport is in MIDI Out mode, any messages that have their MIDI set to be output to that Flexiport will be transmitted out that Flexiport when the messages are triggered.</p>
 
             <h3>Expression Pedal In</h3>
             <p>When set to ‘’Exp In” mode, the Flexiport will receive analog expression pedal input for easy conversion to MIDI. Set the Flexiport to “Exp In” mode in the Global settings menu:</p>
-            <p>Menu > Global > Flexiports > Flexiport ‘x’ > Mode > Exp In</p>
+            <p><span class="menu-path">Menu > Global > Flexiports > Flexiport ‘x’ > Mode > Exp In</span></p>
             <p>You will now see the Expression Pedal Graph in the Extended UI for the Flexiport you have put in Exp In mode.</p>
-            <p>Please note that this is designed to work with TRS expression pedals only. TS Expression pedals will not work properly.</p>
+            <p>Please note that this is designed to work with TRS expression pedals only. TS Expression pedals will not work.</p>
+
+            <div style="text-align: center; margin: 1em 0;">
+                <img class="full-width-img" src="Images/exp-graph-in.png" alt="Standard UI showing one Expression Pedal Graph" loading="lazy" width="1816" height="439" />
+            </div>
+
+            <h4>Expression Pedal Calibration</h4>
+            <p>Expression pedals will sometimes not register their full range on different devices they connect to. Calibrating your expression pedal will make sure that toe-down is equal to the maximum MIDI value (127) and heel-down is equal to the minimum value (0).</p>
+            <p>Calibrate your expression pedal in the menu:</p>
+            <p><span class="menu-path">Menu &gt; Global &gt; Global Exp Pedals &gt; Exp ‘xx’ &gt; Calibrate</span></p>
+            <p>Follow the on-screen instructions to calibrate the pedal. The device will instruct you to put the pedal at the full toe-down position for 5 seconds, and then the heel-down position for 5 seconds.</p>
+
+            <h3>Exp-Doubler In</h3>
+            <p>When set to “Exp-Doubler In” mode, usage is the same as “Exp In” including calibration etc. but this mode can only be used with the PIRATE MIDI Exp-Doubler.</p>
+            <p><span class="menu-path">Menu &gt; Global &gt; Flexiports &gt; Flexiport ‘x’ &gt; Mode &gt; Exp-Doubler In</span></p>
+            <p>The Standard UI will now show two Expression Pedal Graphs as pictured below.</p>
+            <div style="text-align: center; margin: 1em 0;">
+                <img class="full-width-img" src="Images/exp-graph-doubler.png" alt="Standard UI showing two Expression Pedal Graphs" loading="lazy" width="1816" height="439" />
+            </div>
+            <p>An expression pedal usually works with three contacts: Tip, Ring, and Sleeve. The Ring supplies power, the Sleeve is connected to ground, and the Tip transmits the position of the pedal.<br>
+            Our Exp-Doubler supplies power to the Ring of your expression pedals which leaves an extra slot on the Flexiport for receiving the pedal position. Across two Flexiports this means up to 4 expression pedals can be used! Two per Flexiport. This is why Expression pedals are labelled as 1A and 1B, 2A and 2B.</p>
+
+            <h3>Tap Tempo Output</h3>
+            <p>When set to “Tap Tempo Output” mode, the Flexiport is a dedicated analog TRS output which sends switch impulses synced to the chosen MIDI clock (A or B). It can be put in Clock A or Clock B mode in the Global settings menu:</p>
+            <p><span class="menu-path">Menu &gt; Global &gt; Flexiports &gt; Flexiport ‘x’ &gt; Mode &gt; Tap Tempo Out &gt; MIDI Clock ‘x’</span></p>
+            <p>Now, connect a TRS cable from the Flexiport to the device you wish to send the tap tempo to, and you should see the tap tempo changing on your non-MIDI device.</p>
+            <p>Other devices that accept Tap Tempo Out include: MXR Carbon Copy Deluxe, BOSS DD-20 Gigadelay.</p>
+
+            <h3>Aux Switch In</h3>
+            <p>When set to ‘’Aux Switch” mode, the Flexiport will receive auxiliary switch input for extra footswitch controls. Set the Flexiport mode in the Global settings menu:</p>
+            <p><span class="menu-path">Menu &gt; Global &gt; Flexiports &gt; Flexiport ‘x’ &gt; Mode &gt; Aux Switch</span></p>
+            <p>Single, double or triple auxiliary switches will work in this mode. Plug your aux switch into your Flexiport and then assign it a function or MIDI command:</p>
+            <p><span class="menu-path">Menu &gt; Global &gt; Aux Switches &gt; Aux Switch ‘x’</span><br>
+            (For global Aux messages)</p>
+            <p><span class="menu-path">Menu &gt; Aux Switches &gt; Aux Switch ‘x’</span><br>
+            (For bank-level Aux messages)</p>
+            <p>Using these menus, you will now be able to assign messages for up to 3 auxiliary switches (Tip, Ring, Tip+Ring). The available messages are Press, Hold, Toggle On, and Toggle Off.</p>
+            <p>These messages are available to configure individually for every bank, but also globally. This means that each switch can send 2 messages at once for press, toggles, and holds. All message types, including smart messages, can be assigned to Aux Switches.</p>
+            <p>When in Aux Switch mode, the Standard UI will show dynamic switch icons as pictured below. The centre of the circle will fill when a press is registered, and the circle will be filled completely when a switch hold is registered.</p>
+            <div style="text-align: center; margin: 1em 0;">
+                <img class="full-width-img" src="Images/aux-icons.png" alt="Standard UI showing dynamic aux switch icons" loading="lazy" width="1819" height="438" />
+            </div>
+
+            <h3>Switch Out</h3>
+            <p>When set to ‘’Switch Out” mode, the Flexiport will act like an analog switch. This can be used to control functions on non-MIDI pedals that have a switch input like a tap tempo footswitch in or some other function. Set the Flexiport to ”Switch Out” mode in the Global settings menu:</p>
+            <p><span class="menu-path">Menu &gt; Global &gt; Flexiports &gt; Flexiport ’x’ &gt; Mode &gt; Switch Out</span></p>
+            <p>Some devices that have a footswitch input are: BOSS MS-3, MXR Carbon Copy Deluxe, Line6 HX Stomp, BOSS DD-20 Gigadelay.</p>
+            <p>When in Switch Out mode, the Standard UI will show a dynamic tip &amp; ring icon which will fill the tip, ring, or tip &amp; ring when those commands are triggered.</p>
+
+            <h4>Assigning ‘Switch Out’ Actions to a Footswitch</h4>
+            <p>Once you have set the Flexiport mode, you can set any message on any press type as a Smart Message with “TRS Switch” function. Then choose which contacts to open, close or toggle, as the switch action that will be triggered by that Smart Message.<br>
+            (See <a href="#message-stacks">chapter 8</a> to learn about adding messages.)</p>
+
+            <h3>MS Relay</h3>
+            <p>Use this mode to send switch signal to the Morningstar Omniport Relay Interface device. Use the Smart Message “Relay Out” when this Flexiport mode is activated.</p>
+
+            <h3>Pulse Clock Out</h3>
+            <p>Use this mode to send MIDI clock as a beat sync pulse. This method of sync is used by brands like Teenage Engineering (Pocket Operator series), Korg (volca series) and others. Some devices use 2 pulses per quarter note, and some use 4 pulses per quarter note. There will be a future update to allow for changing the number of pulses.</p>
+
+            <h3 id="device-link">Device Link</h3>
+            <div class="callout">
+              <p>Device Link is not yet fully featured or implemented. Please wait for a future firmware update for more features.</p>
+            </div>
+            <p>When set to “Device Link” mode, the Flexiport acts as a high-speed communication port to link two PIRATE MIDI devices for transfer of MIDI messages and other commands. Activate Device Link mode in the menu:</p>
+            <p><span class="menu-path">Menu &gt; Global &gt; Flexiports &gt; Flexiport ‘x’ &gt; Mode &gt; Device Link</span></p>
+            <p>Device Link can sync bank changes, bank names, merge switch groups to interact between devices, and stream MIDI from one device to the MIDI out of a different device.</p>
+
+            <h4>Setting the Main/Satellite Roles</h4>
+            <p>To choose which device will broadcast its bank name and act as the Main device, go to:</p>
+            <p><span class="menu-path">Menu &gt; Global &gt; Device Link</span></p>
+
+            <h4>Device Link Settings</h4>
+            <p>In the above-mentioned menu, there are currently 4 options after the Main/Satellite choice.</p>
+            <h5>Bank Name</h5>
+            <p>Temporarily overwrites the displayed bank name on the Satellite device with the bank name of the Main device when connected to the Device Link network. Note that the name is not replaced, and when disconnected the original bank names are retained on the satellite device.</p>
+            <h5>Bank Navigation</h5>
+            <p>Synchronise bank changes between devices. Similar to how a PC message would normally cause a bank change, but without using up message space.</p>
+            <h5>MIDI Receive (RX)</h5>
+            <p>MIDI messages are received via the high-speed device link connection, and output to the MIDI outputs as per the MIDI Thru Flexi1/2 routing set in the Global “MIDI Thru” menu. To send a message to the device link network, make sure the message’s outputs have the Flexiport set to “on”. If Device Link is through Flexiport 2, make sure the message outputs have Flexiport 2 set to “on.”</p>
+            <h5>Footswitch Groups</h5>
+            <p>Switch Groups are merged across the network. Members of group ‘x’ (e.g. 1) on all devices interact as if they’re in the same group. There is no consequence to disconnecting from the Device Link network. The switch group settings will simply interact with the switches on that device.</p>
+            <h5>Sequential Switches</h5>
+            <p>Switches set to Sequential Mode that have been added to a switch group can have their sequential step triggered by another switch in the group depending on the switch group settings (see the chapter covering <a href="#switch-groups">Switch Groups</a>). This includes sequential switches in the same group across a Device Link connection.</p>
           </div>
         </div>
       </section>
 
       <section>
-        <div class="flow">
+        <div class="flex-container">
+          <div class="half-container flow">
             <header><h2 id="midi-in-out-thru">5. MIDI In/Out/Thru</h2></header>
 
             <p>Your Bridge4 has dedicated MIDI in and out 3.5mm TRS jacks.</p>
@@ -499,16 +616,16 @@
             To send a MIDI message out of this TRS jack, make sure that “TRS” is turned to “on” on the second-screen settings of your chosen MIDI message. This output is activated by default on new messages, but when editing an existing message, it’s best to check that the correct output is activated.</p>
 
             <h3>MIDI In</h3>
-            <p>The dedicated MIDI In on the Bridge4 is a 3.5mmTRS Jack. Like the MIDI Out, it is not able to be changed to another function. It is a permanent MIDI In. It accepts any kind of MIDI message and depending on the ‘Thru’ routing (detailed in the next section) those messages can be directly sent to any of the available MIDI outs.<br>
+            <p>The dedicated MIDI In on the Bridge4 is a 3.5mm TRS Jack. Like the MIDI Out, it is not able to be changed to another function. It is a permanent MIDI In. It accepts any kind of MIDI message and depending on the ‘Thru’ routing (detailed in the next section) those messages can be directly sent to any of the available MIDI outs.<br>
             This MIDI In complies with the MIDI Specification for TRS MIDI (type A).</p>
 
             <h3>External MIDI Control</h3>
-            <p>Using the MIDI commands detailed in the “MIDI Implementation” chapter at the end of this manual, you can send MIDI commands from another device to the Bridge4 via the MIDI In (or USB) to control the device.</p>
+            <p>Using the MIDI commands detailed in the “<a href="#midi-implementation">MIDI Implementation</a>” chapter at the end of this manual, you can send MIDI commands from another device to the Bridge4 via the MIDI In (or USB) to control the device.</p>
 
             <h3>MIDI Thru</h3>
             <p>There is no dedicated MIDI Thru jack on the Bridge4, however the digital MIDI Thru routing is very flexible.</p>
             <p>To set the MIDI Thru routing go to:<br>
-            Menu > Global > MIDI > Thru Routing > ‘TRS In’ or ‘USB In’</p>
+            <span class="menu-path">Menu > Global > MIDI > Thru Routing > ‘TRS In’ or ‘USB In’</span></p>
             <p>This menu allows you to choose which MIDI Outs (Flexi 1, Flexi 2, TRS, USB) the MIDI messages received on the chosen input (USB or TRS In) will be sent to.</p>
             <p>For example, if you choose to turn on MIDI Thru routing from the USB In to the TRS out, any message received on the USB In will be sent to the TRS out. But it will not be sent to the USB out or the Flexiport unless they are also set to ‘on’ in the Thru routing settings.</p>
             <p>Flexi1 and Flexi2 thru settings are only used when the Flexiport is being used as a Device Link port. MIDI cannot be received via a Flexiport except when using the Flexiport in Device Link mode.</p>
@@ -518,7 +635,8 @@
       </section>
 
       <section>
-        <div class="flow">
+        <div class="flex-container">
+          <div class="half-container flow">
             <header><h2 id="usb-midi">6. USB MIDI</h2></header>
 
             <p>Your Bridge4 is a class-compliant USB MIDI device. This means you can plug it into any kind of USB host (Windows, Mac OS, iOS, Android) and it will automatically be recognised as a MIDI device to control or receive messages from any DAW, app or plugin.</p>
@@ -537,7 +655,8 @@
       </section>
 
       <section>
-        <div class="flow">
+        <div class="flex-container">
+          <div class="half-container flow">
             <header><h2 id="messages-modes">7. Messages & Modes</h2></header>
 
             <p>You can program all the functions of your Bridge4 with the onboard menus or the web editor. We’ve made both methods as straightforward as possible so you can quickly get up and running. Here’s an overview of what you can do when programming your Bridge4. Step-by-step instructions for these methods will be covered in later sections.</p>
@@ -553,8 +672,7 @@
 
             <h3>Smart Messages</h3>
             <p>Along with MIDI messages, you can also control complex features and internal functions of the Bridge4 with smart messages. Smart messages can be set to:</p>
-            <div class="keep-together">
-              <ul>
+            <ul>
                 <li>Bank Up</li>
                 <li>Bank Down</li>
                 <li>Bank Select (Go to Bank)</li>
@@ -581,7 +699,6 @@
                 <li>Queue Next Scrolling Value</li>
                 <li>Queue Scrolling Value</li>
               </ul>
-            </div>
 
             <h3>Key Press Messages</h3>
             <p>Instead of a MIDI message, you can place a keyboard message in any of the message stacks across the device. Key press messages cover the standard 104 keys of an ANSI HID keyboard. “GUI” is the name of the Windows or MacOS “Command” key.</p>
@@ -589,12 +706,13 @@
 
             <h3>Primary Footswitch Modes</h3>
             <p>Each footswitch has 7 possible modes which are set in the switch config menu and can be customised to be different for all 100 banks. They are indicated by the Primary LED. These are set in the switch config menu:</p>
-            <p>Menu > Switches > Switch ‘x’ > Config</p>
+            <p><span class="menu-path">Menu > Switches > Switch ‘x’ > Config</span></p>
 
             <div class="keep-together">
               <h4>Toggle</h4>
               <p>This is the default switch mode. In this mode there are 4 different switch press types: Toggle On, Toggle Off, Press, Release. With each press, the state of the switch is toggled to be the opposite of the state it was in (On > Off & Off > On).</p>
-              <p>When setting MIDI messages in these stacks, the number of messages you can add to the stacks are:</p>
+            </div>
+            <p>When setting MIDI messages in these stacks, the number of messages you can add to the stacks are:</p>
               <ul>
                 <li>Toggle On: 16</li>
                 <li>Toggle Off: 16</li>
@@ -603,123 +721,126 @@
               </ul>
               <p>The Primary LED will be toggled between On and Off along with the switch state.<br>
               In the Global settings, you can choose whether changing banks will preserve the toggle states of switches, or whether all switches’ states are reset when changing banks.</p>
-              <p>Menu > Global > Interface > Preserve Bank States</p>
-            </div>
+              <p><span class="menu-path">Menu > Global > Interface > Preserve Bank States</span></p>
 
             <div class="keep-together">
               <h4>Momentary</h4>
-              <p>This sets a switch to ignore ‘Toggle On’ and ‘Toggle Off’ messages and acts as a switch that turns on only when being pressed. Each press will trigger the ‘Press’ message stack. All other message stacks are still able to be triggered by double pressing, holding etc.<br>
+            </div>
+            <p>This sets a switch to ignore ‘Toggle On’ and ‘Toggle Off’ messages and acts as a switch that turns on only when being pressed. Each press will trigger the ‘Press’ message stack. All other message stacks are still able to be triggered by double pressing, holding etc.<br>
               This mode is useful for loopers, sustain, sending midi notes as chords, or any MIDI control that requires a momentary action.<br>
               Message limits are unchanged. The Primary LED will be turned on when the switch is being pressed and will be off when not being pressed.</p>
-            </div>
 
             <div class="keep-together">
               <h4>Tap Tempo</h4>
-              <p>This sets a switch to control your choice of MIDI clock A or B. In this mode, the switch label will show the Name (A or B) and the current tempo. This mode is exclusive, and no other messages can be sent by a switch in Tap Tempo mode.<br>
+            </div>
+            <p>This sets a switch to control your choice of MIDI clock A or B. In this mode, the switch label will show the Name (A or B) and the current tempo. This mode is exclusive, and no other messages can be sent by a switch in Tap Tempo mode.<br>
               Tapping the footswitch will act like a tap tempo switch - changing the tempo in time with your taps (including tap averaging). The primary LED (left) will flash to show the current tempo. The colour of the LED can be customised.<br>
               Holding down the footswitch will start or stop the MIDI clock. The secondary LED (right) will be lit or unlit to show whether the clock is running (LED on) or stopped (LED off).<br>
               If the MIDI clock is being sent as MIDI messages, the Start and Stop actions will send the ‘Start’ and ‘Stop’ MIDI Clock messages. If the clock is being sent as Tap Tempo Out, Sync Pulse Out, or another non-MIDI type, the pulses will be started and stopped when the Start and Stop action is triggered.</p>
-            </div>
 
             <div class="keep-together">
               <h4>Sequential</h4>
               <p>This mode will activate each message in the “Sequential” message stack individually, one at a time, when you press the footswitch. You have the option of making the last few messages repeat in a loop or reversing the messages back to the first step. You can use a maximum of 16 steps.</p>
-              <p>Example:<br>
+            </div>
+            <p>Example:<br>
               In a message stack consisting of 3 messages, message 1 will be sent on the first press, message 2 will be sent on second press, message 3 will be sent on third press, and then message 1 will be sent on the fourth press - starting the sequence over again.</p>
               <p>Example 2:<br>
               In a message stack consisting of 3 messages for controlling an audio looper, a “record” message will be sent on the first press, a “play” message will be sent on second press, an “overdub” message will be sent on third press, and then subsequent presses will continue to cycle between “play” and “overdub” without going back to the “record” step.</p>
-            </div>
 
             <div class="keep-together">
               <h4>Direction</h4>
-              <p>Forward will send all sequential steps from first to last. Reverse will send steps from last to first. Pendulum will go from first to last, and then reverse the sequence from last to first. Random is self-explanatory.</p>
             </div>
+            <p>Forward will send all sequential steps from first to last. Reverse will send steps from last to first. Pendulum will go from first to last, and then reverse the sequence from last to first. Random is self-explanatory.</p>
 
             <div class="keep-together">
               <h4>Send</h4>
-              <p>Always will send the sequential step message/s immediately as the step is selected. Secondary changes this so that the message/s are only sent when the secondary switch function (e.g. Hold) is activated. Use this to queue a step and send it when you’re ready to fire the message. Likewise Primary will specify that the message/s will be sent when the Primary switch action is triggered.</p>
             </div>
+            <p>Always will send the sequential step message/s immediately as the step is selected. Secondary changes this so that the message/s are only sent when the secondary switch function (e.g. Hold) is activated. Use this to queue a step and send it when you’re ready to fire the message. Likewise Primary will specify that the message/s will be sent when the Primary switch action is triggered.</p>
 
             <div class="keep-together">
               <h4>Repeat</h4>
-              <p>This option chooses what happens after reaching the end of the sequential step list. Last 2 & Last 3 will repeat the last 2 or 3 steps in the sequence. Useful for live looping where the first message or two may start the recording mode, and the rest of the commands are used for overdubbing and recording new loops. All will simply cycle through the steps again after reaching the end of the “direction.”</p>
             </div>
+            <p>This option chooses what happens after reaching the end of the sequential step list. Last 2 & Last 3 will repeat the last 2 or 3 steps in the sequence. Useful for live looping where the first message or two may start the recording mode, and the rest of the commands are used for overdubbing and recording new loops. All will simply cycle through the steps again after reaching the end of the “direction.”</p>
 
             <div class="keep-together">
               <h4>Sequential Linked</h4>
-              <p>This mode lets you link to another Sequential mode footswitch within the current bank but change parameters such as the direction or the send mode. Useful for having two switches linked for forwards/reverse switch pairs.</p>
             </div>
+            <p>This mode lets you link to another Sequential mode footswitch within the current bank but change parameters such as the direction or the send mode. Useful for having two switches linked for forwards/reverse switch pairs.</p>
 
             <div class="keep-together">
               <h4>Scrolling</h4>
-              <p>This mode uses the “Scrolling” message stack and will scroll the value of any messages placed in the stack. This can be useful for scrolling through modes or presets or snapshots on other apps or devices.<br>
-              You can use a maximum of 16 messages which can be simultaneously scrolled with different starting offsets based on the value the message is entered with.</p>
             </div>
+            <p>This mode uses the “Scrolling” message stack and will scroll the value of any messages placed in the stack. This can be useful for scrolling through modes or presets or snapshots on other apps or devices.<br>
+              You can use a maximum of 16 messages which can be simultaneously scrolled with different starting offsets based on the value the message is entered with.</p>
 
             <div class="keep-together">
               <h4>Direction</h4>
-              <p>Forward will send all values from Min to Max. Reverse will send values from Max to Min. Pendulum will go from Min to Max, and then reverse from Max to Min. Random is self-explanatory.</p>
             </div>
+            <p>Forward will send all values from Min to Max. Reverse will send values from Max to Min. Pendulum will go from Min to Max, and then reverse from Max to Min. Random is self-explanatory.</p>
 
             <div class="keep-together">
               <h4>Send</h4>
-              <p>Always will send the scrolled message immediately as the scroll is initiated. Secondary changes this so that the message is only sent when the secondary switch function (e.g. Hold) is activated. Use this to queue a step and send it when you’re ready to fire the message. Likewise Primary will specify that the message/s will be sent when the Primary switch action is triggered.</p>
             </div>
+            <p>Always will send the scrolled message immediately as the scroll is initiated. Secondary changes this so that the message is only sent when the secondary switch function (e.g. Hold) is activated. Use this to queue a step and send it when you’re ready to fire the message. Likewise Primary will specify that the message/s will be sent when the Primary switch action is triggered.</p>
 
             <div class="keep-together">
               <h4>Min/Max</h4>
-              <p>This limits the values that the scroll will cover. When you add a message to the “Scrolling” stack, the value you choose is where the scrolling will start from, but it will stick to the limits of these settings once it reaches the maximum. Set the value on the message itself to offset multiple messages in the scrolling stack.</p>
             </div>
+            <p>This limits the values that the scroll will cover. When you add a message to the “Scrolling” stack, the value you choose is where the scrolling will start from, but it will stick to the limits of these settings once it reaches the maximum. Set the value on the message itself to offset multiple messages in the scrolling stack.</p>
 
             <div class="keep-together">
               <h4>Step Size</h4>
-              <p>This option sets the increment/decrement size of the scrolling value. Value can be set from 1-32. If the value of the messages as-saved is 0 and the step size is 3, the next value sent after 0 will be 3. If the step size is 32, the values 0-127 will be covered in 4 presses.<br>
-              Note that the starting value of the message as-saved will impact the first message sent. The value as-saved will not be sent on the first press. If you need the first press to be a value of 0, you should use your step size to count backwards from 0 (down through 127) to choose the value you save for the message.</p>
             </div>
+            <p>This option sets the increment/decrement size of the scrolling value. Value can be set from 1-32. If the value of the messages as-saved is 0 and the step size is 3, the next value sent after 0 will be 3. If the step size is 32, the values 0-127 will be covered in 4 presses.<br>
+              Note that the starting value of the message as-saved will impact the first message sent. The value as-saved will not be sent on the first press. If you need the first press to be a value of 0, you should use your step size to count backwards from 0 (down through 127) to choose the value you save for the message.</p>
 
             <div class="keep-together">
               <h4>Scrolling Linked</h4>
-              <p>This mode lets you link to another Scrolling mode footswitch within the current bank but change the direction of the scroll and the send mode. Useful for having two switches linked for forwards/reverse switch pairs.</p>
             </div>
+            <p>This mode lets you link to another Scrolling mode footswitch within the current bank but change the direction of the scroll and the send mode. Useful for having two switches linked for forwards/reverse switch pairs.</p>
 
             <h3>Secondary Footswitch Modes</h3>
             <p>Each footswitch also has 4 secondary modes which use the secondary LED to signal their state. To access these settings, scroll horizontally to the next page using switch 3 and switch 4 when you are in the Switch Config settings page.</p>
 
             <div class="keep-together">
               <h4>Double Tap Toggle</h4>
-              <p>This mode activates the “Secondary Toggle On” and “Secondary Toggle Off” message stacks when you double tap the switch. This will activate the secondary LED with a toggle behaviour like the primary LED toggle behaviour.<br>
-              This behaviour allows for two different toggle message stacks to be accessed using a single footswitch (Primary and Secondary toggle). Secondary Toggle stacks each have an 8-message limit. Double Tap messages can also be sent when this mode is active.</p>
             </div>
+            <p>This mode activates the “Secondary Toggle On” and “Secondary Toggle Off” message stacks when you double tap the switch. This will activate the secondary LED with a toggle behaviour like the primary LED toggle behaviour.<br>
+              This behaviour allows for two different toggle message stacks to be accessed using a single footswitch (Primary and Secondary toggle). Secondary Toggle stacks each have an 8-message limit. Double Tap messages can also be sent when this mode is active.</p>
 
             <div class="keep-together">
               <h4>Hold Toggle</h4>
-              <p>This mode activates the “Secondary Toggle On” and “Secondary Toggle Off” message stacks when you hold the switch. This will activate the secondary LED with a toggle behaviour like the primary LED toggle behaviour.<br>
-              This behaviour allows for two different toggle message stacks to be accessed using a single footswitch (Primary and Secondary toggle) Hold time is adjustable in the Global Interface settings. Secondary Toggle stacks each have an 8-message limit.</p>
             </div>
+            <p>This mode activates the “Secondary Toggle On” and “Secondary Toggle Off” message stacks when you hold the switch. This will activate the secondary LED with a toggle behaviour like the primary LED toggle behaviour.<br>
+              This behaviour allows for two different toggle message stacks to be accessed using a single footswitch (Primary and Secondary toggle) Hold time is adjustable in the Global Interface settings. Secondary Toggle stacks each have an 8-message limit.</p>
 
             <div class="keep-together">
               <h4>Double Tap Momentary</h4>
-              <p>This mode allows you to activate the Double Tap message stack with a double press of a footswitch. The secondary LED will light up momentarily to confirm that the double press action and message stack has been triggered. Double-tap message stack has an 8-message limit.</p>
             </div>
+            <p>This mode allows you to activate the Double Tap message stack with a double press of a footswitch. The secondary LED will light up momentarily to confirm that the double press action and message stack has been triggered. Double-tap message stack has an 8-message limit.</p>
 
             <div class="keep-together">
               <h4>Hold Momentary</h4>
-              <p>This mode allows you to activate the Hold message stack with a long press of a footswitch. The secondary LED will light up momentarily to confirm that the hold action has been triggered. Hold time is adjustable in the Global Interface settings.<br>
-              Hold and Hold Release message stacks have an 8-message limit.</p>
             </div>
+            <p>This mode allows you to activate the Hold message stack with a long press of a footswitch. The secondary LED will light up momentarily to confirm that the hold action has been triggered. Hold time is adjustable in the Global Interface settings.<br>
+              Hold and Hold Release message stacks have an 8-message limit.</p>
             
             <div class="callout">
               <p>Note: All message stacks will still be visible when editing MIDI messages, but the footswitch mode will determine which stacks are able to be activated/sent by footswitch presses.</p>
             </div>
 
             <h3>Expand & Improve Your MIDI Routing</h3>
+
+            <div style="text-align: center; margin: 1em 0;">
+                <img class="full-width-img" src="Images/routing-diagram.png" alt="MIDI channel stacks routed to Flexiport 1, Flexiport 2 and DIN5" loading="lazy" width="825" height="896" />
+            </div>
             <p>Each message can be individually tailored to go to any combination of the MIDI outputs available. When creating a message, turn the desired MIDI output/s (USB, TRS, Flexi 1, Flexi 2) ‘On’ or ‘Off’ to create different streams of MIDI messages from one switch press.</p>
             <p>Example: Output the first 16 messages from Flexi 1, the second 16 from Flexi 2, and the third 16 from the TRS MIDI out. By using all 16 MIDI channels on each output (message 1/channel 1, message 2/channel2) this will result in 48 different devices able to be MIDI controlled by a single footswitch press with no conflicting MIDI channels.</p>
 
             <h3>LFOs</h3>
             <p>Low Frequency Oscillators are not just for sound waves. With MIDI messages, we can oscillate the value data at low frequencies to modulate the MIDI data automatically and create ‘moving’ MIDI messages.</p>
             <p>For example, a TC Electronics Plethora X5 has 5 knobs which are also controllable with MIDI CCs. By applying the LFO to one of those MIDI CCs, the Bridge4 can continually (and automatically) ‘move’ that knob. Many effects units have parameters that can be controlled in this way. Almost every parameter on multi-effects units like the Line6 Helix and Fractal Audio devices can do this.</p>
-            <p>The Bridge4 LFOs can be set to activate with the Primary or Secondary switch function. This can product a “toggle” type or “momentary” type effect (i.e. press once to turn on, press again to turn off, OR press to activate, release to stop) The LFO will oscillate all possible MIDI messages that are in the chosen MIDI message stack.</p>
+            <p>The Bridge4 LFOs can be set to activate with the Primary or Secondary switch function. This can produce a “toggle” type or “momentary” type effect (i.e. press once to turn on, press again to turn off, OR press to activate, release to stop) The LFO will oscillate all possible MIDI messages that are in the chosen MIDI message stack.</p>
             <p>All four LFOs can be simultaneously active.</p>
             <p>The LFOs can be linked to MIDI Clock A, MIDI Clock B, or set with an independent frequency from 0.1hz to 10hz. Min/Max value limits can be set to limit the range of oscillation, and the waveform can be changed between sine, triangle, saw, ramp, square, and random.<br>
             Adjust the steps to change the resolution of the modulation, and choose whether to reset the waveform after each stop, or pick up where the wave was paused.</p>
@@ -732,7 +853,7 @@
             <p>With each Flexiport able to take an expression pedal input, or an Exp-Doubler input, you can do a lot with expression pedals on a Bridge4!</p>
             <p>Each expression pedal can control a stack of bank messages and a stack of global messages. Each stack of 16 expression messages means you can control 32 messages per expression pedal.</p>
             <p>Each individual message can be routed to any selection (or all) of the available MIDI outputs and can be set with min/max limits and linear, log, or anti-log interpolation curve. If you like, you can also reverse the sweep so that the lowest value will be sent at the toe-down position and the highest value at the heel-down position.</p>
-            <p>As an example, you could have an expression pedal that controls a global CC7 (volume) message, and another expression pedal that controls the tremolo depth of another effect but is limited to a range of 40%-70%. This same expression pedals could simultaneously modulate reverb size, time, and pre-delay, and perhaps also link to a low pass filter on an EQ effect.</p>
+            <p>As an example, you could have an expression pedal that controls a global CC7 (volume) message, and another expression pedal that controls the tremolo depth of another effect but is limited to a range of 40%-70%. This same expression pedal could simultaneously modulate reverb size, time, and pre-delay, and perhaps also link to a low pass filter on an EQ effect.</p>
             <p>For a truly ‘experimental’ sound, try linking 16 different parameters to one expression pedal, all with different min/max limits and sweep curves!</p>
             <p>You can also use smart messages on a footswitch to scroll through the messages in an expression message stack one at a time or select a specific expression message. For example, you could have an Aux switch which scrolls between the 16 expression messages. 16 expression pedals for the price of one (plus a small footswitch of course).</p>
 
@@ -740,9 +861,9 @@
             <p>Expression ladder messages are messages that are triggered by the position of the selected expression pedal. Up to 32 messages per Flexiport, per bank can be added as well as 32 global expression ladder messages per Flexiport. This means a total of 64 messages per Flexiport can be triggered by the positions of a single expression pedal!<br>
             Use this feature to simulate a heel switch or toe switch on your expression pedal. These can be used to trigger tuners, turn effects on/off etc.<br>
             To add bank level expression ladder messages onboard the device go to:</p>
-            <p>Menu > Exp Ladder Messages > Flexiport ‘x’</p>
+            <p><span class="menu-path">Menu > Exp Ladder Messages > Flexiport ‘x’</span></p>
             <p>To add global level expression ladder messages, go to:</p>
-            <p>Menu > Global > Flexiports > Flexiport ‘x’ > Exp Ladder Messages</p>
+            <p><span class="menu-path">Menu > Global > Flexiports > Flexiport ‘x’ > Exp Ladder Messages</span></p>
             <p>Ladder messages are set the same way as any other message, except on the third screen there is a “trigger” setting. This is a value selected from 0-127 and represents the position of the expression pedal. 0 = heel down and 127 = toe down.</p>
             <div class="callout">
               <p>Note: If you are using the Expression Doubler on your Flexiports, these ladder messages will be tied to the 1A and 2A expression pedals and can’t be used with the 1B and 2B pedals.</p>
@@ -756,21 +877,22 @@
             <h3>Boot Messages & Boot Delay</h3>
             <p>You can add up to 16 messages of any type that are sent as soon as your Bridge4 is turned on. This is useful for making sure your connected gear is set to a “default” or “beginning” state without having to check everything.<br>
             Set the Boot messages at:</p>
-            <p>Menu > Global > Boot Messages</p>
+            <p><span class="menu-path">Menu > Global > Boot Messages</span></p>
             <p>Boot delay is a complimentary setting found on the second page of the General UI settings at:</p>
-            <p>Menu > Global > Interface > General UI > Boot delay</p>
+            <p><span class="menu-path">Menu > Global > Interface > General UI > Boot delay</span></p>
             <p>You can increment the boot delay by 100ms from 0ms to 60000ms (60 seconds) to allow other gear to power on before the Bridge4 sends the Power-on messages.</p>
 
             <h3>Device Link</h3>
             <p>Connect two or more PIRATE MIDI devices via Flexiport (in Device Link mode) to enable high-speed MIDI input/output sharing, bank change sync, bank name sync, UI settings sync, and other features to come!<br>
             Want a MIDI controller with 10 switches? No problem, connect a BRIDGE4 and a Bridge4 with a TRS cable and away you go.<br>
-            Device Link automatically detects what devices are connected and what their features are so you get an easy, flexible setup no matter what your combination of devices may be. See chapter 4 for full Device Link details.</p>
+            Device Link automatically detects what devices are connected and what their features are so you get an easy, flexible setup no matter what your combination of devices may be. See <a href="#device-link">chapter 4</a> for full Device Link details.</p>
           </div>
         </div>
       </section>
 
       <section>
-        <div class="flow">
+        <div class="flex-container">
+          <div class="half-container flow">
             <header><h2 id="message-stacks">8. Message Stacks</h2></header>
 
             <h3>MIDI Messages Onboard</h3>
@@ -780,8 +902,18 @@
             
             <p><strong>Viewing Messages on Footswitches</strong><br>
             Enter the Menu by holding switch 1 & 3 simultaneously. Navigate to:</p>
-            <p>Menu > Switches > Switch ‘x’ > Messages > ‘press type’</p>
-            <p>If the message stack is empty, you will see the following screen... If there are already messages in the currently selected stack, the screen will look something like this.</p>
+            <p><span class="menu-path">Menu > Switches > Switch ‘x’ > Messages > ‘press type’</span></p>
+            <p>If the message stack is empty, you will see the following screen:</p>
+
+            <div style="text-align: center; margin: 1em 0;">
+                <img class="full-width-img" src="Images/msg-no-messages.png" alt="Empty message stack screen" loading="lazy" width="1608" height="439" />
+            </div>
+
+            <p>If there are already messages in the currently selected stack, the screen will look something like this:</p>
+
+            <div style="text-align: center; margin: 1em 0;">
+                <img class="full-width-img" src="Images/msg-stack-screen.png" alt="Message stack screen with a Control Change message" loading="lazy" width="1608" height="438" />
+            </div>
 
             <p><strong>“Add”</strong><br>
             Pressing switch 3 in this screen will allow you to add a new message to the stack. Once pressed the label on Switch 1&2 saying “edit: 1” will change to “save: 1” Press this to save the message and exit the edit menu.</p>
@@ -813,10 +945,10 @@
             
             <p><strong>Viewing Messages on Expression Pedals</strong><br>
             To view bank-level expression pedal messages, go to:</p>
-            <p>Menu > Exp Pedals > Exp ‘xx’ > Bank Messages</p>
+            <p><span class="menu-path">Menu > Exp Pedals > Exp ‘xx’ > Bank Messages</span></p>
             <p>All controls are the same as on switches.<br>
             To view global expression pedal messages, go to:</p>
-            <p>Menu > Global > Global Exp Messages > Exp ‘xx’ > Messages</p>
+            <p><span class="menu-path">Menu > Global > Global Exp Messages > Exp ‘xx’ > Messages</span></p>
             <p>All controls are the same as on switches.</p>
 
             <p><strong>Editing Messages on Expression Pedals</strong><br>
@@ -837,29 +969,36 @@
               <li>6. Inverse Reverse Log</li>
             </ul>
 
+            <div class="sweep-graphs">
+              <img src="Images/sweep-linear.png" alt="Linear sweep curve" loading="lazy" width="718" height="681" />
+              <img src="Images/sweep-log.png" alt="Log sweep curve" loading="lazy" width="721" height="680" />
+              <img src="Images/sweep-reverse-log.png" alt="Reverse log (anti-log) sweep curve" loading="lazy" width="722" height="681" />
+            </div>
+
             <h4>3. Bank Messages</h4>
             <p>Each bank has its own stack of 16 messages. These messages are automatically sent when that bank is selected.<br>
             To access this message stack for viewing and editing, go to:</p>
-            <p>Menu > Bank Messages</p>
+            <p><span class="menu-path">Menu > Bank Messages</span></p>
             <p>All editing controls are the same as above.</p>
 
             <h4>4. Aux Switch Messages</h4>
-            <p>When an Flexiports are being used in Aux switch mode, a 1, 2, or 3 button Aux Switch can be used to send a press message and a hold message at both Bank and Global Level.<br>
+            <p>When a Flexiport is being used in Aux switch mode, a 1, 2, or 3 button Aux Switch can be used to send a press message and a hold message at both Bank and Global Level.<br>
             To add a message to the bank level, go to:</p>
-            <p>Menu > Aux Switches > Aux Switch ‘x’</p>
+            <p><span class="menu-path">Menu > Aux Switches > Aux Switch ‘x’</span></p>
             <p>To add a message to the global level, go to:</p>
-            <p>Menu > Global > Aux Messages > Aux Switch ‘x’</p>
+            <p><span class="menu-path">Menu > Global > Aux Messages > Aux Switch ‘x’</span></p>
 
             <h4>5. Boot Messages</h4>
             <p>A stack of 16 messages can be set to be sent immediately after the Bridge4 is powered on. To set these messages, go to:</p>
-            <p>Menu > Global > Boot Messages</p>
+            <p><span class="menu-path">Menu > Global > Boot Messages</span></p>
             <p>This is useful for making sure your connected gear is set to a “default” or “beginning” state without having to check everything.</p>
           </div>
         </div>
       </section>
 
       <section>
-        <div class="flow">
+        <div class="flex-container">
+          <div class="half-container flow">
             <header><h2 id="midi-clock">9. MIDI Clock</h2></header>
 
             <h3>MIDI Clock Onboard</h3>
@@ -868,50 +1007,50 @@
             <div class="keep-together">
               <h4>1. Assigning MIDI Clock to a Footswitch</h4>
               <p>To assign a MIDI clock to a switch, enter the menu and go to:</p>
-              <p>Menu > Switches > Switch ‘x’ > Config</p>
+            </div>
+            <p><span class="menu-path">Menu > Switches > Switch ‘x’ > Config</span></p>
               <p>Set the “PRIMARY” mode to “TAP TEMPO”<br>
               After choosing a MIDI Clock (A or B) to assign to the chosen switch, return to the main screen. Your chosen switch has a new label showing the Name (A or B) and the current tempo. The tempo label will update as you tap in a new tempo.</p>
-            </div>
 
             <div class="keep-together">
               <h4>LED Indicators</h4>
-              <p>The primary LED color and mode can also be changed in the config menu.<br>
-              The primary LED will flash the current tempo. The secondary LED will be off by default. This means the clock is running but a “start” message has not yet been sent. When the Primary LED is off, a stop message has been sent.</p>
             </div>
+            <p>The primary LED color and mode can also be changed in the config menu.<br>
+              The primary LED will flash the current tempo. The secondary LED will be off by default. This means the clock is running but a “start” message has not yet been sent. When the Primary LED is off, a stop message has been sent.</p>
 
             <div class="keep-together">
               <h4>Sending ‘Start’ & ‘Stop’ Messages</h4>
-              <p>To send a ‘Start’ message, press and hold the switch. The clock does not send a Start message until you perform this hold action.<br>
-              To send a stop message, press and hold the switch and the LED will turn off to indicate the state. The primary LED will keep flashing, and the clock impulses will continue to be sent (this is how MIDI clock works. For detailed information, please refer to the MIDI spec).</p>
             </div>
+            <p>To send a ‘Start’ message, press and hold the switch. The clock does not send a Start message until you perform this hold action.<br>
+              To send a stop message, press and hold the switch and the LED will turn off to indicate the state. The primary LED will keep flashing, and the clock impulses will continue to be sent (this is how MIDI clock works. For detailed information, please refer to the MIDI spec).</p>
 
             <div class="keep-together">
               <h4>2. Assigning MIDI Clock Outputs</h4>
               <p>To choose which MIDI outputs each MIDI clock will be sent to, go to:</p>
-              <p>Menu > Global > MIDI > Clock ‘X’ > Clock Outputs</p>
-              <p>Here you can select any or all of the MIDI outputs (Flexi1, Flexi2, TRS, USB) for that clock to be sent to.</p>
             </div>
+            <p><span class="menu-path">Menu > Global > MIDI > Clock ‘X’ > Clock Outputs</span></p>
+              <p>Here you can select any or all of the MIDI outputs (Flexi1, Flexi2, TRS, USB) for that clock to be sent to.</p>
 
             <div class="keep-together">
               <h4>3. Preset or Inherit MIDI Clock Tempo Per Bank</h4>
               <p>You can preset the tempo for each MIDI Clock on each bank. You can also set the bank to simply inherit the tempo of the bank you’ve just changed from (works with non-linear bank changes too). To set the tempo or “inherit” setting, go to:</p>
-              <p>Menu > Bank MIDI Clock</p>
-              <p>The “Inherit” option is found by scrolling past the highest or lowest tempo option (45-240bpm)</p>
             </div>
+            <p><span class="menu-path">Menu > Bank MIDI Clock</span></p>
+              <p>The “Inherit” option is found by scrolling past the highest or lowest tempo option (45-240bpm)</p>
 
             <div class="keep-together">
               <h4>4. Sending MIDI Clock as Analog Tap Impulses</h4>
               <p>Some devices like the BOSS DD-20 giga delay have an external tap input designed for a tap tempo external footswitch. The Bridge4 can send MIDI clock impulses as “Tap Tempo Out” to control the tap tempo of these non-MIDI devices. To enable this, go to:</p>
-              <p>Menu > Global > Flexiports > Flexiport ‘x’ > Mode > Tap Tempo Out > MIDI Clock ‘x’</p>
-              <p>This will send analog tap tempo impulses from the Flexiport. This is linked to the footswitch assigned to that MIDI clock, so any tempo changes made on the Bridge4 are reflected in the Tap Tempo out.</p>
             </div>
+            <p><span class="menu-path">Menu > Global > Flexiports > Flexiport ‘x’ > Mode > Tap Tempo Out > MIDI Clock ‘x’</span></p>
+              <p>This will send analog tap tempo impulses from the Flexiport. This is linked to the footswitch assigned to that MIDI clock, so any tempo changes made on the Bridge4 are reflected in the Tap Tempo out.</p>
 
             <div class="keep-together">
               <h4>5. Sending MIDI Clock as Beat Sync Pulse</h4>
               <p>Some devices like the Pocket Operator series from Teenage Engineering, or the volca series from KORG use a square wave sync pulse instead of MIDI clock to sync device tempos.<br>
               Setting the Flexiport mode to “Sync Pulse Out” will allow you to create a sync pulse linked to your choice of MIDI clock. Go to:</p>
-              <p>Menu > Global > Flexiports > Flexiport ‘x’ > Mode > Pulse Clock Out > MIDI Clock‘x’</p>
             </div>
+            <p><span class="menu-path">Menu > Global > Flexiports > Flexiport ‘x’ > Mode > Pulse Clock Out > MIDI Clock‘x’</span></p>
 
             <div class="keep-together">
               <h4>6. Controlling Clock Tempo with MIDI</h4>
@@ -919,7 +1058,8 @@
               Clock tempos can be adjusted using CC 73 and CC 74 as NPRN-style pairs. (NRPN is a way to extend the range of values of a MIDI CC by using two CC’s together instead of just one).<br>
               CC 73 both sets the target clock, and the tempo range. CC 74 is purely for tempo.<br>
               How does this work? Here's some examples:</p>
-              <ul>
+            </div>
+            <ul>
                 <li>CC73 (MSB), Value = 0 : Clock A set between 45 (minimum) to 127 BPM</li>
                 <li>CC73 (MSB): Value = 1 : Clock A set between 128 to 240 (maximum) BPM</li>
                 <li>CC73 (MSB): Value = 2 : Clock B set between 45 (minimum bpm) to 127 BPM</li>
@@ -929,38 +1069,46 @@
               <p>So for example, you send CC 73, value = 1, then CC 74, value = 12. This is targeting Clock A in the 128-240 BPM range. Starting from 128, you add the value of CC74 which gives 140BPM.</p>
               <p>Another example: You send CC 73, value = 2, then CC 74, value = 67. This is targeting Clock B in the 45-127 BPM range. Starting from 45 as the minimum value, 67 will set the tempo to 67.</p>
               <p>These MIDI values are also noted in the External MIDI Control table at the back of this manual.</p>
-            </div>
           </div>
         </div>
       </section>
 
       <section>
-        <div class="flow">
+        <div class="flex-container">
+          <div class="half-container flow">
             <header><h2 id="lfos">10. LFOs</h2></header>
 
             <h3>Setting LFOs</h3>
             <p>The Bridge4 has four LFOs per bank that can run simultaneously and independently with deep customisation and flexibility.<br>
             LFOs are assigned to a particular message stack on a particular switch. When active, the Primary LED becomes an indicator of the LFO, showing both frequency and wave shape with the pulsing/fading of the LED itself.<br>
             To start setting LFO parameters, go to:</p>
-            <p>Menu > Switches > Switch ‘x’ > LFO</p>
+            <p><span class="menu-path">Menu > Switches > Switch ‘x’ > LFO</span></p>
+
+            <p>Below you will find a visual representation of the three LFO settings pages.<br>
+            The following headings address each of the LFO settings available on these three screens.</p>
+
+            <div style="text-align: center; margin: 1em 0;">
+                <img class="full-width-img" src="Images/lfo-screens.png" alt="The three LFO settings pages" loading="lazy" width="1608" height="1424" />
+            </div>
 
             <div class="keep-together">
               <h4>1. LFO State</h4>
-              <p>Toggle this setting between on or off to activate or deactivate the LFO.<br>
-              Only two LFOs can be assigned per bank. If there are already two switches in the current bank with the LFO state set to ‘on’ the Bridge4 will tell you that there are no more LFO slots available and will not turn on the LFO.</p>
             </div>
+            <p>Toggle this setting between on or off to activate or deactivate the LFO.<br>
+              Only two LFOs can be assigned per bank. If there are already two switches in the current bank with the LFO state set to ‘on’ the Bridge4 will tell you that there are no more LFO slots available and will not turn on the LFO.</p>
 
             <div class="keep-together">
               <h4>2. LFO Sync</h4>
-              <p>For each LFO you choose to activate, you can set a free frequency (default) or choose to sync to MIDI clock A or MIDI clock B.</p>
             </div>
+            <p>For each LFO you choose to activate, you can set a free frequency (default) or choose to sync to MIDI clock A or MIDI clock B.</p>
 
             <div class="keep-together">
               <h4>3. LFO Frequency</h4>
               <p>This sets the frequency of the oscillation from the minimum value to the maximum value. In free sync mode, this is set in Hertz (times per second). The Hz range is from 0.1Hz to 10Hz.<br>
               When synced to MIDI clock, the frequency is set as a time division of the tempo.<br>
               Available Time Divisions:</p>
-              <ul>
+            </div>
+            <ul>
                 <li>1/4</li>
                 <li>1/4t</li>
                 <li>1/4d</li>
@@ -971,27 +1119,27 @@
                 <li>1/16t</li>
                 <li>1/16d</li>
               </ul>
-            </div>
 
             <div class="keep-together">
               <h4>4. LFO Trigger</h4>
-              <p>There are two options for triggering the LFO. Toggle or Hold.<br>
+            </div>
+            <p>There are two options for triggering the LFO. Toggle or Hold.<br>
               Toggle will start the LFO after pressing the footswitch, and it will continue to run until you press the footswitch again to turn it off.<br>
               This is useful for auto-panning, auto-wah, oscillating frequencies with an EQ or other constant modulation.<br>
               Hold will run the LFO only while you hold down the footswitch.<br>
               This is useful for one-off intentional parameter changes, or for on-the-fly virtual knob twisting (press and hold to slowly turn up the MIDI-controllable gain knob on your drive pedal) or for Ramping effects like opening up a cutoff filter.</p>
-            </div>
 
             <div class="keep-together">
               <h4>5. LFO Limits</h4>
-              <p>The Min Limit and Max Limit parameters set the range that the LFO will oscillate between. If you want to limit the range of oscillation to be smaller than the full 0-127 values of a normal MIDI message, use these limits.<br>
-              For example, I may use an LFO to auto-wah with an EQ, but I don’t want to cover the whole sound spectrum - I just want to oscillate in the mids to high mids. So I set the Min Limit to 60 and the Max Limit to 100. This contains the parameter I’m modulating to just the upper mid section.</p>
             </div>
+            <p>The Min Limit and Max Limit parameters set the range that the LFO will oscillate between. If you want to limit the range of oscillation to be smaller than the full 0-127 values of a normal MIDI message, use these limits.<br>
+              For example, I may use an LFO to auto-wah with an EQ, but I don’t want to cover the whole sound spectrum - I just want to oscillate in the mids to high mids. So I set the Min Limit to 60 and the Max Limit to 100. This contains the parameter I’m modulating to just the upper mid section.</p>
 
             <div class="keep-together">
               <h4>6. LFO Shape (waveform)</h4>
               <p>You can choose from 6 different waveform shapes to modulate your MIDI data.</p>
-              <ul>
+            </div>
+            <ul>
                 <li>Sine</li>
                 <li>Triangle</li>
                 <li>Saw</li>
@@ -999,46 +1147,50 @@
                 <li>Square</li>
                 <li>Random - Set the step size. If the random value is within the step size, it will regenerate to create a new value outside the step size of the previous value generated.</li>
               </ul>
+
+            <div style="text-align: center; margin: 1em 0;">
+                <img class="full-width-img" src="Images/lfo-waveforms.png" alt="The six LFO waveform shapes" loading="lazy" width="1184" height="1516" />
             </div>
 
             <div class="keep-together">
               <h4>7. LFO Messages</h4>
-              <p>This setting allows you to choose the message stack that the LFO will modulate. Any compatible message in this stack will be what the LFO uses to create the oscillating MIDI data.<br>
-              For instance, if you choose the toggle on stack, then any messages in the toggle on stack are what the LFO will oscillate. If there are 12 MIDI CC messages in that stack, all 12 will be oscillated with the settings chosen.</p>
             </div>
+            <p>This setting allows you to choose the message stack that the LFO will modulate. Any compatible message in this stack will be what the LFO uses to create the oscillating MIDI data.<br>
+              For instance, if you choose the toggle on stack, then any messages in the toggle on stack are what the LFO will oscillate. If there are 12 MIDI CC messages in that stack, all 12 will be oscillated with the settings chosen.</p>
 
             <div class="keep-together">
               <h4>8. LFO Modulation Source</h4>
-              <p>Not currently active - please wait for a future update.</p>
             </div>
+            <p>Not currently active - please wait for a future update.</p>
 
             <div class="keep-together">
               <h4>9. LFO Modulation Target</h4>
-              <p>Not currently active - please wait for a future update.</p>
             </div>
+            <p>Not currently active - please wait for a future update.</p>
 
             <div class="keep-together">
               <h4>10. LFO Reset</h4>
-              <p>Choosing ‘yes’ will reset the waveform each time you start or restart the LFO. Choosing no will keep continuous data between stops.<br>
-              Turning reset to ‘no’ is helpful for continually ramping parameters when using the ramp shape - rather than going back to the min value each time you activate the LFO, you can increase it gradually in multiple stages by starting and stopping the LFO a few times.</p>
             </div>
+            <p>Choosing ‘yes’ will reset the waveform each time you start or restart the LFO. Choosing no will keep continuous data between stops.<br>
+              Turning reset to ‘no’ is helpful for continually ramping parameters when using the ramp shape - rather than going back to the min value each time you activate the LFO, you can increase it gradually in multiple stages by starting and stopping the LFO a few times.</p>
 
             <div class="keep-together">
               <h4>11. LFO Step</h4>
-              <p>The ‘Step’ refers to how smoothly the LFO changes the data of the MIDI messages. A step of 1 means that the data will only change by +/- 1 each time. You can set the step value to 1, 2, 4, 8, 16, or 32.<br>
-              Setting to a higher number may create a “stair-cased” effect because of the abrupt changes in parameter values. If you are having stuttering or slow-downs due to the amount of MIDI data being produced by the LFOs, try increasing the step size a little to reduce the amount of data that needs to be sent in one second.</p>
             </div>
+            <p>The ‘Step’ refers to how smoothly the LFO changes the data of the MIDI messages. A step of 1 means that the data will only change by +/- 1 each time. You can set the step value to 1, 2, 4, 8, 16, or 32.<br>
+              Setting to a higher number may create a “stair-cased” effect because of the abrupt changes in parameter values. If you are having stuttering or slow-downs due to the amount of MIDI data being produced by the LFOs, try increasing the step size a little to reduce the amount of data that needs to be sent in one second.</p>
 
             <div class="keep-together">
               <h4>12. Save & Exit</h4>
-              <p>Now that you’ve chosen the settings for your LFO on this switch, press switches 1&2 to save and exit.</p>
             </div>
+            <p>Now that you’ve chosen the settings for your LFO on this switch, press switches 1&2 to save and exit.</p>
           </div>
         </div>
       </section>
 
       <section>
-        <div class="flow">
+        <div class="flex-container">
+          <div class="half-container flow">
             <header><h2 id="switch-out">11. Switch Out</h2></header>
 
             <h3>Setting TRS Out</h3>
@@ -1048,22 +1200,23 @@
             <div class="keep-together">
               <h4>1. Activating TRS Out Mode</h4>
               <p>To enable TRS Out, please set your chosen Flexiport to Switch Out mode.</p>
-              <p>Menu > Global > Flexiports > Flexiport ‘x’ > Mode > Switch Out</p>
             </div>
+            <p><span class="menu-path">Menu > Global > Flexiports > Flexiport ‘x’ > Mode > Switch Out</span></p>
 
             <div class="keep-together">
               <h4>2. Setting TRS Out per Switch</h4>
-              <p>You can link any press type on any footswitch on any bank to a single TRS switch out event.<br>
+            </div>
+            <p>You can link any press type on any footswitch on any bank to a single TRS switch out event.<br>
               There is no limit to the number of switches or banks that you can link to switch out events. To set these actions, add a smart message in the message stack of your choice, and choose the “TRS Switch” Message type and set the switch action you want to perform when you activate that message stack.<br>
               You can also choose which Flexiport the switch event will be sent to (you can choose any Flexiport, but it won’t work unless you’ve already set the Flexiport to Switch Out mode).<br>
               If you have a device that you want to switch with TRS events, please consult its user manual to decide what type of switch signal you need to send.</p>
-            </div>
           </div>
         </div>
       </section>
 
       <section>
-        <div class="flow">
+        <div class="flex-container">
+          <div class="half-container flow">
             <header><h2 id="aux-switch-in">12. Aux Switch In</h2></header>
 
             <h3>Setting Up Auxiliary Switches</h3>
@@ -1072,31 +1225,39 @@
             <div class="keep-together">
               <h4>1. Activating Aux Switch In mode</h4>
               <p>To enable auxiliary switch functions, please set your chosen Flexiport to Aux Switch In mode.</p>
-              <p>Menu > Global > Flexiports > Flexiport ‘x’ > Mode > Aux Switch</p>
             </div>
+            <p><span class="menu-path">Menu > Global > Flexiports > Flexiport ‘x’ > Mode > Aux Switch</span></p>
 
             <div class="keep-together">
               <h4>2. Setting auxiliary switch messages</h4>
-              <p>Single, double or triple auxiliary switches will work in Aux Switch In mode. Aux switches should be momentary switches, and use a TRS cable.<br>
-              Plug your aux switch into your chosen Flexiport and then assign the functions or MIDI commands by going to the following menu for bank-level aux switch messages:</p>
-              <p>Menu > Aux Switches > Aux Switch ‘x’</p>
-              <p>And going to the following menu for global-level messages:</p>
-              <p>Menu > Global > Aux Messages > Aux Switch ‘x’</p>
-              <p>Both menus allow you to set a single message for each of the press types in the list. Currently the options are Press, Hold, Toggle On, and Toggle Off.<br>
-              This gives you four messages per switch, per aux switch. Then, another four messages per switch at the global level.<br>
-              Press messages are sent as soon as the switch is pressed. Hold messages are sent after holding down the switch for the set hold time. Hold time can be changed along with the Aux Switch Sensitivity level in the Flexiport mode menu:</p>
-              <p>Menu > Global > Flexiports > Flexiport ‘x’ > Mode</p>
-              <p>Aux Switch sensitivity is a setting designed to accommodate different brands of switches that might physically differ in the way their switches behave. The sensitivity is something you can change if you are noticing erratic behaviour of your Aux Switch.</p>
-              <p>If you have problems with a particular aux switch, you can message us or email us to get advice. It is possible that some devices will not be wired in a way that works properly with the Bridge4.</p>
-              <p>If messages are not set in the Toggle On or Toggle Off stacks, the switches and the corresponding Flexiport UI on the main screen will act in Momentary Mode. If there are Toggle messages set, then the switch and UI will act in Toggle mode.</p>
-              <p>The messages you can set include Smart Messages, so you can affect complex features like sequential messages, selecting expression messages, triggering other footswitch groups, and much more.</p>
             </div>
+            <p>Single, double or triple auxiliary switches will work in Aux Switch In mode. Aux switches should be momentary switches, and use a TRS cable.<br>
+              Plug your aux switch into your chosen Flexiport and then assign the functions or MIDI commands by going to the following menu for bank-level aux switch messages:</p>
+            <p><span class="menu-path">Menu > Aux Switches > Aux Switch ‘x’</span></p>
+            <p>And going to the following menu for global-level messages:</p>
+            <p><span class="menu-path">Menu > Global > Aux Messages > Aux Switch ‘x’</span></p>
+            <p>Both menus allow you to set a single message for each of the press types in the list. Currently the options are Press, Hold, Toggle On, and Toggle Off.<br>
+            This gives you four messages per switch, per aux switch. Then, another four messages per switch at the global level.</p>
+            <div class="keep-together">
+              <p>Press messages are sent as soon as the switch is pressed. Hold messages are sent after holding down the switch for the set hold time. Hold time can be changed along with the Aux Switch Sensitivity level in the Flexiport mode menu:</p>
+              <p><span class="menu-path">Menu > Global > Flexiports > Flexiport ‘x’ > Mode</span></p>
+
+              <div style="text-align: center; margin: 1em 0;">
+                  <img class="full-width-img" src="Images/aux-switch-settings.png" alt="Aux switch mode, sensitivity and hold time screen" loading="lazy" width="1608" height="438" />
+              </div>
+            </div>
+
+            <p>Aux Switch sensitivity is a setting designed to accommodate different brands of switches that might physically differ in the way their switches behave. The sensitivity is something you can change if you are noticing erratic behaviour of your Aux Switch.</p>
+            <p>If you have problems with a particular aux switch, you can message us or email us to get advice. It is possible that some devices will not be wired in a way that works properly with the Bridge4.</p>
+            <p>If messages are not set in the Toggle On or Toggle Off stacks, the switches and the corresponding Flexiport UI on the main screen will act in Momentary Mode. If there are Toggle messages set, then the switch and UI will act in Toggle mode.</p>
+            <p>The messages you can set include Smart Messages, so you can affect complex features like sequential messages, selecting expression messages, triggering other footswitch groups, and much more.</p>
           </div>
         </div>
       </section>
 
       <section>
-        <div class="flow">
+        <div class="flex-container">
+          <div class="half-container flow">
             <header><h2 id="switch-groups">13. Switch Groups</h2></header>
 
             <p>Switch groups are used to activate, toggle, or deactivate switches by pressing other switches. These groups can be simple or very advanced. The default settings allow for simple exclusivity such as is needed to emulate a “snapshot” mode or where only one switch in the group should be able to be active at one time.<br>
@@ -1105,42 +1266,59 @@
             <h3>Accessing and Editing Switch Groups</h3>
             <p>Switch groups are bank-level settings. Switches do not interact across banks.<br>
             To access and edit the switch groups for the current bank, go to:</p>
-            <p>Menu > Switch Groups</p>
+            <p><span class="menu-path">Menu > Switch Groups</span></p>
             <p>You will see the switch group screen as shown below. As you scroll through the 8 groups, switches that are assigned to that group will have their LED dimly lit up (either primary or secondary depending on which function is added to the group).</p>
+
+            <div style="text-align: center; margin: 1em 0;">
+                <img class="full-width-img" src="Images/switch-group-screen.png" alt="Switch group screen" loading="lazy" width="1608" height="438" />
+            </div>
 
             <div class="keep-together">
               <h4>1. Navigating the switch groups</h4>
-              <p>Use switches 1 & 2 to navigate through the switch groups. There are 8 switch groups per bank.</p>
             </div>
+            <p>Use switches 1 & 2 to navigate through the switch groups. There are 8 switch groups per bank.</p>
 
             <div class="keep-together">
               <h4>2. Editing the switch groups</h4>
               <p>Use switches 1 & 2 to navigate through the switch groups. There are 8 switch groups per bank.<br>
               To edit/add/remove the members of a switch group, press switches 1&2.<br>
               Use switches 3&4 together to add a group member. Use switch 4 to delete a group member and use switches 1&2 together to edit the settings for how a group member behaves within the group.</p>
-              <p>Below you can see an example of a switch group with members:<br>
-              If there are no group members, you will see this screen. Press switch 3 to add the first group member.</p>
+            </div>
+            <div class="keep-together">
+              <p>Below you can see an example of a switch group with members:</p>
+
+              <div style="text-align: center; margin: 1em 0;">
+                  <img class="full-width-img" src="Images/switch-group-members.png" alt="Switch group screen with members" loading="lazy" width="1608" height="438" />
+              </div>
+            </div>
+
+            <div class="keep-together column-end">
+              <p>If there are no group members, you will see this screen. Press switch 3 to add the first group member.</p>
+
+              <div style="text-align: center; margin: 1em 0;">
+                  <img class="full-width-img" src="Images/switch-group-empty.png" alt="Switch group screen with no members" loading="lazy" width="1608" height="439" />
+              </div>
             </div>
 
             <div class="keep-together">
               <h4>Switch</h4>
-              <p>The Primary and Secondary sides of the switch can be independently controlled within a switch group. You can add switch 1-4, primary and secondary for up to 8 members per group per bank.</p>
             </div>
+            <p>The Primary and Secondary sides of the switch can be independently controlled within a switch group. You can add switch 1-4, primary and secondary for up to 8 members per group per bank.</p>
 
             <div class="keep-together">
               <h4>Broadcast</h4>
-              <p>Under the “Broadcast” label, you can set the switch to Transmit only, Receive Only, or Transmit & Receive. This is regarding the switch state. In Transmit only, the switch’s state will be broadcast to the group and other switches in the group will respond according to their own settings. Receive only will only respond to received state changes from other members of the group.</p>
             </div>
+            <p>Under the “Broadcast” label, you can set the switch to Transmit only, Receive Only, or Transmit & Receive. This is regarding the switch state. In Transmit only, the switch’s state will be broadcast to the group and other switches in the group will respond according to their own settings. Receive only will only respond to received state changes from other members of the group.</p>
 
             <div class="keep-together">
               <h4>Respond To</h4>
-              <p>The options here are On, Off, or On & Off. This means that the switch will respond according to the Response Type (see next section) when it receives the “On” or “Off” state of another switch in the group. Whether it receives the “On” or “Off” state depends on the Broadcast setting as described above. If broadcast is set to transmit only, the switch will not be affected by other switches state changing, and these response settings will be of no consequence.</p>
             </div>
+            <p>The options here are On, Off, or On & Off. This means that the switch will respond according to the Response Type (see next section) when it receives the “On” or “Off” state of another switch in the group. Whether it receives the “On” or “Off” state depends on the Broadcast setting as described above. If broadcast is set to transmit only, the switch will not be affected by other switches state changing, and these response settings will be of no consequence.</p>
 
             <div class="keep-together">
               <h4>Response Type</h4>
-              <p>The options here are Or, And, Toggle, On, and Off. These settings dictate the response of this group member when it responds to (see above) the state of another switch in the group which has been broadcast to the group. So, if the switch has been set to receive broadcast from other switches (via Receive only or Transmit & Receive mode), this setting dictates the response.</p>
             </div>
+            <p>The options here are Or, And, Toggle, On, and Off. These settings dictate the response of this group member when it responds to (see above) the state of another switch in the group which has been broadcast to the group. So, if the switch has been set to receive broadcast from other switches (via Receive only or Transmit & Receive mode), this setting dictates the response.</p>
 
             <ul>
               <li><strong>OR:</strong> inverts the setting of the state it is receiving. If it receives broadcast from another switch turning off, it will turn this switch on.</li>
@@ -1152,32 +1330,37 @@
 
             <div class="keep-together">
               <h4>Sequential Mode Switches in a Switch Group</h4>
-              <p>If a switch is in Sequential Mode, you can still add it to a switch group. In this case, when a sequential switch receives an “on” message from another switch in the group, it will be activated in the same way as when the switch is physically pressed. This means the switch will still follow the same direction that has been set for that switch (forward or reverse).<br>
-              Switch groups with sequential switches can also be used across devices connected using Device Link.</p>
             </div>
+            <p>If a switch is in Sequential Mode, you can still add it to a switch group. In this case, when a sequential switch receives an “on” message from another switch in the group, it will be activated in the same way as when the switch is physically pressed. This means the switch will still follow the same direction that has been set for that switch (forward or reverse).<br>
+              Switch groups with sequential switches can also be used across devices connected using Device Link.</p>
           </div>
         </div>
       </section>
 
       <section>
-        <div class="flow">
+        <div class="flex-container">
+          <div class="half-container flow">
             <header><h2 id="interface-leds">14. Interface - LEDs</h2></header>
 
             <p>Each switch on the Bridge4 has a pair of LEDs. The left LED is called the Primary LED and the right is called the Secondary LED. The LEDs are RGB (multi-color) and can be customised per bank in the onboard menus or the web editor.</p>
 
             <h3>LED Color Selection</h3>
             <p>To change the color of the primary or secondary LED, first select the bank that you want the change to affect. Then, go to:</p>
-            <p>Menu > Switches > Switch ‘x’</p>
+            <p><span class="menu-path">Menu > Switches > Switch ‘x’</span></p>
             <p>Here you will be able to choose the color to be associated with the primary switch function, and then by navigating with switch 6 to the secondary function, you can choose the color to be associated with the secondary switch mode.<br>
             The colour of the LED will change as you navigate the list so you can see what each colour looks like. The Bridge4 comes with 11 colors, an “off” option, and the 12 custom color slots.</p>
             
             <div class="callout">
-              <p>Note: The “Sequential” switch mode requires an extra step to change the color. This is because each step can have its own color. When editing the sequential message stack, you will be able to set the color for each step individually. Go to: Menu > Switches > Switch ‘x’ > Messages > Sequential</p>
+              <p>Note: The “Sequential” switch mode requires an extra step to change the color. This is because each step can have its own color. When editing the sequential message stack, you will be able to set the color for each step individually. Go to: <span class="menu-path">Menu > Switches > Switch ‘x’ > Messages > Sequential</span></p>
             </div>
 
             <h3>Custom LED Colors</h3>
             <p>There are 12 user-created custom color slots on the Bridge4. You can create these colors by going to:</p>
-            <p>Menu > Global > Interface > Custom Colors</p>
+            <p><span class="menu-path">Menu > Global > Interface > Custom Colors</span></p>
+
+            <div style="text-align: center; margin: 1em 0;">
+                <img class="full-width-img" src="Images/custom-colors.png" alt="Custom colour screen with the RGB channels" loading="lazy" width="1030" height="780" />
+            </div>
             <p>Colors are created using values from 0-200 for the Red, Green, and Blue channels. The Secondary LED on switch 2 will show the color you are currently creating with live updates as you change the R,G,B values.<br>
             If you are changing a custom color slot that already has a saved color, the saved color will appear in the primary LED position for you to compare to the new color you are creating in that slot.</p>
 
@@ -1185,18 +1368,18 @@
             
             <div class="keep-together">
               <h4>Primary LEDs</h4>
-              <p>This LED function is linked to the current mode of the footswitch. In Toggle mode, the Primary LED will light after a press, and then will be turned off on the second press.<br>
+            </div>
+            <p>This LED function is linked to the current mode of the footswitch. In Toggle mode, the Primary LED will light after a press, and then will be turned off on the second press.<br>
               In Momentary mode, the primary LED will light only when the switch is pressed.<br>
               In Tap Tempo (MIDI Clock) mode, the primary LED will be flashing to indicate the current tempo. The flash rate will update as you tap new tempos.<br>
               In Sequential mode, the primary LED will show the color of the current step. Each step can be assigned a color in the sequential message stack.</p>
-            </div>
 
             <div class="keep-together">
               <h4>Secondary LEDs</h4>
-              <p>This LED function is linked to the current mode of the footswitch. In Toggle mode, the secondary LED will light momentarily when the footswitch is held down. This helps you identify when a hold message has been triggered successfully.<br>
+            </div>
+            <p>This LED function is linked to the current mode of the footswitch. In Toggle mode, the secondary LED will light momentarily when the footswitch is held down. This helps you identify when a hold message has been triggered successfully.<br>
               If the secondary mode is set as double press toggle, the secondary LED will toggle on and off when switches are double-pressed.<br>
               In Tap Tempo (MIDI Clock) mode, the secondary LED will be lit indicating that a start message has been sent. Holding the switch will send a stop message and turn off the secondary LED.</p>
-            </div>
 
             <h3>External LED Control</h3>
             <p>LEDs can be controlled via external MIDI commands. Any changes made are not permanent, and do not change the onboard settings, they only temporarily override the LED settings.<br>
@@ -1204,73 +1387,86 @@
 
             <div class="keep-together">
               <h4>Color Change Target</h4>
-              <p>To change the colour of an LED externally, you must first target that LED by sending a value between 0 and 11 on CC 55. After you have sent the target message, messages sent on CCs 56-58 will affect the color channels (Red, Green, and Blue) of that LED to create a colour. There are also brightness controls.<br>
-              See the MIDI Implementation table at the end of this manual for the specific value ranges.</p>
             </div>
+            <p>To change the colour of an LED externally, you must first target that LED by sending a value between 0 and 11 on CC 55. After you have sent the target message, messages sent on CCs 56-58 will affect the color channels (Red, Green, and Blue) of that LED to create a colour. There are also brightness controls.<br>
+              See the <a href="#midi-implementation">MIDI Implementation</a> table at the end of this manual for the specific value ranges.</p>
 
             <div class="keep-together">
               <h4>LED Brightness</h4>
               <p>LED brightness can be set from 0-100% in the Global General UI settings. To change the setting onboard the device, go to:</p>
-              <p>Menu > Global > General UI > LED Brightness</p>
             </div>
+            <p><span class="menu-path">Menu > Global > General UI > LED Brightness</span></p>
           </div>
         </div>
       </section>
 
       <section>
-        <div class="flow">
+        <div class="flex-container">
+          <div class="half-container flow">
             <header><h2 id="interface-bank-names">15. Interface - Bank Names</h2></header>
 
             <p>All 100 Banks on the Bridge4 can be named individually with up to 16 Characters. Upper case, lower case, numbers, and symbols are available.</p>
 
             <div class="keep-together">
-              <h4>Changing the Bank Name</h4>
+              <h3>Changing the Bank Name</h3>
               <p>First, select the bank you want to change the name on. Then go to:</p>
-              <p>Menu > Bank Name</p>
+            </div>
+            <p><span class="menu-path">Menu > Bank Name</span></p>
               <p>Here you can set up to 16 characters for the bank name using switches 1 & 2 to change the character and using switches 3 & 4 to move the cursor. Press switches 1&2 together to save and exit.</p>
-            </div>
 
             <div class="keep-together">
-              <h4>Scroll Acceleration</h4>
-              <p>To help you move through the characters quickly, you can press and hold down switch 1 or 3 to scroll through the characters. The longer you hold, the faster the scroll will become until you hit the acceleration ceiling.</p>
+              <h3>Scroll Acceleration</h3>
             </div>
+            <p>To help you move through the characters quickly, you can press and hold down switch 1 or 3 to scroll through the characters. The longer you hold, the faster the scroll will become until you hit the acceleration ceiling.</p>
 
             <div class="keep-together">
-              <h4>Inverting the Bank Name Color</h4>
+              <h3>Inverting the Bank Name Color</h3>
               <p>The bank name section can be inverted to have a white background, and black letters. To invert the bank name colors go to:</p>
-              <p>Menu > Global > General UI > Invert Bank</p>
             </div>
+            <p><span class="menu-path">Menu > Global > General UI > Invert Bank</span></p>
 
             <div class="keep-together">
-              <h4>Change Bank Numbering</h4>
+              <h3>Change Bank Numbering</h3>
               <p>Banks are numbered from 1-100 by default. If you prefer to have them numbered from 0-99, you can change it by going to:</p>
-              <p>Menu > Global > Interface > General UI > Bank Index</p>
             </div>
+            <p><span class="menu-path">Menu > Global > Interface > General UI > Bank Index</span></p>
           </div>
         </div>
       </section>
 
       <section>
-        <div class="flow">
+        <div class="flex-container">
+          <div class="half-container flow">
             <header><h2 id="interface-ui-mode">16. Interface - UI Mode</h2></header>
 
             <p>The User Interface (UI) of the Bridge4 main screen defaults to the Standard UI but it can be changed to the Simple UI if preferred.</p>
 
             <div class="keep-together">
-              <h4>How to change the UI</h4>
+              <h3>How to change the UI</h3>
               <p>To change the UI from Extended to Simple, go to:</p>
-              <p>Menu > Global > Interface > General UI</p>
             </div>
+            <p><span class="menu-path">Menu > Global > Interface > General UI</span></p>
 
             <div class="keep-together">
-              <h4>Simple UI</h4>
-              <p>The Simple UI uses larger text labels, and removes icons, lines, and other UI elements. Only the switch labels and bank name are visible.</p>
+              <h3>Simple UI</h3>
+            </div>
+            <p>The Simple UI uses larger text labels, and removes icons, lines, and other UI elements. Only the switch labels and bank name are visible.</p>
+
+            <div style="text-align: center; margin: 1em 0;">
+                <img class="full-width-img" src="Images/ui-simple.png" alt="Simple UI screen" loading="lazy" width="1608" height="439" />
             </div>
 
-            <div class="keep-together">
-              <h4>Extended UI</h4>
-              <p>The Extended UI uses graphical elements to give you more information about the various features of the Bridge4.</p>
+            <div class="keep-together column-end">
+              <div class="keep-together">
+                <h3>Extended UI</h3>
+                <p>The Extended UI uses graphical elements to give you more information about the various features of the Bridge4.</p>
+              </div>
               <p>Switch labels and bank name are still visible, but they are slightly smaller, and the bank name is left aligned. The bank up and down indicator icons are also present.</p>
+
+              <div style="text-align: center; margin: 1em 0;">
+                  <img class="full-width-img" src="Images/ui-extended.png" alt="Extended UI screen" loading="lazy" width="1608" height="438" />
+              </div>
+            </div>
               <p>The most interesting feature of the Extended UI is the Flexiport Status section. You will notice two boxes which indicate the Flexiport mode selected.<br>
               Depending on the mode that has been selected for the Flexiports, you will be given different graphical representations and helpful information here.</p>
               <ul>
@@ -1282,144 +1478,156 @@
                 <li>In Switch Out mode, you will see a representation of the Tip and Ring contacts labelled with “T” and “R”. These icons will invert their coloring depending on their state. When the contacts are closed, they will be filled in white, and when open they will only have white outlines.</li>
                 <li>In Device Link mode, you will see a label indicating whether the device is in Main mode or Satellite mode. In Satellite mode, the icon will be filled in white when it detects the Main device is connected. The icon will be an outline if it is not connected.</li>
               </ul>
-            </div>
           </div>
         </div>
       </section>
 
       <section>
-        <div class="flow">
+        <div class="flex-container">
+          <div class="single-column flow">
             <header><h2 id="interface-switch-labels">17. Interface - Switch Labels</h2></header>
 
             <p>Each switch can be given a different name in all 100 banks on the Bridge4. These labels can be up to 8 characters. Here’s how to change them.</p>
 
             <div class="keep-together">
-              <h4>Changing & Customising Switch Labels</h4>
+              <h3>Changing & Customising Switch Labels</h3>
               <p>Go to:</p>
-              <p>Menu > Switches > Switch ‘x’ > Switch Name</p>
+            </div>
+            <p><span class="menu-path">Menu > Switches > Switch ‘x’ > Switch Name</span></p>
               <p>Use switches 1 & 2 to change the characters, and switches 3 & 4 to move the cursor.<br>
               Press switches 1&2 together to save and exit.</p>
-            </div>
           </div>
         </div>
       </section>
 
       <section>
-        <div class="flow">
+        <div class="flex-container">
+          <div class="half-container flow">
             <header><h2 id="bank-navigation">18. Bank Navigation</h2></header>
 
             <p>Standard bank navigation is managed by pressing switches 1 & 2 together to decrease the bank number, and by pressing switches 2 & 3 to increase the bank number.<br>
             However, we’ve also included settings to change the bank change triggers, and even to change the bank trigger to a single switch instead of a combination.<br>
             To change the bank navigation triggers, go to:</p>
 
-            <p>Menu > Global > Interface > General UI</p>
-
-            <p>Then, scroll to the second page to change the bank triggers as shown in the diagram below.<br>
-            The options for bank triggers on the Bridge4 are:</p>
-            
-            <ul>
-              <li>FS1 + FS2</li>
-              <li>FS2 + FS3</li>
-              <li>FS3 + FS4</li>
-              <li>FS2 + FS4</li>
-              <li>FS1, FS2, FS3, or FS4 (single)</li>
-              <li>none</li>
-            </ul>
+            <p><span class="menu-path">Menu > Global > Interface > General UI</span></p>
 
             <div class="keep-together">
-              <h4>Setlists</h4>
-              <p>In the web editor, you can not only drag and drop banks to rearrange them, but you can use the setlist manager to create 8 different setlists. Setlists let you drag and drop up to 32 banks into a custom order, and then using Smart Messages or external MIDI commands, you can select which setlist you want to use, and then standard “Bank up” and “Bank down” commands will progress through the setlist instead of standard bank number order.</p>
-              <p>Onboard your Bridge4, you can select and activate a setlist by pressing and holding switches 2&4 (the two rightmost switches) and then the setlist UI will appear. Use switches 1 and 2 to scroll through setlists, then press switches 1&2 together to activate it.<br>
-              When inside the setlists menu, you can press switches 3&4 together to exit the setlist menu, or press and hold the same two switches to exit setlist mode completely and return to normal linear bank mode.</p>
-              <p>Editing, deleting, adjusting, and renaming setlists must all be done in the web editor at https://edit.piratemidi.com</p>
-            </div>
-          </div>
-        </div>
-      </section>
+              <p>Then, scroll to the second page to change the bank triggers as shown in the diagram below.</p>
 
-      <section>
-        <div class="flow">
-            <header><h2 id="other-global-settings">19. Other Global Settings</h2></header>
-
-            <p>Some of the fundamental global settings have already been covered at the start of this manual. If you’re looking for Flexiport settings or MIDI Thru, see pages 18-28.</p>
-
-            <div class="keep-together">
-              <h4>MIDI Channel</h4>
-              <p>MIDI allows up to 16 channels to keep streams of messages separate. This means devices will act on messages that are only intended for that device.<br>
-              When sending MIDI control messages to the Bridge4, you’ll need to make sure you’re sending messages with the correct MIDI channel. By default, the device is set to “omni” which means it will listen to all MIDI messages and act on any valid CC or PC numbers.<br>
-              If you want to limit the responses, set the channel to a channel of your choice.<br>
-              If you want to make sure that messages coming into the BRIDGE are passed thru, and not interpreted as BRIDGE control messages, you’ll need to change the MIDI channel of the Bridge4 to a specific number (perhaps 16?) and then make sure your other messages are not using channel 16.</p>
-            </div>
-
-            <div class="keep-together">
-              <h4>Persistent Switch States</h4>
-              <p>If you would like you controller to remember the states you left switches in when changing banks, you can turn these setting on or off at:</p>
-              <p>Menu > Global > Interface > General UI > (3rd Screen) “Tog States”, “Scr States”, or “Seq States”</p>
-              <p>These three settings let you choose whether toggle states, scrolling switch counters, or sequential steps are saved when you exit a bank and then later return to that same bank.<br>
-              This does not make a scrolling switch on one bank link to the scrolling counter on a scrolling switch on another bank.</p>
-            </div>
-
-            <div class="keep-together">
-              <h4>Transmit Switch States</h4>
-              <p>If you would like you controller to transmit the switch states and their messages when changing banks, you can turn this setting on or off at:</p>
-              <p>Menu > Global > Interface > General UI > “TX States”</p>
-              <p>This setting allows you to automatically reset or sync your gear to a “default” or “beginning” state for each bank, without using bank messages, and so that your gear matches the default bank state of your Bridge4 every time.</p>
-            </div>
-
-            <div class="keep-together">
-              <h4>Program Change (PC) Bank Output</h4>
-              <p>By default, your Bridge4 will automatically send a Program Change (PC) MIDI message when you change banks. This is useful for plugging into another device like a HX Stomp and having the presets stay in sync with the banks.<br>
-              The PC Outputs are turned on for all MIDI Outputs by default, and you can change the MIDI channel they send on, or turn them off entirely (per MIDI Out) at:</p>
-              <p>Menu > Global > MIDI > PC Bank Outputs</p>
-            </div>
-
-            <div class="keep-together">
-              <h4>Switch Hold Time</h4>
-              <p>To adjust the time before a “Hold” event is registered for the onboard switches, go to:</p>
-              <p>Menu > Global > Interface > General UI > Hold Time</p>
-              <p>This setting can be adjusted in 10ms increments from 300ms to 2500ms (.3 sec to 2.5 sec). In the web editor, the increments are not limited to 10ms.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <div class="flow">
-            <header><h2 id="resetting-or-updating">20. Resetting or Updating</h2></header>
-
-            <div class="keep-together">
-              <h4>Factory Reset</h4>
-              <p>This will clear all MIDI messages stacks, reset all switch mode settings, and all global settings. Make sure you have backed up your device if you have a lot of work saved on the device.</p>
-              <p>Menu > System > Reset > Factory Reset</p>
-              <p>A factory reset can also be performed by holding down FS1 during power-up. Hold the switch for 7 seconds (until the LEDs all turn white) and then release the switch.</p>
-            </div>
-
-            <div class="keep-together">
-              <h4>Global Settings Reset</h4>
-              <p>Global settings reset will change all global settings to default without affecting your switch modes, message stacks, or other bank level settings. To reset the global settings go to:</p>
-              <p>Menu > System > Reset > Global Settings Reset</p>
-            </div>
-
-            <div class="keep-together">
-              <h4>Updating Firmware</h4>
-              <p>This user manual represents the features and settings for the firmware version marked in the footer of each page. If your device doesn’t match, this manual will be incorrect. Please update your device and download the latest user manual.<br>
-              Up to date information for firmware updates can be found at www.learn.piratemidi.com/downloads/firmware-updates<br>
-              The Bridge4 can be updated through the firmware updater app, or using a manual firmware update method as a last resort. Both are outlined in the webpage linked above.</p>
-            </div>
-
-            <div class="keep-together">
-              <h4>Troubleshooting</h4>
-              <p>If, for some reason, the update is not successful or the process is not able to start, please contact us at support@piratemidi.com</p>
-              <div class="callout">
-                <p>If you are not able to access the menus on your device, a factory reset can be performed by holding down FS1 during power-up. Hold the switch for 7 seconds (until the LEDs all turn white) and then release the switch.</p>
+              <div style="text-align: center; margin: 1em 0;">
+                  <img class="full-width-img" src="Images/bank-triggers.png" alt="Bank trigger settings screen" loading="lazy" width="1608" height="439" />
               </div>
             </div>
 
+            <div class="keep-together column-end">
+              <p>The options for bank triggers on the Bridge4 are:</p>
+              <ul>
+                <li>FS1 + FS2</li>
+                <li>FS2 + FS3</li>
+                <li>FS3 + FS4</li>
+                <li>FS2 + FS4</li>
+                <li>FS1, FS2, FS3, or FS4 (single)</li>
+                <li>none</li>
+              </ul>
+            </div>
+
             <div class="keep-together">
-              <h4>Entering Update Mode</h4>
+              <h3>Setlists</h3>
+              <p>In the web editor, you can not only drag and drop banks to rearrange them, but you can use the setlist manager to create 8 different setlists. Setlists let you drag and drop up to 32 banks into a custom order, and then using Smart Messages or external MIDI commands, you can select which setlist you want to use, and then standard “Bank up” and “Bank down” commands will progress through the setlist instead of standard bank number order.</p>
+            </div>
+            <p>Onboard your Bridge4, you can select and activate a setlist by pressing and holding switches 2&4 (the two rightmost switches) and then the setlist UI will appear. Use switches 1 and 2 to scroll through setlists, then press switches 1&2 together to activate it.<br>
+              When inside the setlists menu, you can press switches 3&4 together to exit the setlist menu, or press and hold the same two switches to exit setlist mode completely and return to normal linear bank mode.</p>
+              <p>Editing, deleting, adjusting, and renaming setlists must all be done in the web editor at <a href="https://edit.piratemidi.com">https://edit.piratemidi.com</a></p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="flex-container">
+          <div class="half-container flow">
+            <header><h2 id="other-global-settings">19. Other Global Settings</h2></header>
+
+            <p>Some of the fundamental global settings have already been covered at the start of this manual. If you’re looking for Flexiport settings or MIDI Thru, see <a href="#overview-connectors">Overview of Connectors</a>, <a href="#flexiports">Flexiports</a> and <a href="#midi-in-out-thru">MIDI In/Out/Thru</a>.</p>
+
+            <div class="keep-together">
+              <h3>MIDI Channel</h3>
+            </div>
+            <p>MIDI allows up to 16 channels to keep streams of messages separate. This means devices will act on messages that are only intended for that device.<br>
+              When sending MIDI control messages to the Bridge4, you’ll need to make sure you’re sending messages with the correct MIDI channel. By default, the device is set to “omni” which means it will listen to all MIDI messages and act on any valid CC or PC numbers.<br>
+              If you want to limit the responses, set the channel to a channel of your choice.<br>
+              If you want to make sure that messages coming into the BRIDGE are passed thru, and not interpreted as BRIDGE control messages, you’ll need to change the MIDI channel of the Bridge4 to a specific number (perhaps 16?) and then make sure your other messages are not using channel 16.</p>
+
+            <div class="keep-together">
+              <h3>Persistent Switch States</h3>
+              <p>If you would like your controller to remember the states you left switches in when changing banks, you can turn these setting on or off at:</p>
+            </div>
+            <p><span class="menu-path">Menu > Global > Interface > General UI > (3rd Screen) “Tog States”, “Scr States”, or “Seq States”</span></p>
+              <p>These three settings let you choose whether toggle states, scrolling switch counters, or sequential steps are saved when you exit a bank and then later return to that same bank.<br>
+              This does not make a scrolling switch on one bank link to the scrolling counter on a scrolling switch on another bank.</p>
+
+            <div class="keep-together">
+              <h3>Transmit Switch States</h3>
+              <p>If you would like your controller to transmit the switch states and their messages when changing banks, you can turn this setting on or off at:</p>
+            </div>
+            <p><span class="menu-path">Menu > Global > Interface > General UI > “TX States”</span></p>
+              <p>This setting allows you to automatically reset or sync your gear to a “default” or “beginning” state for each bank, without using bank messages, and so that your gear matches the default bank state of your Bridge4 every time.</p>
+
+            <div class="keep-together">
+              <h3>Program Change (PC) Bank Output</h3>
+              <p>By default, your Bridge4 will automatically send a Program Change (PC) MIDI message when you change banks. This is useful for plugging into another device like a HX Stomp and having the presets stay in sync with the banks.<br>
+              The PC Outputs are turned on for all MIDI Outputs by default, and you can change the MIDI channel they send on, or turn them off entirely (per MIDI Out) at:</p>
+            </div>
+            <p><span class="menu-path">Menu > Global > MIDI > PC Bank Outputs</span></p>
+
+            <div class="keep-together">
+              <h3>Switch Hold Time</h3>
+              <p>To adjust the time before a “Hold” event is registered for the onboard switches, go to:</p>
+            </div>
+            <p><span class="menu-path">Menu > Global > Interface > General UI > Hold Time</span></p>
+              <p>This setting can be adjusted in 10ms increments from 300ms to 2500ms (.3 sec to 2.5 sec). In the web editor, the increments are not limited to 10ms.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="flex-container">
+          <div class="half-container flow">
+            <header><h2 id="resetting-or-updating">20. Resetting or Updating</h2></header>
+
+            <div class="keep-together">
+              <h3>Factory Reset</h3>
+              <p>This will clear all MIDI messages stacks, reset all switch mode settings, and all global settings. Make sure you have backed up your device if you have a lot of work saved on the device.</p>
+            </div>
+            <p><span class="menu-path">Menu > System > Reset > Factory Reset</span></p>
+              <p>A factory reset can also be performed by holding down FS1 during power-up. Hold the switch for 7 seconds (until the LEDs all turn white) and then release the switch.</p>
+
+            <div class="keep-together">
+              <h3>Global Settings Reset</h3>
+              <p>Global settings reset will change all global settings to default without affecting your switch modes, message stacks, or other bank level settings. To reset the global settings go to:</p>
+            </div>
+            <p><span class="menu-path">Menu > System > Reset > Global Settings Reset</span></p>
+
+            <div class="keep-together">
+              <h3>Updating Firmware</h3>
+            </div>
+            <p>This user manual represents the features and settings for the firmware version marked in the footer of each page. If your device doesn’t match, this manual will be incorrect. Please update your device and download the latest user manual.<br>
+              Up to date information for firmware updates can be found at <a href="https://learn.piratemidi.com/downloads/firmware-updates">www.learn.piratemidi.com/downloads/firmware-updates</a><br>
+              The Bridge4 can be updated through the firmware updater app, or using a manual firmware update method as a last resort. Both are outlined in the webpage linked above.</p>
+
+            <div class="keep-together">
+              <h3>Troubleshooting</h3>
+            </div>
+            <p>If, for some reason, the update is not successful or the process is not able to start, please contact us at <a href="mailto:support@piratemidi.com">support@piratemidi.com</a></p>
+              <div class="callout">
+                <p>If you are not able to access the menus on your device, a factory reset can be performed by holding down FS1 during power-up. Hold the switch for 7 seconds (until the LEDs all turn white) and then release the switch.</p>
+            </div>
+
+            <div class="keep-together">
+              <h3>Entering Update Mode</h3>
               <p>Manual Updates are only required as a last resort if something went wrong during the normal update process.<br>
               To enter update mode, go to:</p>
-              <p>Menu > System > Manual Update</p>
+            </div>
+            <p><span class="menu-path">Menu > System > Manual Update</span></p>
               <p>In case of some kind of software error where you are unable to use the onboard menus, you can enter the firmware update mode manually:</p>
               <ul>
                 <li>Turn off the Bridge4</li>
@@ -1428,18 +1636,18 @@
                 <li>While holding down switch 3, plug in the USB cable.</li>
                 <li>The device will start in update (DFU) mode and then you can release the footswitch. (There will be NO lights, screen, or any indication that the device is powered, but this is normal because you have bypassed the normal startup and entered the bootloader)</li>
               </ul>
-            </div>
           </div>
         </div>
       </section>
 
       <section>
-        <div class="flow">
+        <div class="flex-container">
+          <div class="single-column flow">
             <header><h2 id="midi-implementation">21. MIDI Implementation</h2></header>
 
             <p>The Bridge4 can itself be controlled by MIDI from an external MIDI device via the dedicated MIDI In (6.35mm TRS) or USB MIDI.<br>
-            You can set the MIDI channel in the menu (see Global Settings for more details):</p>
-            <p><strong>Menu > Global > MIDI > Channel</strong></p>
+            You can set the MIDI channel in the menu (see <a href="#other-global-settings">Global Settings</a> for more details):</p>
+            <p><span class="menu-path">Menu > Global > MIDI > Channel</span></p>
 
             <div class="table-scroll">
               <table class="doc-table">
@@ -1497,7 +1705,7 @@
                   <tr><td>Blue Channel Intensity</td><td>58</td><td>0-127</td></tr>
                   <tr><td>Reset Target LED Values</td><td>59</td><td>0-7 (FS1 Primary - FS4 Secondary)</td></tr>
                   <tr><td>Reset All LED values</td><td>60</td><td>Any (0-127)</td></tr>
-                  <tr><td colspan="3"><strong>MIDI Clock Control</strong> (See chapter 9 for details)</td></tr>
+                  <tr><td colspan="3"><strong>MIDI Clock Control</strong> (See <a href="#midi-clock">chapter 9</a> for details)</td></tr>
                   <tr><td>Target Clock A: 45-127 BPM</td><td>73</td><td>0</td></tr>
                   <tr><td>Target Clock A: 128-240 BPM</td><td>73</td><td>1</td></tr>
                   <tr><td>Target Clock B: 45-127 BPM</td><td>73</td><td>2</td></tr>
@@ -1512,11 +1720,12 @@
       </section>
 
       <section>
-        <div class="flow">
+        <div class="flex-container">
+          <div class="half-container flow">
             <header><h2 id="support-warranty">22. Support & Warranty</h2></header>
 
             <p>Thank you for purchasing a Bridge4!</p>
-            <p>If you have any questions, please feel free to contact us via support@piratemidi.com or use technical support at: www.learn.piratemidi.com</p>
+            <p>If you have any questions, please feel free to contact us via <a href="mailto:support@piratemidi.com">support@piratemidi.com</a> or use technical support at: <a href="https://learn.piratemidi.com">www.learn.piratemidi.com</a></p>
 
             <p>Manufacturing defects are covered by our warranty. Please contact us if your device is defective.</p>
             <p>Australian domestic customers are covered by Australian Consumer Law which requires repair or replacement for devices that do not fulfil their advertised purpose.<br>
