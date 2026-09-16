@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Check a built manual page: anchors resolve, images exist, Images/ has no strays.
+"""Check a built manual page: anchors resolve, images exist, Images/ has no strays,
+URLs and e-mail addresses are links.
 
 Usage: check_page.py <pedal-dir>/index.html
 
@@ -45,6 +46,12 @@ off_heading = re.findall(
 missing = [s for s in images if not s.startswith(("http:", "https:", "data:"))
            and not os.path.exists(os.path.join(root, s))]
 
+# print can't link, so a URL or address copied from the PDF stays dead text
+# unless it is wrapped; text inside <a> and inside tags doesn't count
+text = re.sub(r'<(script|style|a)\b.*?</\1>|<[^>]+>', ' ', html, flags=re.S | re.I)
+bare = sorted(set(re.findall(
+    r'https?://[^\s<>"]+[\w/]|\bwww\.[^\s<>"]+[\w/]|[\w.+-]+@[\w-]+\.[\w.]*\w', text)))
+
 used = {os.path.normpath(s) for s in images}
 img_dir = os.path.join(root, "Images")
 strays = sorted(
@@ -58,4 +65,5 @@ print(f"dangling anchors:      {dangling or 'none'}")
 print(f"missing images:        {missing or 'none'}")
 print(f"unreferenced in Images/: {strays or 'none'}")
 print(f"section ids off heading: {off_heading or 'none'}")
-sys.exit(1 if dangling or missing or strays or off_heading else 0)
+print(f"unlinked URLs/e-mails:   {bare or 'none'}")
+sys.exit(1 if dangling or missing or strays or off_heading or bare else 0)

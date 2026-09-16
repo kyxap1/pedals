@@ -185,12 +185,36 @@ and let the figure sit in its column.
   columns.
 - Sub-headings get `break-after: avoid`, so none sits alone at a column's
   foot.
+- A figure shares a column with the sentence that leads into it ("as shown
+  below") and with what continues from it ("The options are:" and its list).
+  Wrap exactly that — lead-in, figure, follow-up — in `.keep-together`. When
+  a paragraph carries more than the lead-in, split it at its `<br>` so only
+  the lead-in travels with the figure; bundling the whole paragraph moves it
+  all to the other column and leaves a hole.
+- A bundle that still jumps to the right column and leaves its sub-heading
+  behind gets `.column-end` on it: the left column ends after it. The break is
+  gated on two columns fitting — in a single column a forced column break
+  overflows sideways.
+- A lead-in ending in ":" (`go to:`) never ends a column above its menu path;
+  the `:has()` rule below holds that without a wrapper per pair.
 
 ```css
 .keep-together { break-inside: avoid; }
 p, li { break-inside: avoid; }
 h3, h4, h5, h6 { break-after: avoid; }
+:has(+ p > .menu-path:only-child) { break-after: avoid; }
+
+.half-container { container-type: inline-size; }
+/* 63rem = the two-column threshold of `columns: 2 30rem` */
+@container (min-width: 63rem) {
+  .column-end { break-after: column; }
+}
 ```
+
+Column breaks move with every viewport width, so one screenshot proves
+nothing about them: `scripts/check_columns.mjs` sweeps 1000–2600 px and
+lists each figure stranded from its lead-in and each `:` lead-in split from
+what it introduces, with the widths where it happens.
 
 **Short sections.** A blurb under ~10–14 lines (an "About this manual" or
 "Support") split into columns leaves a tiny isolated column; its container

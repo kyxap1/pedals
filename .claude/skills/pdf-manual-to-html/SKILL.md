@@ -125,7 +125,7 @@ screenshot pass every request re-sent over 300K tokens.
   ```
 - Let a script answer what a script can: `check_page.py` for anchors and
   images, the `scrollWidth` line `screenshot.mjs` prints for horizontal
-  scroll.
+  scroll, `check_columns.mjs` for figures and lead-ins split across columns.
 - Batch independent tool calls into one response; every extra round trip
   re-sends everything.
 - After a compaction the summary carries the decisions. Re-read only what the
@@ -342,6 +342,14 @@ leave the author's voice, slang and deliberate informality alone. Where one PDF
 garbles a sentence another prints cleanly, take the clean one. No `[sic]` — it
 helps nobody in a pedal manual.
 
+What print can only point at, the page links. A cross-reference ("see
+chapter 8", "on page 12", "the MIDI Implementation chapter", "see Global
+Settings") becomes an anchor on its words — `See <a href="#message-stacks">chapter
+8</a>` — aimed at the sub-heading it means when it names one (give that
+heading an `id`). Every URL and e-mail address becomes `<a href>` /
+`mailto:` with its printed text kept; a printed `www.` host still gets an
+`https://` href. `check_page.py` lists any left bare.
+
 Log every departure as you write it, in `_cctmp.<slug>/copy-changes.md`:
 section, printed wording, page wording. Added words ("so", "in") count, and so
 do dropped or added punctuation and respacing. The reviewer's list of allowed
@@ -454,8 +462,16 @@ Do all verification **before** deleting the `_cctmp.<slug>/` extract directory, 
 - `scripts/check_page.py <pedal-dir>/index.html` — dangling TOC anchors,
   missing images and unreferenced files in `Images/`; none of them shows in a
   screenshot.
-- Screenshot the whole page with `scripts/screenshot.mjs` at a desktop and a
-  mobile width. It drives Chrome over CDP, captures the page's real height as
+- `scripts/check_columns.mjs "file://$PWD/<pedal-dir>/index.html"` — sweeps
+  1000–2600 px and lists every figure that starts the right column while its
+  lead-in stays left, and every `:` lead-in split from its list or menu path,
+  with the widths. Exits 1 on any finding; fix with conventions → "Column
+  breaks" and re-run until clean. Headless Chrome needs a real bound:
+  `timeout 320`.
+- Screenshot the whole page with `scripts/screenshot.mjs` at a mobile width
+  and at three desktop widths — 1400, 1700 and 2000: columns balance
+  differently at each, and a figure right at 1400 can be stranded at 1700.
+  It drives Chrome over CDP, captures the page's real height as
   numbered segments (`desktop-01.png`, `desktop-02.png`, …; a single capture
   past ~16,000 px repeats the page from the top) and prints the page's
   `scrollWidth`. Don't use `chrome --headless --screenshot --window-size=W,H`
@@ -466,6 +482,10 @@ Do all verification **before** deleting the `_cctmp.<slug>/` extract directory, 
   mkdir -p _cctmp.<slug>/shot
   node .claude/skills/pdf-manual-to-html/scripts/screenshot.mjs \
     "file://$PWD/<pedal-dir>/index.html" "$PWD/_cctmp.<slug>/shot/desktop.png" 1400
+  node .claude/skills/pdf-manual-to-html/scripts/screenshot.mjs \
+    "file://$PWD/<pedal-dir>/index.html" "$PWD/_cctmp.<slug>/shot/d1700.png" 1700
+  node .claude/skills/pdf-manual-to-html/scripts/screenshot.mjs \
+    "file://$PWD/<pedal-dir>/index.html" "$PWD/_cctmp.<slug>/shot/d2000.png" 2000
   node .claude/skills/pdf-manual-to-html/scripts/screenshot.mjs \
     "file://$PWD/<pedal-dir>/index.html" "$PWD/_cctmp.<slug>/shot/mobile.png" 390
   ```
@@ -539,6 +559,8 @@ Actions on push to `master`; source PDFs live in the repo on purpose.
 - `scripts/optimize_images.py` — web-sized, recompressed images; `width`,
   `height` and `loading="lazy"` on every `<img>`.
 - `scripts/check_page.py` — anchor, image and stray-file check on the built page.
+- `scripts/check_columns.mjs` — figures and `:` lead-ins split across the
+  columns, swept over viewport widths.
 - `scripts/clean_crop.py` — an icon crop stripped of neighbouring letters and
   rule ends.
 - `references/conventions.md` — repo layout, the full HTML/CSS pattern from the
