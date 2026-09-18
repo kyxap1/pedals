@@ -399,6 +399,12 @@ section it illustrates.
   HTML and is painted out of the image with the background colour; integral
   labels (numbered pointers) stay. A wordmark crop is the logotype alone — a
   tagline or URL printed beside it is text, so it goes in the HTML.
+- A table printed as a screenshot is still a table: transcribe it into a real
+  `<table>` (conventions → tables), never ship it as an image. A reader who
+  needs to scan or reference it can't do that on a flat picture, and it goes
+  illegible the moment it's scaled down for mobile. Not a judgment call and no
+  exceptions for row/column count — logotypes are the only figures allowed to
+  carry text.
 - Copy across only the images the page shows, named for what they depict
   (`setting-1.png`, `ego-mini-header.jpg`). Most of the dump is print
   furniture — gradient strips a few pixels tall, slivers of rules, repeated
@@ -493,7 +499,8 @@ Do all verification **before** deleting the `_cctmp.<slug>/` extract directory, 
 - Hand the looking to a fresh subagent, the **reviewer/verifier**. It will check if everything converted correctly and tell you (the main model) what to fix. Give it the page, the segment files, `pages/`, the survey's section → page map and the checks below; it edits nothing and reports each finding as text — section id, segment file, what the page shows, what the PDF shows.
   - **The Reviewer's Mandate:**
     - Crookedly cropped images (figures cut off at the edges or containing stray lines from neighbouring elements).
-    - Images used where live text should be (except for logotypes).
+    - Images used where live text or a table should be (except for logotypes) —
+      a hard fail, not a style note.
     - Incorrectly formatted text that differs from the original (missing bold/italic, wrong heading levels).
     - Header/masthead position and layout against the cover art.
     - Correctness of the menu / TOC (broken anchors, missing items).
