@@ -11,6 +11,7 @@
 + Pirate MIDI Bridge4
 + Radial ProRMP Reamper
 + Source Audio Collider
++ Source Audio EQ2
 + TC Electronic Plethora X1
 + TC Electronic Polytune 3
 + TC Electronic Spark Mini Booster
