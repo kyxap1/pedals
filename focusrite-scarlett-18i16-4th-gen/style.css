@@ -41,6 +41,11 @@ img {
   height: auto;
   margin-bottom: 0.75em;
 }
+/* a figure inside a step sits on its own line, not trailing the sentence */
+li > img:not(.daw-icon):not(.fc2-inline-icon),
+.topic > img {
+  display: block;
+}
 a {
   color: var(--link);
   text-decoration: none;
@@ -163,12 +168,39 @@ section + section {
 .half-container {
   width: 100%;
   padding: 0 1em;
-  columns: 2 30rem;
-  column-gap: 3em;
   container-type: inline-size;
 }
-.half-container.no-columns {
+/* Each topic is its own short two-column block, the way the manual gives every
+   topic its own page, instead of one column pair running the whole section. */
+.topic {
+  columns: 2 30rem;
+  column-gap: 3em;
+  margin-bottom: 2em;
+}
+.topic.level-3 {
+  border-top: 1px solid #ddd;
+  padding-top: 1.2em;
+  margin-top: 1.6em;
+}
+.half-container > header + .topic {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
+}
+.no-columns {
   columns: auto !important;
+}
+/* Screenshot-heavy sections run one column wide, as their pages do in the
+   manual: a UI screenshot squeezed into half a column is unreadable. Text
+   keeps a readable measure inside the wider block. */
+.wide-figures .topic {
+  columns: auto;
+}
+.wide-figures p {
+  max-width: 52em;
+}
+.wide-figures img {
+  max-width: min(44em, 100%);
 }
 .half-container > header {
   column-span: all;
@@ -192,12 +224,12 @@ h2 {
 h3 {
   font-size: 1.25em;
   font-weight: 700;
-  margin: 1em 0 0.4em;
+  margin: 0 0 0.4em;
 }
 h4 {
   font-size: 1.05em;
   font-weight: 700;
-  margin: 0.9em 0 0.3em;
+  margin: 0 0 0.3em;
 }
 h3, h4, h5, h6 {
   break-after: avoid;
@@ -206,9 +238,15 @@ p, li {
   break-inside: avoid;
 }
 /* a one-line lead-in ("To do X:") never ends a column above what it introduces */
-p:has(+ ol), p:has(+ ul), p:has(+ .grid-wrapper),
-p:has(+ h3), p:has(+ h4), p:has(+ h5), p:has(+ h6) {
+p:has(+ ol), p:has(+ ul), p:has(+ .grid-wrapper), p:has(+ img), p:has(+ .table-scroll),
+p:has(+ h3), p:has(+ h4), p:has(+ h5), p:has(+ h6),
+ul:has(+ img), ol:has(+ img) {
   break-after: avoid;
+}
+/* a full-width diagram takes its lead-in with it, rather than leaving it
+   alone at the foot of a column */
+p:has(+ .panel-diagram) {
+  column-span: all;
 }
 .keep-together {
   break-inside: avoid;
@@ -274,18 +312,25 @@ p:has(+ h3), p:has(+ h4), p:has(+ h5), p:has(+ h6) {
 }
 
 /* FIGURES */
+/* auto-fit counts its tracks off a definite max, so a capped max leaves one
+   figure per row; 1fr lets a row of knob shots or a screenshot pair sit side
+   by side, each image at its natural size or smaller. */
 .grid-wrapper {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(12em, 18em));
+  grid-template-columns: repeat(auto-fit, minmax(min(8em, 100%), 1fr));
   gap: 1em;
   margin-bottom: 1em;
 }
-.grid-wrapper img {
-  width: 100%;
+/* a figure grid is one unit: split, it drops its captions into the next column */
+.grid-wrapper,
+figure {
+  break-inside: avoid;
 }
 .panel-diagram {
+  display: block;
   width: 100%;
-  margin: 1em 0;
+  margin: 0 0 1em;
+  column-span: all;
 }
 figcaption {
   font-size: 0.85em;
@@ -309,7 +354,8 @@ ol.feature-list ul {
 .daw-icon,
 .fc2-inline-icon {
   height: 1.1em;
-  vertical-align: -0.15em;
+  width: auto;
+  vertical-align: middle;
   margin-right: 0.3em;
 }
 .fc2-inline-icon {
