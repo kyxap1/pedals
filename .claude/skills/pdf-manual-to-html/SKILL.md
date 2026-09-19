@@ -331,6 +331,12 @@ follow the page section by section without losing their place.
   an image in — the figure goes inside its `<li>` or above/below the list.
   Pick each section's layout (columns, `.no-columns`, `column-span`) from
   conventions → "Sizing the measure".
+- The layout comes from the source section by section, like the outline. A
+  manual mixes its own page layouts — the pages where UI screenshots carry
+  the instructions are often set in one wide column while the rest runs in
+  two — so match each section to its own pages instead of imposing one grid
+  on the whole document. A screenshot squeezed into half a column is
+  unreadable, and no amount of column tuning fixes that.
 
 **Copy.** Pull each section's passage when you reach it (`pdftotext -layout
 -f A -l B <pdf> -`) and look at its page render once beside it. Faithful to
@@ -389,6 +395,10 @@ section it illustrates.
   Pad every box by 20–30 px before `-fuzz 8% -trim`: the trim does the
   tightening, so padding costs nothing, while a box drawn tight by eye cuts
   arrowheads and pointer tips.
+- Figures that belong together (front and back panel, a before/after pair)
+  are checked side by side in one `montage` at equal display width. Each one
+  looks right alone; margins left in one of them shrink its subject by half
+  next to the other, and at `width: 100%` the page shows exactly that.
 - An icon printed in a box beside text drags letters and rule ends into any
   crop that holds all of it: crop the box, then `scripts/clean_crop.py in.png
   out.png` keeps the largest dark shape, whitens the rest and trims.
@@ -473,7 +483,17 @@ Do all verification **before** deleting the `_cctmp.<slug>/` extract directory, 
   lead-in stays left, and every `:` lead-in split from its list or menu path,
   with the widths. Exits 1 on any finding; fix with conventions → "Column
   breaks" and re-run until clean. Headless Chrome needs a real bound:
-  `timeout 320`.
+  `timeout 320`. It reads the flow two blocks back and skips tables and
+  figure grids, so a finding whose *immediately* preceding block sits in the
+  same column is the tool looking past the pair, not a break to chase —
+  confirm which it is by measuring before editing.
+- When a block lands somewhere the CSS says it shouldn't, measure it before
+  rewriting the rule: read `getBoundingClientRect()` and the computed style
+  of the element and its container over CDP. A rule that reads as correct
+  can still resolve to something else — `auto-fit` sizing its track count off
+  a definite max, an `img` laying out inline, a `break-after: avoid` the
+  balancer cannot honour. Guessing at the cascade burns a round trip per
+  guess.
 - Screenshot the whole page with `scripts/screenshot.mjs` at a mobile width
   and at three desktop widths — 1400, 1700 and 2000: columns balance
   differently at each, and a figure right at 1400 can be stranded at 1700.

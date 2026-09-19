@@ -59,7 +59,15 @@ pedals/
         <div class="flex-container">
           <div class="half-container flow">
             <header><h2 id="intro">Welcome</h2></header>
-            <p>…</p>
+            <!-- one .topic per heading: it carries the columns -->
+            <div class="topic level-3">
+              <h3 id="what-it-does">What it does</h3>
+              <p>…</p>
+            </div>
+            <div class="topic level-4">
+              <h4 id="controls">Controls</h4>
+              <p>…</p>
+            </div>
           </div>
           <div id="toc-mobile" class="half-container">
             <h2>Contents</h2>
@@ -97,11 +105,12 @@ Layout rules that make the reference page work:
 | `main` | `margin-left: 20vw` to clear the fixed nav |
 | `.flex-container` | `display: flex; padding-left: 2em` — section body; never size it in `vw`, it lives inside a `main` already inset by the nav |
 | `.half-container` | `width: 100%; padding: 0 1em` — a column inside the flex row |
-| `.half-container` (measure) | `columns: 2 30rem; column-gap: 3em` — see "Sizing the measure" |
+| `.topic` (measure) | `columns: 2 30rem; column-gap: 3em` — one block per heading, never the whole section; see "Sizing the measure" |
 | `.half-container > header` | `column-span: all` — the title rules across the section |
 | `section + section` | `margin-top: 3em` — keeps sections from running together |
 | `.flow > * + *` | `margin-bottom: 1em` — vertical rhythm without touching every element |
-| `.grid-wrapper` | `column-span: all; display: grid; grid-template-columns: repeat(auto-fit, minmax(12em, 18em))` — figure shots across the section, never upscaled past their native size |
+| `.grid-wrapper` | `display: grid; grid-template-columns: repeat(auto-fit, minmax(min(8em, 100%), 1fr))` — a row of figure shots side by side, never upscaled past their native size. `auto-fit` counts its tracks off the *definite* max, so a capped one (`minmax(12em, 18em)`) leaves a single figure per row in any column narrower than two of them — a row of knob shots ends up stacked. Keep the max indefinite and let `img { max-width: 100% }` hold the native size |
+| `li > img`, `.topic > img` | `display: block` — an `img` is inline, so a figure inside a step otherwise trails the sentence on its own line box. Inline pictograms (an icon named mid-sentence) carry their own class and stay inline |
 | `img` | `max-width: 100%; height: auto; margin-bottom: 0.75em` — `max-width`, not `width: 100%`, so a pictogram keeps the size its `width`/`height` attributes give it instead of blowing up to the column; figures meant to fill their box (`.grid-wrapper` shots, the panel photo) get `width: 100%` on their own selector. `height: auto` keeps the attributes `optimize_images.py` adds from stretching a scaled image |
 | `h2` | reversed out: `color: #fff; background: var(--accent); text-transform: uppercase; padding: 0.25em` |
 | `h3` | `text-transform: uppercase; text-decoration: underline` |
@@ -145,12 +154,21 @@ loses the start of the next one. A fixed `max-width` is no fix: it leaves a
 narrow strip beside a dead gutter. The measure has to come *from* the window:
 
 ```css
-.half-container {
+.topic {
   columns: 2 30rem;     /* at most two columns, one below ~63rem of room */
   column-gap: 3em;
 }
 .half-container > header { column-span: all; }
 ```
+
+The columns go on the **topic**, not on the section. In print the page ends
+the column; on a page nothing does, so a section-wide container gives a long
+section two columns several screens tall — the reader walks the left one
+down and climbs back up for the right. Wrap each heading with the content
+that follows it (down to the next heading of any level) in a `.topic` and put
+the columns there, so a column is never taller than one topic, the way the
+manual gives each topic its own page. Mark the level on the wrapper
+(`.topic.level-3`) to rule off the ones that open a new `h3`.
 
 With both a count and a width, `columns` does it all: the width decides how
 many columns fit, the count caps them at two, and they stretch to fill the
