@@ -25,6 +25,17 @@ document as semantic, responsive HTML wearing that language. A reader who knows
 the pedal should recognise the manual instantly; a screen-reader user should get
 a clean document outline.
 
+Some of what a manual does is not a style but a device resting on the page
+being a page: a measure fixed by hand, a known sheet size, a facing spread.
+Move it across and the support is gone, so copying the appearance ships
+something that no longer does its job. Carry the intent over on a mechanism
+this medium has, and count that as fidelity rather than invention. A manual
+separates table columns by whitespace alone because six inches of measure make
+that enough; the same table full-width on screen needs rules to stay legible.
+The two cases already written down are the same move: a diagram whose labels
+are sized for print scrolls instead of shrinking (conventions, the breakpoint),
+and line art printed light-on-dark is recoloured onto the page ground (step 3).
+
 `wampler-terraform/` is the reference implementation, and
 `references/conventions.md` distils it: HTML skeleton, CSS pattern, multi-PDF
 recipe, font table. Read `conventions.md` and one `style.css` before
@@ -278,6 +289,15 @@ Black → 900): look up there which face sets the table labels, step
 instructions and run-in heads instead of picking a weight by eye. A web
 semibold standing in for a print Bold reads as a washed-out label. No semibold
 face setting body text means no 600 anywhere on the page.
+
+Where the manual encodes information in type itself — a word set in the colour
+it names, a state shown only by which circle is filled — carry over the one
+property that does the encoding, not the whole look of the sample it was taken
+from. The sample also carries its context: a colour word in a table header is
+bold because it sits in a header, not because it is a colour, and a class that
+bakes in both is wrong everywhere else it lands. Read it the other way too —
+anything carried by one property alone is missing from `text.txt`, which is
+how a live table can survive extraction as a column of bare labels.
 
 The page ground is light on every pedal in this repo, whatever the manual is
 printed on. A manual set light-on-dark keeps its dark ground for the masthead

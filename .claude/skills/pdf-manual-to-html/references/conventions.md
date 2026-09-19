@@ -296,8 +296,12 @@ The repo folds them into one page rather than publishing three:
 .doc-update > strong { display: block; text-transform: uppercase; }
 ```
 
-   It names each source PDF (link to the maker's URL when known, else the local
-   file) and says in one or two sentences what changed.
+   It carries only what changes how the page is read: which hardware variant
+   the manual describes, or that an appendix comes from a second document in a
+   different voice. Which file came from where, under what name, at which
+   revision, and what was reworded are facts about the conversion rather than
+   about the product — they go in the footer line and in `copy-changes.md`.
+   The test is whether the maker would have printed it.
    *Note: If no official PDF manual exists, use this same `.doc-update` banner for a single short sentence without a heading: "No official PDF manual, compiled from the official website."*
 5. If an older revision differs enough to be worth keeping, save it as
    `index-<year>.html` (older tokens, older content, its own trimmed TOC) and
@@ -318,13 +322,18 @@ The repo folds them into one page rather than publishing three:
 ```css
 .doc-table { width: 100%; border-collapse: collapse; font-size: 0.85em; }
 .doc-table th, .doc-table td { border: 1px solid var(--accent); padding: 0.4em 0.5em; vertical-align: top; }
-.doc-table th { background: var(--accent); color: #fff; text-transform: uppercase; }
+.doc-table thead th { background: var(--accent); color: #fff; text-transform: uppercase; }
 .table-scroll { overflow-x: auto; }
 ```
 
 The baseline is a fully enclosed grid; many manuals rule rows only. Match the
 render — keep only `border-bottom` on rows when the source has no vertical
-dividers.
+dividers. One exception, and it is the page-is-a-page case: print holds columns
+apart with whitespace at a measure set by hand, and a table stretched to the
+full width of a screen has neither. Three or more columns with a short one
+among long ones — a two-word `Version` between two columns of prose — read as a
+single run-on band; rule them vertically in the hairline colour even where the
+source has none, and pad the cells on both sides.
 
 ## Font mapping (PDF embedded → Google Font)
 
