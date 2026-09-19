@@ -148,8 +148,15 @@ costs tokens on every job, the tool costs one install.
 
 ### 1. Frame the job
 
+Not every job starts empty. Folding in a newer revision, re-deriving an
+existing page and auditing one somebody else converted are all this workflow,
+run over a page that already exists — and in those, step 7 cannot lean on your
+own memory of what you chose. Whatever the earlier job decided is either
+written down beside the page or has to be derived from the PDFs again before
+anything can be called wrong. Establish which before reporting a defect.
+
 - **Pick a device:** Check the root `catalog.txt`. If there are devices listed without a leading `+ `, pick ONE unprocessed device (1 session = 1 device).
-- **Download official manuals:** Find the latest official PDF manuals for this specific model **strictly on the manufacturer's website**. Download the main manual and *all* additional manuals offered (quick start guides, MIDI maps, addendums, etc.) into the repository root. If downloading is impossible (e.g. blocked, not found, or no PDF exists), **stop**, report this to the user, and offer to compile a DIY page from the descriptions and images available on the manufacturer's site.
+- **Download official manuals:** Find the latest official PDF manuals for this specific model **strictly on the manufacturer's website**. Download the main manual and *all* additional manuals offered (quick start guides, MIDI maps, addendums, etc.) into the repository root. If downloading is impossible (e.g. blocked, not found, or no PDF exists), **stop**, report this to the user, and offer to compile a DIY page from the descriptions and images available on the manufacturer's site. "Official" is not one place: a maker serves the same document from its product page, its manuals index and its downloads index, and those drift apart by revisions that change real specifications. Compare what each offers rather than taking the first hit, and record which one the file came from — provenance is a fact about the page, not a step you did once.
 - **PDF handed over by the user:** still check the maker's site. `cmp` the
   file against the official copy (a newer revision may be up) and download the
   extra documents offered for the model — quick start, firmware update guide,
@@ -182,6 +189,13 @@ choice), `fonts-used.txt` (which text each face sets, and its CSS weight),
 `text.txt` (copy source), `raw/` (embedded images in their native format) and
 `pages/` (150 dpi renders). `text.txt` loses layout and colour, so every
 passage is read beside its page render or the PDF itself (Read, `pages:`).
+
+`text.txt` is one projection of the PDF, not the PDF. Whatever isn't glyphs —
+a link annotation hiding behind words, the rotation an image is placed at, the
+revision in the metadata, a cell the printed layout truncates — leaves no gap
+behind when it's dropped, so nothing downstream ever reports it missing. Work
+out what the source carries besides its text before building the page from the
+text.
 
 Render with `pdftocairo`, never `pdftoppm`: its Splash backend silently drops
 some vector art (the green dotted rules under the BOSS NS-1X sub-headings),
@@ -438,6 +452,7 @@ section it illustrates.
   style.css
   Images/            figures used by the page
   <original>.pdf     keep every source PDF alongside
+  copy-changes.md    every departure from the print, and where each PDF came from
   index-<year>.html  older revision, when folding in a newer one
 ```
 
@@ -474,6 +489,20 @@ than adding one.
 ### 7. Verify before declaring done
 
 Do all verification **before** deleting the `_cctmp.<slug>/` extract directory, so you don't have to extract twice if you need to fix something.
+
+Every check below is narrow, and a clean run is a claim about that check's own
+scope, never about the page. Report one as clean together with what it cannot
+see, or a row of green ticks reads as coverage that nothing measured.
+
+A step's own tool is not that step's verification. A script written to fill in
+what's missing leaves what is wrong exactly as wrong, and re-running it after
+an edit proves only that it is idempotent. Check a result against the source
+with something that had no hand in producing it.
+
+A scan over the copy has to reach the short text too. A length threshold
+picked to hold the noise down cuts out headings, captions and labels — the
+text most likely to be invented, and the worst place for it, because a reader
+takes it for the document's own structure.
 
 - `scripts/check_page.py <pedal-dir>/index.html` — dangling TOC anchors,
   missing images and unreferenced files in `Images/`; none of them shows in a
@@ -534,7 +563,13 @@ Do all verification **before** deleting the `_cctmp.<slug>/` extract directory, 
     - Every table and callout cropped out of the desktop shot and set beside the same block on the page render, at the same scale, in a `montage` sheet. Check vertical alignment in cells and rules under headings.
     - The palette on both light surroundings and the reversed-out header.
 - **Redo Loop:** If the reviewer finds issues, **kick yourself (the main model) to fix the glitching parts**. You must redo the broken parts and re-screenshot them. You can loop this review-fix cycle **a maximum of 2 times in a row**. The report rests on one last full pass by the reviewer over the finished page or the exhaustion of the 2 retries.
-- **Only after passing review or hitting the retry limit**, delete your `_cctmp.<slug>/` — only that one; other `_cctmp.*` dirs belong to sessions still running.
+- **Only after passing review or hitting the retry limit**, move
+  `copy-changes.md` out of the scratch and into `<pedal-dir>/`, then delete
+  your `_cctmp.<slug>/` — only that one; other `_cctmp.*` dirs belong to
+  sessions still running. The log is what makes the page reviewable later:
+  without it nobody can tell a deliberate departure from the print apart from
+  a conversion error without deriving every difference from the PDFs again.
+  Don't end a job by destroying the record of its decisions.
 
 ### 8. Ask for review, propose skill updates
 
