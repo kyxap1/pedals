@@ -138,6 +138,17 @@ img {
   margin: 2em 0;
 }
 
+/* the dot flourish closes the panel in print, so it sits under both columns */
+.section-flourish {
+  column-span: all;
+}
+
+/* 407/593: the three-dot row keeps its ratio to the four-dot row once a narrow
+   column clamps both, so the dots still interleave */
+.dots-narrow {
+  max-width: 68.6%;
+}
+
 .masthead-title {
   text-align: left;
   color: var(--accent);

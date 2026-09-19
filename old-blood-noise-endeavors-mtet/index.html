@@ -26,16 +26,16 @@
           <div class="half-container no-columns masthead-content">
             <h1 class="masthead-title">MIDI TO<br>EXPRESSION<br>TRANSLATOR</h1>
             <div class="figure-center">
-              <img src="Images/colored-dots.png" alt="" width="584" height="111" />
+              <img src="Images/dots-top.png" alt="" width="593" height="43" />
             </div>
             <div class="figure-center">
-              <img src="Images/wordmark.png" alt="OBNE MTET" width="700" height="684" />
+              <img src="Images/wordmark.png" alt="OBNE MTET" width="856" height="626" />
             </div>
             <div class="figure-center">
-              <img src="Images/colored-dots.png" alt="" width="584" height="111" />
+              <img src="Images/dots-bottom.png" class="dots-narrow" alt="" width="407" height="41" />
             </div>
             <div style="display: flex; justify-content: space-between; align-items: flex-end;">
-              <img src="Images/obne-logo.png" alt="OBNE" style="width: 100px; height: auto;" width="243" height="137" />
+              <img src="Images/obne-logo.png" alt="OBNE" style="width: 100px; height: auto;" width="234" height="233" />
               <div class="masthead-subtitle">OLD BLOOD<br>NOISE ENDEAVORS</div>
             </div>
           </div>
@@ -87,14 +87,14 @@
               CC 1 100 CC 11 1 creates a value of 201 (100 * 2 + 1).</p>
             </div>
             
-            <div class="figure-center">
-              <img src="Images/midi-din-1.png" alt="" width="488" height="200" loading="lazy" />
-            </div>
-            
-            <p><strong>There is one special CC message: CC 100.</strong></p>
-            
-            <div class="figure-center">
-              <img src="Images/midi-din-2.png" alt="" width="500" height="200" loading="lazy" />
+            <div class="keep-together">
+              <div class="figure-center">
+                <img src="Images/midi-din-1.png" alt="" width="485" height="96" loading="lazy" />
+              </div>
+              <p><strong>There is one special CC message: CC 100.</strong></p>
+              <div class="figure-center">
+                <img src="Images/midi-din-2.png" alt="" width="490" height="96" loading="lazy" />
+              </div>
             </div>
             
             <p>This is used to change MTET’s MIDI Channel. Using CC 100, use any value from 1-16 to assign MTET’s new channel. For example:</p>
@@ -103,7 +103,7 @@
             <p>Upon successful reassignment, MTET will blink the EXP 1-4 LEDs.</p>
             
             <div class="figure-center">
-              <img src="Images/leds.png" alt="Orange, Yellow, Green, Blue LEDs" width="700" height="200" loading="lazy" />
+              <img src="Images/leds.png" alt="Orange, yellow, green and blue EXP LEDs blinking" width="648" height="100" loading="lazy" />
             </div>
             
             <p>The number of blinks indicates the new channel. This blinking also happens on startup, so if you ever forget what channel MTET is on, simply unplug the power, plug it back in, wait a couple seconds, then count the number of LED blinks.</p>
@@ -124,11 +124,20 @@
               <strong>THRU</strong></p>
               
               <div class="figure-center">
-                <img src="Images/midi-thru.png" alt="MIDI THRU jack" width="500" height="300" loading="lazy" />
+                <img src="Images/midi-thru.png" alt="MIDI THRU jack" width="122" height="123" loading="lazy" />
               </div>
               
               <p><strong>MIDI THRU jack.</strong><br>
               This is used to send copies of incoming messages back out through another MIDI cable, in order to daisy chain with other MIDI devices.</p>
+            </div>
+
+            <div class="section-flourish">
+              <div class="figure-center">
+                <img src="Images/dots-top.png" alt="" width="593" height="43" loading="lazy" />
+              </div>
+              <div class="figure-center">
+                <img src="Images/dots-bottom.png" class="dots-narrow" alt="" width="407" height="41" loading="lazy" />
+              </div>
             </div>
           </div>
         </div>
@@ -139,7 +148,7 @@
           <div class="half-container flow">
             <header>
               <div class="figure-center">
-                <img src="Images/mtet-logo-header.png" alt="MTET" width="500" height="363" loading="lazy" />
+                <img src="Images/mtet-logo-header.png" alt="MTET" width="312" height="237" loading="lazy" />
               </div>
               <h2 id="faq">FAQ and Troubleshooting</h2>
             </header>
@@ -150,7 +159,10 @@
             </div>
 
             <div class="keep-together">
-              <h3><img src="Images/power-icon.png" alt="9v 50mA center negative" style="width: 2em; height: auto; vertical-align: middle; margin-right: 0.5em; margin-bottom: 0;" width="529" height="177" loading="lazy" /><em>Nothing seems to be happening?</em></h3>
+              <div class="figure-center">
+                <img src="Images/power-icon.png" alt="9v 50mA center-negative power connector" width="514" height="164" loading="lazy" />
+              </div>
+              <h3><em>Nothing seems to be happening?</em></h3>
               <p>First, check the power LED. MTET requires 50mA of 9v center negative power, and the power LED will show that power is flowing.</p>
               <p>Then, check the MIDI-In LED. When you send MIDI messages, does MIDI-In light up? If it does not light, check your MIDI cables and connections, and ensure you are sending messages to MTET. If it does light, it is receiving messages.</p>
               <p>Now, CC messages 1-4 should light up their corresponding LEDs. If not, double check your MIDI channel. Remove power from MTET, then plug power back in, then count the number of EXP 1-4 LED blinks on startup (the blinks will begin a few seconds after power-up). This represents MTET’s current MIDI channel. Make sure the device sending MIDI messages to MTET is sending those messages on the correct channel.</p>
@@ -198,7 +210,7 @@
             </div>
 
             <p style="text-align: center; margin-top: 2em;">MTET requires 50mA center-negative 9v power.</p>
-            <p style="text-align: center;">Come find us. We are everywhere.<br>oldbloodnoise.com &nbsp;<img src="Images/obne-logo.png" style="height:1em; width:auto; vertical-align:middle;" alt="" width="243" height="137" loading="lazy"> 2023</p>
+            <p style="text-align: center;">Come find us. We are everywhere.<br><a href="https://oldbloodnoise.com">oldbloodnoise.com</a> &nbsp;<img src="Images/droplet.png" style="height:1em; width:auto; vertical-align:middle;" alt="" width="49" height="64" loading="lazy"> 2023</p>
           </div>
         </div>
       </section>
@@ -209,7 +221,7 @@
             <header><h3 id="user-notes">MTET USER NOTES</h3></header>
             <hr class="notes-line"><hr class="notes-line"><hr class="notes-line"><hr class="notes-line"><hr class="notes-line">
             <div class="figure-center" style="justify-content: flex-end;">
-              <img src="Images/obne-logo.png" alt="OBNE" width="243" height="137" loading="lazy" />
+              <img src="Images/obne-logo.png" alt="OBNE" style="width: 100px; height: auto;" width="234" height="233" loading="lazy" />
             </div>
           </div>
         </div>
