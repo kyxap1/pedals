@@ -2,6 +2,7 @@
 + BOSS NS-1X Noise Suppressor
 + BOSS Poly Shifter XS-1
 + BOSS RC-5 Loop Station
++ Disaster Area DPC.micro NS
 + Focusrite Scarlett 18i16 (4th Gen)
 + Hotone Soul Press II
 + Mooer CAB X2

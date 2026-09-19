@@ -1,0 +1,459 @@
+/* Fonts: MyriadPro-Regular 400, MyriadPro-Semibold(-SC700) 600,
+   MyriadPro-Bold(-SC700) 700, MyriadPro-It 400 italic -> Source Sans 3.
+   The manual fakes small caps with -SC700 subset faces, so the section heads
+   use font-variant-caps rather than text-transform. */
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap");
+
+:root {
+  --ink: #231f20; /* body ink, the manual's only text colour */
+  --brand: #c42637; /* the DISASTER AREA DESIGNS oval; nothing else is this red */
+  --rule: #d5d3d0;
+  --paper: #ebebeb;
+  --charcoal: #2a2e31; /* the enclosure */
+
+  /* LED states. The manual carries this information in colour alone, so these
+     are data, not decoration. */
+  --led-red: #d22027;
+  --led-green: #41b23b;
+  --led-blue: #00adef;
+  --led-orange: #f9a72b;
+  /* darkened for text: the panel greens, blues and oranges fail on white */
+  --ink-green: #2c7a28;
+  --ink-blue: #0077a8;
+  --ink-orange: #9a6100;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin-top: 0;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: #fff;
+  font-family: "Source Sans 3", system-ui, sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+main {
+  margin-left: 20vw;
+  padding-bottom: 3em;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 2em;
+  font-weight: 700;
+  font-variant-caps: small-caps;
+  letter-spacing: 0.01em;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.1em;
+  margin-bottom: 0.7em;
+}
+
+h3 {
+  font-size: 1.2em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.6em;
+}
+
+/* The three figure panels on page 3 title themselves in plain centred caps */
+h3.panel-title {
+  font-weight: 400;
+  text-align: center;
+  letter-spacing: 0.09em;
+  margin-bottom: 1em;
+}
+
+h4 {
+  font-size: 1em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.5em;
+}
+
+p,
+li {
+  break-inside: avoid;
+}
+h3,
+h4,
+h5,
+h6 {
+  break-after: avoid;
+}
+
+a {
+  color: var(--brand);
+}
+a:hover {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 0.75em;
+}
+.topic > img,
+li > img,
+figure > img {
+  display: block;
+}
+
+figure {
+  margin: 0 0 1em;
+}
+figure > img {
+  border: 1px solid var(--rule);
+}
+figcaption {
+  font-size: 0.85em;
+  font-style: italic;
+  margin-bottom: 1em;
+}
+
+code,
+.file {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.9em;
+  background: var(--paper);
+  padding: 0.05em 0.3em;
+}
+
+/* MASTHEAD */
+#masthead {
+  text-align: center;
+  padding: 2.5em 1.5em 2em;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 2.5em;
+}
+#masthead h1 {
+  font-size: 2.8em;
+  font-weight: 600;
+  margin-bottom: 0.1em;
+}
+#masthead h1 img {
+  display: block;
+  width: 130px;
+  margin: 0 auto 0.4em;
+}
+#masthead .subtitle {
+  font-weight: 600;
+  font-size: 1.05em;
+  margin-bottom: 1.5em;
+}
+#masthead .pedal {
+  max-width: 600px;
+  width: 100%;
+}
+#masthead .doc-kind {
+  font-size: 2.6em;
+  font-weight: 700;
+  margin-bottom: 0.1em;
+}
+#masthead .doc-version {
+  font-size: 0.85em;
+  margin: 0;
+}
+
+/* NAV */
+#side-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20vw;
+  height: 100%;
+  overflow-y: auto;
+  background: #fff;
+  border-right: 1px solid var(--rule);
+  z-index: 5;
+}
+.nav-container {
+  display: flex;
+  flex-direction: column;
+  margin: 1.5em 1em;
+}
+#side-nav h3 {
+  font-size: 1em;
+  margin-bottom: 0.8em;
+}
+#side-nav h4,
+#side-nav h5 {
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0;
+  margin-bottom: 0.45em;
+}
+#side-nav h4 {
+  font-size: 0.95em;
+}
+#side-nav h5 {
+  font-size: 0.85em;
+  font-weight: 400;
+  margin-left: 1em;
+}
+#side-nav a {
+  color: inherit;
+  text-decoration: none;
+}
+#side-nav a:hover {
+  color: var(--brand);
+}
+
+#toc-mobile h2 {
+  font-size: 1.4em;
+}
+#toc-mobile ul {
+  list-style: none;
+  padding-left: 0;
+}
+#toc-mobile a {
+  color: inherit;
+}
+
+/* SECTIONS */
+section + section {
+  margin-top: 3em;
+}
+.flex-container {
+  display: flex;
+  padding-left: 2em;
+}
+.half-container {
+  width: 100%;
+  padding: 0 1em;
+  container-type: inline-size;
+}
+.half-container > header {
+  column-span: all;
+}
+.topic {
+  columns: 2 30rem;
+  column-gap: 3em;
+}
+.no-columns {
+  columns: auto !important;
+}
+.flow > * + * {
+  margin-bottom: 1em;
+}
+
+.keep-together {
+  break-inside: avoid;
+}
+:has(+ p > .menu-path:only-child) {
+  break-after: avoid;
+}
+/* 63rem = the two-column threshold of `columns: 2 30rem` */
+@container (min-width: 63rem) {
+  .column-end {
+    break-after: column;
+  }
+}
+
+/* The page-3 and page-4 panels: figure beside its two short paragraphs */
+.panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0 2em;
+  align-items: center;
+}
+.panel > h3 {
+  grid-column: 1 / -1;
+}
+.panel img {
+  width: 100%;
+}
+.panel p:last-child {
+  margin-bottom: 0;
+}
+
+/* Changelog banner */
+.doc-update {
+  background: var(--paper);
+  border-left: 4px solid var(--brand);
+  padding: 1em 1.25em;
+  font-size: 0.92em;
+  margin-bottom: 1.5em;
+}
+.doc-update > strong {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.4em;
+}
+.doc-update p:last-child {
+  margin-bottom: 0;
+}
+
+/* TABLES — the manual rules nothing, but its columns are set far enough apart
+   to read as columns; on screen that job falls to hairlines. */
+.table-scroll {
+  overflow-x: auto;
+  margin-bottom: 1em;
+}
+.doc-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92em;
+}
+.doc-table th,
+.doc-table td {
+  padding: 0.45em 0.9em;
+  text-align: left;
+  vertical-align: top;
+}
+.doc-table th:first-child,
+.doc-table td:first-child {
+  padding-left: 0;
+}
+.doc-table th:last-child,
+.doc-table td:last-child {
+  padding-right: 0;
+}
+.doc-table:not(.led-table) th:not(:last-child),
+.doc-table:not(.led-table) td:not(:last-child) {
+  border-right: 1px solid var(--rule);
+}
+.doc-table thead th {
+  font-weight: 700;
+  border-bottom: 2px solid var(--ink);
+}
+.doc-table td,
+.doc-table th[scope="row"] {
+  border-bottom: 1px solid var(--rule);
+}
+.doc-table th[scope="row"] {
+  font-weight: 400;
+}
+.doc-table .row-label {
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* LED state table (Loop Selection Order). Columns run C, B, A, as on the lid. */
+.led-table {
+  width: auto;
+  min-width: 18rem;
+  margin-inline: auto;
+}
+.led-table th,
+.led-table td {
+  text-align: center;
+  padding-right: 0.35em;
+}
+.led-table th:last-child,
+.led-table td:last-child {
+  text-align: left;
+  padding-left: 1.5em;
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  font-size: 1.1em;
+}
+.led {
+  display: inline-block;
+  width: 0.85em;
+  height: 0.85em;
+  border-radius: 50%;
+  border: 1px solid var(--ink);
+  background: #fff;
+  vertical-align: -0.05em;
+}
+.led.on.a {
+  background: var(--led-red);
+}
+.led.on.b {
+  background: var(--led-green);
+}
+.led.on.c {
+  background: var(--led-blue);
+}
+
+/* Colour words the manual prints in the colour they name */
+.c-red {
+  color: var(--led-red);
+}
+.c-green {
+  color: var(--ink-green);
+}
+.c-blue {
+  color: var(--ink-blue);
+}
+.c-orange {
+  color: var(--ink-orange);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+footer {
+  margin-left: 20vw;
+  border-top: 1px solid var(--rule);
+  padding: 1.5em 3em;
+  font-size: 0.85em;
+}
+
+@media (max-width: 900px) {
+  .flex-container {
+    flex-direction: column;
+    padding-left: 0;
+  }
+  .half-container {
+    width: 100%;
+    padding: 0 1em;
+  }
+  nav {
+    display: none;
+  }
+  main,
+  footer {
+    margin: 0 auto;
+  }
+  footer {
+    padding: 1.5em 1em;
+  }
+  .panel {
+    grid-template-columns: 1fr;
+  }
+  #toc-mobile {
+    display: block;
+  }
+  /* the hook-up and rear-panel labels go to ~4px if these shrink to 390px */
+  .wide-figure {
+    overflow-x: auto;
+  }
+  .wide-figure img {
+    min-width: 640px;
+  }
+}
+
+/* 901, not 900: both queries match at exactly 900px, and the later one would
+   hide the mobile TOC on the same width that hides the nav */
+@media (min-width: 901px) {
+  #toc-mobile {
+    display: none;
+  }
+}

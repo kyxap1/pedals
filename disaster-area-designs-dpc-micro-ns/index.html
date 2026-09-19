@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Disaster Area Designs DPC.micro NS Pedal Manual</title>
+  </head>
+  <body>
+    <nav id="side-nav">
+      <header>
+        <div class="nav-container">
+          <h3>Contents</h3>
+          <h4><a href="#introduction">Introduction</a></h4>
+          <h4><a href="#ins-and-outs">Ins and Outs</a></h4>
+          <h4><a href="#controlling-your-pedals">Controlling Your Pedals</a></h4>
+          <h5><a href="#loop-selection">Loop Selection</a></h5>
+          <h5><a href="#loop-selection-order">Loop Selection Order</a></h5>
+          <h5><a href="#saving-a-preset">Saving a Preset</a></h5>
+          <h4><a href="#configuration">Configuration</a></h4>
+          <h5><a href="#configuration-menu">Configuration Menu</a></h5>
+          <h5><a href="#factory-reset">Factory Reset</a></h5>
+          <h4><a href="#midi-control">MIDI Control</a></h4>
+          <h4><a href="#firmware-update">Installing Firmware</a></h4>
+          <h5><a href="#firmware-before-you-start">Before You Start</a></h5>
+          <h5><a href="#firmware-caution">Caution</a></h5>
+          <h5><a href="#firmware-no-drag-drop">Do Not Use Drag and Drop</a></h5>
+          <h5><a href="#firmware-bootloader">Bootloader Mode</a></h5>
+          <h5><a href="#firmware-install">Install the Firmware</a></h5>
+          <h5><a href="#firmware-first-run">The First Time You Open It</a></h5>
+          <h5><a href="#firmware-fault-isolation">Fault Isolation</a></h5>
+          <h5><a href="#firmware-glossary">Glossary</a></h5>
+        </div>
+      </header>
+    </nav>
+
+    <main id="main-doc">
+      <div id="masthead">
+        <h1>
+          <img src="Images/logo.png" alt="Disaster Area Designs" width="588" height="370" />
+          <span>DPC.micro NS</span>
+        </h1>
+        <p class="subtitle">compact programmable effects switcher</p>
+        <img class="pedal" src="Images/pedal.jpg" alt="Top view of the DPC.micro NS: a black enclosure with LEDs C, B and A on the lid and the LOOP SEL (SAVE) button on the side" width="1200" height="652" />
+        <p class="doc-kind">user manual</p>
+        <p class="doc-version">v1.00 11/11/2019</p>
+      </div>
+
+      <section>
+        <div class="flex-container">
+          <div class="half-container flow">
+            <header><h2 id="introduction">Introduction</h2></header>
+            <div class="topic no-columns">
+              <div class="doc-update">
+                <strong>About this page</strong>
+                <p>
+                  The NS is the no-switch version: one
+                  <strong>LOOP SEL (SAVE)</strong> button on the side of the
+                  enclosure and three LEDs on the lid. Where the printed manual
+                  still talks about footswitches it has carried wording over
+                  from the footswitch version; those sentences are corrected
+                  here and every change is listed in
+                  <a href="copy-changes.md">copy-changes.md</a>.
+                </p>
+              </div>
+              <p>
+                Thank you for your interest in the DPC.micro Programmable
+                Effects Switcher.
+              </p>
+              <p>
+                The DPC.micro packs three true-bypass effects loops into a small
+                footprint, adding in MIDI control and preset capability for good
+                measure. Each loop may be individually controlled using the
+                button on the DPC.micro or by MIDI remote control. You can also
+                save your favorite effects loop settings to preset combinations
+                for later recall.
+              </p>
+            </div>
+          </div>
+          <div id="toc-mobile" class="half-container">
+            <h2>Contents</h2>
+            <ul>
+              <li><a href="#introduction">Introduction</a></li>
+              <li><a href="#ins-and-outs">Ins and Outs</a></li>
+              <li>
+                <a href="#controlling-your-pedals">Controlling Your Pedals</a>
+              </li>
+              <li><a href="#loop-selection">Loop Selection</a></li>
+              <li><a href="#loop-selection-order">Loop Selection Order</a></li>
+              <li><a href="#saving-a-preset">Saving a Preset</a></li>
+              <li><a href="#configuration">Configuration</a></li>
+              <li><a href="#configuration-menu">Configuration Menu</a></li>
+              <li><a href="#factory-reset">Factory Reset</a></li>
+              <li><a href="#midi-control">MIDI Control</a></li>
+              <li><a href="#firmware-update">Installing Firmware</a></li>
+              <li><a href="#firmware-before-you-start">Before You Start</a></li>
+              <li><a href="#firmware-caution">Caution</a></li>
+              <li>
+                <a href="#firmware-no-drag-drop">Do Not Use Drag and Drop</a>
+              </li>
+              <li><a href="#firmware-bootloader">Bootloader Mode</a></li>
+              <li><a href="#firmware-install">Install the Firmware</a></li>
+              <li>
+                <a href="#firmware-first-run">The First Time You Open It</a>
+              </li>
+              <li><a href="#firmware-fault-isolation">Fault Isolation</a></li>
+              <li><a href="#firmware-glossary">Glossary</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="flex-container">
+          <div class="half-container flow">
+            <header><h2 id="ins-and-outs">Ins and Outs</h2></header>
+            <div class="topic">
+              <div class="keep-together">
+                <p>
+                  Most of the connections to the DPC.micro are located on the
+                  rear panel of the device as shown below.
+                </p>
+                <div class="wide-figure">
+                  <img src="Images/rear-panel.png" alt="Rear panel of the DPC.micro NS, left to right: MIDI INPUT on the left edge, DC 9V, LOOP SEND A, B and C on the top row with OUTPUT beside them, INPUT, LOOP RETURN A, B and C on the bottom row, USB MIDI, and MIDI OUTPUT on the right edge" width="1005" height="505" loading="lazy" />
+                </div>
+              </div>
+              <p>
+                The white jacks on the rear panel serve as input and output
+                connections. Plug your instrument into the white jack nearest to
+                the power jack, and plug your amplifier into the white jack next
+                to the USB port.
+              </p>
+              <div class="keep-together">
+                <p>
+                  The remaining jacks connect to your pedals. The black jacks
+                  are the effects sends, which should connect to the input of
+                  each pedal. The red jacks are the returns, and connect to the
+                  output of each pedal.
+                </p>
+                <div class="wide-figure">
+                  <img src="Images/hookup.png" alt="Hook-up diagram: three pedals labelled LOOP C, LOOP B and LOOP A sit above the DPC.micro NS, each wired from a black send jack to the pedal input and from the pedal output back to a red return jack; OUT and MIDI THRU leave the left of the unit, IN and MIDI IN arrive at the right" width="835" height="687" loading="lazy" />
+                </div>
+              </div>
+              <p>
+                Connect your pedals as shown in the diagram above. Make sure to
+                <strong>engage</strong> all of your pedals in the loops! The
+                DPC.micro can bypass and engage them remotely only if the pedals
+                are powered on and engaged.
+              </p>
+              <p>
+                The bypass state of each loop will be shown on the DPC.micro,
+                but the LEDs on the looped pedals themselves will not change.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="flex-container">
+          <div class="half-container flow">
+            <header>
+              <h2 id="controlling-your-pedals">Controlling Your Pedals</h2>
+            </header>
+            <div class="topic no-columns">
+              <p>
+                The main control method for the DPC.micro NS is MIDI. Please
+                consult the <a href="#midi-control">MIDI Control</a> section
+                below for full details.
+              </p>
+              <p>
+                In some cases you may wish to manually control the DPC.micro NS,
+                for preset editing or overriding MIDI control. We have included
+                a convenient button on the side of the unit for manual control.
+              </p>
+            </div>
+
+            <div class="topic no-columns panel">
+              <h3 id="loop-selection" class="panel-title">Loop Selection</h3>
+              <img src="Images/loop-selection.png" alt="A finger pressing the LOOP SEL (SAVE) button on the side of the DPC.micro NS; the lid shows LEDs C blue, B green and A red" width="696" height="304" loading="lazy" />
+              <div>
+                <p>
+                  Tap the LOOP SEL switch to cycle through the eight different
+                  possible loop combinations.
+                </p>
+                <p>
+                  The loop states are indicated by the LED for each loop.
+                </p>
+              </div>
+            </div>
+
+            <div class="topic no-columns">
+              <h3 id="loop-selection-order" class="panel-title">
+                Loop Selection Order
+              </h3>
+              <div class="table-scroll">
+                <table class="doc-table led-table">
+                  <caption class="visually-hidden">
+                    LED states for each of the eight loop combinations, in the
+                    order the LOOP SEL switch cycles through them. The LEDs read
+                    C, B, A from left to right, as on the lid.
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">C</th>
+                      <th scope="col">B</th>
+                      <th scope="col">A</th>
+                      <th scope="col">Loops active</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><span class="led c"></span><span class="visually-hidden">off</span></td>
+                      <td><span class="led b"></span><span class="visually-hidden">off</span></td>
+                      <td><span class="led a"></span><span class="visually-hidden">off</span></td>
+                      <td>All off</td>
+                    </tr>
+                    <tr>
+                      <td><span class="led c"></span><span class="visually-hidden">off</span></td>
+                      <td><span class="led b"></span><span class="visually-hidden">off</span></td>
+                      <td><span class="led on a"></span><span class="visually-hidden">red</span></td>
+                      <td>A</td>
+                    </tr>
+                    <tr>
+                      <td><span class="led c"></span><span class="visually-hidden">off</span></td>
+                      <td><span class="led on b"></span><span class="visually-hidden">green</span></td>
+                      <td><span class="led a"></span><span class="visually-hidden">off</span></td>
+                      <td>B</td>
+                    </tr>
+                    <tr>
+                      <td><span class="led c"></span><span class="visually-hidden">off</span></td>
+                      <td><span class="led on b"></span><span class="visually-hidden">green</span></td>
+                      <td><span class="led on a"></span><span class="visually-hidden">red</span></td>
+                      <td>A &amp; B</td>
+                    </tr>
+                    <tr>
+                      <td><span class="led on c"></span><span class="visually-hidden">blue</span></td>
+                      <td><span class="led b"></span><span class="visually-hidden">off</span></td>
+                      <td><span class="led a"></span><span class="visually-hidden">off</span></td>
+                      <td>C</td>
+                    </tr>
+                    <tr>
+                      <td><span class="led on c"></span><span class="visually-hidden">blue</span></td>
+                      <td><span class="led b"></span><span class="visually-hidden">off</span></td>
+                      <td><span class="led on a"></span><span class="visually-hidden">red</span></td>
+                      <td>A &amp; C</td>
+                    </tr>
+                    <tr>
+                      <td><span class="led on c"></span><span class="visually-hidden">blue</span></td>
+                      <td><span class="led on b"></span><span class="visually-hidden">green</span></td>
+                      <td><span class="led a"></span><span class="visually-hidden">off</span></td>
+                      <td>B &amp; C</td>
+                    </tr>
+                    <tr>
+                      <td><span class="led on c"></span><span class="visually-hidden">blue</span></td>
+                      <td><span class="led on b"></span><span class="visually-hidden">green</span></td>
+                      <td><span class="led on a"></span><span class="visually-hidden">red</span></td>
+                      <td>A &amp; B &amp; C</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="topic no-columns panel">
+              <h3 id="saving-a-preset" class="panel-title">Saving a Preset</h3>
+              <div>
+                <p>
+                  Hold the LOOP SEL / SAVE switch to save the current loop
+                  selection to the last received MIDI preset.
+                </p>
+              </div>
+              <img src="Images/saving-a-preset.png" alt="A finger holding the LOOP SEL (SAVE) button on the side of the DPC.micro NS, labelled HOLD" width="709" height="304" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="flex-container">
+          <div class="half-container flow">
+            <header><h2 id="configuration">Configuration</h2></header>
+            <div class="topic no-columns">
+              <p>
+                To enter a configuration mode, power on the DPC.micro and then
+                hold the LOOP SEL switch after the LEDs start flashing.
+              </p>
+            </div>
+
+            <div class="topic no-columns panel">
+              <img src="Images/configuration.png" alt="The DPC.micro NS in configuration mode with a finger on the LOOP SEL (SAVE) button: LED C flashes red, LED B is off and LED A is red, labelled C LED FLASHES, HOLD TO SET POP STOP and TAP TO SET MIDI CHAIN" width="652" height="330" loading="lazy" />
+              <div>
+                <h3 id="configuration-menu">Configuration Menu</h3>
+                <p>
+                  Tap the LOOP SEL switch to set the MIDI Chain ID. LED A will
+                  indicate the current chain ID (red is default.)<br />
+                  <span class="c-red">RED = 0,</span>
+                  <span class="c-green">GREEN = 1,</span>
+                  <span class="c-blue">BLUE = 2,</span>
+                  <span class="c-orange">ORANGE = 3.</span>
+                </p>
+                <p>
+                  Hold the LOOP SEL switch to set the automatic pop reduction.
+                  LED B will indicate the current reduction setting (off is
+                  default.)<br />
+                  OFF = disable, <span class="c-red">RED = low,</span>
+                  <span class="c-green">GREEN = medium,</span>
+                  <span class="c-blue">BLUE = high.</span>
+                </p>
+                <p>
+                  Send a MIDI program change message from your controller to set
+                  the DPC MIDI channel.
+                </p>
+              </div>
+            </div>
+
+            <div class="topic no-columns">
+              <h3 id="factory-reset">Factory Reset</h3>
+              <p>
+                Enter config mode, then hold down the LOOP SEL switch for 5
+                seconds to clear all preset data and configuration. The factory
+                default settings are MIDI channel 16, Chain ID 0, Pop reduction
+                OFF, RED / GREEN / BLUE LEDs, Brightness 4.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="flex-container">
+          <div class="half-container flow">
+            <header><h2 id="midi-control">MIDI Control</h2></header>
+            <div class="topic">
+              <p>
+                There are three ways to control the DPC.micro using MIDI.
+              </p>
+              <div class="keep-together">
+                <p>
+                  The simplest way is to send a program change ranging from 120
+                  to 127. Each program change corresponds to a different unique
+                  loop setting, and will never change.
+                </p>
+                <div class="table-scroll">
+                  <table class="doc-table">
+                    <thead>
+                      <tr>
+                        <th scope="col">PC</th>
+                        <th scope="col">Loops active</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr><td>120</td><td>No loops active</td></tr>
+                      <tr><td>121</td><td>A active</td></tr>
+                      <tr><td>122</td><td>B active</td></tr>
+                      <tr><td>123</td><td>A &amp; B active</td></tr>
+                      <tr><td>124</td><td>C active</td></tr>
+                      <tr><td>125</td><td>A &amp; C active</td></tr>
+                      <tr><td>126</td><td>B &amp; C active</td></tr>
+                      <tr><td>127</td><td>A &amp; B &amp; C active</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <p>
+                You can also save your own loop combinations to the internal
+                memory of the DPC.micro, and load them using MIDI program
+                changes 0–119.
+              </p>
+              <p>
+                Send a MIDI program change from your controller on the
+                DPC.micro's MIDI channel. The DPC will load the contents of its
+                memory. To edit, tap the LOOP SEL switch on the DPC.micro to
+                change the loop assignments and then hold the LOOP SEL / SAVE
+                switch. The DPC.micro will save the new data in the current
+                memory location.
+              </p>
+              <p>
+                The final way to control the DPC.micro is to send MIDI CC
+                messages. MIDI CC 50, 51, and 52 control the A, B, and C loops
+                respectively. Send a value from 0–63 to turn the loop OFF, or a
+                value from 64–127 to turn the loop ON.
+              </p>
+              <div class="keep-together">
+                <p>
+                  If more than one DPC.micro is used in the same system, you can
+                  use the <strong>MIDI Chain ID</strong> function in the DPC setup to move the
+                  range of the MIDI CC values. This allows up to four DPC.micro
+                  to share the same MIDI channel and still have each loop be
+                  individually accessible from your MIDI controller.
+                </p>
+                <div class="table-scroll">
+                  <table class="doc-table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Chain ID</th>
+                        <th scope="col"><span class="c-red">0 (RED)</span></th>
+                        <th scope="col"><span class="c-green">1 (GRN)</span></th>
+                        <th scope="col"><span class="c-blue">2 (BLU)</span></th>
+                        <th scope="col"><span class="c-orange">3 (ORG)</span></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row" class="row-label">Loop A CC</th>
+                        <td>50</td><td>53</td><td>56</td><td>59</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="row-label">Loop B CC</th>
+                        <td>51</td><td>54</td><td>57</td><td>60</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="row-label">Loop C CC</th>
+                        <td>52</td><td>55</td><td>58</td><td>61</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="flex-container">
+          <div class="half-container flow">
+            <header><h2 id="firmware-update">Installing Firmware</h2></header>
+            <div class="topic no-columns">
+              <div class="doc-update">
+                <strong>From a second document</strong>
+                <p>
+                  This appendix is the maker's own
+                  <em>How to Install Firmware in Your Pedal</em> procedure,
+                  which covers every Disaster Area pedal. It is written in
+                  Simplified Technical English (ASD-STE100), so its voice
+                  differs from the manual above. The DPC.micro NS is the
+                  <em>single button</em> row of the bootloader table: the
+                  control you hold is the LOOP SEL (SAVE) button on the side.
+                </p>
+              </div>
+              <p>
+                This procedure tells you how to install new firmware in a
+                Disaster Area pedal. It uses the DAD Firmware Updater
+                application.
+              </p>
+              <div class="keep-together">
+                <p>
+                  There are two versions of the application. They do the same
+                  task and they show the same screens.
+                </p>
+                <div class="table-scroll">
+                  <table class="doc-table">
+                    <caption class="visually-hidden">
+                      Table 1 — The two versions
+                    </caption>
+                    <thead>
+                      <tr>
+                        <th scope="col">Your computer</th>
+                        <th scope="col">What you download</th>
+                        <th scope="col">What you get</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">Mac</th>
+                        <td><span class="file">DAD-Firmware-Updater.zip</span></td>
+                        <td><span class="file">DAD Firmware Updater.app</span></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Windows PC</th>
+                        <td><span class="file">DAD-Firmware-Updater-Windows.zip</span></td>
+                        <td>
+                          <span class="file">DAD Firmware Updater.exe</span>.
+                          There is no installation.
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <p>
+                This procedure applies to both versions. When a step applies to
+                one version only, the step starts with (Mac) or (Windows).
+              </p>
+              <p>Written in Simplified Technical English (ASD-STE100).</p>
+            </div>
+
+            <div class="topic">
+              <h3 id="firmware-before-you-start">1. Before you start</h3>
+              <p>You need these items:</p>
+              <ul>
+                <li>
+                  A computer:
+                  <ul>
+                    <li>
+                      (Mac) A Mac with macOS 10.15.4 or a later version. The
+                      application operates on Intel Macs and on Apple Silicon
+                      Macs.
+                    </li>
+                    <li>
+                      (Windows) A PC with Windows 7 or a later version. The
+                      application operates on 32-bit Windows, on 64-bit Windows,
+                      and on ARM Windows.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  A USB cable that transmits data. Some cables supply power
+                  only. A power-only cable does not operate.
+                </li>
+                <li>
+                  The correct firmware file for your product. The file name ends
+                  with <span class="file">.bin</span>.
+                </li>
+                <li>
+                  One pedal. Disconnect all other Disaster Area pedals from the
+                  computer.
+                </li>
+              </ul>
+              <p>Then prepare the application:</p>
+              <ul>
+                <li>
+                  (Mac) Open <span class="file">DAD-Firmware-Updater.zip</span>.
+                  Move <span class="file">DAD Firmware Updater.app</span> to
+                  your Applications folder.
+                </li>
+                <li>
+                  (Windows) Open
+                  <span class="file">DAD-Firmware-Updater-Windows.zip</span>.
+                  Put <span class="file">DAD Firmware Updater.exe</span> on your
+                  desktop. You do not install it. You do not need administrator
+                  permission.
+                </li>
+              </ul>
+              <p>
+                If the firmware came in a <span class="file">.zip</span> file,
+                open the <span class="file">.zip</span> file first and extract
+                the <span class="file">.bin</span> file. The application cannot
+                read a <span class="file">.zip</span> file.
+              </p>
+            </div>
+
+            <div class="topic">
+              <h3 id="firmware-caution">2. Caution</h3>
+              <p>
+                The application cannot identify your pedal. All products
+                transmit the same data on USB. Therefore, you must make sure
+                that the firmware file is correct for your product. The file
+                name is the only check that is available.
+              </p>
+              <p>Incorrect firmware stops the pedal from operation.</p>
+              <p>Do not disconnect the pedal during the upload.</p>
+            </div>
+
+            <div class="topic">
+              <h3 id="firmware-no-drag-drop">3. Do not use drag and drop</h3>
+              <p>
+                Do not copy the firmware file to the DISASTER disk. Use this
+                application.
+              </p>
+              <p>
+                The DISASTER disk is not a usual disk. It is the memory of the
+                pedal. The disk is full, and the file
+                <span class="file">FLASH.BIN</span> fills it completely. Thus
+                your computer must erase <span class="file">FLASH.BIN</span>
+                before it can write your file, and then it selects a new
+                position for your file. If the position is not correct, the
+                pedal writes the firmware to the wrong address and the pedal
+                does not start.
+              </p>
+              <p>
+                (Windows) Windows can also keep the data in memory after the
+                copy shows as complete. If you disconnect the pedal at that
+                moment, the memory of the pedal is only partially written. This
+                is the cause of the condition in which drag and drop operates on
+                some occasions and does not operate on other occasions.
+              </p>
+              <p>
+                The application writes into the file
+                <span class="file">FLASH.BIN</span> that is already on the
+                pedal. It does not erase the file, it does not rename the file,
+                and it does not change the size of the file. Therefore the data
+                goes to the correct address. The application also tells the
+                computer to write immediately. When the bar shows 100%, the data
+                is in the pedal.
+              </p>
+            </div>
+
+            <div class="topic no-columns">
+              <h3 id="firmware-bootloader">
+                4. Put the pedal into bootloader mode
+              </h3>
+              <ol>
+                <li>Disconnect the pedal from USB.</li>
+                <li>Find the control for your product in the table below.</li>
+                <li>Hold the control.</li>
+                <li>
+                  Connect the pedal to USB. Continue to hold the control.
+                </li>
+                <li>
+                  Release the control when the status line in the application
+                  shows <em>Pedal connected and ready</em>. (Mac) The DISASTER
+                  disk also shows on the desktop.
+                </li>
+              </ol>
+              <div class="table-scroll">
+                <table class="doc-table">
+                  <caption class="visually-hidden">
+                    Table 2 — Bootloader control
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Product</th>
+                      <th scope="col">Control</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        MIDI Baby, micro.clock, DPC.micro NS
+                      </th>
+                      <td>The single button</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">MIDI Baby 3, DMC-3XL</th>
+                      <td>Center button</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        DMC.micro Pro, DMC.micro Classic, DPC.micro, qCONNECT
+                      </th>
+                      <td>Left button</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">DMC-4, DMC-6</th>
+                      <td>Upper right button</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">DPC-5, DPC-8EZ</th>
+                      <td>Far left button (MODE)</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">DMC-8</th>
+                      <td>SAVE button</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        Alexander Pedals — Neo, Leap and Venture Series
+                      </th>
+                      <td>Bypass footswitch</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">micro.ghost</th>
+                      <td>
+                        BOOT DIP switch, set to the BOOT position (set it to RUN
+                        after the update)
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>
+                The micro.ghost uses a switch. Do not hold the switch. Set the
+                switch to the BOOT position before you connect the USB cable.
+                The switch stays in the BOOT position during the upload. Step 14
+                in <a href="#firmware-install">section 5</a> tells you when to
+                set the switch to the RUN position.
+              </p>
+              <p>
+                If you do not know the control, click
+                <em>Which button does my pedal use?</em> in the application. The
+                same table shows.
+              </p>
+              <p>
+                (Windows) Windows can show a message about a new drive, or open
+                a File Explorer window for the DISASTER drive. Close the window.
+                Do not put a file into it.
+              </p>
+            </div>
+
+            <div class="topic no-columns">
+              <h3 id="firmware-install">5. Install the firmware</h3>
+              <ol>
+                <li>Open the DAD Firmware Updater application.</li>
+                <li>
+                  Do the procedure in
+                  <a href="#firmware-bootloader">section 4</a>.
+                </li>
+                <li>
+                  Read the status line. The status line must show
+                  <em>Pedal connected and ready</em> with a green dot.
+                  <figure>
+                    <img src="Images/fw-bootloader.png" alt="The DAD Firmware Updater window with the status line Pedal connected and ready beside a green dot" width="560" height="432" loading="lazy" />
+                    <figcaption>
+                      Figure 1 — The pedal is in bootloader mode. The dot is
+                      green.
+                    </figcaption>
+                  </figure>
+                </li>
+                <li>
+                  Click <em>Choose Firmware…</em>. (Windows) As an alternative,
+                  drag the firmware file onto the window of the application.
+                </li>
+                <li>Select the firmware file. Then click <em>Open</em>.</li>
+                <li>
+                  Read the file name and the size that the application shows.
+                </li>
+                <li>
+                  Make sure that the file name agrees with your product. The
+                  line <em>Firmware size</em> must show a size that is less than
+                  the memory that is available.
+                  <figure>
+                    <img src="Images/fw-file.png" alt="The DAD Firmware Updater window showing the chosen firmware file name and its size" width="560" height="432" loading="lazy" />
+                    <figcaption>
+                      Figure 2 — The application shows the file name and the
+                      size. The size must be less than the memory that is
+                      available.
+                    </figcaption>
+                  </figure>
+                </li>
+                <li>Click <em>Upload Firmware</em>.</li>
+                <li>
+                  Read the file name in the dialog again. This is your last
+                  check before the application writes to the pedal.
+                  <figure>
+                    <img src="Images/fw-dialog.png" alt="A confirmation dialog repeating the firmware file name, with an Update button" width="260" height="288" loading="lazy" />
+                    <figcaption>Figure 3 — The dialog shows the file name.</figcaption>
+                  </figure>
+                </li>
+                <li>Click <em>Update</em>.</li>
+                <li>
+                  Wait. The bar shows the progress of the upload. The status
+                  line shows <em>Uploading — do not unplug the pedal…</em>.
+                </li>
+                <li>
+                  Click <em>OK</em> when the message <em>Upload complete</em>
+                  shows.
+                  <figure>
+                    <img src="Images/fw-complete.png" alt="A dialog reading Upload complete with an OK button" width="260" height="234" loading="lazy" />
+                    <figcaption>Figure 4 — The upload is complete.</figcaption>
+                  </figure>
+                </li>
+                <li>Disconnect the pedal from USB.</li>
+                <li>
+                  Set the BOOT DIP switch to the RUN position. This step applies
+                  to the micro.ghost only.
+                </li>
+                <li>Connect the pedal to USB again.</li>
+              </ol>
+              <p>The pedal now operates with the new firmware.</p>
+              <p>
+                The micro.ghost stays in bootloader mode while the switch is in
+                the BOOT position. Therefore you must do step 14 before step 15.
+              </p>
+              <p>
+                The figures in this section show the Mac version. The Windows
+                version shows the same status line, the same buttons and the
+                same messages.
+              </p>
+            </div>
+
+            <div class="topic no-columns">
+              <h3 id="firmware-first-run">
+                6. The first time you open the application
+              </h3>
+              <h4 id="firmware-mac-permission">
+                6.1 (Mac) Permit access to the pedal
+              </h4>
+              <p>
+                macOS keeps removable disks safe. Thus the application must have
+                your permission. The application asks for this permission one
+                time.
+              </p>
+              <p>
+                Do these steps if the status line shows
+                <em>macOS is blocking access to your pedal</em>:
+              </p>
+              <ol>
+                <li>Click <em>Open Settings</em> in the message.</li>
+                <li>
+                  Open <em>Privacy &amp; Security</em>. Then open
+                  <em>Files and Folders</em>.
+                </li>
+                <li>Find DAD Firmware Updater in the list.</li>
+                <li>Set <em>Removable Volumes</em> to on.</li>
+                <li>Open the application again.</li>
+              </ol>
+              <h4 id="firmware-windows-protected">
+                6.2 (Windows) The message "Windows protected your PC"
+              </h4>
+              <p>
+                Windows can show the message
+                <em>Windows protected your PC</em>. This message shows because
+                the file is new, and not because the file has a fault.
+              </p>
+              <ol>
+                <li>Click <em>More info</em>.</li>
+                <li>Click <em>Run anyway</em>.</li>
+              </ol>
+              <p>Windows does not show this message again for this file.</p>
+              <p>
+                Your antivirus program can also examine the file when you open
+                it the first time. Let the examination become complete. Then
+                open the application again.
+              </p>
+            </div>
+
+            <div class="topic no-columns">
+              <h3 id="firmware-fault-isolation">7. Fault isolation</h3>
+              <figure>
+                <img src="Images/fw-notfound.png" alt="The DAD Firmware Updater window showing No pedal detected, with the status dot not green" width="560" height="432" loading="lazy" />
+                <figcaption>
+                  Figure 5 — The application does not find a pedal. The dot is
+                  not green. Do
+                  <a href="#firmware-bootloader">section 4</a> again.
+                </figcaption>
+              </figure>
+              <div class="table-scroll">
+                <table class="doc-table">
+                  <caption class="visually-hidden">Table 3 — Messages</caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Message</th>
+                      <th scope="col">Version</th>
+                      <th scope="col">Cause</th>
+                      <th scope="col">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">No pedal detected</th>
+                      <td>Both</td>
+                      <td>
+                        The pedal is not in bootloader mode. Or the cable
+                        supplies power only.
+                      </td>
+                      <td>
+                        Do <a href="#firmware-bootloader">section 4</a> again.
+                        Use a cable that transmits data.
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        2 pedals connected — please connect only one
+                      </th>
+                      <td>Both</td>
+                      <td>More than one pedal is connected.</td>
+                      <td>Disconnect all pedals except one.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">macOS is blocking access to your pedal</th>
+                      <td>Mac</td>
+                      <td>The application does not have permission.</td>
+                      <td>Do <a href="#firmware-mac-permission">section 6.1</a>.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        Windows is blocking access to your pedal
+                      </th>
+                      <td>Windows</td>
+                      <td>An antivirus program examines the drive.</td>
+                      <td>
+                        Wait 10 seconds. If the message stays, disconnect the
+                        pedal and do
+                        <a href="#firmware-bootloader">section 4</a> again.
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">This file can't be used</th>
+                      <td>Mac</td>
+                      <td>
+                        The file is not firmware. Or the file is too large for
+                        the pedal.
+                      </td>
+                      <td>
+                        Select the correct <span class="file">.bin</span> file
+                        for your product.
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">This isn't a firmware file</th>
+                      <td>Windows</td>
+                      <td>
+                        The file is a <span class="file">.zip</span>, a
+                        <span class="file">.hex</span>, or a different type of
+                        file.
+                      </td>
+                      <td>
+                        Open the <span class="file">.zip</span> file and select
+                        the <span class="file">.bin</span> file inside it.
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        This firmware is too big for the pedal you've connected
+                      </th>
+                      <td>Windows</td>
+                      <td>The firmware is for a different product.</td>
+                      <td>Select the correct file for your product.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">This file is too small to be firmware</th>
+                      <td>Windows</td>
+                      <td>The download did not become complete.</td>
+                      <td>Download the firmware again.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Another program is using your pedal</th>
+                      <td>Windows</td>
+                      <td>
+                        A File Explorer window shows the DISASTER drive.
+                      </td>
+                      <td>
+                        Close the window. Then click <em>Upload Firmware</em>
+                        again.
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        Windows won't let the updater write to your pedal
+                      </th>
+                      <td>Windows</td>
+                      <td>An antivirus program holds the drive.</td>
+                      <td>
+                        Disconnect the pedal. Wait 5 seconds. Do
+                        <a href="#firmware-bootloader">section 4</a> and
+                        <a href="#firmware-install">section 5</a> again.
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">A warning about a different product</th>
+                      <td>Both</td>
+                      <td>
+                        The pedal reports a different memory size than the
+                        firmware expects.
+                      </td>
+                      <td>
+                        Stop. Make sure that the firmware is for this product.
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Upload failed</th>
+                      <td>Both</td>
+                      <td>
+                        The pedal was disconnected. Or the computer stopped the
+                        write.
+                      </td>
+                      <td>
+                        Disconnect the pedal. Do
+                        <a href="#firmware-bootloader">section 4</a> and
+                        <a href="#firmware-install">section 5</a> again.
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        The DISASTER drive stays in File Explorer after the
+                        update
+                      </th>
+                      <td>Windows</td>
+                      <td>The application could not eject the drive.</td>
+                      <td>
+                        This is not a fault. Disconnect the pedal. The drive
+                        goes away.
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        The micro.ghost shows as the DISASTER disk after the
+                        update
+                      </th>
+                      <td>Both</td>
+                      <td>The BOOT DIP switch stays in the BOOT position.</td>
+                      <td>
+                        Disconnect the pedal. Set the switch to the RUN
+                        position. Connect the pedal again.
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>
+                The application examines the file before it writes. It refuses a
+                file that is smaller than 1 KB, a file that is larger than the
+                memory in the pedal, and a file that is not a program for this
+                type of pedal.
+              </p>
+              <p>
+                If the pedal does not start after an update, do the procedure
+                again. The bootloader stays in the pedal. Thus you can always
+                install the firmware again.
+              </p>
+            </div>
+
+            <div class="topic no-columns">
+              <h3 id="firmware-glossary">8. Glossary</h3>
+              <div class="table-scroll">
+                <table class="doc-table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Term</th>
+                      <th scope="col">Meaning</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">Firmware</th>
+                      <td>The program that operates in the pedal.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Bootloader mode</th>
+                      <td>
+                        The condition in which the pedal shows as a disk and
+                        accepts new firmware.
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">DISASTER disk</th>
+                      <td>
+                        The disk that shows on the desktop, or in File Explorer,
+                        when the pedal is in bootloader mode.
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Upload</th>
+                      <td>
+                        The transmission of the firmware file from the computer
+                        to the pedal.
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><span class="file">.bin</span> file</th>
+                      <td>
+                        The firmware file. This is the only type of file that
+                        the pedal accepts.
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        Disaster Area Designs DPC.micro NS — user manual v1.00 (11/11/2019),
+        rebuilt as a web page from the maker's own PDFs. Source files:
+        <a href="DPC.micro+NS+manual.pdf">DPC.micro NS manual</a>,
+        <a href="DAD-firmware-update.pdf">firmware update procedure</a>,
+        <a href="copy-changes.md">copy-changes.md</a>.
+        <a href="../">Back to the pedal index</a>.
+      </p>
+    </footer>
+  </body>
+</html>
