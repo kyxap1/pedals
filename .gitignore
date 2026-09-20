@@ -1,6 +1,2 @@
 .DS_Store
 _cctmp.*
-
-# Moved to kyxap1/pedals-mcp; the local copy is a working tree, not content
-/mcp/
-/mcp-plan.md
