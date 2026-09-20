@@ -12,7 +12,9 @@ jobs:
   dispatch:
     runs-on: ubuntu-latest
     steps:
+      # workflow_dispatch rather than repository_dispatch: the token then needs
+      # Actions: write alone, which cannot push to pedals-mcp or read its code.
       - name: Trigger a rebuild
         env:
           GH_TOKEN: ${{ secrets.MCP_DISPATCH_TOKEN }}
-        run: gh api repos/kyxap1/pedals-mcp/dispatches -f event_type=manuals-changed
+        run: gh workflow run rebuild.yml --repo kyxap1/pedals-mcp --ref master
