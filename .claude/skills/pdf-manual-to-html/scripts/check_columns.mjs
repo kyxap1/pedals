@@ -5,10 +5,16 @@
 // that looks right at 1400 px strands a figure at 1700. This walks each
 // `.half-container` in flow order at every width and reports:
 //
-//   figure   — an image starts the right column while the text leading into it
-//              (either of the two blocks before it) is still in the left one;
-//   lead-in  — a block ending in ":" sits in one column and what it introduces
-//              (list, menu path, figure) in the other.
+//   figure     — an image starts the right column while the text leading into it
+//                (either of the two blocks before it) is still in the left one;
+//   lead-in    — a block ending in ":" sits in one column and what it introduces
+//                (list, menu path, figure) in the other;
+//   orphan     — a sub-heading left at the foot of a column with its content in
+//                the next one (a `break-after: avoid` the balancer ignored);
+//   unbalanced — a topic taller than a screen whose right column stays nearly
+//                empty: an indivisible `.keep-together` jumped across whole;
+//   overflow   — an unbreakable string (a bare URL, a long token) pushing its
+//                block past the column.
 //
 // Images inside callouts, figure grids, tables and spanning headers are
 // skipped: those boxes never split.
@@ -62,7 +68,35 @@ const probe = `(() => {
       const next = blocks[i + 1];
       if (b.tagName !== 'IMG' && next && /:$/.test(b.textContent.trim()) && col(b) !== col(next))
         out.push({ kind: 'lead-in', text: label(b) });
+      if (/^H[3-6]$/.test(b.tagName) && next && col(b) !== col(next))
+        out.push({ kind: 'orphan', text: label(b) });
+      if (b.clientWidth > 0 && b.scrollWidth > b.clientWidth + 2)
+        out.push({ kind: 'overflow', text: label(b) });
     });
+    // whatever actually carries the columns: the .topic wrappers on a page that
+    // uses them, else the container itself
+    const boxes = [c, ...c.querySelectorAll('.topic')].filter((el) => {
+      const cs = getComputedStyle(el);
+      return cs.columnWidth !== 'auto' || cs.columnCount !== 'auto';
+    });
+    for (const t of boxes) {
+      const tr = t.getBoundingClientRect();
+      const tmid = tr.left + tr.width / 2;
+      const tcol = (el) => (el.getBoundingClientRect().left + 5 < tmid ? 0 : 1);
+      // no skip list here: a figure or a callout still fills the column it sits
+      // in, and leaving it out makes a full column read as a half-empty one
+      const tb = [...t.querySelectorAll('p, li, h3, h4, h5, h6, img, table')]
+        .filter((e) => e.getBoundingClientRect().height > 0);
+      // where each column stops. Comparing the two feet, not their extents,
+      // keeps a spanning figure above them out of the measurement
+      const foot = [0, 1].map((k) => {
+        const rs = tb.filter((e) => tcol(e) === k).map((e) => e.getBoundingClientRect());
+        return rs.length ? Math.max(...rs.map((r) => r.bottom)) : null;
+      });
+      if (tr.height > 700 && foot[0] !== null && foot[1] !== null &&
+          Math.abs(foot[0] - foot[1]) > tr.height * 0.4)
+        out.push({ kind: 'unbalanced', text: label(t.querySelector('h2, h3, h4, h5, h6') || t) });
+    }
   }
   return out;
 })()`;
@@ -146,7 +180,7 @@ async function run() {
   }
   for (const [key, widths] of hits) {
     const [kind, text] = key.split("\t");
-    console.log(`${kind.padEnd(8)} ${widths[0]}..${widths[widths.length - 1]} px (${widths.length} widths)  ${text}`);
+    console.log(`${kind.padEnd(10)} ${widths[0]}..${widths[widths.length - 1]} px (${widths.length} widths)  ${text}`);
   }
   return hits.size;
 }

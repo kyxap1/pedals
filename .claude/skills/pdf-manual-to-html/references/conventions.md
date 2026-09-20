@@ -82,6 +82,35 @@ pedals/
 </html>
 ```
 
+## Masthead
+
+- **Masthead: wordmark.** The cover's wordmark is usually separate vector
+  art, not part of the photo. Crop it from the render and set it as
+  `<h1><img alt="<Brand> <Model>"></h1>` over the cover's ground colour;
+  without it the page opens on an unlabelled photo. (`wampler-terraform/`
+  predates this and opens on a bare `<img>` — follow the skeleton.) A model
+  name set as live text on the cover (it's in `text.txt`) stays text:
+  `<h1><img alt="<Brand>"> <span><Model></span></h1>`.
+- **Masthead: photo.** A real photo of the pedal, cropped from a render when
+  the manual has one. If it shows the enclosure only as line art (CAB X2),
+  use the maker's own product photo from their site or listing rather than
+  promoting the diagram; a third-party seller's photo needs a credit, the
+  maker's doesn't.
+- **Masthead: same brand, same arrangement.** Copy a same-brand page's
+  masthead structure — where the photo sits, how logo, wordmark and document
+  title (`Owner's Manual`) group — so the brand's pages read as one set,
+  while the title block keeps this manual's lettering and ground: `boss-ge-7/`
+  puts its blue header band inside `boss-rc-5/`'s photo-beside-title layout.
+- **Masthead: panel proportions.** A cover split into a colour panel beside a
+  photo panel gets its ratio measured on the render (crop width ÷ total),
+  not picked by eye: a round 50/50 or 1:2 overweights the colour panel next
+  to covers that run closer to 30/70. Set the masthead screenshot beside the
+  cover render before moving on.
+
+The wordmark and the photo are separate crops: the wordmark is the logotype
+alone, so a tagline or URL printed beside it on the cover is text and goes
+into the HTML.
+
 ## CSS pattern
 
 Start `style.css` with the design tokens so the palette is swappable:
@@ -215,6 +244,12 @@ and let the figure sit in its column.
   overflows sideways.
 - A lead-in ending in ":" (`go to:`) never ends a column above its menu path;
   the `:has()` rule below holds that without a wrapper per pair.
+- A figure taller than the prose beside it ends its column most of a screen
+  below the other one, and no break rule fixes that: the column simply has
+  more to hold. Give that topic `.no-columns` and let the figure run under its
+  paragraph at a capped width (`max-width: min(44em, 100%)`), or pull the next
+  block up into the same topic so the second column has something to fill
+  with. `check_columns.mjs` reports it as `unbalanced`.
 
 ```css
 .keep-together { break-inside: avoid; }
@@ -231,8 +266,11 @@ h3, h4, h5, h6 { break-after: avoid; }
 
 Column breaks move with every viewport width, so one screenshot proves
 nothing about them: `scripts/check_columns.mjs` sweeps 1000–2600 px and
-lists each figure stranded from its lead-in and each `:` lead-in split from
-what it introduces, with the widths where it happens.
+reports, with the widths where each happens, a figure stranded from its
+lead-in (`figure`), a `:` lead-in split from what it introduces (`lead-in`),
+a sub-heading left at a column's foot (`orphan`), a column ending far above
+the other (`unbalanced`) and an unbreakable string pushing past its column
+(`overflow`).
 
 **Short sections.** A blurb under ~10–14 lines (an "About this manual" or
 "Support") split into columns leaves a tiny isolated column; its container
@@ -259,7 +297,33 @@ of its content, not from where the print page happened to fit it:
 
 Symptoms in a desktop screenshot: the right half of a section empty → a
 `.no-columns` on content that is tall rather than short; a tinted card with a
-large empty bottom → cards in grid rows.
+large empty bottom → cards in grid rows; one column ending a screen above the
+other → a figure taller than the text sharing its topic.
+
+## Figure craft
+
+- `pdfimages` also dumps alpha masks and technical layers as separate
+  grayscale images; ship the colour figure, not its mask (look at it, or
+  `file` it for 3-channel RGB). A mask right after a colour image of the same
+  size is that image's transparency — icons (warning sign, "!") come this
+  way: merge it in with PIL `putalpha` and ship a `.png`.
+- Figures that belong together (front and back panel, a before/after pair)
+  are checked side by side in one `montage` at equal display width. Each one
+  looks right alone; margins left in one of them shrink its subject by half
+  next to the other, and at `width: 100%` the page shows exactly that.
+- An icon printed in a box beside text drags letters and rule ends into any
+  crop that holds all of it: crop the box, then `scripts/clean_crop.py in.png
+  out.png` keeps the largest dark shape, whitens the rest and trims.
+- Pictograms carrying printed labels (toggle positions, jack names) ship at
+  their 300-dpi crop's native size, `width`/`height` equal to the file's;
+  scaled down, the labels blur into 4-px smudges.
+- A figure whose printed background doesn't match its container (a
+  white-ground icon in a tinted card, a dark-ground diagram on a light page)
+  is a rendering problem, not a reason to cut it: recolour the background
+  (safe on flat line art — replace the near-white/near-black pixels, keep the
+  strokes), move it where its background belongs, or give it an untinted
+  spot, then re-screenshot. Never delete manual content to get a clean
+  screenshot.
 
 ## Multiple PDFs (revisions / addenda / quick-starts)
 

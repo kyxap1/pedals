@@ -26,15 +26,14 @@ the pedal should recognise the manual instantly; a screen-reader user should get
 a clean document outline.
 
 Some of what a manual does is not a style but a device resting on the page
-being a page: a measure fixed by hand, a known sheet size, a facing spread.
+being a page — a measure fixed by hand, a known sheet size, a facing spread.
 Move it across and the support is gone, so copying the appearance ships
-something that no longer does its job. Carry the intent over on a mechanism
-this medium has, and count that as fidelity rather than invention. A manual
-separates table columns by whitespace alone because six inches of measure make
-that enough; the same table full-width on screen needs rules to stay legible.
-The two cases already written down are the same move: a diagram whose labels
-are sized for print scrolls instead of shrinking (conventions, the breakpoint),
-and line art printed light-on-dark is recoloured onto the page ground (step 3).
+something that no longer does its job: a manual holds table columns apart with
+whitespace alone because six inches of measure make that enough, and the same
+table full-width on screen needs rules to stay legible. Carry the intent over
+on a mechanism this medium has and count that as fidelity, the way a
+print-sized diagram scrolls instead of shrinking (conventions, the breakpoint)
+and light-on-dark line art is recoloured onto the page ground (step 3).
 
 `wampler-terraform/` is the reference implementation, and
 `references/conventions.md` distils it: HTML skeleton, CSS pattern, multi-PDF
@@ -63,27 +62,10 @@ exception is your own slug: `<slug>/` or `_cctmp.<slug>/` already present,
 uncommitted and not created in this conversation means another session is on
 the same pedal — stop and ask the user.
 
-Shared files — root `index.html`, `catalog.txt`, this skill's `SKILL.md` and
-`references/` — take concurrent edits:
-
-- Change them with small `Edit` calls only; `Write` rewrites the file from your
-  copy and drops everyone else's hunks. Read right before editing; if Edit
-  reports the file changed since it was read, re-read and redo the edit.
-- Leave hunks you didn't write alone — no reverting, reformatting, reordering.
-
-Git, only when the user asks for a commit:
-
-- Stage your own paths by name and commit by path, so whatever another session
-  staged stays out: `git add <slug>/ && git commit -m "…" -- <slug>/
-  index.html catalog.txt`. Never `git add -A`, `git add .`, `git commit -a`,
-  `git stash`.
-- A shared file is committed whole. `git diff` it first; if it carries another
-  session's hunk (a card for an uncommitted page deploys as a broken link), ask
-  the user before committing it.
-- `.git/index.lock` exists → another session is mid-commit; wait and retry,
-  never delete the lock.
-- Push rejected because another session pushed first → tell the user; don't
-  pull or rebase on your own.
+The shared files — root `index.html`, `catalog.txt`, this skill's `SKILL.md`
+and `references/` — take concurrent edits, and a commit has to keep a
+sibling's work out of it. `references/parallel-sessions.md` has both rules;
+read it before editing a shared file and before any git command.
 
 ## Token budget
 
@@ -97,18 +79,16 @@ Build `index.html` in pieces: write the skeleton (masthead, both TOCs, empty
 `<section>`s) first, then fill one or two sections per response with `Edit`,
 writing the copy straight into the file instead of drafting the page in
 thinking first. The same holds for `style.css` and image-processing scripts:
-decide the next piece, write it, run it. The Collider job lost two responses
-to the cap, one of them all thinking.
+decide the next piece, write it, run it.
 
 Every response also re-sends the whole conversation, so a job costs roughly
-its context size times its round trips. Whatever enters the context — a page
-render, a screenshot, a chunk of `text.txt` — is paid for again on every
-later call until the job ends, so the earlier it comes in, the more it costs.
-An image costs about width × height / 750 tokens once scaled to fit 2,000 px
-on its long edge: ~2,500 for a 3,000-px screenshot segment, ~2,800 for a
-150-dpi page render, ~450 for a 60-dpi thumbnail. The Collider job read 104
-images and all of `text.txt` into the main conversation, and by its
-screenshot pass every request re-sent over 300K tokens.
+its context size times its round trips, and whatever enters the context is
+paid for again on every later call until the job ends. An image costs about
+width × height / 750 tokens once scaled to fit 2,000 px on its long edge:
+~2,500 for a 3,000-px screenshot segment, ~2,800 for a 150-dpi page render,
+~450 for a 60-dpi thumbnail. The Collider job read 104 images and all of
+`text.txt` into the main conversation, and by its screenshot pass every
+request re-sent over 300K tokens.
 
 - **Bulk looking happens in a subagent.** What a subagent (`Agent` tool,
   general-purpose) reads leaves with it; the main conversation gets back a
@@ -116,7 +96,10 @@ screenshot pass every request re-sent over 300K tokens.
   the main one mid-job, so the two bulk passes run there: the survey
   (step 2) and the screenshot verification (step 7). The main conversation
   keeps the looks that feed the edit at hand — the page a section is written
-  from, the crop being checked.
+  from, the crop being checked. This is the rule most often lost mid-job:
+  the focusrite job pulled some twenty montages and screenshot segments into
+  the main conversation itself, shooting and looking after each small fix,
+  and every one of them was re-sent on every request that followed.
 - **Read text when you use it.** Past a few pages, don't read `text.txt`
   whole: the survey gives the outline with PDF page ranges, and each
   section's passage comes from `pdftotext -layout -f A -l B <pdf> -` right
@@ -134,15 +117,15 @@ screenshot pass every request re-sent over 300K tokens.
   montage -font /System/Library/Fonts/Supplemental/Arial.ttf -label '%f %wx%h' \
     <images…> -tile 3x -geometry '600x>+8+8' -background white sheet.png
   ```
-- Let a script answer what a script can: `check_page.py` for anchors and
-  images, the `scrollWidth` line `screenshot.mjs` prints for horizontal
-  scroll, `check_columns.mjs` for figures and lead-ins split across columns.
+- Let a script answer what a script can, and read its text instead of looking:
+  `check_page.py` for anchors and images, `crop_figure.py --check` for a crop
+  that cuts the drawing, the `scrollWidth` line `screenshot.mjs` prints for
+  horizontal scroll, `check_columns.mjs` for broken column breaks.
 - Batch independent tool calls into one response; every extra round trip
   re-sends everything.
 - After a compaction the summary carries the decisions. Re-read only what the
   next step needs — the next section's passage, the region of the file being
-  edited — not the extracts: the Collider job re-read all of `text.txt` after
-  its `/compact`.
+  edited — not the extracts.
 
 ## Workflow
 
@@ -166,13 +149,26 @@ own memory of what you chose. Whatever the earlier job decided is either
 written down beside the page or has to be derived from the PDFs again before
 anything can be called wrong. Establish which before reporting a defect.
 
-- **Pick a device:** Check the root `catalog.txt`. If there are devices listed without a leading `+ `, pick ONE unprocessed device (1 session = 1 device).
-- **Download official manuals:** Find the latest official PDF manuals for this specific model **strictly on the manufacturer's website**. Download the main manual and *all* additional manuals offered (quick start guides, MIDI maps, addendums, etc.) into the repository root. If downloading is impossible (e.g. blocked, not found, or no PDF exists), **stop**, report this to the user, and offer to compile a DIY page from the descriptions and images available on the manufacturer's site. "Official" is not one place: a maker serves the same document from its product page, its manuals index and its downloads index, and those drift apart by revisions that change real specifications. Compare what each offers rather than taking the first hit, and record which one the file came from — provenance is a fact about the page, not a step you did once.
+- **Pick a device:** check the root `catalog.txt`. Where devices are listed
+  without a leading `+ `, take ONE unprocessed device — one session, one
+  device.
+- **Download official manuals:** find the latest official PDFs for this exact
+  model **on the manufacturer's own site**, and take the main manual together
+  with *all* the extra documents offered (quick start, MIDI map, addendum,
+  firmware guide) into the repository root. "Official" is not one place: a
+  maker serves the same document from its product page, its manuals index and
+  its downloads index, and those drift apart by revisions that change real
+  specifications. Compare what each offers rather than taking the first hit,
+  and record which one the file came from — provenance is a fact about the
+  page, not a step you did once. If downloading is impossible (blocked, not
+  found, no PDF exists), **stop**, tell the user, and offer to compile the
+  page from the descriptions and images on the maker's site.
 - **PDF handed over by the user:** still check the maker's site. `cmp` the
   file against the official copy (a newer revision may be up) and download the
   extra documents offered for the model — quick start, firmware update guide,
   addendum; they fold in like any second PDF.
-- Identify **brand** and **model** from the downloaded PDF(s) (title, cover, footer).
+- Identify **brand** and **model** from the downloaded PDF(s) — title, cover,
+  footer.
 - One PDF → one page. Several PDFs for one pedal → give each a role by reading
   it (the survey in step 2 does), not by date or file name: **full manual**
   (every control), **quick start** (small foldout card: hook-up and a few
@@ -270,9 +266,9 @@ Three sources, in order of preference:
    sibling's heavy blocks, dotted rules or numbered badges for a cleaner
    look, strip that chrome rather than recolouring it.
 2. **The brand's own online manual.** Many makers (Wampler included) publish
-   one in HTML; the survey searches for it. If it exists, its CSS *is* the answer: font
-   stack, colours, heading treatment, often the section structure too. This is
-   how `wampler-terraform` was built.
+   one in HTML; the survey searches for it. If it exists, its CSS *is* the
+   answer: font stack, colours, heading treatment, often the section structure
+   too. This is how `wampler-terraform` was built.
 3. **The PDF.** Map each embedded font to the nearest Google Font with the
    table in conventions (e.g. `MyriadPro` → "Source Sans 3"). For the palette,
    run `scripts/sample_colors.py <product photo> <cover render>` — the
@@ -329,28 +325,10 @@ follow the page section by section without losing their place.
 
 **Structure** (full skeleton and CSS in conventions):
 
-- **Masthead: wordmark.** The cover's wordmark is usually separate vector
-  art, not part of the photo. Crop it from the render and set it as
-  `<h1><img alt="<Brand> <Model>"></h1>` over the cover's ground colour;
-  without it the page opens on an unlabelled photo. (`wampler-terraform/`
-  predates this and opens on a bare `<img>` — follow the skeleton.) A model
-  name set as live text on the cover (it's in `text.txt`) stays text:
-  `<h1><img alt="<Brand>"> <span><Model></span></h1>`.
-- **Masthead: photo.** A real photo of the pedal, cropped from a render when
-  the manual has one. If it shows the enclosure only as line art (CAB X2),
-  use the maker's own product photo from their site or listing rather than
-  promoting the diagram; a third-party seller's photo needs a credit, the
-  maker's doesn't.
-- **Masthead: same brand, same arrangement.** Copy a same-brand page's
-  masthead structure — where the photo sits, how logo, wordmark and document
-  title (`Owner's Manual`) group — so the brand's pages read as one set,
-  while the title block keeps this manual's lettering and ground: `boss-ge-7/`
-  puts its blue header band inside `boss-rc-5/`'s photo-beside-title layout.
-- **Masthead: panel proportions.** A cover split into a colour panel beside a
-  photo panel gets its ratio measured on the render (crop width ÷ total),
-  not picked by eye: a round 50/50 or 1:2 overweights the colour panel next
-  to covers that run closer to 30/70. Set the masthead screenshot beside the
-  cover render before moving on.
+- **Masthead.** The cover's wordmark over the cover's ground, then a real
+  photo of the pedal, arranged the way a same-brand page already arranges
+  them, with the cover's panel ratio measured rather than guessed —
+  conventions → "Masthead" has each of those and what goes wrong without it.
 - `<nav id="side-nav">` fixed TOC on desktop, `#toc-mobile` in the flow for
   narrow screens, one `@media (max-width: 900px)` breakpoint that hides the nav.
 - `<main>` with one `<section>` per manual section. The `id` goes on the
@@ -428,39 +406,26 @@ section it illustrates.
 - Prefer embedded images from `raw/`; crop from a 300-dpi render (step 2)
   when they are sliced, vector or absent. A row of knob shots goes in a
   `.grid-wrapper`, `<img>` at `width: 100%`.
-- `pdfimages` also dumps alpha masks and technical layers as separate
-  grayscale images; ship the colour figure, not its mask (look at it, or
-  `file` it for 3-channel RGB). A mask right after a colour image of the same
-  size is that image's transparency — icons (warning sign, "!") come this
-  way: merge it in with PIL `putalpha` and ship a `.png`.
-- Crop by eye, never from text coordinates alone, then check the edges: a
-  stroke or leader line running off the edge means the crop cut the drawing —
-  widen it until every pointer ends at its target. When auto-trimming
-  whitespace out of a generous region, a trimmed box touching the region's
-  edge means the subject was cut — widen and re-trim until it sits clear.
-  Pad every box by 20–30 px before `-fuzz 8% -trim`: the trim does the
-  tightening, so padding costs nothing, while a box drawn tight by eye cuts
-  arrowheads and pointer tips.
-- Figures that belong together (front and back panel, a before/after pair)
-  are checked side by side in one `montage` at equal display width. Each one
-  looks right alone; margins left in one of them shrink its subject by half
-  next to the other, and at `width: 100%` the page shows exactly that.
-- An icon printed in a box beside text drags letters and rule ends into any
-  crop that holds all of it: crop the box, then `scripts/clean_crop.py in.png
-  out.png` keeps the largest dark shape, whitens the rest and trims.
-- Pictograms carrying printed labels (toggle positions, jack names) ship at
-  their 300-dpi crop's native size, `width`/`height` equal to the file's;
-  scaled down, the labels blur into 4-px smudges.
-- A figure holds graphics only. Body text printed inside an image goes into the
-  HTML and is painted out of the image with the background colour; integral
-  labels (numbered pointers) stay. A wordmark crop is the logotype alone — a
-  tagline or URL printed beside it is text, so it goes in the HTML.
-- A table printed as a screenshot is still a table: transcribe it into a real
-  `<table>` (conventions → tables), never ship it as an image. A reader who
-  needs to scan or reference it can't do that on a flat picture, and it goes
-  illegible the moment it's scaled down for mobile. Not a judgment call and no
-  exceptions for row/column count — logotypes are the only figures allowed to
-  carry text.
+- Draw the box by eye off the render, never from text coordinates, then let
+  `scripts/crop_figure.py <page.png> <out.png> X Y W H` finish it: it pushes
+  out every edge ink still crosses until no stroke runs off the boundary,
+  trims the slack back and pads. A box drawn tight by eye cuts arrowheads,
+  leader lines and the tail of a label, and the loss only shows up later,
+  beside the PDF. `CAPPED` in its output means the growth limit was reached —
+  the figure runs into body text or a neighbouring drawing there, so look
+  before shipping. It reads light-on-dark line art the same way.
+- `crop_figure.py --check <crop.png>` runs that test on a finished file: use
+  it on every figure before the screenshots, and on figures an earlier job
+  cropped when re-deriving a page. Edges the figure's own ground fills (a
+  photo, a tinted panel, a circular badge) are reported apart from cut
+  strokes and are not a failure.
+- **Nothing that reads as text ships as pixels.** A table printed as a
+  screenshot is transcribed into a real `<table>` (conventions → "Reference
+  tables"): a reader can't scan or search a flat picture, and it goes
+  illegible the moment it's scaled for mobile. Body text printed inside a figure goes into the HTML
+  and is painted out of the image with the background colour; integral labels
+  (numbered pointers) stay. No exceptions for row or column count —
+  logotypes are the only figures allowed to carry text.
 - Copy across only the images the page shows, named for what they depict
   (`setting-1.png`, `ego-mini-header.jpg`). Most of the dump is print
   furniture — gradient strips a few pixels tall, slivers of rules, repeated
@@ -468,13 +433,9 @@ section it illustrates.
   holds figures, not leftovers.
 - Photos are `.jpg` (`.png` when they need transparency); line art, wordmarks
   and screenshots are `.png`.
-- A figure whose printed background doesn't match its container (a
-  white-ground icon in a tinted card, a dark-ground diagram on a light page)
-  is a rendering problem, not a reason to cut it: recolour the background
-  (safe on flat line art — replace the near-white/near-black pixels, keep the
-  strokes), move it where its background belongs, or give it an untinted
-  spot, then re-screenshot. Never delete manual content to get a clean
-  screenshot.
+- Masks and technical layers in `raw/`, icons cropped from beside text,
+  pictograms with printed labels, a pair of figures that must match, and a
+  figure whose background fights its container: conventions → "Figure craft".
 
 ### 5. Place the assets
 
@@ -536,17 +497,52 @@ picked to hold the noise down cuts out headings, captions and labels — the
 text most likely to be invented, and the worst place for it, because a reader
 takes it for the document's own structure.
 
+**The checks are cheap; the cycles around them are not.** A script run costs a
+few hundred tokens of text, while a fix cycle costs a screenshot pass, a look
+and a round trip that re-sends the whole conversation. So run each check once,
+take everything it found, fix the lot in one editing pass, and only then run
+it again: the focusrite job ran `check_columns.mjs` twelve times and
+`screenshot.mjs` ten, mostly one finding at a time, and spent more context on
+the loop than on building the page. Between passes, re-check with the text
+tools — `check_columns.mjs` and `crop_figure.py --check` answer in words —
+and re-shoot only at the width a finding named. The full four-width pass runs
+once, when the page is ready for the reviewer.
+
+A finding is not an order. A break that shows at a single width in the sweep,
+an `unbalanced` topic a reader would never notice, a badge whose round edge
+reads as 1% wet: note it in the report and move on. Driving every check to
+zero costs more than the defects it removes, and the reviewer's pass is what
+decides whether the page is done.
+
 - `scripts/check_page.py <pedal-dir>/index.html` — dangling TOC anchors,
   missing images and unreferenced files in `Images/`; none of them shows in a
   screenshot.
-- `scripts/check_columns.mjs "file://$PWD/<pedal-dir>/index.html"` — sweeps
-  1000–2600 px and lists every figure that starts the right column while its
-  lead-in stays left, and every `:` lead-in split from its list or menu path,
-  with the widths. Exits 1 on any finding; fix with conventions → "Column
-  breaks" and re-run until clean. Headless Chrome needs a real bound:
-  `timeout 320`. It reads the flow two blocks back and skips tables and
-  figure grids, so a finding whose *immediately* preceding block sits in the
-  same column is the tool looking past the pair, not a break to chase —
+- Every shipped figure through `crop_figure.py --check`, which sees a severed
+  stroke the page screenshots can't — on the page the crop looks deliberate:
+
+  ```
+  for f in <pedal-dir>/Images/*.png; do
+    printf '%s: ' "$f"
+    .claude/skills/pdf-manual-to-html/scripts/crop_figure.py --check "$f"
+  done
+  ```
+- `scripts/check_columns.mjs "file://$PWD/<pedal-dir>/index.html"` sweeps
+  1000–2600 px — one screenshot width proves nothing about breaks that move
+  with the viewport — and names five failures with the widths they happen at:
+
+  | kind | what it found | fix |
+  |---|---|---|
+  | `figure` | a figure starting the right column while its lead-in stays left | `.keep-together` around lead-in + figure + follow-up |
+  | `lead-in` | a block ending in ":" split from its list or menu path | the `:has()` rule, or `.keep-together` |
+  | `orphan` | a sub-heading left at a column's foot, its content in the next | `break-after: avoid` on that level, else `.column-end` |
+  | `unbalanced` | one column ending far above the other | usually a tall figure or an over-wide `.keep-together`; conventions → "Sizing the measure" |
+  | `overflow` | an unbreakable string pushing its block past the column | `overflow-wrap: anywhere` on that block |
+
+  Exits 1 on any finding; fix with conventions → "Column breaks" and re-run
+  until clean. Headless Chrome needs a real bound: `timeout 320`. The
+  `figure` and `lead-in` checks read the flow two blocks back and skip tables
+  and figure grids, so a finding whose *immediately* preceding block sits in
+  the same column is the tool looking past the pair, not a break to chase —
   confirm which it is by measuring before editing.
 - When a block lands somewhere the CSS says it shouldn't, measure it before
   rewriting the rule: read `getBoundingClientRect()` and the computed style
@@ -559,7 +555,7 @@ takes it for the document's own structure.
   and at three desktop widths — 1400, 1700 and 2000: columns balance
   differently at each, and a figure right at 1400 can be stranded at 1700.
   It drives Chrome over CDP, captures the page's real height as
-  numbered segments (`desktop-01.png`, `desktop-02.png`, …; a single capture
+  numbered segments (`w1400-01.png`, `w1400-02.png`, …; a single capture
   past ~16,000 px repeats the page from the top) and prints the page's
   `scrollWidth`. Don't use `chrome --headless --screenshot --window-size=W,H`
   by hand: it crops to exactly W×H instead of the page's real height, and it
@@ -567,33 +563,19 @@ takes it for the document's own structure.
 
   ```
   mkdir -p _cctmp.<slug>/shot
-  node .claude/skills/pdf-manual-to-html/scripts/screenshot.mjs \
-    "file://$PWD/<pedal-dir>/index.html" "$PWD/_cctmp.<slug>/shot/desktop.png" 1400
-  node .claude/skills/pdf-manual-to-html/scripts/screenshot.mjs \
-    "file://$PWD/<pedal-dir>/index.html" "$PWD/_cctmp.<slug>/shot/d1700.png" 1700
-  node .claude/skills/pdf-manual-to-html/scripts/screenshot.mjs \
-    "file://$PWD/<pedal-dir>/index.html" "$PWD/_cctmp.<slug>/shot/d2000.png" 2000
-  node .claude/skills/pdf-manual-to-html/scripts/screenshot.mjs \
-    "file://$PWD/<pedal-dir>/index.html" "$PWD/_cctmp.<slug>/shot/mobile.png" 390
+  for w in 1400 1700 2000 390; do
+    node .claude/skills/pdf-manual-to-html/scripts/screenshot.mjs \
+      "file://$PWD/<pedal-dir>/index.html" "$PWD/_cctmp.<slug>/shot/w$w.png" $w
+  done
   ```
 
-- Hand the looking to a fresh subagent, the **reviewer/verifier**. It will check if everything converted correctly and tell you (the main model) what to fix. Give it the page, the segment files, `pages/`, the survey's section → page map and the checks below; it edits nothing and reports each finding as text — section id, segment file, what the page shows, what the PDF shows.
-  - **The Reviewer's Mandate:**
-    - Crookedly cropped images (figures cut off at the edges or containing stray lines from neighbouring elements).
-    - Images used where live text or a table should be (except for logotypes) —
-      a hard fail, not a style note.
-    - Incorrectly formatted text that differs from the original (missing bold/italic, wrong heading levels).
-    - Header/masthead position and layout against the cover art.
-    - Correctness of the menu / TOC (broken anchors, missing items).
-    - Crooked or unaligned columns (especially in lists or tables).
-    - Awkward or crooked word wraps (orphans, unbroken URLs breaking layout).
-    - Missing or misaligned table borders and divider rules.
-    - Inconsistent font weights (e.g. bold where it should be semibold).
-    - Missing footnotes or callout boxes.
-    - Desktop segments against the PDF `pages/`: every section present, figures in the right place, nothing garbled.
-    - Mobile: the `scrollWidth` line answers horizontal scroll; look only at the first segment (nav gone, mobile TOC shown) and the ones holding wide tables or figure grids.
-    - Every table and callout cropped out of the desktop shot and set beside the same block on the page render, at the same scale, in a `montage` sheet. Check vertical alignment in cells and rules under headings.
-    - The palette on both light surroundings and the reversed-out header.
+- Hand the looking to a fresh subagent, the **reviewer**: it checks what
+  converted wrong and tells you (the main model) what to fix. Give it the
+  page, the segment files, `pages/`, the survey's section → page map and
+  `references/review-checklist.md` — the checklist is its mandate, and it
+  reads it itself rather than having it repeated here. It edits nothing and
+  reports each finding as text: section id, segment file, what the page
+  shows, what the PDF shows.
 - **Redo Loop:** If the reviewer finds issues, **kick yourself (the main model) to fix the glitching parts**. You must redo the broken parts and re-screenshot them. You can loop this review-fix cycle **a maximum of 2 times in a row**. The report rests on one last full pass by the reviewer over the finished page or the exhaustion of the 2 retries.
 - **Only after passing review or hitting the retry limit**, move
   `copy-changes.md` out of the scratch and into `<pedal-dir>/`, then delete
@@ -616,8 +598,8 @@ without opening the diff:
 - **What's inside** — the sections, in the PDF's order; where the style came
   from (sibling page, online manual, the PDF) and the heading, step and table
   treatment it gave; each layout call a reader would notice (a sticky diagram,
-  a table restacked on mobile); what `check_page.py` and the screenshots at
-  each width showed.
+  a table restacked on mobile); what `check_page.py`, `crop_figure.py
+  --check`, `check_columns.mjs` and the screenshots at each width showed.
 - **Copy changes** — every place the page's wording departs from the PDF, with
   the reason: typos, mangled phrases, template leftovers that contradict the
   pedal, page references turned into anchor links — plus the conflicts
@@ -634,7 +616,7 @@ them to the user for review. Some jobs have nothing worth reporting, and
 that's fine — don't manufacture a suggestion to fill the step.
 
 Proposing a change is not permission to make it: only edit `SKILL.md` or
-`references/conventions.md` when the user explicitly says to add it.
+anything under `references/` when the user explicitly says to add it.
 
 ### 9. Deploy
 
@@ -657,5 +639,11 @@ Actions on push to `master`; source PDFs live in the repo on purpose.
   columns, swept over viewport widths.
 - `scripts/clean_crop.py` — an icon crop stripped of neighbouring letters and
   rule ends.
+- `scripts/crop_figure.py` — a rough box grown into a crop that cuts nothing,
+  and `--check` on a finished crop.
 - `references/conventions.md` — repo layout, the full HTML/CSS pattern from the
   reference implementation, the multi-PDF merge recipe, font-mapping table.
+- `references/parallel-sessions.md` — editing a shared file and committing
+  while other sessions work in the same checkout.
+- `references/review-checklist.md` — the step 7 reviewer's mandate, handed to
+  the subagent.
