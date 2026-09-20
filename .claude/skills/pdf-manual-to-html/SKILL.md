@@ -357,10 +357,22 @@ follow the page section by section without losing their place.
   section's heading, never on the `<section>`: site search links its hits
   only to headings with an `id`. `id`s are kebab-case and match the TOC
   anchors exactly; give sub-headings the reader would jump to one too.
+  **A published `id` is a contract.** The MCP server keys its sections on it
+  and hands agents `…/<slug>/#<id>` as the citation, so re-deriving a page
+  from a newer PDF keeps every `id` it already published, even where the
+  heading's wording changed — a renamed `id` breaks every link already given
+  out, and nothing in CI can catch it. Put an `id` only on a heading that has
+  something under it. Before publication, rename freely.
 - Semantic headings (`h2` section, `h3` sub-section …) — style them, don't pick
   tags by size.
 - Reference tables (MIDI maps, spec sheets) → `.doc-table` inside
   `.table-scroll`.
+- Every content image carries an `alt` that says what the image tells the
+  reader, not what it is a picture of — "LED C flashes red, hold to set POP
+  STOP, tap to set MIDI chain", not "configuration mode". A text-only consumer
+  (the MCP server, a screen reader) is handed the `alt` and nothing else, and
+  a handful of headings have no prose under them at all, so a thin `alt`
+  leaves that section empty.
 - Print layout yields to HTML semantics: never break an `<ol>`/`<ul>` to drop
   an image in — the figure goes inside its `<li>` or above/below the list.
   Pick each section's layout (columns, `.no-columns`, `column-span`) from
