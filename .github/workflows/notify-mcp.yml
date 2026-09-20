@@ -1,0 +1,18 @@
+name: Notify MCP
+
+# kyxap1/pedals-mcp indexes these manuals. Only a manual changing invalidates
+# that index, so a README or workflow edit must not trigger a rebuild.
+on:
+  push:
+    branches: [master]
+    paths: ['*/index.html']
+  workflow_dispatch:
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger a rebuild
+        env:
+          GH_TOKEN: ${{ secrets.MCP_DISPATCH_TOKEN }}
+        run: gh api repos/kyxap1/pedals-mcp/dispatches -f event_type=manuals-changed
