@@ -3,6 +3,7 @@
 + BOSS Poly Shifter XS-1
 + BOSS RC-5 Loop Station
 + Disaster Area DPC.micro gen3
++ ENGL Ravager IR E725
 + Focusrite Scarlett 18i16 (4th Gen)
 + Hotone Soul Press II
 + Mooer CAB X2

@@ -1,0 +1,414 @@
+/* Fonts: AgencyFB-Reg 400, AgencyFB-Bold 700 -> Saira Condensed (400/700).
+   The manual sets the whole document in one condensed face and uses bold only
+   on the cover, so weight carries almost no hierarchy here: line breaks,
+   caps and rules do. Keep it that way — a page full of semibold run-in heads
+   is a different document. */
+@import url("https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@400;700&display=swap");
+
+:root {
+  --ink: #1a1a1a; /* body ink */
+  --accent: #0a0a0a; /* the cover's ground; masthead, banners, table heads */
+  --rule: #c9c9c9;
+  --paper: #f1f1f1; /* tint behind callouts */
+  --muted: #5e5e5e;
+  --led: #e31e24; /* the Power LED on the panel drawing: the manual's only accent */
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin-top: 0;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: #fff;
+  font-family: "Saira Condensed", "Arial Narrow", system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 1.08rem;
+  line-height: 1.62;
+}
+
+main {
+  margin-left: 20vw;
+  padding-bottom: 3em;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.15;
+}
+
+/* Section banners. The manual types a run of dashes and underscores after the
+   title, which sets as a solid black bar across the measure with the title
+   reversed out of its left end. */
+h2 {
+  font-size: 1.7em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #fff;
+  background: var(--accent);
+  padding: 0.12em 0.4em;
+  margin-bottom: 0.8em;
+  text-wrap: balance;
+}
+
+/* Control and jack names, and the symptom lead-ins. The manual gives them no
+   rule, no size step and no colour — only weight, on a line of their own,
+   with the description starting on the next line. */
+h3 {
+  font-size: 1.12em;
+  font-weight: 700;
+  margin-bottom: 0.15em;
+}
+/* the one sub-heading the manual sets in caps (p7, background noise) */
+h3.caps {
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-top: 0.5em;
+}
+h4 {
+  font-size: 1em;
+  font-weight: 700;
+  margin-bottom: 0.15em;
+}
+
+p,
+li {
+  break-inside: avoid;
+}
+h3,
+h4,
+h5,
+h6 {
+  break-after: avoid;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+ul,
+ol {
+  margin-bottom: 1em;
+  padding-left: 1.4em;
+}
+li {
+  margin-bottom: 0.3em;
+}
+
+a {
+  color: var(--led);
+}
+a:hover {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 0.75em;
+}
+.topic > img,
+li > img,
+figure > img {
+  display: block;
+}
+
+figure {
+  margin: 0 0 1em;
+}
+figcaption {
+  font-size: 0.9em;
+  color: var(--muted);
+  margin-bottom: 1em;
+}
+
+/* MASTHEAD — the cover: chrome wordmark on the grille, title set over it */
+#masthead {
+  background: var(--accent);
+  color: #fff;
+  margin-bottom: 2.5em;
+}
+#masthead .cover {
+  position: relative;
+}
+#masthead .cover-art {
+  display: block;
+  width: 100%;
+  height: clamp(220px, 42vh, 420px);
+  object-fit: cover;
+  /* the chrome badge sits at 54% of the cropped cover's height */
+  object-position: center 54%;
+  margin: 0;
+}
+#masthead h1 {
+  margin: 0;
+  padding: 0 1.2rem 0.6rem;
+  text-align: right;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+#masthead .model-no {
+  display: block;
+  font-size: 2.6em;
+}
+#masthead .model {
+  display: block;
+  font-size: 3.4em;
+  line-height: 0.95;
+}
+/* "IR" is outlined on the cover, not filled */
+#masthead .model em {
+  font-style: normal;
+  color: transparent;
+  -webkit-text-stroke: 1.5px #fff;
+}
+#masthead .doc-kind {
+  margin: 0;
+  padding: 0 1.3rem 1.4rem;
+  text-align: right;
+  font-size: 1.5em;
+  font-weight: 400;
+  color: #e4e4e4;
+}
+#masthead .pedal {
+  display: block;
+  width: 100%;
+  background: #fff;
+  margin: 0;
+  padding: 1.5em 2em 1em;
+}
+
+/* NAV */
+#side-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20vw;
+  height: 100%;
+  overflow-y: auto;
+  background: #fff;
+  border-right: 1px solid var(--rule);
+  z-index: 5;
+}
+.nav-container {
+  display: flex;
+  flex-direction: column;
+  margin: 1.5em 1em;
+}
+#side-nav h3 {
+  font-size: 1em;
+  margin-bottom: 0.8em;
+}
+#side-nav h4,
+#side-nav h5 {
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  border: 0;
+  padding: 0;
+  margin-bottom: 0.45em;
+}
+#side-nav h4 {
+  font-size: 0.98em;
+  font-weight: 700;
+}
+#side-nav h5 {
+  font-size: 0.9em;
+  margin-left: 1em;
+  color: var(--muted);
+}
+#side-nav a {
+  color: inherit;
+  text-decoration: none;
+}
+#side-nav a:hover {
+  text-decoration: underline;
+}
+
+#toc-mobile h2 {
+  font-size: 1.4em;
+}
+#toc-mobile ul {
+  list-style: none;
+  padding-left: 0;
+}
+#toc-mobile li {
+  margin-bottom: 0.35em;
+}
+#toc-mobile a {
+  color: inherit;
+}
+
+/* SECTIONS */
+section + section {
+  margin-top: 3em;
+}
+.flex-container {
+  display: flex;
+  padding-left: 2em;
+}
+.half-container {
+  width: 100%;
+  padding: 0 1em;
+}
+.half-container > header {
+  column-span: all;
+}
+.topic {
+  columns: 2 30rem;
+  column-gap: 3em;
+}
+.no-columns {
+  columns: auto !important;
+}
+.flow > * + * {
+  margin-bottom: 1em;
+}
+
+.keep-together {
+  break-inside: avoid;
+}
+/* The panel drawings run the full width of the print page — they are long and
+   shallow, so they head their control list rather than sitting beside it. */
+.panel-figure {
+  margin-bottom: 1.5em;
+}
+.panel-figure img {
+  width: 100%;
+  margin-bottom: 0.3em;
+}
+
+/* Control and jack entries. The manual runs them as a list of short cards
+   under the panel drawing, so they share one multi-column block rather than
+   each becoming a topic of its own. */
+.cards {
+  columns: 2 17em;
+  column-gap: 3em;
+}
+.card {
+  margin-bottom: 1.1em;
+}
+.card > p:last-child,
+.card > ol:last-child,
+.card > ul:last-child {
+  margin-bottom: 0;
+}
+
+/* CAUTION notices. In print they are marked by weight alone — one of the
+   three is set bold end to end, the others only on the word. At screen
+   measure that reads as an accident, so all three take the same rule. */
+.caution {
+  background: var(--paper);
+  border-left: 4px solid var(--led);
+  padding: 0.7em 1em;
+  margin-bottom: 1em;
+  break-inside: avoid;
+}
+.caution > strong:first-child {
+  color: var(--led);
+}
+
+/* TABLES — the technical data page rules nothing and holds its two columns
+   apart with tab stops; across a screen that job falls to hairlines. */
+.table-scroll {
+  overflow-x: auto;
+  margin-bottom: 1em;
+}
+.doc-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.97em;
+}
+.doc-table th,
+.doc-table td {
+  padding: 0.4em 0.9em;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--rule);
+}
+.doc-table th:first-child,
+.doc-table td:first-child {
+  padding-left: 0;
+}
+.doc-table th:not(:last-child),
+.doc-table td:not(:last-child) {
+  border-right: 1px solid var(--rule);
+}
+.doc-table .sub th {
+  font-weight: 400;
+}
+.doc-table .group th {
+  letter-spacing: 0.03em;
+  border-right: 0;
+}
+
+footer {
+  margin-left: 20vw;
+  background: var(--accent);
+  color: #d7d7d7;
+  padding: 1.6em 3em;
+  font-size: 0.92em;
+}
+footer a {
+  color: #fff;
+}
+footer img {
+  display: block;
+  width: 150px;
+  margin-bottom: 0.8em;
+}
+
+@media (max-width: 900px) {
+  .flex-container {
+    flex-direction: column;
+    padding-left: 0;
+  }
+  .half-container {
+    width: 100%;
+    padding: 0 1em;
+  }
+  nav {
+    display: none;
+  }
+  main,
+  footer {
+    margin: 0 auto;
+  }
+  footer {
+    padding: 1.6em 1em;
+  }
+  #masthead .model {
+    font-size: 2.4em;
+  }
+  #masthead .model-no {
+    font-size: 1.9em;
+  }
+  #masthead .pedal {
+    padding: 1em;
+  }
+  /* the panel legends go to ~4px if these shrink to a phone width */
+  .wide-figure {
+    overflow-x: auto;
+  }
+  .wide-figure img {
+    min-width: 680px;
+  }
+}
+
+/* 901, not 900: both queries match at exactly 900px, and the later one would
+   hide the mobile TOC on the same width that hides the nav */
+@media (min-width: 901px) {
+  #toc-mobile {
+    display: none;
+  }
+}
