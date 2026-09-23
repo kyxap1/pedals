@@ -1,0 +1,235 @@
+/* Fonts: Calibri 400 -> Carlito 400 (body); Calibri-Bold 700 -> Carlito 700
+   (headings, control and setting labels); Calibri-BoldItalic 700 -> Carlito
+   700 italic; ResavskaBGSans-Bold 700 -> PT Sans 700 (cover copy, footers);
+   CoolveticaRg-Regular 400 -> Inter Tight 700 (the "fuzz)))" wordmark:
+   Coolvetica's Regular is a display cut with the stems of a web bold). */
+@import url("https://fonts.googleapis.com/css2?family=Carlito:ital,wght@0,400;0,700;1,700&family=Inter+Tight:wght@700&family=PT+Sans:wght@700&display=swap");
+
+:root {
+  --ink: #231f20;    /* body text: the print's rich black */
+  --accent: #560102; /* the cover's red, at its brightest */
+  --ground: #060000; /* the cover's ground at its dark edge */
+  --band: #231f20;   /* the "Setting suggestions" title band */
+  --rule: #d6d3d3;   /* hairlines */
+  --paper: #f3f1f1;  /* tint behind callouts */
+  --muted: #5e5a5b;
+  --link: #8a0a0c;
+  --body-font: "Carlito", Calibri, system-ui, sans-serif;
+  --head-font: var(--body-font);
+  --cover-font: "PT Sans", "Trebuchet MS", sans-serif;
+  --wordmark-font: "Inter Tight", "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ---- structure: keep as is, restyle below the brand line ---- */
+
+*, *::before, *::after { box-sizing: border-box; }
+* { margin-top: 0; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: #fff;
+  font-family: var(--body-font);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+h1, h2, h3, h4, h5, h6 { font-family: var(--head-font); line-height: 1.2; }
+
+main { margin-left: 20vw; padding-bottom: 3em; }
+footer { margin-left: 20vw; padding: 1.6em 3em; }
+
+a { color: var(--link); }
+
+img { max-width: 100%; height: auto; margin-bottom: 0.75em; }
+.topic > img, li > img, figure > img { display: block; }
+figure { margin: 0 0 1em; }
+
+/* NAV */
+#side-nav {
+  position: fixed; top: 0; left: 0;
+  width: 20vw; height: 100%;
+  overflow-y: auto;
+  background: #fff;
+  border-right: 1px solid var(--rule);
+  z-index: 5;
+}
+.nav-container { display: flex; flex-direction: column; margin: 1.5em 1em; }
+#side-nav h4, #side-nav h5 { font-weight: 400; margin-bottom: 0.45em; }
+#side-nav h4 { font-weight: 700; }
+#side-nav h5 { font-size: 0.9em; margin-left: 1em; }
+#side-nav a, #toc-mobile a { color: inherit; text-decoration: none; }
+#side-nav a:hover, #toc-mobile a:hover { text-decoration: underline; }
+
+/* SECTIONS */
+section + section { margin-top: 3em; }
+.flex-container { display: flex; padding-left: 2em; }
+.half-container { width: 100%; padding: 0 1em; container-type: inline-size; }
+.half-container > header { column-span: all; }
+.flow > * + * { margin-bottom: 1em; }
+
+/* One .topic per heading carries the columns, so no column runs taller than
+   one topic. 63rem below = the two-column threshold of `columns: 2 30rem`. */
+.topic { columns: 2 30rem; column-gap: 3em; }
+.no-columns { columns: auto !important; }
+
+/* COLUMN BREAKS. A paragraph, list item, figure, table or callout is never
+   cut by the gutter. Chrome's balancer drops `break-after: avoid` when it
+   gets in the way, so it is only a hint: what keeps a heading off a column's
+   foot is a .keep-together holding the heading and its first block. */
+p, li, figure, table, .table-scroll, .keep-together, .callout, .grid-wrapper {
+  break-inside: avoid;
+}
+h2, h3, h4, h5, h6 { break-after: avoid; }
+/* a lead-in ending in ":" stays with what it introduces */
+:has(+ p > .menu-path:only-child) { break-after: avoid; }
+@container (min-width: 63rem) {
+  .column-end { break-after: column; }
+}
+
+/* Figure rows: the max stays indefinite, or auto-fit counts its tracks off
+   it and stacks one figure per row in a narrow column. */
+.grid-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(8em, 100%), 1fr));
+  gap: 1em;
+}
+.grid-wrapper img { width: 100%; }
+
+/* TABLES */
+.table-scroll { overflow-x: auto; margin-bottom: 1em; }
+.doc-table { width: 100%; border-collapse: collapse; font-size: 0.92em; }
+.doc-table th, .doc-table td {
+  padding: 0.4em 0.6em;
+  text-align: left;
+  vertical-align: top;
+  border: 1px solid var(--rule);
+}
+.doc-table thead th { background: var(--accent); color: #fff; }
+
+.callout {
+  background: var(--paper);
+  border-left: 4px solid var(--accent);
+  padding: 0.7em 1em;
+  margin-bottom: 1em;
+}
+.callout > :last-child { margin-bottom: 0; }
+
+@media (max-width: 900px) {
+  .flex-container { flex-direction: column; padding-left: 0; }
+  .half-container { padding: 0 1em; }
+  nav { display: none; }
+  main, footer { margin: 0 auto; }
+  footer { padding: 1.6em 1em; }
+  #toc-mobile { display: block; }
+  /* a diagram with small labels scrolls instead of shrinking */
+  .wide-figure { overflow-x: auto; }
+  .wide-figure img { min-width: 700px; }
+}
+/* 901, not 900: at exactly 900px both queries match and the mobile TOC
+   would vanish together with the nav */
+@media (min-width: 901px) { #toc-mobile { display: none; } }
+
+/* ---- brand: masthead, heading treatment, callouts, from this manual ---- */
+
+body { font-size: 1.125rem; }
+
+/* MASTHEAD: the cover, photo left over a red glow fading to black; the photo
+   panel is 37% of the cover's width */
+#masthead {
+  background:
+    radial-gradient(ellipse 60% 90% at 20% 50%, #560102 0%, #3a0001 35%, transparent 75%),
+    linear-gradient(90deg, #2c0001 0%, #140000 55%, var(--ground) 100%);
+  color: #fff;
+  padding: 2.5em 0;
+  margin-bottom: 2.5em;
+}
+#masthead .flex-container { align-items: center; padding-left: 0; }
+#masthead .photo-panel { flex: 0 0 37%; text-align: center; }
+#masthead .title-panel { flex: 1 1 63%; padding-right: 3em; }
+.masthead-photo { max-height: 440px; width: auto; margin: 0; }
+#masthead h1 {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 1.5em;
+  margin: 0;
+  font-weight: 700;
+}
+#masthead h1 span {
+  display: block;
+  align-self: stretch;
+  text-align: center;
+  font-family: var(--wordmark-font);
+  font-size: clamp(3.5rem, 9vw, 8rem);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  padding-bottom: 0.2em;
+  border-bottom: 1px solid #fff;
+}
+#masthead h1 img { width: min(22em, 70%); margin: 0; }
+
+/* HEADINGS: the manual's one section-title treatment, the "Setting
+   suggestions" band: Calibri Bold, white on near-black, underlined, centred */
+h2 {
+  background: var(--band);
+  color: #fff;
+  font-size: 1.6em;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  padding: 0.45em 0.6em;
+  margin-bottom: 1em;
+}
+.band-note {
+  background: var(--band);
+  color: #fff;
+  text-align: center;
+  font-size: 0.8em;
+  margin: -2em 0 1.5em !important;
+  padding: 0 1em 0.9em;
+  column-span: all;
+}
+h3 {
+  font-size: 1em;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  margin-bottom: 0.1em;
+}
+.topic > p:last-child, .keep-together > p:last-child { margin-bottom: 1em; }
+
+/* cover copy keeps the cover's face */
+.cover-copy p { font-family: var(--cover-font); font-weight: 700; }
+
+/* CONTROLS: run-in labels, "LEVEL - Adjusts ..." */
+.control h3 { display: inline; font-size: 1em; text-transform: uppercase; }
+.control h3 + p { display: inline; }
+.control h3::after { content: " -"; font-weight: 400; text-decoration: none; display: inline-block; white-space: pre; }
+.control { margin-bottom: 0.9em; break-inside: avoid; }
+
+/* SETTING SUGGESTIONS: a pedal thumbnail beside each setting, one column as
+   in print — in two columns the cards read row by row and the order scrambles */
+.setting {
+  max-width: 44em;
+  display: grid;
+  grid-template-columns: 7em 1fr;
+  gap: 0 1.25em;
+  align-items: start;
+  margin-bottom: 1.75em;
+}
+/* the thumbnail follows its text in the source order; the grid draws it on the left */
+.setting img { grid-column: 1; grid-row: 1; width: 100%; margin: 0; }
+.setting > div { grid-column: 2; grid-row: 1; }
+.setting h3 { margin-top: 0.2em; }
+
+.warranty p { margin-bottom: 0.4em; }
+#side-nav h3 { text-decoration: none; margin-bottom: 0.6em; }
+
+footer { color: var(--muted); font-size: 0.9em; }
+
+@media (max-width: 900px) {
+  #masthead .photo-panel, #masthead .title-panel { flex: none; width: 100%; padding: 0 1em; }
+  .masthead-photo { max-height: 300px; margin-bottom: 1.5em; }
+  #masthead h1 { gap: 1em; }
+}

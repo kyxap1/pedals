@@ -5,6 +5,7 @@
 + Disaster Area DPC.micro gen3
 + ENGL Ravager IR E725
 + Focusrite Scarlett 18i16 (4th Gen)
++ Fortin Fuzz
 + Hotone Soul Press II
 + Mooer CAB X2
 + NUX Atlantic
