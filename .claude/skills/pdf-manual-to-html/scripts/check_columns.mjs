@@ -57,6 +57,16 @@ const probe = `(() => {
     const cr = c.getBoundingClientRect();
     const mid = cr.left + cr.width / 2;
     const col = (el) => (el.getBoundingClientRect().left + 5 < mid ? 0 : 1);
+    // the first rendered box after a heading in flow order, climbing out of
+    // wrappers: tables and figures count, though the block list skips them
+    const after = (h) => {
+      for (let n = h; n && n !== c; n = n.parentElement) {
+        let s = n.nextElementSibling;
+        while (s && !s.getClientRects().length) s = s.nextElementSibling;
+        if (s) return s;
+      }
+      return null;
+    };
     const blocks = [...c.querySelectorAll('p, li, h3, h4, h5, h6, img')]
       .filter((e) => !e.closest(skip) && !(e.tagName === 'LI' && e.querySelector('p')) && e.getBoundingClientRect().height > 0);
     if (!blocks.some((b) => col(b) === 1)) continue;
@@ -68,8 +78,14 @@ const probe = `(() => {
       const next = blocks[i + 1];
       if (b.tagName !== 'IMG' && next && /:$/.test(b.textContent.trim()) && col(b) !== col(next))
         out.push({ kind: 'lead-in', text: label(b) });
-      if (/^H[3-6]$/.test(b.tagName) && next && col(b) !== col(next))
-        out.push({ kind: 'orphan', text: label(b) });
+      if (/^H[3-6]$/.test(b.tagName)) {
+        const s = after(b);
+        const r = s && s.getClientRects()[0];
+        if (r && col(b) !== (r.left + 5 < mid ? 0 : 1)) out.push({ kind: 'orphan', text: label(b) });
+      }
+      // a fragmented block returns one client rect per column it lands in
+      if (b.tagName !== 'IMG' && new Set([...b.getClientRects()].map((r) => (r.left + 5 < mid ? 0 : 1))).size > 1)
+        out.push({ kind: 'split', text: label(b) });
       if (b.clientWidth > 0 && b.scrollWidth > b.clientWidth + 2)
         out.push({ kind: 'overflow', text: label(b) });
     });

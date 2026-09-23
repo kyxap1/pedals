@@ -113,68 +113,22 @@ into the HTML.
 
 ## CSS pattern
 
-Start `style.css` with the design tokens so the palette is swappable:
+`assets/base.css` is the structure every page shares: tokens, side nav,
+sections, `.topic` columns, the column-break rules, figure rows, tables,
+callouts and the single 900-px breakpoint. Copy it to `<slug>/style.css`,
+then set the tokens and the font import from this manual and write the brand
+layer under its last line — masthead, heading treatment (`h2` reversed out or
+ruled, `h3` caps or underlined), callout and card styles. Change a structural
+rule only for a reason this manual gives, and say why in a comment; the
+break rules and the breakpoint encode bugs earlier pages shipped.
 
-```css
-/* Fonts: <PDF font>  -> <web font chosen>, ... (record the mapping) */
-@import url("https://fonts.googleapis.com/css2?family=…&display=swap");
+Two things the stylesheet can't do for you:
 
-:root {
-  --ink:      #1c0d43;  /* body text */
-  --accent:   #0f062b;  /* reversed-out headers, rules, table header bg */
-  --paper:    #f3f1fa;  /* tint block behind callouts / cards */
-}
-```
-
-Layout rules that make the reference page work:
-
-| Selector | Purpose |
-|---|---|
-| `#side-nav` | `position: fixed; width: 20vw; height: 100%` — the desktop TOC |
-| `main` | `margin-left: 20vw` to clear the fixed nav |
-| `.flex-container` | `display: flex; padding-left: 2em` — section body; never size it in `vw`, it lives inside a `main` already inset by the nav |
-| `.half-container` | `width: 100%; padding: 0 1em` — a column inside the flex row |
-| `.topic` (measure) | `columns: 2 30rem; column-gap: 3em` — one block per heading, never the whole section; see "Sizing the measure" |
-| `.half-container > header` | `column-span: all` — the title rules across the section |
-| `section + section` | `margin-top: 3em` — keeps sections from running together |
-| `.flow > * + *` | `margin-bottom: 1em` — vertical rhythm without touching every element |
-| `.grid-wrapper` | `display: grid; grid-template-columns: repeat(auto-fit, minmax(min(8em, 100%), 1fr))` — a row of figure shots side by side, never upscaled past their native size. `auto-fit` counts its tracks off the *definite* max, so a capped one (`minmax(12em, 18em)`) leaves a single figure per row in any column narrower than two of them — a row of knob shots ends up stacked. Keep the max indefinite and let `img { max-width: 100% }` hold the native size |
-| `li > img`, `.topic > img` | `display: block` — an `img` is inline, so a figure inside a step otherwise trails the sentence on its own line box. Inline pictograms (an icon named mid-sentence) carry their own class and stay inline |
-| `img` | `max-width: 100%; height: auto; margin-bottom: 0.75em` — `max-width`, not `width: 100%`, so a pictogram keeps the size its `width`/`height` attributes give it instead of blowing up to the column; figures meant to fill their box (`.grid-wrapper` shots, the panel photo) get `width: 100%` on their own selector. `height: auto` keeps the attributes `optimize_images.py` adds from stretching a scaled image |
-| `h2` | reversed out: `color: #fff; background: var(--accent); text-transform: uppercase; padding: 0.25em` |
-| `h3` | `text-transform: uppercase; text-decoration: underline` |
-| `#side-nav a` | `color: inherit` — a global `a { color: var(--accent) }` otherwise paints the whole TOC in the accent |
-
-Responsive — a single breakpoint:
-
-```css
-@media (max-width: 900px) {
-  .flex-container { flex-direction: column; }
-  .half-container { width: 100%; padding: 0; }
-  nav { display: none; }
-  main { margin: 0 auto; }
-  #toc-mobile { display: block; }
-}
-/* 901, not 900: both queries match at exactly 900px, and the later one would
-   hide the mobile TOC on the same width that hides the nav — no TOC at all */
-@media (min-width: 901px) { #toc-mobile { display: none; } }
-```
-
-A diagram with small labels (cable hook-ups, signal flow) scaled down to a
-390-px screen sets its labels ~3 px tall, and a reversed-out title in large
-caps wraps into four ragged lines. The breakpoint takes care of both:
-
-```css
-h2.banner { text-wrap: balance; }
-@media (max-width: 900px) {
-  .wide-figure { overflow-x: auto; }     /* the diagram scrolls instead of shrinking */
-  .wide-figure img { min-width: 700px; }
-  h2.banner { font-size: 1.1em; }
-}
-```
-
-Adjust the *values* (fonts, colours, whether h2 is reversed-out or just ruled) to
-the manual being converted. Keep the *structure*.
+- Figures meant to fill their box (`.grid-wrapper` shots, the panel photo) get
+  `width: 100%` on their own selector; plain `img` keeps `max-width`, so a
+  pictogram stays at the size its `width`/`height` give it.
+- Inline pictograms (an icon named mid-sentence) carry their own class and stay
+  inline; `li > img` and `.topic > img` are blocks.
 
 ## Sizing the measure
 
@@ -222,16 +176,18 @@ and let the figure sit in its column.
 
 **Column breaks.** The balancer splits content wherever it likes, so:
 
-- Wrap each logical block — an `h3` with its lead-in, a FAQ question with its
-  answer — in `<div class="keep-together">`. Scope it narrowly, heading plus
-  intro, and let lists and notes below flow free: the wrapper is indivisible,
-  and one that doesn't fit the shorter column jumps whole into the other. A
-  section that isn't short yet has one column mostly blank is this.
+- A heading and its first block share a `<div class="keep-together">` — an
+  `h3` with its lead-in, a FAQ question with its answer. `break-after: avoid`
+  is in `base.css`, but Chrome's balancer drops it whenever it gets in the way,
+  and a heading wrapped alone keeps nothing with it. Scope the wrapper
+  narrowly, heading plus first paragraph, and let lists and notes below flow
+  free: the wrapper is indivisible, and one that doesn't fit the shorter
+  column jumps whole into the other. A heading directly over a list shares
+  the wrapper with it when the list is short; over a long one it stays out,
+  and `check_columns.mjs` says whether it orphans.
 - `p, li { break-inside: avoid; }`: a paragraph split across the gutter reads
   as two fragments. Never on a whole `ul`/`ol` — long lists flow across
   columns.
-- Sub-headings get `break-after: avoid`, so none sits alone at a column's
-  foot.
 - A figure shares a column with the sentence that leads into it ("as shown
   below") and with what continues from it ("The options are:" and its list).
   Wrap exactly that — lead-in, figure, follow-up — in `.keep-together`. When
@@ -251,18 +207,6 @@ and let the figure sit in its column.
   block up into the same topic so the second column has something to fill
   with. `check_columns.mjs` reports it as `unbalanced`.
 
-```css
-.keep-together { break-inside: avoid; }
-p, li { break-inside: avoid; }
-h3, h4, h5, h6 { break-after: avoid; }
-:has(+ p > .menu-path:only-child) { break-after: avoid; }
-
-.half-container { container-type: inline-size; }
-/* 63rem = the two-column threshold of `columns: 2 30rem` */
-@container (min-width: 63rem) {
-  .column-end { break-after: column; }
-}
-```
 
 Column breaks move with every viewport width, so one screenshot proves
 nothing about them: `scripts/check_columns.mjs` sweeps 1000–2600 px and
@@ -293,6 +237,7 @@ of its content, not from where the print page happened to fit it:
 | Numbered steps with a figure per step | The default two columns, each figure inside its `<li>` under the step text. Short on words but tall: `.no-columns` leaves the right half of the screen empty |
 | One figure plus a procedure (changing the battery) | The default two columns, the figure first in the flow, no `column-span` |
 | Per-part description cards around a panel diagram | The diagram beside the cards (`grid-template-columns: minmax(12em, 17em) 1fr`, figure `position: sticky`), the cards in `columns: 2 16em`, leader lines painted out of the diagram — they point at print positions that no longer exist. Never a grid of cards: each row stretches to its tallest card and leaves the rest mostly empty tint. Every card `break-inside: avoid`; only a card taller than a column may break, or a mid-length one splits its sub-heads from its title across the gutter |
+| An ordered run of look-alike cards (presets, modes, sequential settings) | One column, or a grid whose rows follow the print order. Equal-height cards in two columns read as a table, row by row, while the columns flow top to bottom, so the sequence scrambles |
 | Reference table (specs, MIDI map) | `.no-columns`, or `column-span: all` on the table |
 
 Symptoms in a desktop screenshot: the right half of a section empty → a

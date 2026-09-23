@@ -37,9 +37,9 @@ and light-on-dark line art is recoloured onto the page ground (step 3).
 
 `wampler-terraform/` is the reference implementation, and
 `references/conventions.md` distils it: HTML skeleton, CSS pattern, multi-PDF
-recipe, font table. Read `conventions.md` and one `style.css` before
-building: a same-brand sibling's when one exists (step 3), else Wampler's.
-Don't read `wampler-terraform/index.html` (~85 KB) whole; grep it for a
+recipe, font table; `assets/base.css` is the structure every `style.css`
+starts from. Read `conventions.md` before building, and a same-brand
+sibling's `style.css` when one exists (step 3). Don't read `wampler-terraform/index.html` (~85 KB) whole; grep it for a
 pattern, conventions already carries its structure.
 
 ## Parallel sessions
@@ -121,6 +121,12 @@ request re-sent over 300K tokens.
   `check_page.py` for anchors and images, `crop_figure.py --check` for a crop
   that cuts the drawing, the `scrollWidth` line `screenshot.mjs` prints for
   horizontal scroll, `check_columns.mjs` for broken column breaks.
+- Never poll. A subagent's result and a background command's exit arrive as
+  a notification; until then do the next independent piece of work, or end
+  the turn. A `sleep`/`ls`/`cat` loop watching for them is a round trip per
+  check: the ENGL job spent some 300 calls, each re-sending 150K+ tokens,
+  watching its reviewer's scratch directory. The scripts here finish in
+  seconds — run them in the foreground.
 - Batch independent tool calls into one response; every extra round trip
   re-sends everything.
 - After a compaction the summary carries the decisions. Re-read only what the
@@ -227,7 +233,9 @@ page, or you'll pull from the neighbouring section.
 one subagent so its images stay out of the main conversation. Give it the
 PDFs, the extract dirs and `_cctmp.<slug>/` for its scratch; tell it to edit
 nothing, to look at pages through `montage` sheets first and open a full
-render only where a sheet is too small to read, and to return a text brief:
+render only where a sheet is too small to read, and to return a text brief.
+A manual of four pages or fewer is surveyed inline instead: its pages cost
+less to look at than a subagent costs to start. The brief covers:
 
 1. each PDF's role, with the line of evidence;
 2. the outline — every section in the manual's order, its PDF page index
@@ -275,9 +283,11 @@ Three sources, in order of preference:
    enclosure colour is the accent, the cover's ground is the dark band. Product
    photos usually come out of `raw/` as `.jpg`, so don't glob `*.png` only.
 
-Put the result in a handful of CSS custom properties at the top of `style.css`
-so the palette is swappable, with the font mapping — face → family and
-weight — recorded in a comment.
+Start `style.css` as a copy of `assets/base.css` (`cp`, not retyped): it
+carries the layout, the column-break rules and the breakpoint every page
+needs. Set its tokens — palette, font families, the Google Fonts import —
+with the font mapping, face → family and weight, recorded in its first
+comment, and write the brand layer under its last line.
 
 Map weights as well as families. Every `font-weight` in the stylesheet comes
 from a face in `fonts-used.txt` (Regular → 400, Semibold → 600, Bold → 700,
@@ -406,6 +416,11 @@ section it illustrates.
 - Prefer embedded images from `raw/`; crop from a 300-dpi render (step 2)
   when they are sliced, vector or absent. A row of knob shots goes in a
   `.grid-wrapper`, `<img>` at `width: 100%`.
+- `raw/` numbers images in content-stream order, not reading order. When a
+  page carries several look-alike images — a row of preset thumbnails, a set
+  of knob shots — match each one to its place against the render, never by
+  file index: the mix-up looks plausible on the page and survives every
+  script.
 - Draw the box by eye off the render, never from text coordinates, then let
   `scripts/crop_figure.py <page.png> <out.png> X Y W H` finish it: it pushes
   out every edge ink still crosses until no stroke runs off the boundary,
@@ -418,7 +433,9 @@ section it illustrates.
   it on every figure before the screenshots, and on figures an earlier job
   cropped when re-deriving a page. Edges the figure's own ground fills (a
   photo, a tinted panel, a circular badge) are reported apart from cut
-  strokes and are not a failure.
+  strokes and are not a failure. An image shipped from `raw/` uncropped
+  carries the maker's own frame: `cut` there means the source frames its
+  subject tight, and the fix, if any, is padding, not a new crop.
 - **Nothing that reads as text ships as pixels.** A table printed as a
   screenshot is transcribed into a real `<table>` (conventions → "Reference
   tables"): a reader can't scan or search a flat picture, and it goes
@@ -505,14 +522,16 @@ it again: the focusrite job ran `check_columns.mjs` twelve times and
 `screenshot.mjs` ten, mostly one finding at a time, and spent more context on
 the loop than on building the page. Between passes, re-check with the text
 tools — `check_columns.mjs` and `crop_figure.py --check` answer in words —
-and re-shoot only at the width a finding named. The full four-width pass runs
-once, when the page is ready for the reviewer.
+and re-shoot only at the width a finding named. The screenshot pass for the
+reviewer runs once, when the page is ready.
 
-A finding is not an order. A break that shows at a single width in the sweep,
-an `unbalanced` topic a reader would never notice, a badge whose round edge
-reads as 1% wet: note it in the report and move on. Driving every check to
-zero costs more than the defects it removes, and the reviewer's pass is what
-decides whether the page is done.
+`figure`, `lead-in`, `orphan`, `split` and `overflow` from `check_columns.mjs`
+are defects every reader at that width sees — a heading at a column's foot, a
+sentence cut by the gutter — so the page ships with none of them between 1200
+and 2000 px. `unbalanced`, a finding only at the sweep's edges, a badge whose
+round edge reads as 1% wet: note it in the report and move on. Most column
+findings share one cause (a heading outside its `.keep-together`, a missing
+`break-inside`), so fix the cause across the page, not the one heading named.
 
 - `scripts/check_page.py <pedal-dir>/index.html` — dangling TOC anchors,
   missing images and unreferenced files in `Images/`; none of them shows in a
@@ -528,13 +547,14 @@ decides whether the page is done.
   ```
 - `scripts/check_columns.mjs "file://$PWD/<pedal-dir>/index.html"` sweeps
   1000–2600 px — one screenshot width proves nothing about breaks that move
-  with the viewport — and names five failures with the widths they happen at:
+  with the viewport — and names six failures with the widths they happen at:
 
   | kind | what it found | fix |
   |---|---|---|
   | `figure` | a figure starting the right column while its lead-in stays left | `.keep-together` around lead-in + figure + follow-up |
   | `lead-in` | a block ending in ":" split from its list or menu path | the `:has()` rule, or `.keep-together` |
-  | `orphan` | a sub-heading left at a column's foot, its content in the next | `break-after: avoid` on that level, else `.column-end` |
+  | `orphan` | a sub-heading left at a column's foot, its content in the next | `.keep-together` around the heading and its first block; `break-after: avoid` alone doesn't hold |
+  | `split` | a paragraph or list item cut across the gutter | `break-inside: avoid` on it (in `base.css`); a paragraph taller than a column is split by hand at a sentence |
   | `unbalanced` | one column ending far above the other | usually a tall figure or an over-wide `.keep-together`; conventions → "Sizing the measure" |
   | `overflow` | an unbreakable string pushing its block past the column | `overflow-wrap: anywhere` on that block |
 
@@ -551,10 +571,9 @@ decides whether the page is done.
   a definite max, an `img` laying out inline, a `break-after: avoid` the
   balancer cannot honour. Guessing at the cascade burns a round trip per
   guess.
-- Screenshot the whole page with `scripts/screenshot.mjs` at a mobile width
-  and at three desktop widths — 1400, 1700 and 2000: columns balance
-  differently at each, and a figure right at 1400 can be stranded at 1700.
-  It drives Chrome over CDP, captures the page's real height as
+- Screenshot the whole page with `scripts/screenshot.mjs` at 1400 and 390.
+  Breaks at other widths are `check_columns.mjs`'s job, in words; shoot
+  another width only to look at a finding it named there. It drives Chrome over CDP, captures the page's real height as
   numbered segments (`w1400-01.png`, `w1400-02.png`, …; a single capture
   past ~16,000 px repeats the page from the top) and prints the page's
   `scrollWidth`. Don't use `chrome --headless --screenshot --window-size=W,H`
@@ -563,7 +582,7 @@ decides whether the page is done.
 
   ```
   mkdir -p _cctmp.<slug>/shot
-  for w in 1400 1700 2000 390; do
+  for w in 1400 390; do
     node .claude/skills/pdf-manual-to-html/scripts/screenshot.mjs \
       "file://$PWD/<pedal-dir>/index.html" "$PWD/_cctmp.<slug>/shot/w$w.png" $w
   done
@@ -576,7 +595,7 @@ decides whether the page is done.
   reads it itself rather than having it repeated here. It edits nothing and
   reports each finding as text: section id, segment file, what the page
   shows, what the PDF shows.
-- **Redo Loop:** If the reviewer finds issues, **kick yourself (the main model) to fix the glitching parts**. You must redo the broken parts and re-screenshot them. You can loop this review-fix cycle **a maximum of 2 times in a row**. The report rests on one last full pass by the reviewer over the finished page or the exhaustion of the 2 retries.
+- **Redo Loop:** If the reviewer finds issues, **kick yourself (the main model) to fix the glitching parts**. You must redo the broken parts and re-screenshot them. You can loop this review-fix cycle **a maximum of 2 times in a row**. A re-review gets the previous findings and checks those and the sections the fixes touched, not the whole page again — a full pass costs as much as the build's own looking.
 - **Only after passing review or hitting the retry limit**, move
   `copy-changes.md` out of the scratch and into `<pedal-dir>/`, then delete
   your `_cctmp.<slug>/` — only that one; other `_cctmp.*` dirs belong to
@@ -593,7 +612,10 @@ Don't declare the job done unprompted — show the result and ask the user
 whether it looks right, and wait for their acceptance or corrections.
 
 Show it as a short report under three headings, so the user can review it
-without opening the diff:
+without opening the diff. Keep it to about thirty lines: one line per check,
+one per copy change, and point at `copy-changes.md` for the rest. A report
+the user has to wade through gets skimmed, and what it was meant to surface
+gets missed.
 
 - **What's inside** — the sections, in the PDF's order; where the style came
   from (sibling page, online manual, the PDF) and the heading, step and table
@@ -625,6 +647,7 @@ Actions on push to `master`; source PDFs live in the repo on purpose.
 
 ## Bundled files
 
+- `assets/base.css` — the shared structure every `style.css` starts from.
 - `scripts/extract_pdf.sh` — text, images, page renders and font list from a PDF.
 - `scripts/font_usage.py` — which text each embedded face sets, and its CSS
   weight; `extract_pdf.sh` writes its output to `fonts-used.txt`.
@@ -635,8 +658,8 @@ Actions on push to `master`; source PDFs live in the repo on purpose.
 - `scripts/optimize_images.py` — web-sized, recompressed images; `width`,
   `height` and `loading="lazy"` on every `<img>`.
 - `scripts/check_page.py` — anchor, image and stray-file check on the built page.
-- `scripts/check_columns.mjs` — figures and `:` lead-ins split across the
-  columns, swept over viewport widths.
+- `scripts/check_columns.mjs` — orphaned headings, split paragraphs, figures
+  and `:` lead-ins parted from their text, swept over viewport widths.
 - `scripts/clean_crop.py` — an icon crop stripped of neighbouring letters and
   rule ends.
 - `scripts/crop_figure.py` — a rough box grown into a crop that cuts nothing,
