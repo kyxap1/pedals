@@ -5,7 +5,7 @@
 - `CLiCK User Manual v2.0.0.pdf` — the full manual (31 pp., May 2025), from the maker's CDN:
   https://cdn.prod.website-files.com/6458c9d09841a314da6da587/682ee1f35560ba0f0fd5f784_CLiCK%20User%20Manual%20v2.0.0.pdf
   The maker's manual index (learn.piratemidi.com/downloads/user-manuals) lists only the CLiCK v1 manuals (v1.0, v1.1).
-- `web/` — local copy of the online documentation, fetched 2026-09-23 from
+- The online documentation, read 2026-09-23 at
   https://docs.piratemidi.com/manuals/click-v2/ (overview, click-examples, click-midi-implementation,
   click-warranty) with its three images. Newer than the PDF (USB Host active from firmware v2.0.5).
 
