@@ -14,7 +14,13 @@ jobs:
     steps:
       # workflow_dispatch rather than repository_dispatch: the token then needs
       # Actions: write alone, which cannot push to pedals-mcp or read its code.
+      # `cause` becomes the rebuild's run title. The message goes through env,
+      # never inline, so a commit message cannot inject shell.
       - name: Trigger a rebuild
         env:
           GH_TOKEN: ${{ secrets.MCP_DISPATCH_TOKEN }}
-        run: gh workflow run rebuild.yml --repo kyxap1/pedals-mcp --ref master
+          MESSAGE: ${{ github.event.head_commit.message }}
+        run: |
+          subject="${MESSAGE%%$'\n'*}"
+          gh workflow run rebuild.yml --repo kyxap1/pedals-mcp --ref master \
+            -f cause="pedals ${GITHUB_SHA::7} by $GITHUB_ACTOR: ${subject:-manual run}"
