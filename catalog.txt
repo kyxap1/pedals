@@ -13,6 +13,7 @@
 + NUX NMP-2 Dual Footswitch
 + Old Blood Noise Endeavors MTET
 + Pirate MIDI Bridge4
++ Pirate MIDI CLiCK v2
 + Radial ProRMP Reamper
 + Source Audio Collider
 + Source Audio EQ2

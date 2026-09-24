@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Pirate MIDI CLiCK v2 Manual</title>
+  </head>
+  <body>
+    <nav id="side-nav">
+      <header>
+        <div class="nav-container">
+          <h3>Contents</h3>
+          <h4><a href="#welcome">Welcome</a></h4>
+          <h4><a href="#overview">CLiCK Overview</a></h4>
+          <h4><a href="#tech-info">Technical Information</a></h4>
+          <h4><a href="#hardware-layout">Hardware Layout</a></h4>
+          <h4><a href="#quick-start">Quick Start</a></h4>
+          <h4><a href="#device-interface">1. Device Interface</a></h4>
+          <h4><a href="#power-navigation">2. Power &amp; Navigation</a></h4>
+          <h4><a href="#connectors">3. Overview of Connectors</a></h4>
+          <h4><a href="#midi-in-out-thru">4. MIDI In/Out/Thru</a></h4>
+          <h4><a href="#usb-midi">5. USB &amp; USB MIDI</a></h4>
+          <h4><a href="#presets-midi-channel">6. Presets &amp; MIDI Channel</a></h4>
+          <h4><a href="#expression-emulation">7. Expression Emulation</a></h4>
+          <h4><a href="#relay-switching">8. Relay Switching</a></h4>
+          <h4><a href="#wireless-midi">9. Wireless MIDI</a></h4>
+          <h4><a href="#resetting-updating">10. Resetting or Updating</a></h4>
+          <h4><a href="#midi-implementation">11. MIDI Implementation</a></h4>
+          <h4><a href="#usage-examples">Usage Examples</a></h4>
+          <h4><a href="#support-warranty">12. Support &amp; Warranty</a></h4>
+        </div>
+      </header>
+    </nav>
+    <main id="main-doc">
+      <div id="masthead">
+        <img class="photo" src="Images/header.jpg" alt="Close-up of the CLiCK v2's black aluminium enclosure and its USB, 9V and MIDI jacks" width="626" height="927" />
+        <div class="masthead-mark">
+          <img src="Images/pm-logo.png" alt="Pirate MIDI" width="296" height="144" />
+          <span>Think less. Create more.</span>
+        </div>
+        <div class="masthead-title">
+          <h1>CLiCK <small>v2</small></h1>
+          <p>Wireless MIDI<br />&amp; Utility Hub (v2.0.0)</p>
+        </div>
+      </div>
+
+      <section>
+        <div class="flex-container">
+          <div class="half-container">
+            <header><h2 id="welcome">Welcome</h2></header>
+            <div class="doc-update">
+              <strong>Updated from the online documentation</strong>
+              This page follows the v2.0.0 PDF manual and folds in Pirate MIDI's newer online documentation: the USB Host port, the relay-state LED colours, the save command in the MIDI table and the usage examples. Passages taken from the online documentation carry a bar on the left.
+            </div>
+            <div class="topic no-columns">
+              <p class="lead">This device was created and designed to empower your creativity.</p>
+              <p>It is the result of many long nights and early mornings. It is born from the desire to bridge the gap between musician and instrument, and we want to say a huge thank you for your support. Our brand is built around a strong community and we hope you love your new MIDI controller as much as we do.</p>
+              <p>The PIRATE MIDI Team</p>
+            </div>
+          </div>
+          <div id="toc-mobile" class="half-container">
+            <h2>Contents</h2>
+            <h4><a href="#welcome">Welcome</a></h4>
+            <h4><a href="#overview">CLiCK Overview</a></h4>
+            <h4><a href="#tech-info">Technical Information</a></h4>
+            <h4><a href="#hardware-layout">Hardware Layout</a></h4>
+            <h4><a href="#quick-start">Quick Start</a></h4>
+            <h4><a href="#device-interface">1. Device Interface</a></h4>
+            <h4><a href="#power-navigation">2. Power &amp; Navigation</a></h4>
+            <h4><a href="#connectors">3. Overview of Connectors</a></h4>
+            <h4><a href="#midi-in-out-thru">4. MIDI In/Out/Thru</a></h4>
+            <h4><a href="#usb-midi">5. USB &amp; USB MIDI</a></h4>
+            <h4><a href="#presets-midi-channel">6. Presets &amp; MIDI Channel</a></h4>
+            <h4><a href="#expression-emulation">7. Expression Emulation</a></h4>
+            <h4><a href="#relay-switching">8. Relay Switching</a></h4>
+            <h4><a href="#wireless-midi">9. Wireless MIDI</a></h4>
+            <h4><a href="#resetting-updating">10. Resetting or Updating</a></h4>
+            <h4><a href="#midi-implementation">11. MIDI Implementation</a></h4>
+            <h4><a href="#usage-examples">Usage Examples</a></h4>
+            <h4><a href="#support-warranty">12. Support &amp; Warranty</a></h4>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="flex-container">
+          <div class="half-container">
+            <header><h2 class="caps" id="overview">CLiCK Overview</h2></header>
+            <div class="topic overview-body">
+              <img class="full-width-img" src="Images/overview-photo.jpg" alt="The CLiCK v2 from the front: USB Device and USB Host ports, 9V jack and the two 3.5mm MIDI jacks" width="1949" height="887" loading="lazy" />
+              <p>The <strong>CLiCK</strong> is a hub for wireless MIDI, relay switching, and emulated expression control. It is made in New South Wales, Australia and supports our Device API for external control. Now you can bring more of your non-MIDI devices into your MIDI universe.</p>
+              <p>With USB power only, the CLiCK can be used as a USB MIDI interface with the built-in 3.5mm TRS MIDI jacks, a MIDI-controlled relay switcher with the ¼” TRS relay jack, and a WiFi or Bluetooth LE MIDI interface.</p>
+              <p class="web-note">The online documentation adds a USB MIDI host to this list, through the second USB-C jack (see <a href="#usb-host">USB Host</a>).</p>
+              <p>Each of the 128 presets can save your desired relay states for the Tip and the Ring independently as well as the position of the expression output. Please note that expression output requires a 9V DC connection and will not work on USB power only. <em>It does not function as a CV output, but a passive variable-resistance device which emulates a normal passive expression pedal.</em></p>
+              <p>For even more flexibility, the MIDI out jack can be switched between MIDI Type A, MIDI Type B, or an aux switch input jack for directly controlling preset changes (up or down) without needing to send MIDI to the CLiCK.</p>
+              <p>The onboard utility LEDs let you select what kind of information you want to see so that no matter which features of the CLiCK you’re using, you get useful LED feedback.</p>
+              <p>All the settings are editable using our web editor, and many of the features can be triggered remotely by sending MIDI to the CLiCK over USB or wireless MIDI.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="flex-container">
+          <div class="half-container">
+            <header><h2 class="caps" id="tech-info">Technical Information</h2></header>
+            <div class="tiles">
+              <div class="tile"><h3>Dimensions</h3><p><strong>Metric</strong> (74 x 44 x 26 mm)<br /><strong>Imperial</strong> (2.9” x 1.7” x 1”)</p></div>
+              <div class="tile"><h3>Weight</h3><p><strong>Metric</strong> (110 g)<br /><strong>Imperial</strong> (6.7 oz.)</p></div>
+              <div class="tile"><h3>UI</h3><p><strong>RGB LEDs</strong> (2)</p></div>
+              <div class="tile"><h3>Power Requirement</h3><p><strong>9V DC or USB</strong> (150mA)</p></div>
+              <div class="tile wide"><h3>Box Contents</h3><ul><li><strong>1x CLiCK Wireless MIDI &amp; Utility Hub</strong></li><li><strong>1x USB Cable</strong></li></ul></div>
+            </div>
+            <div class="downloads">
+              <h3 id="downloads">Links to downloads:</h3>
+              <p><a href="https://learn.piratemidi.com">https://learn.piratemidi.com</a></p>
+              <p>It’s important that firmware updates are installed when they are available. Old firmware may not be supported by the web editor.</p>
+              <p>Firmware updates are released frequently and offer new features, bug fixes and other improvements.</p>
+              <p>User manuals are updated for each firmware update according to new features and changes.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="flex-container">
+          <div class="half-container">
+            <header><h2 class="caps" id="hardware-layout">Hardware Layout</h2></header>
+            <div class="hw-grid">
+              <div>
+                <img src="Images/hardware-layout-1.png" alt="Front of the CLiCK with callouts: 1 USB Device port, 2 USB Host port, 3 9V DC jack, 4 the two 3.5mm TRS MIDI jacks" width="1444" height="1182" loading="lazy" />
+                <ol class="hw-list">
+                  <li>USB Device port for powering the CLiCK and connecting to computers to use CLiCK as a USB MIDI interface.</li>
+                  <li>USB Host port (currently inactive - stay tuned for future update) for giving USB MIDI Host functionality. Send MIDI from CLiCK to other MIDI devices over USB.<br /><span class="web-note">Online documentation: active from firmware v2.0.5. Connect a single USB device and receive and send USB MIDI without needing to connect to a phone or computer.</span></li>
+                  <li>9V DC centre negative 2.1mm barrel jack. 150mA recommended for full operation with all features. 9V required for expression emulation.</li>
+                  <li>3.5mm TRS MIDI input and output. MIDI output is switchable between Type A and Type B TRS MIDI, as well as a third mode for auxiliary switch input for preset switching.</li>
+                </ol>
+              </div>
+              <div>
+                <img src="Images/hardware-layout-2.png" alt="Back and top of the CLiCK with callouts: 5 ¼″ TRS relay jack, 6 ¼″ TRS expression jack, 7 the two RGB LEDs, 8 acrylic window, 9 aluminium enclosure" width="1436" height="1236" loading="lazy" />
+                <ol class="hw-list" start="5">
+                  <li>¼” TRS relay jack. Control Tip and Ring relay states independently with MIDI.</li>
+                  <li>¼” TRS expression jack. Emulate a standard TRS expression pedal and control it via MIDI. Only works with 9V DC power applied.</li>
+                  <li>Two RGB LEDs with selectable modes to indicate relay states, expression, MIDI activity, WiFi states, or Bluetooth states.</li>
+                  <li>Acrylic window for WiFi/BLE performance. For best wireless performance, don’t cover with any metal.</li>
+                  <li>Sturdy anodised black aluminium enclosure.</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="flex-container">
+          <div class="half-container">
+            <header><h2 class="caps" id="quick-start">Quick Start</h2></header>
+            <div class="topic">
+              <div class="keep-together">
+                <h3 id="web-editor-setup">1. Connecting to the Web Editor &amp; Setting Up</h3>
+                <p>Always connect your CLiCK to your computer via the “Device” USB port. In the <a href="https://edit.piratemidi.com">web editor</a>, click “Import From Device” to start configuring the presets on your CLiCK and change global settings.</p>
+              </div>
+              <p>In the editor, Global Settings allows you to change the MIDI channel of the device, change the wireless mode, and change the 3.5mm TRS MIDI out’s mode (Type A, Type B, aux switch in).</p>
+              <p>Preset Settings is where you set the relay states per preset as well as the expression position.</p>
+              <p>When you’ve chosen your settings or are ready to start testing, press the “Send to Device” button and your settings and presets will be sent to the CLiCK.</p>
+              <div class="keep-together">
+                <h3 id="quick-start-wireless">2. Wireless Mode</h3>
+                <p>By default, CLiCK starts up in Bluetooth mode. WiFi mode can be alternatively selected in the web editor under “Global Wireless Settings”.</p>
+              </div>
+              <p>To connect to your device with BLE MIDI, use the macOS “MIDI Studio”, or “midimittr” app on iOS and iPadOS, or a BLE MIDI supported app on Windows. For more wireless setup details, see <a href="#wireless-midi">chapter 9</a>.</p>
+              <div class="callout">
+                <img class="callout-icon" src="Images/warning-icon.png" alt="Warning" width="50" height="50" />
+                <p><strong>Check that your CLiCK firmware is up to date.</strong><br />Updates are released periodically adding new features and bug fixes. Go to:<br /><a href="https://www.update.piratemidi.com">www.update.piratemidi.com</a></p>
+              </div>
+            </div>
+            <div class="coffee">
+              <img src="Images/warning-coffee.png" alt="" width="192" height="192" loading="lazy" />
+              <p>Warning: technical documentation enclosed.<br />Coffee required.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="flex-container">
+          <div class="half-container">
+            <header><h2 id="device-interface">1. Device Interface</h2></header>
+            <div class="topic no-columns">
+              <div class="keep-together">
+                <h3 id="rgb-leds">RGB LEDs</h3>
+                <p>The CLiCK has 2 RGB LEDs. These LEDs have multiple modes that can be selected in Global Device Settings in the <a href="https://edit.piratemidi.com">web editor</a>.</p>
+              </div>
+              <p>By default, LED 1 (top) flashes on when MIDI is received by the CLiCK over USB, wireless, or wired MIDI.</p>
+              <p>By default, LED 2 (bottom) shows wireless status. More details on each LED mode are given below.</p>
+              <img class="screenshot" src="Images/editor-led-settings.png" alt="Web editor, Global Settings &gt; Device Settings: the LED 1 Function and LED 2 Function menus pick each LED's mode" width="2126" height="727" loading="lazy" />
+            </div>
+            <div class="topic">
+              <div class="keep-together">
+                <h3 id="led-wireless-status">Mode: Wireless Status</h3>
+                <h4>Bluetooth LE</h4>
+                <p>When the wireless mode is set to <strong>Bluetooth LE</strong> and the LED mode is set to <strong>Wireless Status</strong> the LED will be solid red when there is no connection, and will slowly pulse blue when it is successfully connected.</p>
+              </div>
+              <div class="keep-together">
+                <h4>WiFi</h4>
+                <p>When the wireless mode is set to <strong>WiFi</strong> and the LED mode is set to <strong>Wireless Status</strong> the LED will pulse teal when the CLiCK’s own WiFi network is active (AP Mode), and will pulse purple when it is successfully connected as a client device to a local WiFi network. For instructions on how to connect the WiFi, please go to <a href="#wifi">chapter 9</a>.</p>
+              </div>
+              <div class="keep-together">
+                <h3 id="led-midi-in">Mode: MIDI In</h3>
+                <p>MIDI In mode makes the LED state normally off, and when any MIDI input is received from USB, 3.5mm TRS MIDI, or wireless MIDI, the LED flashes purple for a moment and then returns to its normally-off state.</p>
+              </div>
+              <div class="keep-together">
+                <h3 id="led-relay-state">Mode: Relay State</h3>
+                <p>This mode indicates the states of the relay output jack by showing different colours when the relay tip and ring are closed or tip and ring are both closed.</p>
+              </div>
+              <div class="web-note keep-together">
+                <p>The online documentation lists the colours:</p>
+                <ul>
+                  <li>Green: Tip open, Ring closed</li>
+                  <li>Purple: Tip closed, Ring open</li>
+                  <li>White: both closed (connected)</li>
+                  <li>Off: both open (disconnected)</li>
+                </ul>
+              </div>
+              <div class="keep-together">
+                <h3 id="led-expression">Mode: Expression</h3>
+                <p>This mode indicates the position of the expression pedal and shows any movement as the CLiCK changes the expression position. The position is noted by the increased or decreased brightness of the LED.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="flex-container">
+          <div class="half-container">
+            <header><h2 id="power-navigation">2. Power &amp; Navigation</h2></header>
+            <div class="topic">
+              <div class="keep-together">
+                <h3 id="powering">Powering Your CLiCK</h3>
+                <p>You can power your CLiCK with either a USB cable, or a centre-negative 9V DC jack (2.1mm) commonly used for guitar pedals. However, the expression emulation will not work unless the 9V DC is connected. When you plug power into your CLiCK, both LEDs will flash white and then turn off.</p>
+              </div>
+              <div class="power-icons">
+                <figure><img src="Images/icon-centre-negative.png" alt="" width="393" height="117" loading="lazy" /><figcaption>Centre-Negative DC Power</figcaption></figure>
+                <figure><img src="Images/icon-usb.png" alt="" width="217" height="116" loading="lazy" /><figcaption>USB Power</figcaption></figure>
+              </div>
+              <div class="keep-together">
+                <h3 id="switching-power">Switching Power Sources</h3>
+                <p>The CLiCK uses smart power switching so you can have both cables plugged in at once, and if you need to remove one or the other, the unit will seamlessly switch power sources without shutting down or restarting.</p>
+              </div>
+              <div class="icon-note">
+                <img src="Images/warning-icon.png" alt="Warning" width="50" height="50" loading="lazy" />
+                <p><strong>Power Requirement</strong><em>If you’re using a 9V DC power supply, please make sure it can supply the required 150mA.</em></p>
+              </div>
+            </div>
+            <div class="topic">
+              <h3 id="basic-navigation">Basic Navigation</h3>
+              <div class="keep-together">
+                <h4 id="switching-presets">Switching Presets</h4>
+                <p>Presets can be switched on the CLiCK using incoming MIDI Program Change or Control Change messages. For specifics, check the <a href="#midi-implementation">MIDI implementation chart</a> at the back of this manual or use our Device Library.</p>
+              </div>
+              <p>Alternatively, when the MIDI out 3.5mm TRS jack is in <strong>Aux In</strong> mode (Global Device Settings), you can connect a double or triple TRS aux switch and increment or decrement the presets by pressing the Tip and Ring switches.</p>
+              <h3 id="editor-navigation">Web Editor Features for Navigation</h3>
+              <div class="keep-together">
+                <h4 id="preset-labels">Preset Labels</h4>
+                <p>Even though the CLiCK doesn’t have a screen, we have included preset names in the device’s config data which is transferable between the device and the <a href="https://edit.piratemidi.com">web editor</a>. This will help you to keep track of what states or features you have set up on a given preset even if it is months between sessions using the web editor.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="flex-container">
+          <div class="half-container">
+            <header><h2 id="connectors">3. Overview of Connectors</h2></header>
+            <div class="topic">
+              <div class="keep-together">
+                <h3 id="usb-device-port">USB Device (type-C)</h3>
+                <p>The CLiCK can be powered by USB, and is also a class-compliant USB MIDI device. This means it will be recognised as a MIDI device without any drivers. Use it with your DAW, plugins, or music apps. <strong>The USB port is not a USB Host port and should be connected to computers, phones, tablets.</strong></p>
+              </div>
+              <div class="keep-together">
+                <h3 id="usb-host-port">USB Host (type-C)</h3>
+                <p>The CLiCK has a USB host chip onboard, which means it can act as a host for other USB devices such as MIDI controllers or pedals with USB connectors for receiving MIDI. In the current firmware version, USB Host is not active and this USB port will not do anything. Please stay tuned for a future update to use this port.</p>
+              </div>
+              <p class="web-note">Online documentation: a single-device USB host port; it cannot read USB hubs. It supplies USB specification power (5V, up to 500mA), and the input power supply has to cover the connected device’s requirement. See <a href="#usb-host">USB Host</a>.</p>
+              <div class="keep-together">
+                <h3 id="dc-jack">9V DC (centre-negative)</h3>
+                <p>A 2.1mm centre-negative barrel jack (common with standard guitar pedal power supplies). Requires 150mA.</p>
+              </div>
+              <p class="web-note">Online documentation: more if powering a USB device via the USB Host port.</p>
+              <div class="keep-together">
+                <h3 id="relay-jack">1/4” TRS Relay Jack</h3>
+                <p>A 1/4” TRS jack that has two independent relays. One on the Tip and one on the Ring. Incoming MIDI Control Change messages can directly affect the states of the relays, or states can be pre-assigned in presets using the <a href="https://edit.piratemidi.com">web editor</a>. For MIDI Control Change assignments, please see the <a href="#midi-implementation">MIDI implementation table</a> at the end of this manual.</p>
+              </div>
+              <div class="keep-together">
+                <h3 id="expression-jack">1/4” TRS Expression Jack</h3>
+                <p>A 1/4” TRS jack that emulates a standard TRS passive expression pedal. Incoming MIDI Control Change messages can directly affect the position of the expression pedal, or a position can be pre-assigned per preset using the <a href="https://edit.piratemidi.com">web editor</a>. For MIDI Control Change assignments, please see the <a href="#midi-implementation">MIDI implementation table</a> at the end of this manual.</p>
+              </div>
+              <div class="keep-together">
+                <h3 id="trs-midi">3.5mm TRS MIDI Input &amp; Output</h3>
+                <p>Each of the 3.5mm TRS jacks is, by default, a Type A TRS MIDI connection for sending standard wired MIDI (can be adapted to 1/4” or DIN5 with adapters). MIDI Input has no selectable modes, and is compliant with the MIDI specification.</p>
+              </div>
+              <p>The MIDI Output has three modes which are selected in the Global Settings in the <a href="https://edit.piratemidi.com">web editor</a>. The first two modes are <strong>Type A and Type B TRS MIDI</strong>. The third is <strong>Aux In</strong>. This allows you to scroll through your CLiCK’s presets by just plugging in a passive aux switch like our Aero or another TRS passive switch. No other MIDI controller required.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="flex-container">
+          <div class="half-container">
+            <header><h2 id="midi-in-out-thru">4. MIDI In/Out/Thru</h2></header>
+            <div class="topic">
+              <div class="keep-together">
+                <h3 id="midi-out">MIDI Out</h3>
+                <p>The CLiCK has four MIDI outputs: 3.5mm TRS, USB Device, USB Host, and Wireless MIDI (BLE or WiFi).</p>
+              </div>
+              <div class="keep-together">
+                <h3 id="midi-in">MIDI In</h3>
+                <p>The CLiCK has four MIDI inputs: 3.5mm TRS, USB Device, USB Host, and Wireless MIDI (BLE or WiFi).</p>
+              </div>
+              <div class="keep-together">
+                <h4 id="external-midi-control">External MIDI Control</h4>
+                <p>Using the MIDI commands detailed in the “<a href="#midi-implementation">MIDI Implementation</a>” chapter at the end of this manual, you can send MIDI commands from another device to the CLiCK to control various features such as preset changes, expression position, relay states, and more.</p>
+              </div>
+              <div class="keep-together">
+                <h3 id="midi-thru">MIDI Thru</h3>
+                <p>There is no dedicated MIDI Thru jack on the CLiCK, however the digital MIDI Thru routing is very flexible. To set the MIDI Thru routing go to the Global MIDI Settings in the <a href="https://edit.piratemidi.com">web editor</a>. This menu allows you to choose which of the MIDI outputs the MIDI messages received on the chosen input will be sent back out to.</p>
+              </div>
+              <p>For example, if you choose to turn on MIDI Thru routing from the USB Device In to TRS Out, any message received on the USB Device In will be sent to TRS Out if it is in a MIDI output mode. But it will not be sent to the USB Device out or the wireless MIDI output unless those are also set to ‘on’ in the Thru routing settings.</p>
+              <p>MIDI can be looped back to outputs, but you should be careful not to create unintentional infinite loops. If a message is sent from the CLiCK USB port, and the device it is connected to is set to send the MIDI back to the CLiCK and you also have the MIDI Thru routing settings on the CLiCK set to send MIDI in to the MIDI out, you will have an infinite loop as both the CLiCK and the connected USB device send the MIDI thru from their input to their output.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="flex-container">
+          <div class="half-container">
+            <header><h2 id="usb-midi">5. USB &amp; USB MIDI</h2></header>
+            <div class="topic">
+              <p>Your CLiCK is a class-compliant USB MIDI device. This means you can plug the “Device” port into any kind of USB host (Windows, macOS, iOS, Android, iPadOS) and it will automatically be recognised as a MIDI device to control or receive messages from any DAW, app or plugin.</p>
+              <div class="keep-together">
+                <h3 id="usb-type-c">USB (type-C)</h3>
+                <p>USB MIDI requires a USB host device. A host device can be a computer, tablet, phone, or some kind of USB MIDI host box designed to link a pedal with USB directly to a MIDI controller without needing a computer-like device.</p>
+              </div>
+              <p>The CLiCK does not offer itself as a USB host on the “Device” port and therefore cannot be directly linked from USB to USB on pedals such as the Zoom MultiStomp series or other pedals with USB MIDI.</p>
+              <p>The USB Host port, however, can act as a USB Host device and connect to pedals or devices with USB MIDI, however in the current firmware version, this port is inactive and we will announce an update to activate it at a later date.</p>
+              <p>The USB Device port receives power as well as USB MIDI, but will not power the expression emulation feature.</p>
+              <p><strong>Note: iPads/iPhones/Android etc. may not provide enough power from their USB port to power the CLiCK. In that case, you would need to power it via a powered USB hub or the DC jack as well.</strong></p>
+            </div>
+            <div class="topic web-note">
+              <div class="keep-together">
+                <h3 id="usb-host">USB Host</h3>
+                <p>USB MIDI devices like keyboards, synths, drum machines, MIDI controllers etc. generally require a host like a tablet, phone, or computer to work with USB MIDI. The CLiCK performs this hardware role and is able to send and receive USB MIDI from such devices directly.</p>
+              </div>
+              <p>USB Host will allow USB MIDI messages from class-compliant USB MIDI devices to be fed into your CLiCK. Use <a href="#midi-thru">MIDI Thru</a> settings to choose where those incoming messages are sent to, and whether outgoing messages are sent to the USB host port.</p>
+              <p>This includes devices that <strong>only</strong> have USB MIDI and no regular MIDI cable connectors (such as the Zoom MultiStomp pedals, or UAFX pedals).</p>
+              <p>Only one device can be connected to the USB Host port at a time, and it will be able to supply the standard USB 5V 500mA power to your device.</p>
+              <div class="callout">
+                <p><strong>Note</strong><br />Please keep in mind that some devices may not be designed to be powered solely by the USB port, and will still need a power supply.</p>
+              </div>
+              <div class="callout">
+                <p><strong>Requirements</strong><br />This feature will only work with USB “Full Speed” (i.e. USB 2.0) devices.</p>
+                <p>Also, some composite devices may not work. Composite devices are devices that enumerate as multiple different types of USB devices at once. For example, the device may work as an audio interface and a MIDI device at the same time.</p>
+                <p>If you encounter issues with a device, we may be able to investigate a fix. Please email us and let us know as much detail as possible about the situation: <a href="mailto:support@piratemidi.com">support@piratemidi.com</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="flex-container">
+          <div class="half-container">
+            <header><h2 id="presets-midi-channel">6. Presets &amp; MIDI Channel</h2></header>
+            <div class="topic">
+              <div class="keep-together">
+                <h3 id="presets">Presets</h3>
+                <p>There are 128 presets available for you to customise. Sending MIDI CC 24 will advance to the next preset, and sending MIDI CC 25 will go to the previous preset.</p>
+              </div>
+              <div class="keep-together">
+                <h4 id="save-preset">Save A Preset</h4>
+                <p>To save the current settings to the current preset, send MIDI CC 23 and the relay states will overwrite the preset’s relay states.</p>
+              </div>
+              <div class="keep-together">
+                <h4 id="go-to-preset">Go to a Preset</h4>
+                <p>To go directly to a particular preset, you can use CCs or PCs. Send CC 26 with your chosen preset number as the value (0-127). Or send a PC message of your chosen preset number (0-127).</p>
+              </div>
+              <div class="keep-together">
+                <h3 id="midi-channel">MIDI Channel</h3>
+                <p>Out of the box, your CLiCK will respond to any MIDI channel. If you want to change the MIDI channel so that it only listens to MIDI messages sent with its specific channel number, set the MIDI channel using the <a href="https://edit.piratemidi.com">web editor</a>.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="flex-container">
+          <div class="half-container">
+            <header><h2 id="expression-emulation">7. Expression Emulation</h2></header>
+            <div class="topic">
+              <p>The CLiCK requires the 9V DC power to be used for expression emulation to work.</p>
+              <p>Expression pedal emulation does not output CV voltage, or any other active signal. Your device with an expression jack will pass a small voltage through the CLiCK’s expression jack, and the digitally-controlled potentiometer in the CLiCK acts just like the potentiometer in any standard passive expression pedal. As CC 11 is sent to the CLiCK, the potentiometer is moved just like when a standard expression pedal is moved by a foot.</p>
+              <div class="keep-together">
+                <h3 id="expression-per-preset">Setting an Expression Position Per-Preset</h3>
+                <p>In the web editor, under “Preset Settings” there is an “Expression Position” field. Setting this with a value from 0-127 gives the starting position for the expression jack when that preset is activated. The digitally-controlled potentiometer will jump to that position when the preset is activated.</p>
+              </div>
+              <div class="keep-together">
+                <h3 id="expression-on-the-fly">Setting an Expression Position On-the-Fly</h3>
+                <p>To set the Expression position at any time, send a control change message with <strong>CC 11</strong>. You can use sliders, touch screens, actual expression pedals on your MIDI controller and many other methods to send this Control Change message which will give you smooth expression pedal emulation for your non-MIDI pedals with expression jacks.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="flex-container">
+          <div class="half-container">
+            <header><h2 id="relay-switching">8. Relay Switching</h2></header>
+            <div class="topic">
+              <p>The 1/4” relay switching jack on the CLiCK lets you control any standard 1/4” jack that is designed to have a passive switch plugged into it for auxiliary switching. This includes amplifier channels, aux jacks on pedals, amps, mixing desks, and other equipment.</p>
+              <p>TRS stands for “Tip”, “Ring”, and “Sleeve”. This denotes the three bands of the connector often referred to as a “stereo” or “balanced” jack. Sleeve is ground, and the Tip and Ring are each connected to a relay for digital control of the switch with MIDI or presets.</p>
+              <p>The Tip and Ring relays are both controllable independently with per-preset configured states using the web editor, or on-the-fly using incoming MIDI Control Change messages as defined in the <a href="#midi-implementation">MIDI implementation table</a> at the back of this manual. You can set their state specifically, or you can toggle them from their current state.</p>
+              <p>By using the control change messages as defined in the MIDI implementation table, you can create normally open (N.O.) or normally closed (N.C.) switch emulation for your external equipment. This means that virtually any of your aux-switchable gear can now become part of your MIDI controlled rig.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="flex-container">
+          <div class="half-container">
+            <header><h2 id="wireless-midi">9. Wireless MIDI</h2></header>
+            <div class="topic">
+              <div class="keep-together">
+                <h3 id="ble">Bluetooth Low Energy (BLE)</h3>
+                <p>BLE mode lets you connect your CLiCK to your computer, phone, or tablet to control your relays, expression, or other MIDI controllers wirelessly.</p>
+              </div>
+              <p>MIDI over Bluetooth is low-latency, but performance depends on your environment and how much local interference there is around you. Because of this we cannot provide any guarantees for range and reliability. However, in general, BLE MIDI is considered to be quite reliable by musicians even in live performance environments. Please test your equipment thoroughly before relying on BLE solely in a performance environment.</p>
+              <div class="keep-together">
+                <h4 id="ble-macos">BLE Mode Startup &amp; macOS</h4>
+                <p>BLE is the default wireless mode of the CLiCK and will be active when you plug in your CLiCK straight out of the box. LED2 will show the BLE connection status. Red indicates BLE is not connected. Pulsing Blue indicates BLE is connected.</p>
+              </div>
+              <div class="keep-together">
+                <p>Connecting to a Mac computer requires you to open the <strong>Audio MIDI Setup</strong> app (macOS system app, not third party), click the MIDI Studio menu bar and choose “Bluetooth Configuration”.</p>
+                <img class="screenshot" src="Images/macos-midi-studio.png" alt="Audio MIDI Setup on macOS: the MIDI Studio menu, with Bluetooth Configuration highlighted" width="1144" height="880" loading="lazy" />
+              </div>
+              <img class="screenshot" src="Images/macos-bluetooth-config.png" alt="macOS Bluetooth Configuration window: the CLiCK-BLE device with its Connect button highlighted" width="938" height="744" loading="lazy" />
+              <div class="keep-together">
+                <h4 id="ble-ios">iOS or iPadOS</h4>
+                <p>To connect BLE to your iPhone or iPad and use Bluetooth MIDI from your audio apps to your CLiCK, you will need to use the <strong>midimittr</strong> app to connect. Go to the <strong>Devices</strong> tab, and the CLiCK BLE connection will be available for you to connect to.</p>
+              </div>
+              <img class="screenshot phone" src="Images/ios-midimittr.png" alt="midimittr on an iPhone: the Devices tab lists the CLiCK BLE connection to connect to" width="702" height="1522" loading="lazy" />
+              <div class="keep-together">
+                <h4 id="ble-windows">Windows</h4>
+                <p>To make sure BLE works properly on Windows, please download the <a href="https://www.korg.com/us/support/download/driver/0/530/2886/">Korg BLE driver</a> first.</p>
+              </div>
+              <p><em>Note: You can check whether the installation was successful in the sound, video, and game controller list of the device manager.</em></p>
+              <p>In Windows, click “Start” &gt; “Settings” &gt; “Devices”, open the “Bluetooth and other devices” settings page, turn on the CLiCK, and click “Add Bluetooth or other devices”.</p>
+              <p>After entering the “Add Device” window, click “Bluetooth”, click the CLiCK BLE item, and then click “Connect”.</p>
+              <p>If you see “Your device is ready to go”, click “Done” to close the window (after connecting, you can see your CLiCK in the Bluetooth list of the device manager).</p>
+              <p><em>Thank you to CME Pro for help with these instructions. CME Pro also create BLE MIDI products.</em></p>
+            </div>
+            <div class="topic">
+              <div class="keep-together">
+                <h3 id="wifi">WiFi</h3>
+                <p>WiFi mode lets you connect your CLiCK to your network to receive and send RTP MIDI.</p>
+              </div>
+              <p>RTP MIDI (Real-time Protocol MIDI), also known as AppleMIDI, is not exclusive to macOS — it is available on Windows and mobile platforms as well, though with varying levels of native support:</p>
+              <div class="keep-together">
+                <h4>macOS and iOS</h4>
+                <ul>
+                  <li>Built-in support.</li>
+                  <li>RTP MIDI is integrated into the operating system via the Audio MIDI Setup utility.</li>
+                  <li>iOS devices also support it natively (e.g., apps like AUM, Audiobus, and others use it under the hood).</li>
+                </ul>
+              </div>
+              <div class="keep-together">
+                <h4>Windows</h4>
+                <ul>
+                  <li>Not built-in, but available through third-party drivers.</li>
+                  <li>The most widely used solution is <a href="https://www.tobias-erichsen.de/software/rtpmidi.html">rtpMIDI by Tobias Erichsen</a>, which is free and stable.</li>
+                  <li>Once installed, Windows users can communicate with other RTP MIDI devices (Macs, iPads, etc.) over a network.</li>
+                </ul>
+              </div>
+              <div class="keep-together">
+                <h4>Android</h4>
+                <ul>
+                  <li>No native OS-level support, but some apps implement RTP MIDI manually.</li>
+                  <li>Example apps: TouchDAW – supports RTP MIDI, or MobMuPlat (with patchwork).</li>
+                  <li>Integration depends on each app’s developer — it’s not seamless like on iOS.</li>
+                </ul>
+              </div>
+              <div class="keep-together">
+                <h4>Embedded Devices / DIY</h4>
+                <ul>
+                  <li>Some microcontroller platforms and devices (e.g. ESP32, Raspberry Pi) can implement RTP MIDI using open-source libraries like:</li>
+                  <li>Arduino AppleMIDI library</li>
+                  <li>rtpmidid (Linux daemon)</li>
+                </ul>
+              </div>
+            </div>
+            <div class="topic no-columns">
+              <div class="keep-together">
+                <h4 id="wifi-setup">WiFi Setup &amp; Configuration</h4>
+                <p>After WiFi mode has been selected in the web editor and the config has been sent to the device, the CLiCK will reboot and BLE will be deactivated - replaced by WiFi. Before any configuration has been done, the LED will pulse in a teal colour indicating that the device is in AP (access point) mode and is ready for configuration.</p>
+              </div>
+              <div class="keep-together">
+                <p>First, use your computer or mobile device to connect to the CLiCK’s WiFi network called “CLiCK Setup”. After your device is connected you may get an automatic popup window with the configuration options. If not, open your browser and type “<code>192.168.4.1</code>” in the address bar and press enter.</p>
+                <img class="screenshot phone" src="Images/wifi-network-list.png" alt="A WiFi network list with the CLiCK-Setup network highlighted" width="588" height="602" loading="lazy" />
+              </div>
+              <div class="keep-together">
+                <img class="screenshot" src="Images/wifi-setup-portal.png" alt="The CLiCK-Setup configuration page in a browser: Configure WiFi opens the network list and password entry" width="892" height="822" loading="lazy" />
+                <h4 id="wifi-select-network">Selecting your WiFi Network</h4>
+                <p>Click Configure WiFi to select your local network, enter the password, and connect. Once your device connects, this page will become unresponsive because the CLiCK has connected to the network and is not offering an AP connection. You can now connect your device back to your local WiFi. If the CLiCK has also successfully connected, you should now notice that the Wireless Status LED on the CLiCK has turned purple and is pulsing slowly.</p>
+              </div>
+              <div class="keep-together">
+                <h4 id="wifi-ready">Ready</h4>
+                <p>You can now use RTP MIDI to send and receive MIDI with your CLiCK over your network.</p>
+              </div>
+              <div class="callout web-note">
+                <p><strong>Edit Saved WiFi Details</strong><br />To change the saved WiFi details, you’ll need to turn off the network of the saved details so that it fails to connect. When it fails, it will default to broadcasting its own “CLiCK Setup” WiFi network again.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="flex-container">
+          <div class="half-container">
+            <header><h2 id="resetting-updating">10. Resetting or Updating</h2></header>
+            <div class="topic">
+              <div class="keep-together">
+                <h3 id="factory-reset">Factory Reset</h3>
+                <p>This will clear all presets and all global settings. Make sure you have backed up your device if you have a lot of work saved on the device.</p>
+              </div>
+              <p>A factory reset can be performed by clicking the help button in the bottom right corner of the web editor and clicking <strong>Factory Reset</strong>. You will be given a warning and then you can reset the device. The LEDs will flash and after about 20 seconds you can reboot the device and use it as normal. If this doesn’t work for you, please contact <a href="mailto:support@piratemidi.com">support@piratemidi.com</a> for advice.</p>
+              <div class="keep-together">
+                <h3 id="updating-firmware">Updating Firmware</h3>
+                <p>This user manual represents the features and settings for the firmware version marked in the footer of each page and on the cover. If your device doesn’t match, this manual will likely be incorrect for some details. Please update your device and download the latest user manual.</p>
+              </div>
+              <p>Up to date information for firmware updates can be found at <a href="https://www.learn.piratemidi.com/downloads/firmware-updates">www.learn.piratemidi.com/downloads/firmware-updates</a>, and the online updater itself is found at: <a href="https://www.update.piratemidi.com">www.update.piratemidi.com</a></p>
+              <p>The CLiCK can be updated through the firmware updater app, or using a manual firmware update method as a last resort. Both are outlined in the webpage linked above.</p>
+              <div class="keep-together">
+                <h3 id="troubleshooting">Troubleshooting</h3>
+                <p>If, for some reason, the update is not successful or the process is not able to start, please contact us at <a href="mailto:support@piratemidi.com">support@piratemidi.com</a></p>
+              </div>
+              <div class="keep-together">
+                <h4 id="update-mode">Entering Update Mode</h4>
+                <p>Manual Updates are only required as a last resort if something went wrong during the normal update process.</p>
+              </div>
+              <p><strong>In case of some kind of software error where you are unable to use the updater app, you can enter the firmware update mode manually and follow instructions given to you by Pirate MIDI staff.</strong></p>
+              <ul>
+                <li>Connect the CLiCK to computer with USB cable</li>
+                <li>Click the “help” icon in the bottom right corner of the screen</li>
+                <li>Click the “Force DFU” button (DFU = Device Firmware Update)</li>
+              </ul>
+              <p><em>After these steps, you will need to follow the manual firmware update process as documented at <a href="https://learn.piratemidi.com/downloads/troubleshooting">https://learn.piratemidi.com/downloads/troubleshooting</a> or contact <a href="mailto:support@piratemidi.com">support@piratemidi.com</a></em></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="flex-container">
+          <div class="half-container">
+            <header><h2 id="midi-implementation">11. MIDI Implementation</h2></header>
+            <div class="topic no-columns">
+              <p>The CLiCK can be controlled by MIDI from an external MIDI device. You can set the MIDI channel in the web editor’s Global MIDI Settings menu.</p>
+              <p class="web-note">The online documentation says the CLiCK v2 is set to MIDI channel 1 by default, and that sending any of the messages below via wired, wireless or USB MIDI on the CLiCK’s set MIDI channel triggers the listed function. <a href="#midi-channel">Chapter 6</a> says it responds to any channel out of the box.</p>
+              <div class="table-scroll">
+                <table class="doc-table">
+                  <thead><tr><th>Function</th><th>MIDI CC#</th><th>Value</th></tr></thead>
+                  <tbody>
+                    <tr class="group"><td colspan="3">Navigation</td></tr>
+                    <tr class="web-row"><td>Save to Current Preset <span class="web-tag">(online documentation)</span></td><td>23</td><td>Any <em>(0-127)</em></td></tr>
+                    <tr><td>Preset Up</td><td>24</td><td>Any <em>(0-127)</em></td></tr>
+                    <tr><td>Preset Down</td><td>25</td><td>Any <em>(0-127)</em></td></tr>
+                    <tr><td>Go to Preset ‘x’</td><td>26</td><td>0-127</td></tr>
+                    <tr><td>Go to Bank ‘x’ (PC)</td><td>PC</td><td>0-127</td></tr>
+                    <tr class="group"><td colspan="3">Action Control</td></tr>
+                    <tr><td>Tip Relay: On</td><td>1</td><td>127</td></tr>
+                    <tr><td>Tip Relay: Off</td><td>1</td><td>0</td></tr>
+                    <tr><td>Tip Relay: Toggle</td><td>1</td><td>64</td></tr>
+                    <tr><td>Ring Relay: On</td><td>2</td><td>127</td></tr>
+                    <tr><td>Ring Relay: Off</td><td>2</td><td>0</td></tr>
+                    <tr><td>Ring Relay: Toggle</td><td>2</td><td>64</td></tr>
+                    <tr><td>Tip &amp; Ring: On</td><td>3</td><td>127</td></tr>
+                    <tr><td>Tip &amp; Ring: Off</td><td>3</td><td>0</td></tr>
+                    <tr><td>Tip &amp; Ring: Toggle</td><td>3</td><td>64</td></tr>
+                    <tr><td>Expression Emulation Position</td><td>11</td><td>0-127</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="flex-container">
+          <div class="half-container web-note examples">
+            <header><h2 id="usage-examples">Usage Examples</h2></header>
+            <div class="topic">
+              <p>The CLiCK V2 is a versatile tool designed to integrate non-MIDI equipment into a MIDI-controlled environment. Below are simple, single-feature examples of how to use the CLiCK V2 in a real-world setup.</p>
+            </div>
+            <div class="topic">
+              <div class="keep-together">
+                <h3 id="example-amp-channels">1. Controlling Amplifier Channels (Relay Switching)</h3>
+                <p>If you have a traditional guitar amplifier with a 1/4" footswitch jack for channel switching, the CLiCK can automate this via MIDI.</p>
+              </div>
+              <div class="callout">
+                <p><strong>Warning</strong><br />Some devices have an external footswitch that is more than just a passive one, two, or three switch TRS footswitch. If there are LEDs, a DIN jack, or more than three footswitches, there is a high likelihood that the CLiCK will either not fully unlock the same features as the factory footswitch, or not work at all.</p>
+              </div>
+              <ul>
+                <li><strong>The Setup</strong>: Connect a 1/4" TRS cable from the <strong>Relay Jack</strong> on the CLiCK to the footswitch input of your amplifier.</li>
+                <li><strong>The Action</strong>: Send a MIDI CC #1 message to the CLiCK.</li>
+                <li><strong>The Result</strong>:
+                  <ul>
+                    <li>Sending CC #1 with a value of <strong>127</strong> will close the “Tip” relay (e.g., switching to the Lead channel).</li>
+                    <li>Sending CC #1 with a value of <strong>0</strong> will open it (e.g., returning to the Clean channel).</li>
+                  </ul>
+                </li>
+              </ul>
+              <h4>More Details</h4>
+              <p>Inside the web editor, you can set the relay states per preset. This means that as you send messages to the CLiCK to change its preset, the relay states can automatically change to pre-determined states.</p>
+              <p>You can use this method to set up presets that follow the songs in your live set, song sections, or just generic “sounds”.</p>
+              <p>Obviously the two relay states can only be combined in a handful of ways, but with 128 presets at your disposal, you can work out, in advance, exactly which preset requires which states so you don’t have to think about it in a live setting.</p>
+            </div>
+            <div class="topic">
+              <div class="keep-together">
+                <h3 id="example-expression">2. MIDI-Automated Expression (Expression Emulation)</h3>
+                <p>You can control the expression input of an analog pedal (like a boutique delay or a pitch shifter) using MIDI CC messages from your DAW or a MIDI foot controller.</p>
+              </div>
+              <ul>
+                <li><strong>The Setup</strong>: Connect a 1/4" TRS cable from the <strong>Expression Jack</strong> on the CLiCK to the expression input of your target pedal. Ensure the CLiCK is powered by <strong>9V DC</strong>.</li>
+                <li><strong>The Action</strong>: Send MIDI CC #11 with values ranging from 0 to 127 to the CLiCK.</li>
+                <li><strong>The Result</strong>: The CLiCK changes its internal resistance to emulate a physical expression pedal moving from heel (0) to toe (127), allowing for automated sweeps or specific parameter settings per preset.</li>
+              </ul>
+              <h4>More Details</h4>
+              <p>Each of the 128 presets of the CLiCK has a field in the <a href="https://edit.piratemidi.com">Web Editor</a> where you can pre-set the Expression position from 0-100%. This means that as you send MIDI to the CLiCK to select a preset, the expression position can jump instantly to the new value that you have previously chosen.</p>
+              <p>This feature is really powerful for incorporating non-MIDI pedals with an expression jack into a MIDI-controllable rig.</p>
+              <p>Another possibility is having a single expression pedal connected to your main MIDI controller, and using that to generate the MIDI expression messages, send them to the CLiCK, and then the expression pedal on the MIDI controller is controlling the non-MIDI expression jack.</p>
+              <p>This is powerful because with a MIDI controller like our BridgeOS devices, you can change what the expression pedal does at different times and on different presets.</p>
+              <p>For example, if on one preset you don’t want to interact with that non-MIDI pedal, you could assign your expression pedal to target a different MIDI controllable pedal on your rig. But then on the next preset, or at the press of a switch, suddenly the expression pedal does control the non-MIDI pedal’s expression jack (via the CLiCK) again.</p>
+            </div>
+            <div class="topic">
+              <div class="keep-together">
+                <h3 id="example-ipad">3. Wireless Control from an iPad (Bluetooth MIDI)</h3>
+                <p>The CLiCK can act as a wireless bridge, allowing you to control your entire pedalboard from a mobile device without a USB cable.</p>
+              </div>
+              <ul>
+                <li><strong>The Setup</strong>: Enable <strong>Bluetooth LE</strong> in the CLiCK web editor. Open a MIDI app (like <em>midimittr</em> or a DAW) on your iPad.</li>
+                <li><strong>The Action</strong>: Pair the iPad with the CLiCK and send Program Change (PC) or Control Change (CC) messages from the app.</li>
+                <li><strong>The Result</strong>: The CLiCK receives the wireless messages and passes them through its 3.5mm TRS MIDI Out to your other pedals, changing their presets or parameters instantly.</li>
+              </ul>
+              <div class="callout">
+                <p><strong>Warning</strong><br />Using wireless technology in large crowds and groups of people can be risky. There are significant interference risks. Always test in your target environment before relying on wireless technology for a live event!</p>
+              </div>
+              <h4>More Details</h4>
+              <p>Another thing to consider is that with the Bluetooth functionality, there is no need for any physical MIDI controller to send messages to or change presets on the CLiCK. An app like <strong>TouchOSC</strong> or <strong>MIDI Designer</strong> or <strong>Ribn</strong> can send MIDI messages to the CLiCK directly without the need for more expensive hardware.</p>
+            </div>
+            <div class="topic">
+              <div class="keep-together">
+                <h3 id="example-type-a-b">4. Bridging MIDI Types (Type A to Type B)</h3>
+                <p>Different manufacturers use different TRS MIDI standards (Type A vs. Type B). The CLiCK can resolve these conflicts without custom crossover cables.</p>
+              </div>
+              <ul>
+                <li><strong>The Setup</strong>: In the Web Editor, set the <strong>MIDI Out</strong> port to “Type B.”</li>
+                <li><strong>The Action</strong>: Plug a standard TRS cable from the CLiCK’s MIDI Out into a pedal that requires Type B MIDI <em>(such as older Arturia or Novation gear, or even some Ring Active devices like Chase Bliss Audio pedals)</em>.</li>
+                <li><strong>The Result</strong>: The CLiCK automatically swaps the Tip and Ring signals, ensuring your MIDI data is readable by the target device.</li>
+              </ul>
+              <h4>More Details</h4>
+              <p>This feature is designed to save you from buying special cables and from nasty surprises when you realise your gear isn’t “standard”. However, it can’t be guaranteed to work with all devices. Chase Bliss Audio pedals, for example, will usually work with Type B, but some older models only work with the Tip of the TRS cable physically disconnected.</p>
+              <p>If you need to connect to many different devices with more than one different type of MIDI TRS connection, you may need a MIDI splitter or MIDI hub. If so, check out the Pirate MIDI Nexus MIDI Hub for a device with 10 different MIDI outputs that can all be individually set between Type A, Type B, Tip Active, and Ring Active.</p>
+            </div>
+            <div class="topic">
+              <div class="keep-together">
+                <h3 id="example-preset-save">5. Adding Preset “Save” Functionality to Analog Gear</h3>
+                <p>You can use the CLiCK to “save” the state of your analog amp or pedals as part of a MIDI preset.</p>
+              </div>
+              <ul>
+                <li><strong>The Setup</strong>: Manually set your Relay states (Tip/Ring) or Expression position to where you want them for a specific song part. Do this in the <a href="https://edit.piratemidi.com">Web Editor</a>.</li>
+                <li><strong>The Action</strong>: Send <strong>MIDI CC 23</strong> to the CLiCK.</li>
+                <li><strong>The Result</strong>: The CLiCK saves the current relay and expression positions into the active preset. Next time you call up that PC number, the CLiCK will automatically recall those exact analog settings.</li>
+              </ul>
+              <div class="callout">
+                <p><strong>Tip</strong><br />Sometimes saving “on the fly” can get confusing. Try to avoid saving more than one or two new presets when you’re not working with the Web Editor. Writing notes to help you remember the changes stops things getting too messy.</p>
+              </div>
+            </div>
+            <div class="topic">
+              <div class="keep-together">
+                <h3 id="example-aux-switch">6. Using an External Aux Switch (Aux In Mode)</h3>
+                <p>If you don’t want to use a MIDI controller to change CLiCK presets, you can use a simple two-button footswitch.</p>
+              </div>
+              <ul>
+                <li><strong>The Setup</strong>: In the Web Editor, set the 3.5mm MIDI Out jack to <strong>Aux In</strong> mode. Connect a 2-button momentary footswitch using a 3.5mm TRS adapter.</li>
+                <li><strong>The Action</strong>: Press the left or right button on your footswitch.</li>
+                <li><strong>The Result</strong>: The CLiCK will increment (Preset Up) or decrement (Preset Down) through its 128 internal presets, updating the Relays and Expression position accordingly.</li>
+              </ul>
+              <h4>More Details</h4>
+              <p>Even though this is far from the most complex thing you can do with a CLiCK, it still opens up lots of new possibilities for gear that doesn’t have presets or MIDI control. Not only that, but you can use one little auxiliary footswitch to control “presets” on both a TRS aux switch jack as well as an analog expression pedal jack!</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="flex-container">
+          <div class="half-container">
+            <header><h2 id="support-warranty">12. Support &amp; Warranty</h2></header>
+            <div class="topic no-columns">
+              <h3>Thank you for purchasing a CLiCK!</h3>
+              <p>If you have any questions, please feel free to contact us via <a href="mailto:support@piratemidi.com">support@piratemidi.com</a> or use technical support at: <a href="https://www.learn.piratemidi.com">www.learn.piratemidi.com</a></p>
+              <p><strong>Manufacturing defects are covered by our warranty. Please contact us if your device is defective.</strong></p>
+              <p>Australian domestic customers are covered by Australian Consumer Law which requires repair or replacement for devices that do not fulfil their advertised purpose.</p>
+              <p>International (Non-Australian) customers are covered by our own workmanship guarantee. We aim to create a satisfactory outcome for every single customer. Please contact us if you have an issue with your device.</p>
+              <p>Customer-caused damage may be repairable for a fee. We offer repair services for most components that receive damage. Contact us for details.</p>
+              <div class="made-in">
+                <img src="Images/made-in-australia.png" alt="" width="293" height="266" loading="lazy" />
+                Made in Australia
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+    <footer>Converted from the Pirate MIDI CLiCK v2 User Manual v2.0.0 (PDF) and the online documentation at <a href="https://docs.piratemidi.com/manuals/click-v2/">docs.piratemidi.com</a>.</footer>
+  </body>
+</html>
