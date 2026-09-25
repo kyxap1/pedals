@@ -208,10 +208,11 @@ h3 {
 .control h3::after { content: " -"; font-weight: 400; text-decoration: none; display: inline-block; white-space: pre; }
 .control { margin-bottom: 0.9em; break-inside: avoid; }
 
-/* SETTING SUGGESTIONS: a pedal thumbnail beside each setting, one column as
-   in print — in two columns the cards read row by row and the order scrambles */
+/* SETTING SUGGESTIONS: a pedal thumbnail beside each setting; the cards flow
+   down the .topic columns like the rest of the page */
 .setting {
   max-width: 44em;
+  break-inside: avoid;
   display: grid;
   grid-template-columns: 7em 1fr;
   gap: 0 1.25em;
