@@ -55,6 +55,8 @@ figure { margin: 0 0 1em; }
 /* SECTIONS */
 section + section { margin-top: 3em; }
 .flex-container { display: flex; padding-left: 2em; }
+/* A container has no intrinsic width: a half-container sized by its
+   content (width: auto) collapses to 0 unless it sets container-type: normal. */
 .half-container { width: 100%; padding: 0 1em; container-type: inline-size; }
 .half-container > header { column-span: all; }
 .flow > * + * { margin-bottom: 1em; }

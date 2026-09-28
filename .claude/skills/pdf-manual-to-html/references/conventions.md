@@ -106,6 +106,15 @@ pedals/
   not picked by eye: a round 50/50 or 1:2 overweights the colour panel next
   to covers that run closer to 30/70. Set the masthead screenshot beside the
   cover render before moving on.
+- **Masthead: photo column sized by its content.** A photo that should sit
+  right after the title rather than centred in an empty half needs its column
+  at `flex: 0 0 auto; width: auto`, and then `container-type: normal` too:
+  `.half-container` is an inline-size container, and a container has no
+  intrinsic width, so the column collapses to 0 and the photo vanishes.
+- **Masthead: one rule, not two.** In a manual that sets every heading under
+  a hairline, a border under the masthead lands a few lines above the first
+  `h2`'s own rule and reads as a double stripe. Let the heading rules carry
+  the separation and drop the masthead border.
 
 The wordmark and the photo are separate crops: the wordmark is the logotype
 alone, so a tagline or URL printed beside it on the cover is text and goes
@@ -269,6 +278,9 @@ other → a figure taller than the text sharing its topic.
   strokes), move it where its background belongs, or give it an untinted
   spot, then re-screenshot. Never delete manual content to get a clean
   screenshot.
+- A product photo on white with a soft drop shadow is trimmed with
+  `-fuzz` of 1% or less. A looser fuzz stops the trim partway through the
+  shadow, and its cut edge shows on the page as a grey box around the pedal.
 
 ## Multiple PDFs (revisions / addenda / quick-starts)
 
