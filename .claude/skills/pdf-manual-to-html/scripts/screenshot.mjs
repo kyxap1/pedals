@@ -10,7 +10,8 @@
 //
 // A single capture taller than about 16,000 px comes back with the page
 // repeated from the top, so the page is written as numbered segments:
-// out.png -> out-01.png, out-02.png, … It also prints the page's scrollWidth,
+// out.png -> out-01.png, out-02.png, …, plus out-map.txt naming the heading
+// ids that start in each segment. It also prints the page's scrollWidth,
 // which exceeds <width> when something scrolls the page sideways.
 //
 // Usage: node screenshot.mjs <url> <out.png> <width> [timeoutSeconds=30] [segmentHeight=3000]
@@ -121,10 +122,21 @@ async function run() {
   const height = Math.ceil(metrics.result.cssContentSize.height);
   const sw = await send("Runtime.evaluate", { expression: "document.documentElement.scrollWidth" });
   const scrollWidth = sw.result.result.value;
+  const hs = await send("Runtime.evaluate", {
+    expression: `JSON.stringify([...document.querySelectorAll("main h2[id], main h3[id], main h4[id]")]
+      .map((h) => [h.id, h.getBoundingClientRect().top + scrollY]))`,
+  });
+  const headings = JSON.parse(hs.result.result.value);
 
   const stem = outPath.replace(/\.png$/, "");
   const count = Math.ceil(height / segment);
   const num = (n) => String(n).padStart(2, "0");
+  // which segment each heading starts in, so a reviewer gets only the
+  // segments for its own sections
+  const map = Array.from({ length: count }, () => []);
+  for (const [id, top] of headings) map[Math.min(count - 1, Math.floor(top / segment))].push(id);
+  const name = (i) => `${stem.split("/").pop()}-${num(i + 1)}.png`;
+  writeFileSync(`${stem}-map.txt`, map.map((ids, i) => `${name(i)}: ${ids.join(" ")}`).join("\n") + "\n");
   for (let i = 0; i < count; i++) {
     const y = i * segment;
     const shot = await send("Page.captureScreenshot", {
@@ -135,7 +147,7 @@ async function run() {
     if (!shot.result?.data) throw new Error("capture failed: " + JSON.stringify(shot));
     writeFileSync(`${stem}-${num(i + 1)}.png`, Buffer.from(shot.result.data, "base64"));
   }
-  console.log(`wrote ${stem}-01..${num(count)}.png (${width}x${height}, ${segment}px segments)`);
+  console.log(`wrote ${stem}-01..${num(count)}.png (${width}x${height}, ${segment}px segments) and ${stem}-map.txt`);
   console.log(`scrollWidth ${scrollWidth}${scrollWidth > width ? " — wider than the viewport: something scrolls the page sideways" : ""}`);
   ws.close();
 }

@@ -575,7 +575,8 @@ findings share one cause (a heading outside its `.keep-together`, a missing
   Breaks at other widths are `check_columns.mjs`'s job, in words; shoot
   another width only to look at a finding it named there. It drives Chrome over CDP, captures the page's real height as
   numbered segments (`w1400-01.png`, `w1400-02.png`, …; a single capture
-  past ~16,000 px repeats the page from the top) and prints the page's
+  past ~16,000 px repeats the page from the top), writes `w1400-map.txt`
+  naming the heading ids each segment starts, and prints the page's
   `scrollWidth`. Don't use `chrome --headless --screenshot --window-size=W,H`
   by hand: it crops to exactly W×H instead of the page's real height, and it
   has no timeout flag, so a bad size hangs with no way to detect it.
@@ -588,14 +589,43 @@ findings share one cause (a heading outside its `.keep-together`, a missing
   done
   ```
 
-- Hand the looking to a fresh subagent, the **reviewer**: it checks what
-  converted wrong and tells you (the main model) what to fix. Give it the
-  page, the segment files, `pages/`, the survey's section → page map and
-  `references/review-checklist.md` — the checklist is its mandate, and it
-  reads it itself rather than having it repeated here. It edits nothing and
-  reports each finding as text: section id, segment file, what the page
-  shows, what the PDF shows.
-- **Redo Loop:** If the reviewer finds issues, **kick yourself (the main model) to fix the glitching parts**. You must redo the broken parts and re-screenshot them. You can loop this review-fix cycle **a maximum of 2 times in a row**. A re-review gets the previous findings and checks those and the sections the fixes touched, not the whole page again — a full pass costs as much as the build's own looking.
+- `scripts/check_copy.py <pedal-dir>/index.html <pdf>…` looks every
+  sentence, heading, caption and table cell up in the PDFs' text. Each miss
+  is either a row in `copy-changes.md` or a conversion error to fix; it
+  can't see order, row placement, formatting or text under 4 letters.
+- Hand the looking to fresh subagents, the **reviewers**: they check what
+  converted wrong and tell you (the main model) what to fix. One reviewer
+  over the whole page doesn't work: every image it reads is re-sent on each
+  of its later calls, so its cost grows with the square of its run. The
+  HX One reviewer read 179 images in one context, hit 270K, burned 33M
+  tokens and ran into the session limit without returning a report. So:
+  - Split the sections into groups of about 6–8 PDF pages, one reviewer per
+    group, launched together in one response. Give each its sections, their
+    PDF page indexes, its segment files from `w1400-map.txt` and
+    `w390-map.txt` (a section runs until the segment where the next one
+    starts), the page, `copy-changes.md`, the `check_copy.py` output and
+    `references/review-checklist.md` — the checklist is its mandate, and it
+    reads it itself rather than having it repeated here. The prompt carries
+    inputs, not scope: restating the checklist in your own words, or adding
+    a sweep of your own over the whole group, overrides the economy it was
+    written with — the HX One prompt told its reviewer to go through every
+    mobile segment where the checklist asks for two or three. Naming one
+    specific doubt from the build is fine: a rowspan you weren't sure of, a
+    figure you re-cropped twice.
+  - Before launching, write one progress file per group,
+    `_cctmp.<slug>/review/progress-<n>.md`: a line per section,
+    `todo <id> — PDF p.N — <segments>`, and on top the group's image budget,
+    worked out from what it holds: one look per PDF page, per segment the
+    checklist has it look at, and per figure; twice that sum is the budget.
+    A group of tables and a group of figure-heavy pages need different
+    budgets, so no fixed number fits both. Each reviewer marks its lines `done`
+    and writes findings under them as it goes, so a run cut short keeps what
+    it found; separate files keep parallel reviewers from editing one file. A group that comes back with
+    `todo` lines left, or never comes back, gets a new reviewer for those
+    lines only — including in a later session after a limit.
+  - Reviewers edit nothing but their progress file and report each finding as
+    text: section id, segment file, what the page shows, what the PDF shows.
+- **Redo Loop:** If the reviewer finds issues, **kick yourself (the main model) to fix the glitching parts**. You must redo the broken parts and re-screenshot them. You can loop this review-fix cycle **a maximum of 2 times in a row**. A re-review gets the previous findings and checks those and the sections the fixes touched, not the whole page again — a full pass costs as much as the build's own looking. Set those sections back to `todo` in their progress files and hand only them out.
 - **Only after passing review or hitting the retry limit**, move
   `copy-changes.md` out of the scratch and into `<pedal-dir>/`, then delete
   your `_cctmp.<slug>/` — only that one; other `_cctmp.*` dirs belong to
@@ -620,8 +650,11 @@ gets missed.
 - **What's inside** — the sections, in the PDF's order; where the style came
   from (sibling page, online manual, the PDF) and the heading, step and table
   treatment it gave; each layout call a reader would notice (a sticky diagram,
-  a table restacked on mobile); what `check_page.py`, `crop_figure.py
-  --check`, `check_columns.mjs` and the screenshots at each width showed.
+  a table restacked on mobile); what `check_page.py`, `check_copy.py`,
+  `crop_figure.py --check`, `check_columns.mjs` and the screenshots at each
+  width showed; per reviewer, images read against its budget and
+  `total_tokens` from its notification — what tells whether the budgets
+  are right.
 - **Copy changes** — every place the page's wording departs from the PDF, with
   the reason: typos, mangled phrases, template leftovers that contradict the
   pedal, page references turned into anchor links — plus the conflicts
@@ -658,6 +691,7 @@ Actions on push to `master`; source PDFs live in the repo on purpose.
 - `scripts/optimize_images.py` — web-sized, recompressed images; `width`,
   `height` and `loading="lazy"` on every `<img>`.
 - `scripts/check_page.py` — anchor, image and stray-file check on the built page.
+- `scripts/check_copy.py` — page text the source PDFs don't contain.
 - `scripts/check_columns.mjs` — orphaned headings, split paragraphs, figures
   and `:` lead-ins parted from their text, swept over viewport widths.
 - `scripts/clean_crop.py` — an icon crop stripped of neighbouring letters and
