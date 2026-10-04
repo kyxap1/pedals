@@ -65,6 +65,16 @@ section + section { margin-top: 3em; }
    one topic. 63rem below = the two-column threshold of `columns: 2 30rem`. */
 .topic { columns: 2 30rem; column-gap: 3em; }
 .no-columns { columns: auto !important; }
+/* a heading stands above everything it introduces */
+:not(.topic-group) > .topic > .keep-together:first-child > :is(h3, h4):first-child,
+:not(.topic-group) > .topic > :is(h3, h4):first-child { column-span: all; }
+/* topics the source sets on one page share its columns, each whole in one */
+.topic-group { columns: 2 30rem; column-gap: 3em; }
+.topic-group > .topic { columns: auto; break-inside: avoid; }
+/* the right column's first heading loses its margin at the break; so does the left's */
+.topic-group > .topic:first-child,
+.topic-group > .topic:first-child > :is(h3, h4):first-child,
+.topic-group > .topic:first-child > .keep-together:first-child > :is(h3, h4):first-child { margin-top: 0; }
 
 /* COLUMN BREAKS. A paragraph, list item, figure, table or callout is never
    cut by the gutter. Chrome's balancer drops `break-after: avoid` when it

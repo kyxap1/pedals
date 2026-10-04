@@ -162,6 +162,14 @@ the columns there, so a column is never taller than one topic, the way the
 manual gives each topic its own page. Mark the level on the wrapper
 (`.topic.level-3`) to rule off the ones that open a new `h3`.
 
+A topic too short to fill two columns of its own still gets balanced into
+two, and the cut falls wherever the heights even out: a list's first item
+alone at the foot of one column, a short intro beside a taller block over a
+hole. Topics the source sets together on one page go into a `.topic-group`
+instead: the group carries the columns and each topic stands whole in one of
+them, as on the printed page. A topic that fills a page by itself keeps its
+own columns.
+
 With both a count and a width, `columns` does it all: the width decides how
 many columns fit, the count caps them at two, and they stretch to fill the
 room — one column below ~63rem, no breakpoint, no empty right half. Size the
@@ -176,7 +184,9 @@ Multi-column balances the column heights itself.
 A figure or table lives *inside* its column (`max-width: 100%`), flowing with
 the text, as in print. `column-span: all` is only for what the source itself
 breaks the column for: a multi-image comparison grid, a table that needs every
-column's width to stay legible, the section title. Spanning anything else
+column's width to stay legible, and headings. A heading stands above
+everything it introduces: nothing of its section may start level with it or
+higher, in any layout. Spanning anything else
 makes the browser balance the columns *before* the span — empty space
 stranded in the shorter column, content stretched past its size. An image or
 table interrupting the text flow in a screenshot, a gap above one, or list
