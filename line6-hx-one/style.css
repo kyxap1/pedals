@@ -1,0 +1,347 @@
+/* Fonts: Roboto-Regular 400 -> Roboto 400, Roboto-Bold 700 -> Roboto 700,
+   Roboto-Italic/BoldItalic -> Roboto italic 400/700, Roboto-LightItalic 300 -> Roboto italic 300,
+   RobotoCondensed-Bold 700 -> Roboto Condensed 700, RobotoCondensed-Light 300 -> Roboto Condensed 300,
+   RobotoCondensed-Regular 400 -> Roboto Condensed 400 (from fonts-used.txt) */
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Roboto:ital,wght@0,400;0,500;0,700;1,300;1,400;1,700&display=swap");
+
+:root {
+  --ink: #231f20;    /* body text */
+  --accent: #231f20; /* the cover's ground: masthead, page bands */
+  --rule: #231f20;   /* table row rules are dark hairlines in the manual */
+  --paper: #d8d8d8;  /* NOTE / TIP / SHORTCUT box */
+  --muted: #6d6e71;  /* chapter titles */
+  --link: #215e9e;
+  --badge: #d2232a;  /* numbered callout badges */
+  --body-font: "Roboto", system-ui, sans-serif;
+  --head-font: "Roboto Condensed", "Roboto", sans-serif;
+}
+
+/* ---- structure: keep as is, restyle below the brand line ---- */
+
+*, *::before, *::after { box-sizing: border-box; }
+* { margin-top: 0; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: #fff;
+  font-family: var(--body-font);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+h1, h2, h3, h4, h5, h6 { font-family: var(--head-font); line-height: 1.2; }
+
+main { margin-left: 20vw; padding-bottom: 3em; }
+footer { margin-left: 20vw; padding: 1.6em 3em; }
+
+a { color: var(--link); }
+
+img { max-width: 100%; height: auto; margin-bottom: 0.75em; }
+.topic > img, li > img, figure > img { display: block; }
+figure { margin: 0 0 1em; }
+
+/* NAV */
+#side-nav {
+  position: fixed; top: 0; left: 0;
+  width: 20vw; height: 100%;
+  overflow-y: auto;
+  background: #fff;
+  border-right: 1px solid var(--rule);
+  z-index: 5;
+}
+.nav-container { display: flex; flex-direction: column; margin: 1.5em 1em; }
+#side-nav h4, #side-nav h5 { font-weight: 400; margin-bottom: 0.45em; }
+#side-nav h4 { font-weight: 700; }
+#side-nav h5 { font-size: 0.9em; margin-left: 1em; }
+#side-nav a, #toc-mobile a { color: inherit; text-decoration: none; }
+#side-nav a:hover, #toc-mobile a:hover { text-decoration: underline; }
+
+/* SECTIONS */
+section + section { margin-top: 3em; }
+.flex-container { display: flex; padding-left: 2em; }
+/* A container has no intrinsic width: a half-container sized by its
+   content (width: auto) collapses to 0 unless it sets container-type: normal. */
+.half-container { width: 100%; padding: 0 1em; container-type: inline-size; }
+.half-container > header { column-span: all; }
+.flow > * + * { margin-bottom: 1em; }
+
+/* One .topic per heading carries the columns, so no column runs taller than
+   one topic. 63rem below = the two-column threshold of `columns: 2 30rem`. */
+.topic { columns: 2 30rem; column-gap: 3em; }
+.no-columns { columns: auto !important; }
+/* a topic's heading spans its columns: text in the right column must not start level with, or above, its own heading */
+:not(.topic-group) > .topic > .keep-together:first-child > :is(h3, h4):first-child, :not(.topic-group) > .topic > :is(h3, h4):first-child { column-span: all; }
+/* topics the source sets on one page share its columns, each whole in one */
+.topic-group { columns: 2 30rem; column-gap: 3em; }
+.topic-group > .topic { columns: auto; break-inside: avoid; }
+/* the right column's first heading loses its margin at the break; so does the left's */
+.topic-group > .topic:first-child,
+.topic-group > .topic:first-child > :is(h3, h4):first-child,
+.topic-group > .topic:first-child > .keep-together:first-child > :is(h3, h4):first-child { margin-top: 0; }
+
+/* COLUMN BREAKS. A paragraph, list item, figure, table or callout is never
+   cut by the gutter. Chrome's balancer drops `break-after: avoid` when it
+   gets in the way, so it is only a hint: what keeps a heading off a column's
+   foot is a .keep-together holding the heading and its first block. */
+p, li, figure, table, .table-scroll, .keep-together, .callout, .grid-wrapper {
+  break-inside: avoid;
+}
+h2, h3, h4, h5, h6 { break-after: avoid; }
+/* a lead-in ending in ":" stays with what it introduces */
+:has(+ p > .menu-path:only-child) { break-after: avoid; }
+@container (min-width: 63rem) {
+  .column-end { break-after: column; }
+}
+
+/* Figure rows: the max stays indefinite, or auto-fit counts its tracks off
+   it and stacks one figure per row in a narrow column. */
+.grid-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(8em, 100%), 1fr));
+  gap: 1em;
+}
+.grid-wrapper img { width: 100%; }
+
+/* TABLES */
+.table-scroll { overflow-x: auto; margin-bottom: 1em; }
+.doc-table { width: 100%; border-collapse: collapse; font-size: 0.92em; }
+.doc-table th, .doc-table td {
+  padding: 0.4em 0.6em;
+  text-align: left;
+  vertical-align: top;
+  border: 1px solid var(--rule);
+}
+.doc-table thead th { background: var(--accent); color: #fff; }
+
+.callout {
+  background: var(--paper);
+  border-left: 4px solid var(--accent);
+  padding: 0.7em 1em;
+  margin-bottom: 1em;
+}
+.callout > :last-child { margin-bottom: 0; }
+
+@media (max-width: 900px) {
+  .flex-container { flex-direction: column; padding-left: 0; }
+  .half-container { padding: 0 1em; }
+  nav { display: none; }
+  main, footer { margin: 0 auto; }
+  footer { padding: 1.6em 1em; }
+  #toc-mobile { display: block; }
+  /* a diagram with small labels scrolls instead of shrinking */
+  .wide-figure { overflow-x: auto; }
+  .wide-figure img { min-width: 700px; }
+  #toc-mobile { order: -1; }
+  /* wide reference tables scroll inside .table-scroll; this keeps Description readable */
+  .settings-table { min-width: 52em; }
+  .flux-table { min-width: 36em; }
+}
+/* 901, not 900: at exactly 900px both queries match and the mobile TOC
+   would vanish together with the nav */
+@media (min-width: 901px) { #toc-mobile { display: none; } }
+
+/* ---- brand: masthead, heading treatment, callouts, from this manual ---- */
+
+#side-nav { border-right-color: #d1d3d4; }
+#side-nav h3 { font-family: var(--head-font); font-weight: 700; text-transform: uppercase; }
+
+/* MASTHEAD: the cover's #231f20 ground with logo, wordmark and title,
+   the pedal photo beside it on the page ground. */
+#masthead {
+  display: flex;
+  align-items: stretch;
+  margin-bottom: 2.5em;
+}
+#masthead .cover {
+  flex: 1 1 auto;
+  background: var(--accent);
+  color: #fff;
+  padding: 1.5em 2.5em 1.8em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1em;
+}
+#masthead .logo { width: 9em; margin: 0; }
+#masthead h1 { margin: 1em 0 0; }
+#masthead h1 img { width: min(100%, 30em); margin: 0; display: block; }
+#masthead .doc-title {
+  font-family: var(--head-font);
+  font-weight: 700;
+  font-size: 1.6em;
+  text-transform: uppercase;
+  text-align: right;
+  margin: 0;
+}
+#masthead .rev { font-size: 0.85em; color: #cecdcd; text-align: right; margin: 0; }
+#masthead .photo { flex: 0 0 auto; padding: 1.5em 2em; display: flex; align-items: center; }
+#masthead .photo img { width: 13em; margin: 0; }
+
+/* HEADINGS: chapter title light grey condensed; h3/h4 condensed bold. */
+h2 {
+  font-weight: 300;
+  font-size: 2.8em;
+  color: var(--muted);
+  margin-bottom: 0.5em;
+}
+h3 { font-weight: 700; font-size: 1.9em; margin: 0.6em 0 0.4em; }
+h4 { font-weight: 700; font-size: 1.45em; margin: 0.6em 0 0.35em; }
+h5 { font-weight: 700; font-size: 1.15em; margin: 0.6em 0 0.3em; }
+.topic.level-3 { margin-top: 1.5em; }
+h4.quip { font-family: var(--head-font); }
+
+/* inline button glyphs (‹ › ⌂) printed in the copy */
+.glyph { font-family: var(--head-font); font-weight: 700; font-size: 1.2em; line-height: 1; }
+
+/* definition list in Common Terminology */
+.terms dt { font-family: var(--head-font); font-weight: 700; float: left; width: 6.5em; }
+.terms dd { margin: 0 0 0.6em 7em; break-inside: avoid; }
+
+/* numbered part cards around the panel diagrams */
+ol.parts { padding-left: 2em; }
+ol.parts > li { margin-bottom: 0.8em; }
+ol.parts > li::marker { font-family: var(--head-font); font-weight: 700; font-size: 1.35em; }
+.part { font-family: var(--head-font); font-weight: 700; font-size: 1.35em; margin-right: 0.3em; }
+ol.parts p, ol.parts .callout { margin: 0.5em 0 0; }
+img.panel { display: block; max-width: min(100%, 26em); margin: 0 auto 1em; }
+
+/* image beside its paragraph */
+.beside { display: flex; gap: 1.5em; align-items: flex-start; }
+.beside > img { flex: 0 0 auto; max-width: 40%; }
+
+/* CALLOUTS: grey box, black icon on the left, bold run-in label. */
+.callout {
+  border-left: 0;
+  padding: 0.5em 0.9em 0.5em 3em;
+  font-size: 0.92em;
+  background-repeat: no-repeat;
+  background-position: 0.7em 0.55em;
+  background-size: auto 2.1em;
+}
+.callout.note { background-image: url("Images/icon-note.png"); }
+.callout.tip { background-image: url("Images/icon-tip.png"); }
+.callout.shortcut { background-image: url("Images/icon-shortcut.png"); }
+.callout p { margin-bottom: 0.4em; }
+
+/* STEPS: bold lead sentence, plain detail under it */
+ol.steps { padding-left: 1.8em; }
+ol.steps > li { margin-bottom: 0.9em; }
+ol.steps > li::marker, .step { font-weight: 700; font-size: 1.08em; }
+.step { margin-bottom: 0.35em; }
+ol.steps > li > p:not(.step) { margin-bottom: 0.5em; }
+ol.steps .callout { margin-top: 0.5em; }
+
+/* LCD screens and screen flows keep their print size, centred */
+img.screen { display: block; width: min(100%, 17em); margin: 0.5em auto 0.8em; }
+img.flow { display: block; width: min(100%, 30em); margin: 0.5em auto 0.8em; }
+img.diagram { display: block; width: min(100%, 34em); margin: 0.5em auto 1em; }
+
+/* ON LED colour list */
+ul.led-colors { list-style: none; padding-left: 0.5em; }
+ul.led-colors li { display: flex; align-items: center; gap: 0.5em; margin-bottom: 0.45em; font-weight: 700; }
+.led {
+  width: 1.1em; height: 1.1em; border-radius: 50%;
+  background: var(--led); border: 1px solid #231f20; flex: 0 0 auto;
+}
+.led-name { width: 7em; }
+img.cat { height: 1.6em; width: auto; margin: 0; image-rendering: pixelated; }
+
+/* foot pictograms beside the TAP tempo text */
+.pictogram { display: flex; gap: 0.8em; align-items: flex-start; break-inside: avoid; }
+.pictogram img { width: 3.5em; flex: 0 0 auto; margin: 0; }
+
+.tuner { display: grid; grid-template-columns: repeat(2, minmax(0, 13em)); justify-content: center; gap: 0.5em 1.5em; break-inside: avoid; }
+.tuner .in-tune { grid-column: 1 / -1; justify-self: center; width: min(100%, 13em); }
+.tuner figure { margin: 0; text-align: center; }
+.tuner img { width: 100%; margin: 0; }
+.tuner figcaption { font-weight: 700; font-size: 0.95em; }
+
+/* EFFECTS MODEL TABLES: header band in the category colour, HX rows a
+   medium tint, Legacy rows a lighter one, dark hairline row rules.
+   A category table is long, so it may break across the columns; its rows don't. */
+/* tables side by side in reading order; a two-column flow would carry one table's tail to the other column's top */
+.fx-topic, .table-grid { columns: auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr)); column-gap: 2em; align-items: start; }
+.fx-topic > :not(.fx-cat), .table-grid > :not(.midi-table) { grid-column: 1 / -1; }
+.fx-cat { margin-bottom: 1.4em; }
+.fx-cat h4 { display: flex; align-items: center; gap: 0.4em; margin: 0 0 0.3em; }
+.fx-cat h4 img.cat { height: 1.1em; }
+table.fx-table, .fx-table { break-inside: auto; width: 100%; border-collapse: collapse; font-size: 0.88em; margin-bottom: 0.5em; }
+.fx-table tr { break-inside: avoid; }
+.fx-table th, .fx-table td { text-align: left; padding: 0.22em 0.5em; border-bottom: 1px solid var(--rule); vertical-align: top; }
+.fx-table thead th { background: var(--cat); font-weight: 700; font-size: 1.3em; }
+.fx-table td:first-child { font-weight: 700; width: 42%; }
+.fx-table tr.hx td, .fx-table tr.group.hx th { background: var(--hx); }
+.fx-table tr.legacy td, .fx-table tr.group.legacy th { background: var(--legacy); }
+.fx-table tr.group th { font-weight: 700; font-size: 0.9em; }
+.fx-table a.fn { color: inherit; text-decoration: none; }
+.fx-note { font-size: 0.85em; font-style: italic; font-weight: 300; }
+#effects-models small { font-size: 0.6em; white-space: nowrap; }
+img.strip { display: block; width: min(100%, 26em); image-rendering: pixelated; margin: 0.5em auto 1em; }
+
+/* PARAMETER TABLES: grey header, bold parameter names (Roboto Bold, not condensed) */
+.doc-table thead th { background: #d1d3d4; color: var(--ink); font-weight: 700; }
+.doc-table th, .doc-table td { border: 0; border-bottom: 1px solid #808285; }
+.param-table tbody th { font-weight: 700; white-space: nowrap; vertical-align: middle; }
+.nw { white-space: nowrap; }
+.flux-table th, .flux-table td { border: 1px solid #808285; }
+.looper-table { width: auto; min-width: min(100%, 24em); }
+.looper-table thead th { background: #808285; color: var(--ink); }
+.looper-table tbody th, .looper-table td { background: #e6e7e8; }
+
+/* MIDI tables: white caps on a coloured band, bold centred CC/note */
+.midi-table { margin-bottom: 1.5em; }
+.midi-table tr.reserved > * { background: #e6e7e8; }
+.midi-table h4 { margin-top: 0.4em; }
+.midi-table .doc-table thead th { background: var(--band); color: #fff; text-transform: uppercase; }
+.midi-table tbody th { text-align: center; white-space: nowrap; font-weight: 700; }
+.midi-table td:nth-child(2):not(:last-child) { white-space: nowrap; }
+
+/* Settings View Options: page and parameter cells shaded as printed */
+/* full-width on a wide screen the Description column runs past 120 characters a line;
+   84em keeps it near the print's ~95 */
+.settings-table { max-width: 84em; line-height: 1.35; }
+.settings-table th, .settings-table td { padding-block: 0.3em; }
+.settings-table tbody th, .settings-table td.knob { background: #e6e7e8; }
+.settings-table th.page { min-width: 0; width: 1%; text-align: center; vertical-align: middle; background: #d1d3d4; }
+.settings-table td.knob { text-align: center; }
+.settings-table tbody th { white-space: normal; min-width: 7em; vertical-align: middle; }
+.settings-table tr.page-start > * { border-top: 2px solid #231f20; }
+.settings-table td p { margin: 0 0 0.15em; }
+.settings-table td p:last-child { margin-bottom: 0; }
+.settings-table td:nth-child(n) { vertical-align: middle; }
+.levels-table th, .levels-table td { vertical-align: middle; border-left: 1px solid #808285; }
+.levels-table th[scope="rowgroup"], .levels-table thead th:first-child { border-left: 0; }
+.levels-table th[scope="rowgroup"] { text-align: center; }
+.levels-table td.do { font-weight: 700; }
+figure > .diagram + figcaption { text-align: center; font-weight: 500; }
+footer .sdoc { border: 1px solid #808285; padding: 0 1em; margin: 1em 0; }
+.indent { padding-left: 1.5em; }
+
+ul.trademarks { list-style: none; padding: 0; font-size: 0.9em; }
+ul.trademarks li { margin-bottom: 0.35em; }
+
+@media (max-width: 900px) {
+  #masthead { flex-direction: column; }
+  #masthead .photo { justify-content: center; }
+  .beside { flex-direction: column; }
+  .beside > img { max-width: 60%; }
+}
+
+/* cheat sheet transcription */
+dl.cheat dt { font-family: var(--head-font); font-weight: 700; text-transform: uppercase; margin-top: 0.7em; break-after: avoid; }
+dl.cheat dt a { color: inherit; }
+dl.cheat dd { margin: 0 0 0.15em 1em; break-inside: avoid; }
+.doc-update { background: #f1f1f2; border-left: 4px solid var(--accent); padding: 0.8em 1.1em; margin-bottom: 1em; }
+.doc-update > strong { display: block; text-transform: uppercase; font-family: var(--head-font); }
+footer { font-size: 0.82em; color: #58595b; border-top: 1px solid #d1d3d4; }
+footer h4 { font-size: 1.1em; }
+
+/* A step or MIDI block holding a long table may break between rows,
+   or it drops whole into the next column and leaves a hole. */
+ol.steps > li:has(table), .midi-table, .midi-table table { break-inside: auto; }
+.midi-table tr, li:has(> table) tr { break-inside: avoid; }
+
+@media (max-width: 900px) {
+  .midi-table td:nth-child(2):not(:last-child) { white-space: normal; }
+  .midi-table .doc-table { font-size: 0.85em; }
+}
