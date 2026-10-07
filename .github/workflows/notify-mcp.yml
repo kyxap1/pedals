@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # workflow_dispatch rather than repository_dispatch: the token then needs
-      # Actions: write alone, which cannot push to pedals-mcp or read its code.
+      # Actions: write alone, which cannot push to pedals-mcp.kyxap.pro or read its code.
       # `cause` becomes the rebuild's run title. The message goes through env,
       # never inline, so a commit message cannot inject shell.
       - name: Trigger a rebuild
